@@ -1,0 +1,192 @@
+import { useEffect, useRef, useState } from 'react'
+import { nav, site } from '../../data/site'
+
+/* Chevron used by both the desktop dropdown trigger and the mobile
+   accordion — rotates 180° when open. */
+function Chevron({ open }) {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      className={`h-3 w-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+      aria-hidden="true"
+    >
+      <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+export default function Nav() {
+  /* Desktop: which dropdown is open (keyed by nav label). Hover-driven
+     on the whole li wrapper, so moving the cursor across the small gap
+     between trigger and panel never closes it. */
+  const [openMenu, setOpenMenu] = useState(null)
+  const closeTimer = useRef(null)
+
+  /* Mobile: hamburger + accordion state */
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileSub, setMobileSub] = useState(null)
+
+  /* Close everything after navigating to an anchor */
+  useEffect(() => {
+    const onHash = () => {
+      setOpenMenu(null)
+      setMobileOpen(false)
+      setMobileSub(null)
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  /* Escape closes desktop dropdowns — keyboard parity with hover */
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && setOpenMenu(null)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  useEffect(() => () => clearTimeout(closeTimer.current), [])
+
+  const scheduleClose = () => {
+    clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 120)
+  }
+  const cancelClose = () => clearTimeout(closeTimer.current)
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
+        {/* Brand: logo left, wordmark right — real logo asset, no filters */}
+        <a href="#home" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+          <img src={site.logo} alt="Renyi Intelligence logo" className="h-9 w-auto" />
+          <span className="text-sm font-semibold tracking-[0.2em] text-ink">人一智能</span>
+        </a>
+
+        {/* ── Desktop nav ── */}
+        <ul className="hidden items-center gap-8 md:flex">
+          {nav.map((item) =>
+            item.children ? (
+              <li
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => {
+                  cancelClose()
+                  setOpenMenu(item.label)
+                }}
+                onMouseLeave={scheduleClose}
+              >
+                <button
+                  type="button"
+                  aria-expanded={openMenu === item.label}
+                  onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                  className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
+                    openMenu === item.label ? 'text-brand' : 'text-ink/70 hover:text-ink'
+                  }`}
+                >
+                  {item.label}
+                  <Chevron open={openMenu === item.label} />
+                </button>
+
+                <div
+                  className={`dropdown-panel absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${
+                    openMenu === item.label ? 'open' : ''
+                  }`}
+                >
+                  <div className="min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
+                    {item.children.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        onClick={() => setOpenMenu(null)}
+                        className="block px-5 py-2.5 text-sm text-ink/70 transition-colors duration-150 hover:bg-brandSoft hover:text-brand"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </li>
+            ) : (
+              <li key={item.label}>
+                <a href={item.href} className="text-sm text-ink/70 transition-colors duration-200 hover:text-ink">
+                  {item.label}
+                </a>
+              </li>
+            )
+          )}
+        </ul>
+
+        {/* ── Mobile hamburger ── */}
+        <button
+          type="button"
+          className="flex h-10 w-10 items-center justify-center md:hidden"
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          <span className="relative block h-3 w-5">
+            <span
+              className={`absolute left-0 top-0 h-px w-full bg-ink transition-transform duration-200 ${
+                mobileOpen ? 'translate-y-[5.5px] rotate-45' : ''
+              }`}
+            />
+            <span
+              className={`absolute left-0 bottom-0 h-px w-full bg-ink transition-transform duration-200 ${
+                mobileOpen ? '-translate-y-[5.5px] -rotate-45' : ''
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+
+      {/* ── Mobile panel ── */}
+      <div className={`accordion-body md:hidden ${mobileOpen ? 'open' : ''}`}>
+        <div>
+          <ul className="border-t border-black/5 bg-white px-6 pb-6 pt-2">
+            {nav.map((item) =>
+              item.children ? (
+                <li key={item.label}>
+                  <button
+                    type="button"
+                    aria-expanded={mobileSub === item.label}
+                    onClick={() => setMobileSub(mobileSub === item.label ? null : item.label)}
+                    className="flex w-full items-center justify-between py-3 text-sm text-ink"
+                  >
+                    {item.label}
+                    <Chevron open={mobileSub === item.label} />
+                  </button>
+                  <div className={`accordion-body ${mobileSub === item.label ? 'open' : ''}`}>
+                    <div>
+                      <ul className="pb-2">
+                        {item.children.map((child) => (
+                          <li key={child.label}>
+                            <a
+                              href={child.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="block border-l border-black/10 py-2.5 pl-4 text-sm text-ink/60 active:text-brand"
+                            >
+                              {child.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="block py-3 text-sm text-ink"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  )
+}

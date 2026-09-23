@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Fixed 64px nav — anchors must stop below it, not under it. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    /* `clip` (not `hidden`): `hidden` on body turns it into a scroll
+       container and breaks scroll-margin-top anchor behaviour. */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: #0148ee;
+    color: #ffffff;
+  }
+
+  /* Light scrollbar — flipped from the dark theme's track/thumb */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0148ee;
+  }
+}
+
+@layer components {
+  /* Subtle dot grid for hero / robotics backdrops — black at 6% on light bg */
+  .dot-grid {
+    background-image: radial-gradient(rgba(17, 17, 17, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Dropdown enter animation: 150ms fade + 4px drop, same easing family
+     as the rest of the system. Kept subtle on purpose. */
+  .dropdown-panel {
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .dropdown-panel.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Mobile accordion body — grid-rows trick so height animates smoothly
+     without measuring scrollHeight in JS. */
+  .accordion-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+  .accordion-body.open {
+    grid-template-rows: 1fr;
+  }
+  .accordion-body > div {
+    overflow: hidden;
+  }
+}
