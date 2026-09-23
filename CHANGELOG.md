@@ -1,4 +1,15 @@
-# Changelog — Renyi Intelligence Website
+# Changelog — HumanPlus Website
+
+## V0.2.0 — 2026-09-23（仅本地，未部署）
+
+信息架构与视觉重构。
+
+- Hash 路由化（`useHashRoute`，无 react-router）：`/`、`/products`、`/products/:id`、`/research`、`/news`、`/solutions`、`/solutions/:id`、`/contact`，共 15 个可达页面
+- 首页改为 Overview：每个模块简要介绍 + CTA 跳独立页面
+- 品牌名统一 Renyi Intelligence → HumanPlus（用户可见文案；技术标识不变）
+- Navbar Logo 缩至 80%（36px → 28.8px），导航高度与文字不变
+- Our Products 重构：Motion-0 全宽横版 banner + Glove-0/Vision-0 双梯形卡（skew + 圆角裁剪，斜边同向 `\ \`），#252525 占位，图片/视频位预留
+- 动画规范：0.3s hover、0.2s dropdown 延续既有体系
 
 ## V0.1.0 — 2026-09-23
 

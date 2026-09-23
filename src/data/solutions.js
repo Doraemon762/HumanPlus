@@ -1,7 +1,7 @@
 /**
  * Solutions / case studies — client names per approved nav wording
- * (「子莹」 intentionally excluded from this stage). All descriptions
- * are placeholders; no fabricated case content.
+ * (「子莹」 intentionally excluded). Each entry is its own ROUTE under
+ * /solutions. All descriptions are placeholders; no fabricated content.
  */
 
 export const solutions = [
@@ -9,32 +9,36 @@ export const solutions = [
     id: 'sop',
     name: 'SOP',
     category: 'Solution',
+    href: '/solutions/sop',
     description: 'Case study description goes here.',
     image: null,
-    href: '#solutions',
   },
   {
     id: 'laplace',
     name: 'Laplace',
     category: 'Solution',
+    href: '/solutions/laplace',
     description: 'Case study description goes here.',
     image: null,
-    href: '#solutions',
   },
   {
-    id: 'xiamen-luyan',
+    id: 'luyan',
     name: 'Xiamen Luyan Pharmaceutical',
     category: 'Solution',
+    href: '/solutions/luyan',
     description: 'Case study description goes here.',
     image: null,
-    href: '#solutions',
   },
   {
     id: 'yamaha',
     name: 'Yamaha',
     category: 'Solution',
+    href: '/solutions/yamaha',
     description: 'Case study description goes here.',
     image: null,
-    href: '#solutions',
   },
 ]
+
+export function findSolution(id) {
+  return solutions.find((s) => s.id === id)
+}

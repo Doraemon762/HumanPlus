@@ -14,14 +14,21 @@ export default {
         ink: '#111111',      // primary text (near-black)
         mute: '#767676',     // secondary text / labels / kickers
 
-        /* ── Brand blue — extracted from the real Renyi logo ──
-           #0148EE is the dominant mark colour (~67% of opaque pixels);
-           #5A9CFC is the logo's secondary blue (bottom bar).
-           Used sparingly (~10%): nav accents, CTAs, ordinals, hover states. */
-        brand: '#0148EE',
-        brandLight: '#5A9CFC',
-        brandSoft: 'rgba(1,72,238,0.06)',   // hover tint wash (slightly stronger than dark-theme's 0.05 so it reads on white)
-        brandLine: 'rgba(1,72,238,0.35)',   // hover border
+        /* ── Brand blue — the site's single blue ──────────────────
+           #5A9CFC is the official HumanPlus brand blue (also the
+           secondary blue of the company logo, and the same family as
+           the HumanPlus-1000 highlight #589BF9).
+           Every blue in the UI points at these tokens — components
+           must never hard-code a hex. */
+        brand: '#5A9CFC',
+        /* Hover / active step — the brief asks for ONE brand blue
+           (#5A9CFC), so this token equals `brand`; interaction feedback
+           now comes from the CTA's arrow slide + subtle shadow, not a
+           second hue. */
+        brandDeep: '#5A9CFC',
+        brandLight: '#5A9CFC',               // dark-surface kicker; same blue by definition
+        brandSoft: 'rgba(90,156,252,0.08)',  // hover tint wash
+        brandLine: 'rgba(90,156,252,0.55)',  // hover border / stroke
 
         /* Hairlines — semantic flip of the dark theme's white/xx borders */
         line: 'rgba(17,17,17,0.08)',

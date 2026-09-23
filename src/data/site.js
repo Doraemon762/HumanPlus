@@ -1,11 +1,11 @@
 /**
- * Site-wide meta + navigation — the single source of truth for nav
- * structure. All copy below is PLACEHOLDER for the framework first
- * pass; real company copy replaces it only after Kiki approves.
+ * Site-wide meta + navigation — single source of truth for brand copy
+ * and route structure. All descriptive copy is PLACEHOLDER pending
+ * Kiki's approval; product / news / case content lives in its own file.
  */
 
 export const site = {
-  nameEn: 'Renyi Intelligence',
+  nameEn: 'HumanPlus',
   nameZh: '人一智能',
   logo: 'images/logo/logo.png', // relative, no leading slash — portable under base './'
   // ⚠️ Placeholder tagline, NOT final brand copy — pending approval.
@@ -13,43 +13,43 @@ export const site = {
 }
 
 /* ── Navbar ─────────────────────────────────────────────────────────
-   English-only nav. `人一智能` appears only as the brand wordmark next
-   to the logo (allowed: brand name). Children render as dropdowns. */
-
+   Every top-level item is its own ROUTE, not an anchor on the home
+   page. `href` is the route path; Nav/Footer prefix it with '#' via
+   toHref(). `人一智能` appears only as the brand wordmark (allowed). */
 export const nav = [
-  { label: 'Home', href: '#home' },
+  { label: 'Home', href: '/' },
   {
     label: 'Products',
-    href: '#products',
+    href: '/products',
     children: [
-      { label: 'Motion-0 (11-IMU)', href: '#products' },
-      { label: 'Glove-0', href: '#products' },
-      { label: 'Vision-0', href: '#products' },
-      { label: 'Dataset', href: '#products' },
-      { label: 'Applications', href: '#products' },
+      { label: 'Motion-0 (11-IMU)', href: '/products/motion-0' },
+      { label: 'Glove-0', href: '/products/glove-0' },
+      { label: 'Vision-0', href: '/products/vision-0' },
+      { label: 'Dataset', href: '/products/dataset' },
+      { label: 'Applications', href: '/products/applications' },
     ],
   },
-  { label: 'Research', href: '#research' },
-  { label: 'News', href: '#news' },
+  { label: 'Research', href: '/research' },
+  { label: 'News', href: '/news' },
   {
     label: 'Solutions',
-    href: '#solutions',
+    href: '/solutions',
     children: [
-      { label: 'SOP', href: '#solutions' },
-      { label: 'Laplace', href: '#solutions' },
-      { label: 'Xiamen Luyan Pharmaceutical', href: '#solutions' },
-      { label: 'Yamaha', href: '#solutions' },
+      { label: 'SOP', href: '/solutions/sop' },
+      { label: 'Laplace', href: '/solutions/laplace' },
+      { label: 'Xiamen Luyan Pharmaceutical', href: '/solutions/luyan' },
+      { label: 'Yamaha', href: '/solutions/yamaha' },
     ],
   },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact', href: '/contact' },
 ]
 
-/* Footer keeps a plain list of the same anchors (no dropdowns). */
+/* Footer repeats the same routes as a flat list (no dropdowns). */
 export const footerNav = [
-  { label: 'Home', href: '#home' },
-  { label: 'Products', href: '#products' },
-  { label: 'Research', href: '#research' },
-  { label: 'News', href: '#news' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Research', href: '/research' },
+  { label: 'News', href: '/news' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Contact', href: '/contact' },
 ]

@@ -1,30 +1,48 @@
+import { useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
-import HeroSection from './components/sections/HeroSection'
-import AboutSection from './components/sections/AboutSection'
-import ProductsSection from './components/sections/ProductsSection'
-import RoboticsSection from './components/sections/RoboticsSection'
-import ResearchSection from './components/sections/ResearchSection'
-import NewsSection from './components/sections/NewsSection'
-import SolutionsSection from './components/sections/SolutionsSection'
-import ContactSection from './components/sections/ContactSection'
+import useHashRoute from './hooks/useHashRoute'
+import HomePage from './pages/HomePage'
+import ProductsPage from './pages/ProductsPage'
+import ProductDetailPage from './pages/ProductDetailPage'
+import ResearchPage from './pages/ResearchPage'
+import NewsPage from './pages/NewsPage'
+import SolutionsPage from './pages/SolutionsPage'
+import SolutionDetailPage from './pages/SolutionDetailPage'
+import ContactPage from './pages/ContactPage'
+import NotFoundPage from './pages/NotFoundPage'
 
-/* App stays thin — it only lists sections in page order.
-   To add one: export from src/data/, create XxxSection.jsx, add a line here. */
+/* ── Route table ──────────────────────────────────────────────────
+   /                      home overview
+   /products              product index
+   /products/:id          product detail
+   /research  /news  /solutions  /solutions/:id  /contact
+   Hash routing (no react-router) keeps every deep link refresh-safe
+   on GitHub Pages — see src/hooks/useHashRoute.js. */
+function renderRoute(path) {
+  if (path === '/') return <HomePage />
+  if (path === '/products') return <ProductsPage />
+  if (path.startsWith('/products/')) return <ProductDetailPage id={path.slice('/products/'.length)} />
+  if (path === '/research') return <ResearchPage />
+  if (path === '/news') return <NewsPage />
+  if (path === '/solutions') return <SolutionsPage />
+  if (path.startsWith('/solutions/')) return <SolutionDetailPage id={path.slice('/solutions/'.length)} />
+  if (path === '/contact') return <ContactPage />
+  return <NotFoundPage />
+}
+
 export default function App() {
+  const path = useHashRoute()
+
+  /* New route = new page: always start at the top. */
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [path])
+
   return (
     <>
-      <Nav />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ProductsSection />
-        <RoboticsSection />
-        <ResearchSection />
-        <NewsSection />
-        <SolutionsSection />
-        <ContactSection />
-      </main>
+      <Nav path={path} />
+      <main>{renderRoute(path)}</main>
       <Footer />
     </>
   )
