@@ -10,7 +10,9 @@ const FILES = [
 ]
 
 const LOGOS = FILES.map((f) => ({
-  src: `/images/logo/${f}`,
+  // import.meta.env.BASE_URL is './' (vite base) — keeps assets resolving
+  // correctly under the GitHub Pages sub-path /HumanPlus/.
+  src: `${import.meta.env.BASE_URL}images/logo/${f}`,
   alt: `Partner ${f.replace('.png', '')}`,
 }))
 

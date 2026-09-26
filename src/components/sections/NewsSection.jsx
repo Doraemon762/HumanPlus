@@ -7,7 +7,9 @@ const FEATURED = {
     'Embodied AI Frontier Covers the Launch of HUMANPLUS-1000, a 1,000-Hour WBI Dataset',
   date: 'September 14, 2026',
   source: '具身智能之心',
-  image: '/images/news/featured-news.png',
+  // import.meta.env.BASE_URL is './' (vite base) — resolves correctly under
+  // the GitHub Pages sub-path /HumanPlus/.
+  image: `${import.meta.env.BASE_URL}images/news/featured-news.png`,
   href: 'https://mp.weixin.qq.com/s/adWk4kCGTZz9VXBOMuMHLw',
   excerpt:
     'Chinese embodied intelligence media outlet Embodied AI Frontier featured the launch of HUMANPLUS-1000. Released by HumanPlus at Xiamen University in collaboration with CMU, Tsinghua University, and Zhejiang University, HUMANPLUS-1000 is the first human behavior dataset to bring synchronized Ego Vision × Whole-body Motion data to the 1,000-hour scale, spanning 100+ participants, 100+ real-world environments, and 500+ task categories. Built around a more natural and low-intrusion wearable capture system, the dataset is designed to turn continuous human activity in real production and everyday environments into a scalable data source for Whole-body Intelligence.',
