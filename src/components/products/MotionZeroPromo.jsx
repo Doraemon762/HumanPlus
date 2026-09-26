@@ -10,12 +10,12 @@
    centre panel (which carries the Motion-0 mark). */
 export default function MotionZeroPromo() {
   return (
-    <section className="bg-black" aria-label="Motion-0 in the real world">
+    <section id="m0-promo" className="bg-white" aria-label="Motion-0 in the real world">
       <img
         src="images/motion-0/promo-full.jpg"
         alt="Motion-0 worn while cooking in a real kitchen"
         loading="lazy"
-        className="block h-[46vh] w-full select-none object-cover object-center md:h-auto"
+        className="block h-screen w-full select-none object-cover object-center"
       />
     </section>
   )

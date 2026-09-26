@@ -1,31 +1,33 @@
 import { useEffect } from 'react'
 
-/* ── Hero ⇄ About ⇄ Products ⇄ Robotics ⇄ Research ⇄ News full-screen
-   hand-off ─
-   Governs ONLY the first six sections: one wheel gesture always
-   completes a full-screen transition between adjacent sections over
-   `duration` ms, instead of free-scrolling through them.
+/* ── Full-screen section hand-off ─
+   One wheel gesture always completes a full-screen transition between
+   adjacent sections over `duration` ms, instead of free-scrolling
+   through them.
 
    Why JS and not CSS scroll-snap:
    - CSS `scroll-snap-type: y mandatory` gives no control over the
      transition duration (the brief asks for ~0.8–1.2s), and a fast
      flick skips past whole sections.
-   - Everything below the last snapped section (news) keeps native
-     scrolling, so the Logo Wall below flows normally.
 
-   Requires the six sections to carry `id="hero"`, `id="about"`,
-   `id="products"`, `id="robotics"`, `id="research"`, `id="news"`. */
+   `ids` selects which sections snap. After the last id, native
+   scrolling is handed back (so any content below flows normally).
+   Defaults to the homepage's six sections. Pass a stable array
+   reference (module-level constant) so the effect does not re-run on
+   every render. */
+
+const DEFAULT_IDS = ['hero', 'about', 'products', 'robotics', 'research', 'news']
 
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 
-export default function useSectionSnap({ duration = 1000 } = {}) {
+export default function useSectionSnap({ duration = 1000, ids } = {}) {
+  const sectionIds = ids ?? DEFAULT_IDS
   useEffect(() => {
     // Respect users who ask the OS for reduced motion — plain scrolling.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const ids = ['hero', 'about', 'products', 'robotics', 'research', 'news']
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean)
+    const els = sectionIds.map((id) => document.getElementById(id)).filter(Boolean)
     if (els.length < 2) return
 
     let animating = false
@@ -63,13 +65,12 @@ export default function useSectionSnap({ duration = 1000 } = {}) {
 
       const goingDown = e.deltaY > 0
       if (goingDown) {
-        // At/below the last snapped section (news) → hand back to native
-        // scroll so the Logo Wall below flows normally.
+        // At/below the last snapped section → hand back to native scroll.
         if (idx >= els.length - 1) return
         e.preventDefault()
         animateTo(tops[idx + 1])
       } else {
-        // At the very top (hero) → nothing above, native scroll.
+        // At the very top → nothing above, native scroll.
         if (idx <= 0) return
         e.preventDefault()
         animateTo(tops[idx - 1])
@@ -78,5 +79,5 @@ export default function useSectionSnap({ duration = 1000 } = {}) {
 
     window.addEventListener('wheel', onWheel, { passive: false })
     return () => window.removeEventListener('wheel', onWheel)
-  }, [duration])
+  }, [duration, sectionIds])
 }

@@ -29,6 +29,7 @@ export const nav = [
       { label: 'Applications', href: '/products/applications' },
     ],
   },
+  { label: 'Robot', href: '/robot' },
   { label: 'Research', href: '/research' },
   { label: 'News', href: '/news' },
   {

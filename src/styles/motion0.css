@@ -110,15 +110,19 @@
    borders — just generous whitespace. Scoped to .m0-* so it can never
    reach back into the hero. */
 .m0-features {
-  padding-top: clamp(6rem, 13vw, 11.5rem);
-  padding-bottom: clamp(6rem, 13vw, 11.5rem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(4rem, 9vw, 7rem);
+  padding-bottom: clamp(4rem, 9vw, 7rem);
 }
 
 .m0-features-lead {
   font-size: clamp(1.05rem, 1.9vw, 1.5rem);
   line-height: 1.65;
   font-weight: 400;
-  color: rgb(255 255 255 / 0.78);
+  color: rgb(17 17 17 / 0.8);
   text-wrap: balance;
 }
 
@@ -158,7 +162,7 @@
    whole mark warms to brand on hover — no scale, no glow. */
 .m0-feature-icon {
   display: inline-flex;
-  color: rgb(255 255 255 / 0.82);
+  color: rgb(17 17 17 / 0.82);
   transition: color 0.45s ease;
 }
 .m0-feature:hover .m0-feature-icon {
@@ -170,20 +174,20 @@
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: #fff;
+  color: #111;
 }
 .m0-feature-zh {
   margin-top: 0.3rem;
   font-size: 0.7rem;
   letter-spacing: 0.2em;
-  color: rgb(255 255 255 / 0.3);
+  color: rgb(17 17 17 / 0.35);
 }
 .m0-feature-copy {
   margin-top: 0.8rem;
   max-width: 15rem;
   font-size: 0.8rem;
   line-height: 1.7;
-  color: rgb(255 255 255 / 0.42);
+  color: rgb(17 17 17 / 0.55);
 }
 
 /* ── Full-width promo poster ─────────────────────────────────────

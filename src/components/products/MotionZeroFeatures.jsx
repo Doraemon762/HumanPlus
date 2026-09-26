@@ -76,38 +76,33 @@ const FEATURES = [
   {
     Icon: IconNaturalWear,
     name: 'Natural Wear',
-    zh: '无感化',
     copy: 'Designed to move with the body, without getting in the way.',
   },
   {
     Icon: IconStability,
     name: 'Long-Term Stability',
-    zh: '长时间稳定',
     copy: 'Stable motion capture for extended real-world activities.',
   },
   {
     Icon: IconFullBody,
     name: 'Full-Body Motion',
-    zh: '全身捕捉',
     copy: 'Capturing coordinated movement across the entire body.',
   },
   {
     Icon: IconComfort,
     name: 'Comfort & Design',
-    zh: '美观舒适',
     copy: 'Designed for comfort, fit, and everyday wear.',
   },
   {
     Icon: IconWashable,
     name: 'Washable',
-    zh: '可水洗',
     copy: 'Built for easy care and repeated everyday use.',
   },
 ]
 
 export default function MotionZeroFeatures() {
   return (
-    <section className="m0-features bg-black">
+    <section id="m0-features" className="m0-features bg-white">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
         <Reveal className="mx-auto max-w-[820px] text-center">
           <p className="m0-features-lead">
@@ -117,13 +112,12 @@ export default function MotionZeroFeatures() {
         </Reveal>
 
         <div className="m0-features-grid">
-          {FEATURES.map(({ Icon, name, zh, copy }, i) => (
+          {FEATURES.map(({ Icon, name, copy }, i) => (
             <Reveal key={name} delay={Math.min(i, 4)} className="m0-feature group">
               <span className="m0-feature-icon">
                 <Icon />
               </span>
               <h3 className="m0-feature-name">{name}</h3>
-              <span className="m0-feature-zh">{zh}</span>
               <p className="m0-feature-copy">{copy}</p>
             </Reveal>
           ))}

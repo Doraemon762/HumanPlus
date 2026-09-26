@@ -14,7 +14,7 @@ const HERO_IMAGE = 'images/products/motion-0.png'
    field, with the motion-data particle field behind everything. */
 export default function MotionZeroHero() {
   return (
-    <section className="relative overflow-hidden bg-black pt-16">
+    <section id="m0-hero" className="relative overflow-hidden bg-white pt-16">
       {/* Particle field — sits behind both columns, never over them. */}
       <MotionDataField />
 
@@ -23,9 +23,6 @@ export default function MotionZeroHero() {
         <div className="relative z-[1]">
           <Reveal className="flex items-center gap-4">
             <img src={site.logo} alt="HumanPlus logo" className="h-11 w-auto" />
-            <span className="text-base font-semibold tracking-[0.25em] text-white md:text-lg">
-              人一智能
-            </span>
           </Reveal>
 
           <Reveal
@@ -38,14 +35,14 @@ export default function MotionZeroHero() {
 
           <Reveal
             delay={2}
-            className="mt-5 text-[clamp(1.25rem,2vw,1.875rem)] font-medium leading-snug tracking-[0.02em] text-white"
+            className="mt-5 text-[clamp(1.25rem,2vw,1.875rem)] font-medium leading-snug tracking-[0.02em] text-ink"
           >
-            灵巧感知，智控未来
+            Dexterous Sensing, Intelligent Control for the Future
           </Reveal>
 
           <Reveal delay={3} className="mt-7 max-w-md">
-            <p className="text-sm leading-[1.9] text-white/45 md:text-[0.95rem]">
-              Motion-0 是一款面向具身智能数据采集的人体运动感知设备，通过多点惯性传感精准捕捉人体全身运动，为机器人学习与人机交互提供高质量运动数据。
+            <p className="text-sm leading-[1.9] text-ink/60 md:text-[0.95rem]">
+              Motion-0 is a human motion sensing device designed for embodied AI data collection. Through multi-point inertial sensing, it accurately captures full-body human movements and provides high-quality motion data for robot learning and human-robot interaction.
             </p>
           </Reveal>
 

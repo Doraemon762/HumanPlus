@@ -1,16 +1,19 @@
 import PageHeader from '../components/layout/PageHeader'
-import Reveal from '../components/ui/Reveal'
-import MediaPlaceholder from '../components/ui/MediaPlaceholder'
-import CtaLink from '../components/ui/CtaLink'
 import MotionZeroHero from '../components/products/MotionZeroHero'
 import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
+import MotionZeroClothing from '../components/products/MotionZeroClothing'
 import MotionZeroPromo from '../components/products/MotionZeroPromo'
+import useSectionSnap from '../hooks/useSectionSnap'
 import { findProduct } from '../data/products'
 
+/* Motion-0's own full-screen snap sequence — Hero → Features → Clothing
+   → Promo. Stable reference so the snap effect does not re-run. */
+const MOTION_ZERO_IDS = ['m0-hero', 'm0-features', 'm0-clothing', 'm0-promo']
+
 /* Product detail — the framework every /products/<slug> route uses.
-   Motion-0 replaces the default PageHeader with its own black launch
-   hero; every other product keeps the shared header. Content below is
-   still placeholder: no specs or parameters invented. */
+   Motion-0 replaces the default PageHeader with its own hero; every
+   other product keeps the shared header. Content below is still
+   placeholder: no specs or parameters invented. */
 export default function ProductDetailPage({ id }) {
   const product = findProduct(id)
 
@@ -22,38 +25,22 @@ export default function ProductDetailPage({ id }) {
 
   const isMotionZero = product.id === 'motion-0'
 
+  // Motion-0 drives its own full-screen section snap; other product pages
+  // never expose these ids, so the hook is a no-op there.
+  useSectionSnap({ duration: 1000, ids: MOTION_ZERO_IDS })
+
   return (
     <>
       {isMotionZero ? (
         <>
           <MotionZeroHero />
           <MotionZeroFeatures />
+          <MotionZeroClothing />
           <MotionZeroPromo />
         </>
       ) : (
         <PageHeader label="Products" title={product.name} description={product.description} />
       )}
-
-      <section className="py-[85px] md:py-[107px]">
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-          <Reveal>
-            <MediaPlaceholder label={`${product.name.toUpperCase()} — IMAGE / VIDEO`} />
-          </Reveal>
-
-          <Reveal delay={1} className="mt-12 md:mt-16">
-            <p className="max-w-2xl text-base leading-relaxed text-ink/70">Product details go here.</p>
-          </Reveal>
-
-          <Reveal delay={2} className="mt-12 flex flex-wrap items-center gap-4 md:mt-16">
-            <CtaLink to="/contact" variant="secondary">
-              Contact Us
-            </CtaLink>
-            <CtaLink to="/products" variant="text">
-              Back to Products
-            </CtaLink>
-          </Reveal>
-        </div>
-      </section>
     </>
   )
 }
