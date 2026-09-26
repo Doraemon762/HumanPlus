@@ -1,0 +1,210 @@
+/* ── Motion-0 story page ─────────────────────────────────────────
+   Editorial / cinematic layers for the sections BELOW the hero.
+   Hero styles are untouched. Blue only ever comes from the design
+   token (--brand-rgb) and only in small doses: nodes, hairlines,
+   numbers, kickers. */
+
+/* Section kicker — tiny mono index, the editorial thread of the page */
+.m0-kicker {
+  font-family: theme('fontFamily.mono');
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgb(var(--brand-rgb) / 0.85);
+}
+
+/* Floating data labels over videos — appear, breathe, disappear.
+   One keyframe, per-label delay; never permanent. */
+@keyframes m0-label-cycle {
+  0%, 10% { opacity: 0; transform: translateY(8px); }
+  18%, 42% { opacity: 1; transform: translateY(0); }
+  52%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+.m0-label {
+  font-family: theme('fontFamily.mono');
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  color: rgb(var(--brand-rgb) / 0.95);
+  text-shadow: 0 0 12px rgb(var(--brand-rgb) / 0.35);
+  opacity: 0;
+  animation: m0-label-cycle 9s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .m0-label { animation: none; opacity: 0.75; }
+}
+
+/* IMU nodes — staggered pop-in once the garment scrolls into view.
+   Triggered by adding `.in` on the parent (useReveal). */
+.m0-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgb(var(--brand-rgb) / 0.95);
+  box-shadow: 0 0 0 3px rgb(var(--brand-rgb) / 0.18), 0 0 14px rgb(var(--brand-rgb) / 0.5);
+  transform: scale(0);
+  opacity: 0;
+}
+.in .m0-node {
+  animation: m0-node-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes m0-node-in {
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Sensor link lines — drawn after the nodes land. */
+.m0-link {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.in .m0-link {
+  animation: m0-draw 0.9s ease-out forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes m0-draw {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .m0-node { transform: none; opacity: 1; animation: none; }
+  .m0-link { stroke-dashoffset: 0; animation: none; }
+}
+
+/* Skeleton overlay joints (Section 04) — static, hairline aesthetics */
+.m0-joint {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgb(var(--brand-rgb) / 0.8);
+  box-shadow: 0 0 10px rgb(var(--brand-rgb) / 0.4);
+  transform: translate(-50%, -50%);
+}
+
+/* Story video frames — no borders, just a floor fade so footage sits
+   in the black page instead of ending as a hard rectangle. */
+.m0-video-fade::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 30%),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.25), transparent 18%);
+}
+
+/* Technical spec rows */
+.m0-spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+}
+
+/* ── Hero-adjacent feature module ────────────────────────────────
+   One centred statement + five line icons. No title, no cards, no
+   borders — just generous whitespace. Scoped to .m0-* so it can never
+   reach back into the hero. */
+.m0-features {
+  padding-top: clamp(6rem, 13vw, 11.5rem);
+  padding-bottom: clamp(6rem, 13vw, 11.5rem);
+}
+
+.m0-features-lead {
+  font-size: clamp(1.05rem, 1.9vw, 1.5rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: rgb(255 255 255 / 0.78);
+  text-wrap: balance;
+}
+
+.m0-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2rem;
+  row-gap: 3.75rem;
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+/* 5th item: on a 2-up mobile grid it gets its own centred row */
+.m0-features-grid > :last-child {
+  grid-column: span 2;
+  justify-self: center;
+  max-width: 17rem;
+}
+@media (min-width: 640px) {
+  .m0-features-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .m0-features-grid > :last-child { grid-column: auto; max-width: none; }
+}
+@media (min-width: 1024px) {
+  .m0-features-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 1.75rem;
+    row-gap: 0;
+  }
+}
+
+.m0-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Icon: neutral linework with one permanent brand-blue accent; the
+   whole mark warms to brand on hover — no scale, no glow. */
+.m0-feature-icon {
+  display: inline-flex;
+  color: rgb(255 255 255 / 0.82);
+  transition: color 0.45s ease;
+}
+.m0-feature:hover .m0-feature-icon {
+  color: rgb(var(--brand-rgb));
+}
+
+.m0-feature-name {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.m0-feature-zh {
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgb(255 255 255 / 0.3);
+}
+.m0-feature-copy {
+  margin-top: 0.8rem;
+  max-width: 15rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgb(255 255 255 / 0.42);
+}
+
+/* ── Full-width promo poster ─────────────────────────────────────
+   Edge-to-edge image, zero padding: it must touch the feature module
+   above with no gap. Desktop = the artwork's own ratio, uncropped;
+   phones crop to the centre panel so the subject stays readable. */
+.m0-promo {
+  background: #000;
+  line-height: 0; /* kills the inline-image baseline gap */
+}
+.m0-promo-img {
+  display: block;
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  object-position: center 32%;
+}
+@media (min-width: 768px) {
+  .m0-promo-img {
+    height: auto;
+    aspect-ratio: 2560 / 1163;
+    object-position: center;
+  }
+}

@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react'
-import Reveal from '../ui/Reveal'
 
 /* ── Robotics ────────────────────────────────────────────────────
-   White section (same as every other home module). A black uppercase
-   slogan sits ABOVE a full-bleed background video — the slogan is
-   never overlaid on the clip, and the clip stays 100% opaque at full
-   brightness (no veil, no brightness mask). */
+   A single full-screen (100vh) immersive video band. No heading, no
+   copy, no veil — just the full-bleed clip at 100% opacity / full
+   brightness. It snaps as its own viewport in the
+   Hero ⇄ About ⇄ Products ⇄ Robotics hand-off (see useSectionSnap). */
 
 const VIDEO_SRC = 'videos/robotics/robotics-laundry.mp4'
 
@@ -67,22 +66,13 @@ function BackgroundVideo({ src }) {
 
 export default function RoboticsSection() {
   return (
-    <section className="relative bg-white">
-      {/* Slogan sits ABOVE the video (never overlaid). Generous vertical
-          breathing room separates the copy from the clip below. */}
-      <div className="mx-auto w-full max-w-7xl px-6 pt-[85px] pb-[48px] md:pt-[107px] md:pb-[72px] lg:px-10">
-        <Reveal
-          as="h2"
-          className="font-black leading-[1.1] tracking-tight whitespace-nowrap text-[clamp(1rem,3.4vw,2.75rem)] text-ink uppercase"
-        >
-          From Human Behavior to Robotic Action
-        </Reveal>
-      </div>
-
-      {/* Full-bleed, 100% opaque clip — full brightness, no veil. */}
-      <div className="relative h-[60vh] w-full overflow-hidden md:h-[78vh]">
-        <BackgroundVideo src={VIDEO_SRC} />
-      </div>
+    <section
+      id="robotics"
+      className="relative h-screen w-full overflow-hidden bg-white"
+    >
+      {/* Full-bleed, 100% opaque clip — full brightness, no veil,
+          fills the whole viewport (immersive). No heading above. */}
+      <BackgroundVideo src={VIDEO_SRC} />
     </section>
   )
 }

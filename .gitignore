@@ -6,6 +6,10 @@ node_modules/
 dist/
 dist-ssr/
 dist_*/
+_dist_*/
+_build_verify/
+_build_verify_old/
+_bv_*/
 .vite/
 
 # Vite transpiled config cache (regenerated on each dev/build)
@@ -33,6 +37,12 @@ Thumbs.db
 
 # Local temp/debug artifacts
 _tmp*
+_bv*
+_demo_smoke/
+_preview_dist/
 
 # Playwright smoke-test artifacts
 .playwright-cli/
+
+# Transient ffmpeg/python pkg cache
+.tmp_ffmpeg_pkgs/

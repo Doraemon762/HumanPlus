@@ -43,13 +43,3 @@ export const nav = [
   },
   { label: 'Contact', href: '/contact' },
 ]
-
-/* Footer repeats the same routes as a flat list (no dropdowns). */
-export const footerNav = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'Research', href: '/research' },
-  { label: 'News', href: '/news' },
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Contact', href: '/contact' },
-]

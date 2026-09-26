@@ -37,6 +37,10 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        /* Hero / editorial display face. Falls back to Inter, so any
+           string rendered in `font-display` keeps its metrics if the
+           TTF fails to load. */
+        display: ['PangMenTitle', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

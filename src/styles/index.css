@@ -1,8 +1,34 @@
+/* ── Display face: 庞门正道标题体 (free build) ───────────────────
+   Source TTF copied to src/assets/fonts/ so Vite fingerprints it and
+   rewrites the URL against `base` — a hand-written /fonts/... path in
+   `public/` would break on GitHub Pages' /HumanPlus/ sub-path.
+   The face ships ONE weight, declared as a single `font-weight: 400`
+   rather than a 100–900 range on purpose: a wide range makes the
+   browser believe the file covers 700 as well, so `font-bold` renders
+   silently un-bolded. Scoped to 400, a 700 request falls outside the
+   face and the browser synthesises real bold.
+   The glyphs are already cut on a slant, so callers must NOT stack
+   `font-style: italic` on top of it (that would oblique it twice). */
+@font-face {
+  font-family: 'PangMenTitle';
+  src: url('../assets/fonts/pangmen-title.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Brand blue as raw channels so canvas / glow layers can mix alpha
+       without hard-coding a hex. Keep in sync with `brand` in
+       tailwind.config.js (#5A9CFC). */
+    --brand-rgb: 90 156 252;
+  }
+
   html {
     /* Fixed 64px nav — anchors must stop below it, not under it. */
     scroll-padding-top: 5rem;
@@ -83,5 +109,47 @@
   }
   .accordion-body > div {
     overflow: hidden;
+  }
+
+  /* ── Motion-0 hero ──────────────────────────────────────────────
+     Light layers only: the garment must float on black, never sit on a
+     card. Every radius stays <= 50% so gradients fade out inside their
+     own box (a larger radius gets clipped and reads as a rectangle). */
+  .m0-ambient {
+    background: radial-gradient(
+      ellipse 46% 44% at 60% 46%,
+      rgb(var(--brand-rgb) / 0.16) 0%,
+      rgb(var(--brand-rgb) / 0.07) 44%,
+      rgb(var(--brand-rgb) / 0.015) 74%,
+      rgb(var(--brand-rgb) / 0) 100%
+    );
+    filter: blur(14px);
+  }
+
+  /* Low, elliptical pool of light under the product — depth cue. */
+  .m0-floor-glow {
+    background: radial-gradient(
+      ellipse 38% 22% at 52% 76%,
+      rgb(var(--brand-rgb) / 0.2) 0%,
+      rgb(var(--brand-rgb) / 0.06) 46%,
+      rgb(var(--brand-rgb) / 0) 100%
+    );
+    filter: blur(8px);
+  }
+
+  /* Product: restrained shadow for lift, no glow, no outline. */
+  .m0-product {
+    filter: drop-shadow(0 26px 46px rgba(0, 0, 0, 0.55));
+  }
+
+  /* CTA — brand-blue pill with a very soft blue bloom; the arrow slide
+     is inherited from CtaLink. Not an e-commerce button: no bounce,
+     no scale-up, no gradient fill. */
+  .m0-cta {
+    background-color: theme('colors.brand');
+    opacity: 0.92;
+  }
+  .m0-cta:hover {
+    opacity: 1;
   }
 }

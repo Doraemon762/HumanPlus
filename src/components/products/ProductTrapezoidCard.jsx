@@ -3,12 +3,15 @@ import { toHref } from '../../hooks/useHashRoute'
 import { trapezoidPath } from './trapezoidPath'
 
 /**
- * Trapezoid product card — white card with a subtle glass frame.
+ * Trapezoid product card — white glass plate with a hairline stroke and
+ * the exact "\ \" silhouette (see trapezoidPath.js).
  *
- * The silhouette is an SVG path (see trapezoidPath.js): it keeps the
- * exact "\ \" geometry and rounded corners while allowing a real hairline
- * stroke on all four edges. Layout, slant, radius and the parallel gap
- * between the two cards are unchanged from the previous version.
+ * Layout: the enlarged product name sits on the LEFT in brand blue
+ * (turns white on hover); the keyed-out product image sits on the
+ * RIGHT, contained, right-aligned and enlarged. On hover a brand-blue
+ * wash fades in *inside the trapezoid outline only* — so the whole
+ * plate turns #5A9CFC while the image keeps its own colours, the name
+ * turns white, and the image eases into a 1.05 scale.
  *
  * slantEdge 'right' → Glove-0 (left card),  right edge leans down-right
  * slantEdge 'left'  → Vision-0 (right card), left edge leans down-right
@@ -17,7 +20,6 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
   const ref = useRef(null)
   const [size, setSize] = useState({ w: 0, h: 0 })
 
-  /* The path needs real pixel coordinates, so measure the card. */
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -44,16 +46,15 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
     <a
       ref={ref}
       href={toHref(product.href)}
-      className="group relative block h-[220px] transition-transform duration-300 hover:-translate-y-[2px] md:h-[300px]"
+      className="group relative block h-[200px] transition-transform duration-300 hover:-translate-y-[2px] md:h-[210px]"
     >
       {/* Glass plate: white body + hairline stroke + very soft shadow.
-          Shadow is a CSS drop-shadow on the wrapper so it follows the
-          trapezoid outline instead of a rectangle. */}
+          A second, brand-coloured path sits on top with opacity 0 and
+          fades in on hover — confined to the trapezoid outline. */}
       <div className="glass-plate absolute inset-0">
         {path && (
           <svg width={size.w} height={size.h} viewBox={`0 0 ${size.w} ${size.h}`} className="block" aria-hidden="true">
             <defs>
-              {/* Barely-there vertical sheen — reads as glass, not gradient */}
               <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="rgba(255,255,255,0.96)" />
                 <stop offset="100%" stopColor="rgba(255,255,255,0.78)" />
@@ -66,18 +67,37 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
               strokeWidth="1"
               className="transition-[stroke] duration-300 group-hover:stroke-brandLine"
             />
+            <path
+              d={path}
+              fill="#5A9CFC"
+              className="opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
           </svg>
         )}
       </div>
 
-      <div className="relative flex h-full flex-col justify-between p-8 md:p-10">
-        <h3 className="text-2xl font-bold tracking-tight text-[#252525] md:text-3xl">{product.name}</h3>
-        <span
-          aria-hidden="true"
-          className="self-start text-[11px] font-mono uppercase tracking-[0.25em] text-ink/40 transition-transform duration-300 group-hover:translate-x-[3px]"
-        >
-          View →
-        </span>
+      {/* Product image: keyed-out PNG, right side, enlarged, contained,
+          right-aligned. Above the glass but below the text. */}
+      {product.image && (
+        <img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          decoding="async"
+          className="pointer-events-none absolute right-0 top-1/2 z-[1] h-[88%] w-[56%] -translate-y-1/2 object-contain object-right transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+        />
+      )}
+
+      {/* Title: left side, enlarged, brand blue → white on hover */}
+      <div className="absolute left-7 top-1/2 z-10 max-w-[42%] -translate-y-1/2 md:left-9">
+        <h3 className="text-4xl font-bold tracking-tight text-brand transition-colors duration-300 group-hover:text-white md:text-5xl">
+          {product.name}
+        </h3>
+        {product.tag && (
+          <span className="mt-3 inline-flex w-fit items-center rounded-full bg-brand px-3 py-1 text-[11px] font-medium tracking-wide text-white transition-colors duration-300 group-hover:bg-white group-hover:text-brand md:px-4 md:py-1.5 md:text-xs">
+            {product.tag}
+          </span>
+        )}
       </div>
     </a>
   )

@@ -2,10 +2,15 @@ import PageHeader from '../components/layout/PageHeader'
 import Reveal from '../components/ui/Reveal'
 import MediaPlaceholder from '../components/ui/MediaPlaceholder'
 import CtaLink from '../components/ui/CtaLink'
+import MotionZeroHero from '../components/products/MotionZeroHero'
+import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
+import MotionZeroPromo from '../components/products/MotionZeroPromo'
 import { findProduct } from '../data/products'
 
 /* Product detail — the framework every /products/<slug> route uses.
-   Content is still placeholder: no specs or parameters invented. */
+   Motion-0 replaces the default PageHeader with its own black launch
+   hero; every other product keeps the shared header. Content below is
+   still placeholder: no specs or parameters invented. */
 export default function ProductDetailPage({ id }) {
   const product = findProduct(id)
 
@@ -15,9 +20,19 @@ export default function ProductDetailPage({ id }) {
     )
   }
 
+  const isMotionZero = product.id === 'motion-0'
+
   return (
     <>
-      <PageHeader label="Products" title={product.name} description={product.description} />
+      {isMotionZero ? (
+        <>
+          <MotionZeroHero />
+          <MotionZeroFeatures />
+          <MotionZeroPromo />
+        </>
+      ) : (
+        <PageHeader label="Products" title={product.name} description={product.description} />
+      )}
 
       <section className="py-[85px] md:py-[107px]">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
