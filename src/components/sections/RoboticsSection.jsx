@@ -59,7 +59,7 @@ function BackgroundVideo({ src }) {
       preload="none"
       tabIndex={-1}
       aria-hidden="true"
-      className="absolute inset-0 h-full w-full object-cover select-none outline-none focus:outline-none"
+      className="absolute inset-0 h-full w-full bg-white object-cover select-none outline-none focus:outline-none"
     />
   )
 }
