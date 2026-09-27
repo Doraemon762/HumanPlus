@@ -250,7 +250,7 @@
 }
 
 .m0-bento-card {
-  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border: 0;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.69), rgba(245, 249, 255, 0.42));
   box-shadow:
     0 22px 55px rgba(64, 91, 140, 0.1),
@@ -600,6 +600,12 @@
 }
 
 .m0-bento-sensors .m0-bento-copy { width: 57%; }
+
+.m0-bento-sensors .m0-metric {
+  position: relative;
+  z-index: 10;
+  padding-right: 0.12em;
+}
 
 .m0-bento-sensors h3 {
   font-size: 1.55cqw;
