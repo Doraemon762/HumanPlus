@@ -27,7 +27,7 @@ export default function ProductDetailPage({ id }) {
 
   // Motion-0 drives its own full-screen section snap; other product pages
   // never expose these ids, so the hook is a no-op there.
-  useSectionSnap({ duration: 1000, ids: MOTION_ZERO_IDS })
+  useSectionSnap({ duration: 1000, ids: MOTION_ZERO_IDS, topOffset: 64 })
 
   return (
     <>

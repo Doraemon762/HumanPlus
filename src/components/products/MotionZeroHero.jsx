@@ -1,7 +1,6 @@
 import Reveal from '../ui/Reveal'
 import CtaLink from '../ui/CtaLink'
 import MotionDataField from './MotionDataField'
-import { site } from '../../data/site'
 
 /* Motion-0 hero image — keyed transparent PNG (studio backdrop removed),
    relative path so GitHub Pages sub-path deploys resolve. */
@@ -20,15 +19,11 @@ export default function MotionZeroHero() {
 
       <div className="relative mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-10 md:pb-24 lg:grid-cols-[45fr_55fr] lg:gap-8 lg:px-10">
         {/* ── Left: brand → product name → slogan → copy → CTA ── */}
-        <div className="relative z-[1]">
-          <Reveal className="flex items-center gap-4">
-            <img src={site.logo} alt="HumanPlus logo" className="h-11 w-auto" />
-          </Reveal>
-
+        <div className="relative z-[1] -translate-y-4 lg:-translate-y-6">
           <Reveal
             as="h1"
             delay={1}
-            className="mt-10 font-bold leading-[1.05] tracking-tight text-brand text-[clamp(2.5rem,5vw,4.25rem)] md:mt-12"
+            className="font-bold leading-[1.05] tracking-tight text-brand text-[clamp(2.5rem,5vw,4.25rem)]"
           >
             Motion-0
           </Reveal>

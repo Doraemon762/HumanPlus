@@ -212,3 +212,717 @@
     object-position: center;
   }
 }
+
+/* ── Motion-0 frosted bento preview ───────────────────────────── */
+.m0-bento-section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 2vw, 2rem);
+  background:
+    radial-gradient(circle at 17% 0%, rgba(154, 196, 255, 0.45), transparent 34%),
+    radial-gradient(circle at 78% 0%, rgba(207, 190, 255, 0.38), transparent 32%),
+    radial-gradient(circle at 82% 100%, rgba(180, 231, 255, 0.44), transparent 34%),
+    #f2f7fd;
+  font-family: 'Source Han Sans SC', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif;
+}
+
+.m0-bento {
+  width: min(100%, 2048px);
+  height: min(calc(100vh - 6rem), 840px);
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr 1.04fr 1.04fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'brand battery photo accuracy'
+    'brand sensors photo wash';
+  gap: clamp(12px, 1.2vw, 24px);
+}
+
+.m0-bento-card,
+.m0-bento-photo {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: clamp(25px, 2vw, 38px);
+}
+
+.m0-bento-card {
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.79), rgba(245, 249, 255, 0.52));
+  box-shadow:
+    0 22px 55px rgba(64, 91, 140, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96),
+    inset 0 -1px 0 rgba(198, 219, 249, 0.28);
+  backdrop-filter: blur(26px) saturate(140%);
+  -webkit-backdrop-filter: blur(26px) saturate(140%);
+}
+
+.m0-bento-brand { grid-area: brand; }
+.m0-bento-battery { grid-area: battery; }
+.m0-bento-sensors { grid-area: sensors; }
+.m0-bento-photo { grid-area: photo; }
+.m0-bento-accuracy { grid-area: accuracy; }
+.m0-bento-wash { grid-area: wash; }
+
+/* The wrappers become the two mobile snap pages. On desktop they are
+   transparent to the grid so the original four-column composition remains. */
+.m0-mobile-page { display: contents; }
+
+.m0-bento-copy {
+  position: relative;
+  z-index: 2;
+  padding: clamp(24px, 2.4vw, 46px);
+}
+
+.m0-bento h3 {
+  margin: 0;
+  color: #22252a;
+  font-size: clamp(1.55rem, 2.1vw, 2.65rem);
+  line-height: 1.14;
+  font-weight: 720;
+  letter-spacing: -0.04em;
+}
+
+.m0-gradient-text {
+  width: fit-content;
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(90deg, #5899ff 0%, #7f8ff1 58%, #bf97e7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.m0-brand-name {
+  font-size: clamp(2.5rem, 3.8vw, 5.3rem);
+  line-height: 1;
+  font-weight: 720;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.m0-brand-rule {
+  display: block;
+  width: clamp(48px, 4vw, 78px);
+  height: 7px;
+  margin: clamp(16px, 2vw, 28px) 0;
+  border-radius: 99px;
+  background: #5899ff;
+}
+
+.m0-metric {
+  margin-bottom: clamp(18px, 1.8vw, 30px);
+  font-size: clamp(3.2rem, 4.5vw, 5.6rem);
+  line-height: 0.88;
+  font-weight: 720;
+  letter-spacing: -0.055em;
+}
+
+.m0-wash-title {
+  margin-bottom: clamp(16px, 1.6vw, 26px);
+  font-size: clamp(2.6rem, 3.4vw, 4.3rem);
+  line-height: 0.95;
+  font-weight: 720;
+}
+
+.m0-description {
+  margin-top: clamp(22px, 2vw, 34px);
+  color: rgba(30, 36, 45, 0.78);
+  font-size: clamp(0.9rem, 1.15vw, 1.35rem);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+.m0-wear-set {
+  position: absolute;
+  inset: auto -9% 1% -8%;
+  width: 118%;
+  height: 58%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 18px 20px rgba(52, 76, 118, 0.13));
+}
+
+.m0-battery-visual {
+  position: absolute;
+  right: 4%;
+  bottom: 9%;
+  z-index: 1;
+  display: flex;
+  width: 44%;
+  height: 55%;
+  gap: 8px;
+}
+
+.m0-battery-visual img,
+.m0-fabric-pics img,
+.m0-accuracy-pics img {
+  min-width: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.m0-battery-visual img:first-child { object-position: 55% center; }
+.m0-battery-visual img:last-child { object-position: 58% center; }
+
+.m0-sensor-visual {
+  position: absolute;
+  right: 1%;
+  bottom: 4%;
+  width: 57%;
+  height: 79%;
+}
+
+.m0-sensor-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(52, 76, 118, 0.1));
+}
+
+.m0-sensor-ring {
+  position: absolute;
+  width: clamp(16px, 1.4vw, 27px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: 2px solid #5d9eff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.72);
+}
+
+.m0-bento-photo {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 22px 55px rgba(64, 91, 140, 0.12);
+}
+
+.m0-bento-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% center;
+}
+
+.m0-accuracy-pics {
+  position: absolute;
+  right: 6%;
+  top: auto;
+  bottom: 7%;
+  width: 56%;
+  aspect-ratio: 2 / 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  gap: 8px;
+}
+
+.m0-accuracy-pics img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 15px;
+  object-position: center;
+}
+
+.m0-bento-accuracy .m0-bento-copy { width: 67%; }
+.m0-bento-wash .m0-bento-copy { width: 51%; }
+
+.m0-fabric-pics {
+  position: absolute;
+  right: 4%;
+  top: 14%;
+  width: 47%;
+  height: 48%;
+  display: flex;
+  gap: clamp(8px, 0.8vw, 14px);
+}
+
+.m0-fabric-pics img { object-position: center; }
+
+@media (max-width: 1200px) {
+  .m0-bento {
+    height: auto;
+    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(360px, 48vw));
+    grid-template-areas:
+      'brand battery'
+      'sensors photo'
+      'accuracy wash';
+  }
+}
+
+@media (max-width: 700px) {
+  .m0-bento-section { padding: 12px; }
+  .m0-bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, minmax(390px, 110vw));
+    grid-template-areas: 'brand' 'battery' 'sensors' 'photo' 'accuracy' 'wash';
+  }
+  .m0-bento-copy { padding: 30px; }
+  .m0-bento h3 { font-size: 2rem; }
+  .m0-description { font-size: 1rem; }
+  .m0-bento-photo img { object-position: 56% center; }
+}
+
+/* Final preview rule: preserve the Figma composition at every desktop
+   viewport. The complete 2048 × 840 board scales as one unit; cards never
+   reflow into the two-column layout used by the earlier draft. */
+.m0-bento-section {
+  min-height: calc(100svh - 4rem);
+  height: calc(100svh - 4rem);
+  padding: clamp(12px, 1.6vw, 32px);
+  overflow: hidden;
+}
+
+.m0-bento {
+  container-type: inline-size;
+  width: min(calc(100vw - clamp(24px, 3.2vw, 64px)), calc((100svh - 7rem) * 2.438095), 2048px);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 2048 / 840;
+  grid-template-columns: 0.91fr 1.06fr 1.01fr 1.06fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'brand battery photo accuracy'
+    'brand sensors photo wash';
+  gap: 1.05cqw;
+}
+
+.m0-bento-card,
+.m0-bento-photo {
+  border-radius: 2cqw;
+}
+
+.m0-bento-copy {
+  padding: 2.2cqw;
+}
+
+.m0-bento h3 {
+  font-size: 2.05cqw;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.m0-bento-brand h3 {
+  font-size: 2.4cqw;
+  white-space: nowrap;
+}
+
+.m0-brand-name {
+  font-size: 4.25cqw;
+  letter-spacing: -0.05em;
+}
+
+.m0-brand-rule {
+  width: 4.2cqw;
+  height: max(3px, 0.38cqw);
+  margin: 1.65cqw 0 1.65cqw;
+}
+
+.m0-metric {
+  margin-bottom: 1.55cqw;
+  font-size: 4.05cqw;
+  white-space: nowrap;
+}
+
+.m0-wash-title {
+  margin-bottom: 1.7cqw;
+  font-size: 3.55cqw;
+  position: relative;
+  z-index: 4;
+  line-height: 1.1;
+  padding-bottom: 0.08em;
+  white-space: nowrap;
+}
+
+.m0-description {
+  margin-top: 1.65cqw;
+  font-size: 1.08cqw;
+  line-height: 1.48;
+}
+
+.m0-wear-set {
+  inset: auto 5% 8% 5%;
+  width: 90%;
+  height: 56%;
+}
+
+.m0-battery-visual {
+  right: 3.5%;
+  bottom: 9%;
+  width: 35%;
+  height: 49%;
+  gap: 0.55cqw;
+}
+
+.m0-battery-visual img {
+  width: 50%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.m0-sensor-visual {
+  right: -4%;
+  bottom: 2%;
+  width: 45%;
+  height: 50%;
+}
+
+.m0-sensor-visual img {
+  position: absolute;
+  bottom: 0;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+.m0-sensor-visual .m0-sensor-jacket {
+  left: 10%;
+  width: 46%;
+}
+
+.m0-sensor-visual .m0-sensor-pants {
+  right: -5%;
+  width: 70%;
+}
+
+.m0-sensor-ring {
+  width: 1.35cqw;
+  border-width: max(1px, 0.11cqw);
+  box-shadow: 0 0 0 max(1px, 0.1cqw) rgba(255, 255, 255, 0.76);
+}
+
+.m0-bento-sensors .m0-bento-copy { width: 57%; }
+
+.m0-bento-sensors h3 {
+  font-size: 1.55cqw;
+  white-space: normal;
+}
+
+.m0-desktop-break { display: block; }
+
+.m0-bento-sensors .m0-description {
+  white-space: nowrap;
+}
+
+.m0-bento-photo img {
+  object-position: 53% center;
+}
+
+.m0-bento-accuracy .m0-bento-copy { width: 69%; }
+
+.m0-accuracy-pics {
+  right: 3%;
+  top: 10%;
+  bottom: auto;
+  width: 31%;
+  height: auto;
+  aspect-ratio: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: 0.7cqw;
+}
+
+.m0-accuracy-pics img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 1cqw;
+  object-fit: cover;
+}
+
+.m0-bento-wash .m0-bento-copy { width: 62%; }
+
+.m0-fabric-pics {
+  right: 3%;
+  top: 40%;
+  width: 45%;
+  height: 52%;
+  aspect-ratio: auto;
+  gap: 0.75cqw;
+}
+
+.m0-fabric-pics img {
+  flex: 1 1 0;
+  width: auto;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  border-radius: clamp(10px, 1cqw, 18px);
+}
+
+@media (min-width: 901px) and (orientation: landscape) {
+  .m0-bento-brand .m0-bento-copy {
+    transform: translateY(1.7cqw);
+  }
+
+  .m0-bento-battery .m0-metric,
+  .m0-bento-sensors .m0-metric,
+  .m0-bento-accuracy .m0-metric,
+  .m0-bento-wash .m0-wash-title {
+    margin-bottom: 1.55cqw;
+    font-size: 3.55cqw;
+    line-height: 1.1;
+    padding-bottom: 0.08em;
+  }
+
+  .m0-bento-battery h3,
+  .m0-bento-sensors h3,
+  .m0-bento-accuracy h3,
+  .m0-bento-wash h3 {
+    min-height: 2.24em;
+    font-size: 2.05cqw;
+    line-height: 1.12;
+  }
+
+  .m0-bento-wash h3 {
+    position: relative;
+    top: 0.8cqw;
+  }
+
+  .m0-bento-battery h3 {
+    position: relative;
+    top: 1.2cqw;
+  }
+
+  .m0-bento-battery .m0-description,
+  .m0-bento-sensors .m0-description,
+  .m0-bento-accuracy .m0-description,
+  .m0-bento-wash .m0-description {
+    margin-top: 1.65cqw;
+    font-size: 1.08cqw;
+    line-height: 1.48;
+  }
+}
+
+@media (max-width: 900px), (orientation: portrait) {
+  .m0-bento-section {
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding: 12px;
+    overflow: visible;
+  }
+
+  .m0-bento {
+    display: block;
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .m0-mobile-page {
+    display: grid;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    scroll-snap-align: none;
+  }
+
+  .m0-mobile-page-one {
+    grid-template-rows:
+      clamp(310px, 88vw, 390px)
+      clamp(220px, 63vw, 280px);
+    grid-template-areas:
+      'brand brand'
+      'battery sensors';
+  }
+
+  .m0-mobile-page-two {
+    grid-template-rows:
+      clamp(310px, 88vw, 390px)
+      clamp(220px, 63vw, 280px);
+    grid-template-areas:
+      'photo photo'
+      'accuracy wash';
+    padding-bottom: 0;
+  }
+
+  .m0-bento-card,
+  .m0-bento-photo { border-radius: 24px; }
+
+  .m0-bento-copy { padding: 16px; }
+  .m0-bento h3 {
+    font-size: clamp(0.82rem, 3.6vw, 1.18rem);
+    line-height: 1.15;
+  }
+  .m0-brand-name { font-size: clamp(3rem, 14vw, 4.5rem); }
+  .m0-bento-brand h3 {
+    font-size: clamp(1.35rem, 6vw, 2.25rem);
+    line-height: 1.12;
+    position: relative;
+    top: -10px;
+  }
+  .m0-brand-rule {
+    width: 56px;
+    height: 6px;
+    margin: 18px 0 22px;
+  }
+  .m0-metric,
+  .m0-wash-title {
+    margin-bottom: 13px;
+    max-width: 100%;
+    font-size: clamp(1.55rem, 6vw, 2.15rem);
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+    padding-bottom: 0.08em;
+  }
+
+  .m0-wash-title {
+    font-size: clamp(1.15rem, 5.4vw, 2.15rem);
+    line-height: 1.1;
+    padding-bottom: 0.08em;
+  }
+  .m0-description {
+    margin-top: 13px;
+    font-size: clamp(0.64rem, 2.85vw, 0.78rem);
+    line-height: 1.48;
+  }
+
+  .m0-wear-set {
+    inset: auto 10% 0 10%;
+    width: 80%;
+    height: 55%;
+  }
+
+  .m0-battery-visual {
+    right: auto;
+    left: 50%;
+    bottom: 0;
+    width: 72%;
+    height: 60%;
+    gap: 3px;
+    transform: translate(-50%, 11px);
+  }
+
+  .m0-bento-battery .m0-bento-copy,
+  .m0-bento-sensors .m0-bento-copy { width: 100%; }
+
+  .m0-bento-battery .m0-description,
+  .m0-bento-sensors .m0-description {
+    position: static;
+    width: 58%;
+    margin-top: 13px;
+    white-space: nowrap;
+    font-size: clamp(0.64rem, 2.85vw, 0.78rem);
+  }
+
+  .m0-bento-sensors h3 {
+    white-space: nowrap;
+  }
+  .m0-desktop-break { display: none; }
+  .m0-sensor-visual {
+    right: auto;
+    left: calc(50% + 12px);
+    bottom: 1%;
+    width: 76%;
+    height: 48%;
+    transform: translateX(-50%);
+  }
+
+  .m0-sensor-visual .m0-sensor-jacket {
+    left: 0;
+    bottom: 12%;
+    width: 46%;
+  }
+  .m0-sensor-visual .m0-sensor-pants {
+    right: -4%;
+    width: 64%;
+    transform: translateY(10px);
+  }
+
+  .m0-bento-photo {
+    height: 100%;
+    min-height: 0;
+  }
+  .m0-bento-photo img {
+    object-position: 53% 36%;
+  }
+
+  .m0-bento-accuracy .m0-bento-copy { width: 100%; }
+
+  .m0-bento-accuracy h3 {
+    white-space: nowrap;
+  }
+
+  .m0-bento-accuracy .m0-metric,
+  .m0-bento-wash .m0-wash-title {
+    display: block;
+    height: auto;
+    margin-bottom: 13px;
+  }
+
+  .m0-bento-accuracy h3,
+  .m0-bento-wash h3 {
+    min-height: 0;
+  }
+
+  .m0-accuracy-pics {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 8%;
+    width: 90%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr;
+    gap: 5px;
+    transform: translateX(-50%);
+  }
+  .m0-accuracy-pics img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 9px;
+    object-fit: cover;
+  }
+
+  .m0-bento-accuracy .m0-description {
+    position: static;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .m0-bento-wash .m0-bento-copy { width: 100%; }
+  .m0-fabric-pics {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 8%;
+    width: 90%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    gap: 5px;
+    transform: translateX(-50%);
+  }
+
+  .m0-fabric-pics img {
+    flex: 1 1 0;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 9px;
+  }
+
+  .m0-bento-wash .m0-description {
+    position: static;
+    width: 100%;
+    margin-top: 12px;
+    white-space: nowrap;
+  }
+}
