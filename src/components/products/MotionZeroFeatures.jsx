@@ -20,12 +20,13 @@ export default function MotionZeroFeatures() {
               <video
                 className="m0-wear-set"
                 src={`${VIDEO}/wear-to-capture.mp4`}
+                poster={`${VIDEO}/wear-to-capture-poster.jpg`}
                 aria-label="Motion-0 wear-to-capture demonstration"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 disablePictureInPicture
               />
             </div>
