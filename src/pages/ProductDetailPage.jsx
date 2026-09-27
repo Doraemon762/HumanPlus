@@ -1,14 +1,12 @@
 import PageHeader from '../components/layout/PageHeader'
 import MotionZeroHero from '../components/products/MotionZeroHero'
 import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
-import MotionZeroClothing from '../components/products/MotionZeroClothing'
-import MotionZeroPromo from '../components/products/MotionZeroPromo'
 import useSectionSnap from '../hooks/useSectionSnap'
 import { findProduct } from '../data/products'
 
-/* Motion-0's own full-screen snap sequence — Hero → Features → Clothing
-   → Promo. Stable reference so the snap effect does not re-run. */
-const MOTION_ZERO_IDS = ['m0-hero', 'm0-features', 'm0-clothing', 'm0-promo']
+/* Motion-0's own full-screen snap sequence — Hero → Features.
+   Stable reference so the snap effect does not re-run. */
+const MOTION_ZERO_IDS = ['m0-hero', 'm0-features']
 
 /* Product detail — the framework every /products/<slug> route uses.
    Motion-0 replaces the default PageHeader with its own hero; every
@@ -35,8 +33,6 @@ export default function ProductDetailPage({ id }) {
         <>
           <MotionZeroHero />
           <MotionZeroFeatures />
-          <MotionZeroClothing />
-          <MotionZeroPromo />
         </>
       ) : (
         <PageHeader label="Products" title={product.name} description={product.description} />
