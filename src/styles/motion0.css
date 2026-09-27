@@ -251,7 +251,7 @@
 
 .m0-bento-card {
   border: 1.5px solid rgba(255, 255, 255, 0.9);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.79), rgba(245, 249, 255, 0.52));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.69), rgba(245, 249, 255, 0.42));
   box-shadow:
     0 22px 55px rgba(64, 91, 140, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
@@ -584,6 +584,7 @@
 
 .m0-sensor-visual .m0-sensor-jacket {
   left: 10%;
+  bottom: calc(4% + 10px);
   width: 46%;
 }
 
@@ -842,7 +843,7 @@
   .m0-sensor-visual .m0-sensor-pants {
     right: -4%;
     width: 64%;
-    transform: translateY(10px);
+    transform: translateY(5px);
   }
 
   .m0-bento-photo {
