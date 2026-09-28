@@ -1,126 +1,98 @@
-import Reveal from '../ui/Reveal'
+const ASSET = 'images/motion-0/bento'
+const VIDEO = 'videos/motion-0'
 
-/* ── Five product attributes ──────────────────────────────────────
-   No section title, no cards: one centred statement, then five
-   line icons at comfortable spacing. Icons are hand-drawn to keep the
-   project dependency-free — one visual language across all five
-   (24px grid, 1.25 stroke, round caps, one brand-blue accent each). */
-
-const ICON = {
-  viewBox: '0 0 24 24',
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.25,
-  strokeLinecap: 'round',
-  strokeLinejoin: 'round',
-  className: 'h-9 w-9 md:h-10 md:w-10',
-  'aria-hidden': 'true',
+function GlassCard({ className = '', children }) {
+  return <article className={`m0-bento-card ${className}`}>{children}</article>
 }
-
-/* 01 · Natural Wear — body inside a garment */
-function IconNaturalWear() {
-  return (
-    <svg {...ICON}>
-      <circle cx="12" cy="4.3" r="2.1" />
-      <path d="M5.6 9.4 9 7.8l3 2.1 3-2.1 3.4 1.6-.5 10.4H6.1z" />
-      <path d="M9 7.8 6.4 13.4M15 7.8l2.6 5.6" />
-      <circle className="text-brand" cx="12" cy="12.4" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
-
-/* 02 · Long-Term Stability — continuous time + steady waveform */
-function IconStability() {
-  return (
-    <svg {...ICON}>
-      <circle cx="12" cy="12" r="8.4" />
-      <path d="M7.4 12c1.5-2.4 3-2.4 4.6 0s3.1 2.4 4.6 0" className="text-brand" />
-      <path d="M12 7.6V12" opacity="0.5" />
-    </svg>
-  )
-}
-
-/* 03 · Full-Body Motion — skeleton with joint nodes */
-function IconFullBody() {
-  return (
-    <svg {...ICON}>
-      <circle cx="12" cy="4.4" r="1.9" />
-      <path d="M12 6.4v6.4M9.2 8.6h5.6M9.2 8.6 7 13.2l.5 3.6M14.8 8.6l2.2 4.6-.5 3.6M12 12.8 9.6 17.8 9 21.3M12 12.8l2.4 5 0.6 3.5" />
-      <circle className="text-brand" cx="9.2" cy="8.6" r="1" fill="currentColor" stroke="none" />
-      <circle className="text-brand" cx="14.8" cy="8.6" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
-
-/* 04 · Comfort & Design — garment cut */
-function IconComfort() {
-  return (
-    <svg {...ICON}>
-      <path d="M9.2 3.6 12 5.6l2.8-2 4.4 3.1-1.6 3.5-1.5-.8V20.4H7.9V9.4l-1.5.8L4.8 6.7z" />
-      <path d="M9.2 3.6c.9 1.4 1.9 2.1 2.8 2.1s1.9-.7 2.8-2.1" className="text-brand" />
-    </svg>
-  )
-}
-
-/* 05 · Washable — droplet over a water line */
-function IconWashable() {
-  return (
-    <svg {...ICON}>
-      <path d="M12 3.4c0 0-4.4 4.9-4.4 8.4a4.4 4.4 0 0 0 8.8 0C16.4 8.3 12 3.4 12 3.4z" />
-      <path d="M4.6 19.6c1.6-1.5 3.2-1.5 4.7 0s3.1 1.5 4.7 0 3.1-1.5 4.7 0" className="text-brand" />
-    </svg>
-  )
-}
-
-const FEATURES = [
-  {
-    Icon: IconNaturalWear,
-    name: 'Natural Wear',
-    copy: 'Designed to move with the body, without getting in the way.',
-  },
-  {
-    Icon: IconStability,
-    name: 'Long-Term Stability',
-    copy: 'Stable motion capture for extended real-world activities.',
-  },
-  {
-    Icon: IconFullBody,
-    name: 'Full-Body Motion',
-    copy: 'Capturing coordinated movement across the entire body.',
-  },
-  {
-    Icon: IconComfort,
-    name: 'Comfort & Design',
-    copy: 'Designed for comfort, fit, and everyday wear.',
-  },
-  {
-    Icon: IconWashable,
-    name: 'Washable',
-    copy: 'Built for easy care and repeated everyday use.',
-  },
-]
 
 export default function MotionZeroFeatures() {
   return (
-    <section id="m0-features" className="m0-features bg-white">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <Reveal className="mx-auto max-w-[820px] text-center">
-          <p className="m0-features-lead">
-            Motion-0 is designed to capture human movement naturally, comfortably, and reliably — enabling
-            stable full-body motion capture in the real world.
-          </p>
-        </Reveal>
+    <section id="m0-features" className="m0-features m0-bento-section font-sans" aria-label="Motion-0 product features">
+      <div className="m0-bento">
+        <div className="m0-mobile-page m0-mobile-page-one">
+          <GlassCard className="m0-bento-brand">
+            <div className="m0-bento-copy">
+              <h2 className="m0-gradient-text m0-brand-name">Motion-0</h2>
+              <span className="m0-brand-rule" aria-hidden="true" />
+              <h3>Wear to capture</h3>
+            </div>
+            <div className="m0-wear-frame">
+              <video
+                className="m0-wear-set"
+                src={`${VIDEO}/wear-to-capture.mp4`}
+                poster={`${VIDEO}/wear-to-capture-poster.jpg`}
+                aria-label="Motion-0 wear-to-capture demonstration"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                disablePictureInPicture
+              />
+            </div>
+          </GlassCard>
 
-        <div className="m0-features-grid">
-          {FEATURES.map(({ Icon, name, copy }, i) => (
-            <Reveal key={name} delay={Math.min(i, 4)} className="m0-feature group">
-              <span className="m0-feature-icon">
-                <Icon />
-              </span>
-              <h3 className="m0-feature-name">{name}</h3>
-              <p className="m0-feature-copy">{copy}</p>
-            </Reveal>
-          ))}
+          <GlassCard className="m0-bento-battery">
+            <div className="m0-bento-copy">
+              <p className="m0-gradient-text m0-metric">10 H+</p>
+              <h3>Battery life</h3>
+              <p className="m0-description">Pocket battery<br />Stable long-term capture</p>
+            </div>
+            <img
+              className="m0-battery-cells"
+              src={`${ASSET}/battery-cells.png`}
+              alt="Motion-0 battery modules"
+            />
+            <div className="m0-battery-visual" aria-hidden="true">
+              <img src={`${ASSET}/battery-beige-hd.png`} alt="" />
+              <img src={`${ASSET}/battery-blue-hd.png`} alt="" />
+            </div>
+          </GlassCard>
+
+          <GlassCard className="m0-bento-sensors">
+            <div className="m0-bento-copy">
+              <p className="m0-gradient-text m0-metric">11 IMUs</p>
+              <h3>
+                <span className="m0-sensor-title-desktop">Real-time Motion<br />Streaming</span>
+                <span className="m0-sensor-title-mobile">Real-time<br />Motion Streaming</span>
+              </h3>
+              <p className="m0-description">Live full-body motion<br />for teleoperation</p>
+            </div>
+            <div className="m0-sensor-visual">
+              <img className="m0-sensor-outfit" src={`${ASSET}/sensor-outfit.png`} alt="Motion-0 jacket and trousers" />
+            </div>
+          </GlassCard>
+        </div>
+
+        <div className="m0-mobile-page m0-mobile-page-two">
+          <article className="m0-bento-photo">
+            <img src={`${ASSET}/kitchen-figma.png`} alt="Motion-0 capture in a kitchen" />
+          </article>
+
+          <GlassCard className="m0-bento-accuracy">
+            <div className="m0-bento-copy">
+              <p className="m0-gradient-text m0-metric">&lt;1CM</p>
+              <h3>Tracking Accuracy</h3>
+              <p className="m0-description">Full-body tracking<br />For teleoperation</p>
+            </div>
+            <div className="m0-accuracy-pics">
+              <span className="m0-accuracy-note">采数据照片+smpl图</span>
+              <img src={`${ASSET}/tracking-person.jpg`} alt="Human motion capture" />
+              <img src={`${ASSET}/tracking-robot.jpg`} alt="Robot reproducing the captured motion" />
+            </div>
+          </GlassCard>
+
+          <GlassCard className="m0-bento-wash">
+            <div className="m0-bento-copy">
+              <p className="m0-gradient-text m0-wash-title">Waterproof</p>
+              <h3>Washable</h3>
+              <p className="m0-description">Easy to wear<br />Easy to maintain</p>
+            </div>
+            <div className="m0-fabric-pics">
+              <img src={`${ASSET}/fabric-beige.jpg`} alt="Beige washable fabric" />
+              <img src={`${ASSET}/fabric-blue.jpg`} alt="Blue washable fabric" />
+            </div>
+          </GlassCard>
         </div>
       </div>
     </section>

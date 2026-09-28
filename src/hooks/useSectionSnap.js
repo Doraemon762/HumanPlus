@@ -21,7 +21,7 @@ const DEFAULT_IDS = ['hero', 'about', 'products', 'robotics', 'research', 'news'
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 
-export default function useSectionSnap({ duration = 1000, ids } = {}) {
+export default function useSectionSnap({ duration = 1000, ids, topOffset = 0 } = {}) {
   const sectionIds = ids ?? DEFAULT_IDS
   useEffect(() => {
     // Respect users who ask the OS for reduced motion — plain scrolling.
@@ -29,6 +29,9 @@ export default function useSectionSnap({ duration = 1000, ids } = {}) {
 
     const els = sectionIds.map((id) => document.getElementById(id)).filter(Boolean)
     if (els.length < 2) return
+
+    const mobileLayout = window.matchMedia('(pointer: coarse), (max-width: 900px), (orientation: portrait)').matches
+    if (mobileLayout) return
 
     let animating = false
 
@@ -56,28 +59,31 @@ export default function useSectionSnap({ duration = 1000, ids } = {}) {
       if (Math.abs(e.deltaY) < 2) return
 
       const tops = els.map((el) => el.getBoundingClientRect().top + window.scrollY)
+      // A fixed navigation bar reduces the visible page area. Offset snap
+      // stops so each section begins below it instead of hiding behind it.
+      const stops = tops.map((top) => Math.max(0, top - topOffset))
       const y = window.scrollY
 
       // Section currently in view: last one whose top is at/above the
       // viewport top, with a small tolerance for rounding.
       let idx = 0
-      for (let i = 0; i < tops.length; i++) if (y >= tops[i] - 4) idx = i
+      for (let i = 0; i < stops.length; i++) if (y >= stops[i] - 4) idx = i
 
       const goingDown = e.deltaY > 0
       if (goingDown) {
         // At/below the last snapped section → hand back to native scroll.
         if (idx >= els.length - 1) return
         e.preventDefault()
-        animateTo(tops[idx + 1])
+        animateTo(stops[idx + 1])
       } else {
         // At the very top → nothing above, native scroll.
         if (idx <= 0) return
         e.preventDefault()
-        animateTo(tops[idx - 1])
+        animateTo(stops[idx - 1])
       }
     }
 
     window.addEventListener('wheel', onWheel, { passive: false })
     return () => window.removeEventListener('wheel', onWheel)
-  }, [duration, sectionIds])
+  }, [duration, sectionIds, topOffset])
 }

@@ -17,6 +17,30 @@
   font-display: swap;
 }
 
+@media (max-width: 900px) {
+  .m0-hero-grid {
+    gap: 0.75rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .m0-hero-cta-wrap {
+    margin-top: 1.25rem !important;
+  }
+
+  .m0-hero-visual {
+    margin-top: -0.75rem;
+    transform: translateY(-12px);
+  }
+}
+
+@font-face {
+  font-family: 'Source Han Sans SC';
+  src: url('../assets/fonts/source-han-sans-cn-vf.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 250 900;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -112,44 +136,112 @@
   }
 
   /* ── Motion-0 hero ──────────────────────────────────────────────
-     Light layers only: the garment must float on black, never sit on a
-     card. Every radius stays <= 50% so gradients fade out inside their
-     own box (a larger radius gets clipped and reads as a rectangle). */
-  .m0-ambient {
+     Soft brand-blue atmosphere, matching the airy product-detail cards. */
+  .m0-hero-surface {
+    background:
+      radial-gradient(60vw 38vh at 17% 100%, rgba(154, 196, 255, 0.45), transparent 100%),
+      radial-gradient(52vw 34vh at 78% 100%, rgba(207, 229, 255, 0.42), transparent 100%),
+      linear-gradient(
+        180deg,
+        #fff 0%,
+        #fff 56%,
+        rgb(242 247 253 / 0.72) 78%,
+        #f2f7fd 100%
+      );
+  }
+
+  .m0-roaming-glow {
+    z-index: 0;
+    top: -28%;
+    left: -24%;
+    width: min(88vw, 1320px);
+    aspect-ratio: 1.35 / 1;
+    border-radius: 50%;
     background: radial-gradient(
-      ellipse 46% 44% at 60% 46%,
-      rgb(var(--brand-rgb) / 0.16) 0%,
-      rgb(var(--brand-rgb) / 0.07) 44%,
-      rgb(var(--brand-rgb) / 0.015) 74%,
+      ellipse at center,
+      rgb(var(--brand-rgb) / 0.2) 0%,
+      rgb(var(--brand-rgb) / 0.11) 34%,
+      rgb(var(--brand-rgb) / 0.035) 66%,
+      rgb(var(--brand-rgb) / 0) 82%
+    );
+    filter: blur(42px);
+    will-change: transform;
+    animation: m0-roaming-glow 18s linear infinite;
+  }
+
+  @keyframes m0-roaming-glow {
+    0% { transform: translate3d(18vw, -30vh, 0) scale(0.96); opacity: 0; }
+    10% { opacity: 1; }
+    86% { opacity: 1; }
+    100% { transform: translate3d(18vw, 82vh, 0) scale(1.04); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .m0-roaming-glow {
+      animation: none;
+      transform: translate3d(24vw, 22vh, 0);
+    }
+  }
+
+  .m0-ambient {
+    background:
+      radial-gradient(
+        ellipse 64% 62% at 58% 41%,
+        rgb(var(--brand-rgb) / 0.27) 0%,
+        rgb(var(--brand-rgb) / 0.13) 48%,
+        rgb(var(--brand-rgb) / 0.035) 76%,
+        rgb(var(--brand-rgb) / 0) 100%
+      ),
+      radial-gradient(
+        circle 30% at 76% 28%,
+        rgb(190 172 255 / 0.1) 0%,
+        rgb(190 172 255 / 0) 100%
+      );
+    filter: blur(22px);
+  }
+
+  /* A pale blue pool grounds the garment without a gray/black base. */
+  .m0-floor-glow {
+    background: radial-gradient(
+      ellipse 46% 19% at 54% 78%,
+      rgb(var(--brand-rgb) / 0.25) 0%,
+      rgb(var(--brand-rgb) / 0.1) 52%,
       rgb(var(--brand-rgb) / 0) 100%
     );
     filter: blur(14px);
   }
 
-  /* Low, elliptical pool of light under the product — depth cue. */
-  .m0-floor-glow {
-    background: radial-gradient(
-      ellipse 38% 22% at 52% 76%,
-      rgb(var(--brand-rgb) / 0.2) 0%,
-      rgb(var(--brand-rgb) / 0.06) 46%,
-      rgb(var(--brand-rgb) / 0) 100%
-    );
-    filter: blur(8px);
-  }
-
-  /* Product: restrained shadow for lift, no glow, no outline. */
+  /* Uniform contour glow around both garments—no directional pooling at cuffs. */
   .m0-product {
-    filter: drop-shadow(0 26px 46px rgba(0, 0, 0, 0.55));
+    filter:
+      drop-shadow(0 0 7px rgb(var(--brand-rgb) / 0.16))
+      drop-shadow(0 0 27px rgb(var(--brand-rgb) / 0.12))
+      drop-shadow(0 14px 52px rgb(var(--brand-rgb) / 0.1));
   }
 
-  /* CTA — brand-blue pill with a very soft blue bloom; the arrow slide
-     is inherited from CtaLink. Not an e-commerce button: no bounce,
-     no scale-up, no gradient fill. */
-  .m0-cta {
-    background-color: theme('colors.brand');
-    opacity: 0.92;
+  .m0-hero-cta {
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      box-shadow 600ms ease,
+      filter 600ms ease;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.38),
+      inset 0 10px 18px -16px rgb(255 255 255 / 0.2),
+      inset 0 -12px 22px -18px rgb(45 117 220 / 0.35),
+      0 14px 30px -20px rgb(var(--brand-rgb) / 0.3);
   }
-  .m0-cta:hover {
-    opacity: 1;
+
+  .m0-hero-cta:hover {
+    border-color: transparent;
+    transform: translate3d(0, -6px, 0) scale(1.008) !important;
+    filter: saturate(1.045) brightness(1.018);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.46),
+      inset 0 10px 18px -16px rgb(255 255 255 / 0.24),
+      inset 0 -12px 22px -18px rgb(35 105 210 / 0.38),
+      0 30px 54px -20px rgb(49 82 134 / 0.34),
+      0 12px 24px -16px rgb(var(--brand-rgb) / 0.28);
   }
+
 }
