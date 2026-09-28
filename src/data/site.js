@@ -19,19 +19,26 @@ export const site = {
 export const nav = [
   { label: 'Home', href: '/' },
   {
-    label: 'Products',
-    href: '/products',
+    label: 'Hardware',
+    href: '/hardware',
     children: [
-      { label: 'Motion-0 (11-IMU)', href: '/products/motion-0' },
-      { label: 'Glove-0', href: '/products/glove-0' },
-      { label: 'Vision-0', href: '/products/vision-0' },
-      { label: 'Dataset', href: '/products/dataset' },
-      { label: 'Applications', href: '/products/applications' },
+      { label: 'Motion-0', href: '/hardware/motion-0' },
+      { label: 'Motion-Strap', href: '/hardware/motion-strap' },
+      { label: 'Glove-0', href: '/hardware/glove-0' },
+      { label: 'Vision-0', href: '/hardware/vision-0' },
     ],
   },
-  { label: 'Robot', href: '/robot' },
+  {
+    // Data + Dataset both point at the same external HumanPlus1000 site.
+    label: 'Data',
+    href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
+    external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
+    children: [
+      { label: 'Dataset', href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/', external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/' },
+      { label: 'Application', href: '/application' },
+    ],
+  },
   { label: 'Research', href: '/research' },
-  { label: 'News', href: '/news' },
   {
     label: 'Solutions',
     href: '/solutions',

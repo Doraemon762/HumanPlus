@@ -54,7 +54,7 @@ export default function ProductsSection() {
         </div>
 
         <Reveal delay={2} className="mt-8 flex justify-center md:mt-10">
-          <CtaLink to="/products">Explore Products</CtaLink>
+          <CtaLink to="/hardware">Explore Hardware</CtaLink>
         </Reveal>
       </div>
     </section>

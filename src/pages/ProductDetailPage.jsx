@@ -17,7 +17,7 @@ export default function ProductDetailPage({ id }) {
 
   if (!product) {
     return (
-      <PageHeader label="Products" title="Product not found" description="This product page does not exist yet." />
+      <PageHeader label="Hardware" title="Product not found" description="This product page does not exist yet." />
     )
   }
 
@@ -35,7 +35,7 @@ export default function ProductDetailPage({ id }) {
           <MotionZeroFeatures />
         </>
       ) : (
-        <PageHeader label="Products" title={product.name} description={product.description} />
+        <PageHeader label="Hardware" title={product.name} description={product.description} />
       )}
     </>
   )

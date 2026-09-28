@@ -7,7 +7,7 @@ import { products } from '../data/products'
 export default function ProductsPage() {
   return (
     <>
-      <PageHeader label="Products" title="Products" description="Product line overview goes here." />
+      <PageHeader label="Hardware" title="Hardware" description="Hardware product line overview goes here." />
 
       <section className="py-[85px] md:py-[107px]">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">

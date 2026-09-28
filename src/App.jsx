@@ -12,6 +12,7 @@ import SolutionsPage from './pages/SolutionsPage'
 import SolutionDetailPage from './pages/SolutionDetailPage'
 import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
+import ApplicationPage from './pages/ApplicationPage'
 
 /* ── Route table ──────────────────────────────────────────────────
    /                      home overview
@@ -23,6 +24,10 @@ import NotFoundPage from './pages/NotFoundPage'
    on GitHub Pages — see src/hooks/useHashRoute.js. */
 function renderRoute(path) {
   if (path === '/') return <HomePage />
+  if (path === '/hardware') return <ProductsPage />
+  if (path.startsWith('/hardware/')) return <ProductDetailPage id={path.slice('/hardware/'.length)} />
+  if (path === '/application') return <ApplicationPage />
+  // Legacy /products routes kept for backward-compatible deep links.
   if (path === '/products') return <ProductsPage />
   if (path.startsWith('/products/')) return <ProductDetailPage id={path.slice('/products/'.length)} />
   if (path === '/research') return <ResearchPage />

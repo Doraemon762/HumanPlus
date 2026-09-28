@@ -10,9 +10,12 @@ function Chevron({ open }) {
   )
 }
 
-/* A top-level item is active on its own route AND on any child route
-   (#/products/motion-0 still highlights "Products"). */
+/* A top-level item is active on its own route AND on any child route. */
 const isActive = (path, href) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`))
+
+/* External links (Data / Dataset → HumanPlus1000) open in a new tab and
+   never get the in-app hash prefix. */
+const externalProps = (url) => ({ href: url, target: '_blank', rel: 'noopener noreferrer' })
 
 export default function Nav({ path }) {
   /* Desktop: which dropdown is open (keyed by nav label). Hover-driven
@@ -52,9 +55,7 @@ export default function Nav({ path }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
-        {/* Brand: logo left, wordmark right — real logo asset, no filters.
-            Logo height 28.8px = 80% of the previous 36px (nav height
-            and wordmark size are untouched). */}
+        {/* Brand: logo left, wordmark right — real logo asset, no filters. */}
         <a href={toHref('/')} className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
           <img src={site.logo} alt="HumanPlus logo" className="h-[28.8px] w-auto" />
           <span className="text-sm font-semibold tracking-[0.2em] text-ink">人一智能</span>
@@ -73,39 +74,73 @@ export default function Nav({ path }) {
                 }}
                 onMouseLeave={scheduleClose}
               >
-                <button
-                  type="button"
-                  aria-expanded={openMenu === item.label}
-                  onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
-                  className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
-                    openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
-                  }`}
-                >
-                  {item.label}
-                  <Chevron open={openMenu === item.label} />
-                </button>
+                {item.external ? (
+                  /* Parent with an external target AND a dropdown: the
+                     label itself is the external link; hover still opens
+                     the panel for Dataset / Application. */
+                  <a
+                    {...externalProps(item.external)}
+                    className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
+                      openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
+                    }`}
+                  >
+                    {item.label}
+                    <Chevron open={openMenu === item.label} />
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    aria-expanded={openMenu === item.label}
+                    onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                    className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
+                      openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
+                    }`}
+                  >
+                    {item.label}
+                    <Chevron open={openMenu === item.label} />
+                  </button>
+                )}
 
                 <div className={`dropdown-panel absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${openMenu === item.label ? 'open' : ''}`}>
                   <div className="min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
-                    {item.children.map((child) => (
-                      <a
-                        key={child.label}
-                        href={toHref(child.href)}
-                        className={`block px-5 py-2.5 text-sm transition-colors duration-150 hover:bg-brandSoft hover:text-brand ${
-                          isActive(path, child.href) ? 'text-brand' : 'text-ink/70'
-                        }`}
-                      >
-                        {child.label}
-                      </a>
-                    ))}
+                    {item.children.map((child) =>
+                      child.external ? (
+                        <a
+                          key={child.label}
+                          {...externalProps(child.external)}
+                          className="block px-5 py-2.5 text-sm transition-colors duration-150 hover:bg-brandSoft hover:text-brand text-ink/70"
+                        >
+                          {child.label}
+                        </a>
+                      ) : (
+                        <a
+                          key={child.label}
+                          href={toHref(child.href)}
+                          className={`block px-5 py-2.5 text-sm transition-colors duration-150 hover:bg-brandSoft hover:text-brand ${
+                            isActive(path, child.href) ? 'text-brand' : 'text-ink/70'
+                          }`}
+                        >
+                          {child.label}
+                        </a>
+                      )
+                    )}
                   </div>
                 </div>
               </li>
             ) : (
               <li key={item.label}>
-                <a href={toHref(item.href)} className={`text-sm transition-colors duration-200 ${linkClass(item.href, '')}`}>
-                  {item.label}
-                </a>
+                {item.external ? (
+                  <a
+                    {...externalProps(item.external)}
+                    className={`text-sm transition-colors duration-200 ${linkClass(item.href, '')}`}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <a href={toHref(item.href)} className={`text-sm transition-colors duration-200 ${linkClass(item.href, '')}`}>
+                    {item.label}
+                  </a>
+                )}
               </li>
             )
           )}
@@ -147,33 +182,56 @@ export default function Nav({ path }) {
                       <ul className="pb-2">
                         <li>
                           <a
-                            href={toHref(item.href)}
+                            {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}
                             className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/60'}`}
                           >
                             All {item.label}
                           </a>
                         </li>
-                        {item.children.map((child) => (
-                          <li key={child.label}>
-                            <a
-                              href={toHref(child.href)}
-                              className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${
-                                isActive(path, child.href) ? 'text-brand' : 'text-ink/60'
-                              }`}
-                            >
-                              {child.label}
-                            </a>
-                          </li>
-                        ))}
+                        {item.children.map((child) =>
+                          child.external ? (
+                            <li key={child.label}>
+                              <a
+                                {...externalProps(child.external)}
+                                className="block border-l border-black/10 py-2.5 pl-4 text-sm text-ink/60"
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          ) : (
+                            <li key={child.label}>
+                              <a
+                                href={toHref(child.href)}
+                                className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${
+                                  isActive(path, child.href) ? 'text-brand' : 'text-ink/60'
+                                }`}
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          )
+                        )}
                       </ul>
                     </div>
                   </div>
                 </li>
               ) : (
                 <li key={item.label}>
-                  <a href={toHref(item.href)} className={`block py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}>
-                    {item.label}
-                  </a>
+                  {item.external ? (
+                    <a
+                      {...externalProps(item.external)}
+                      className={`block py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <a
+                      href={toHref(item.href)}
+                      className={`block py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}
+                    >
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               )
             )}

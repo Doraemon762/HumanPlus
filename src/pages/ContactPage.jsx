@@ -21,7 +21,7 @@ export default function ContactPage() {
               Contact introduction goes here.
             </p>
             <div className="mt-10">
-              <CtaLink to="/products">Explore Products</CtaLink>
+              <CtaLink to="/hardware">Explore Hardware</CtaLink>
             </div>
           </Reveal>
 

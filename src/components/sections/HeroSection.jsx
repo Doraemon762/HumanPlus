@@ -14,8 +14,8 @@ export default function HeroSection() {
     <section id="hero" className="relative h-[100vh] w-full overflow-hidden bg-black">
       <video
         className="pointer-events-none absolute inset-0 block h-full w-full object-cover"
-        src="videos/home/hero-kitchen.mp4"
-        poster="videos/home/hero-kitchen-poster.jpg"
+        src="videos/home/hero-laundry.mp4"
+        poster="videos/home/hero-laundry-poster.jpg"
         autoPlay
         muted
         loop
@@ -61,7 +61,7 @@ export default function HeroSection() {
                 - hover   : one soft specular band sweeps across the glass
                 Aspect ratio lands at 2.7–3.0 : 1 across breakpoints. */}
             <a
-              href="#/products/motion-0"
+              href="#/hardware/motion-0"
               aria-label="Motion-0"
               className="group relative inline-flex h-[42px] w-[min(42vw,158px)] shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/40 font-display backdrop-blur-[6px] transition-all duration-500 hover:-translate-y-0.5 md:h-[48px] md:w-[clamp(168px,14vw,186px)]"
               style={{
