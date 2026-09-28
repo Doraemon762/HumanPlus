@@ -10,7 +10,7 @@
  * slantEdge 'right' (Glove-0)  → right edge leans down-right
  * slantEdge 'left'  (Vision-0) → left  edge leans down-right
  */
-const RADIUS = 16 // design system §4: media 16px / cards 20px
+const RADIUS = 20 // design system §4: media 16px / cards 20px — bumped 16→20 (+25%) for softer corners; slant angle untouched
 
 function roundedPolygonPath(points, radius) {
   const n = points.length

@@ -38,7 +38,7 @@ export default function ProductsSection() {
   return (
     <section
       id="products"
-      className="relative min-h-screen bg-white py-[48px] md:flex md:items-center md:py-[56px]"
+      className="relative min-h-screen bg-gradient-to-b from-white to-[#E5E5E5] py-[48px] md:flex md:items-center md:py-[56px]"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
         <div className="space-y-5 md:space-y-6">

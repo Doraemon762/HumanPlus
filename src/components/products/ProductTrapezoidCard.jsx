@@ -6,12 +6,13 @@ import { trapezoidPath } from './trapezoidPath'
  * Trapezoid product card — white glass plate with a hairline stroke and
  * the exact "\ \" silhouette (see trapezoidPath.js).
  *
- * Layout: the enlarged product name sits on the LEFT in brand blue
- * (turns white on hover); the keyed-out product image sits on the
- * RIGHT, contained, right-aligned and enlarged. On hover a brand-blue
- * wash fades in *inside the trapezoid outline only* — so the whole
- * plate turns #5A9CFC while the image keeps its own colours, the name
- * turns white, and the image eases into a 1.05 scale.
+ * Layout (unchanged): enlarged product name on the LEFT (brand-blue →
+ * light-blue gradient), keyed-out product image on the RIGHT.
+ *
+ * Hover: a single soft brand-blue/white sheen sweeps across the plate
+ * once (see `.sheen-bar` in index.css). The sheen layer is clipped to
+ * the trapezoid outline via `clip-path: path()`, so it never spills
+ * outside the shape. No full-plate blue fill, no lift, no colour shift.
  *
  * slantEdge 'right' → Glove-0 (left card),  right edge leans down-right
  * slantEdge 'left'  → Vision-0 (right card), left edge leans down-right
@@ -46,11 +47,9 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
     <a
       ref={ref}
       href={toHref(product.href)}
-      className="group relative block h-[200px] transition-transform duration-300 hover:-translate-y-[2px] md:h-[210px]"
+      className="group relative block h-[200px] md:h-[210px]"
     >
-      {/* Glass plate: white body + hairline stroke + very soft shadow.
-          A second, brand-coloured path sits on top with opacity 0 and
-          fades in on hover — confined to the trapezoid outline. */}
+      {/* Glass plate: white body + hairline stroke + very soft shadow. */}
       <div className="glass-plate absolute inset-0">
         {path && (
           <svg width={size.w} height={size.h} viewBox={`0 0 ${size.w} ${size.h}`} className="block" aria-hidden="true">
@@ -65,36 +64,40 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
               fill={`url(#${gradientId})`}
               stroke="rgba(17,17,17,0.10)"
               strokeWidth="1"
-              className="transition-[stroke] duration-300 group-hover:stroke-brandLine"
-            />
-            <path
-              d={path}
-              fill="#5A9CFC"
-              className="opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
           </svg>
         )}
       </div>
 
-      {/* Product image: keyed-out PNG, right side, enlarged, contained,
-          right-aligned. Above the glass but below the text. */}
+      {/* Product image: keyed-out PNG, right side, enlarged, contained. */}
       {product.image && (
         <img
           src={product.image}
           alt={product.name}
           loading="lazy"
           decoding="async"
-          className="pointer-events-none absolute right-0 top-1/2 z-[1] h-[88%] w-[56%] -translate-y-1/2 object-contain object-right transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+          className="pointer-events-none absolute right-0 top-1/2 z-[1] h-[88%] w-[56%] -translate-y-1/2 object-contain object-right"
         />
       )}
 
-      {/* Title: left side, enlarged, brand blue → white on hover */}
+      {/* Hover sheen — clipped to the trapezoid outline so it never
+          spills outside the plate. Sits above the image (z-1) but below
+          the title/tag (z-10). */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[5]"
+        style={path ? { clipPath: `path('${path}')` } : undefined}
+        aria-hidden="true"
+      >
+        <span className="sheen-bar" />
+      </div>
+
+      {/* Title: left side, enlarged, brand blue → light-blue gradient. */}
       <div className="absolute left-7 top-1/2 z-10 max-w-[42%] -translate-y-1/2 md:left-9">
-        <h3 className="text-4xl font-bold tracking-tight text-brand transition-colors duration-300 group-hover:text-white md:text-5xl">
+        <h3 className="text-4xl font-bold tracking-tight bg-gradient-to-b from-[#5A9CFC] to-[#8BB9FF] bg-clip-text text-transparent md:text-5xl">
           {product.name}
         </h3>
         {product.tag && (
-          <span className="mt-3 inline-flex w-fit items-center rounded-full bg-brand px-3 py-1 text-[11px] font-medium tracking-wide text-white transition-colors duration-300 group-hover:bg-white group-hover:text-brand md:px-4 md:py-1.5 md:text-xs">
+          <span className="mt-3 inline-flex w-fit items-center rounded-full bg-brand px-3 py-1 text-[11px] font-medium tracking-wide text-white md:px-4 md:py-1.5 md:text-xs">
             {product.tag}
           </span>
         )}
