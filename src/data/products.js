@@ -34,8 +34,9 @@ export const products = [
     subtitle: null,
     layout: 'trapezoid',
     href: '/hardware/glove-0',
-    description: 'Product description goes here.',
-    image: null,
+    description:
+      'A wearable sensing glove for capturing precise human hand movements and interaction data, empowering dexterous robot learning.',
+    image: 'images/products/glove-0-showcase.png',
   },
   {
     id: 'vision-0',
@@ -43,8 +44,9 @@ export const products = [
     subtitle: null,
     layout: 'trapezoid',
     href: '/hardware/vision-0',
-    description: 'Product description goes here.',
-    image: null,
+    description:
+      'A wearable stereo vision system with dual cameras for capturing first-person visual data, enabling multimodal data collection for embodied AI.',
+    image: 'images/products/vision-0-v3.png',
   },
   {
     id: 'motion-strap',

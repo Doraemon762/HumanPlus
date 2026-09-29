@@ -1,6 +1,8 @@
 import PageHeader from '../components/layout/PageHeader'
 import MotionZeroHero from '../components/products/MotionZeroHero'
 import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
+import GloveZeroHero from '../components/products/GloveZeroHero'
+import VisionZeroHero from '../components/products/VisionZeroHero'
 import useSectionSnap from '../hooks/useSectionSnap'
 import { findProduct } from '../data/products'
 
@@ -22,6 +24,8 @@ export default function ProductDetailPage({ id }) {
   }
 
   const isMotionZero = product.id === 'motion-0'
+  const isGloveZero = product.id === 'glove-0'
+  const isVisionZero = product.id === 'vision-0'
 
   // Motion-0 drives its own full-screen section snap; other product pages
   // never expose these ids, so the hook is a no-op there.
@@ -34,6 +38,10 @@ export default function ProductDetailPage({ id }) {
           <MotionZeroHero />
           <MotionZeroFeatures />
         </>
+      ) : isGloveZero ? (
+        <GloveZeroHero product={product} />
+      ) : isVisionZero ? (
+        <VisionZeroHero product={product} />
       ) : (
         <PageHeader label="Hardware" title={product.name} description={product.description} />
       )}
