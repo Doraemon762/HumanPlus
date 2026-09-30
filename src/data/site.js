@@ -42,12 +42,6 @@ export const nav = [
   {
     label: 'Solutions',
     href: '/solutions',
-    children: [
-      { label: 'SOP', href: '/solutions/sop' },
-      { label: 'Laplace', href: '/solutions/laplace' },
-      { label: 'Xiamen Luyan Pharmaceutical', href: '/solutions/luyan' },
-      { label: 'Yamaha', href: '/solutions/yamaha' },
-    ],
   },
   { label: 'Contact', href: '/contact' },
 ]

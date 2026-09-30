@@ -9,7 +9,6 @@ import ResearchPage from './pages/ResearchPage'
 import RobotPage from './pages/RobotPage'
 import NewsPage from './pages/NewsPage'
 import SolutionsPage from './pages/SolutionsPage'
-import SolutionDetailPage from './pages/SolutionDetailPage'
 import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ApplicationPage from './pages/ApplicationPage'
@@ -19,7 +18,7 @@ import ApplicationPage from './pages/ApplicationPage'
    /products              product index
    /products/:id          product detail
    /robot                 robot overview
-   /research  /news  /solutions  /solutions/:id  /contact
+   /research  /news  /solutions  /contact
    Hash routing (no react-router) keeps every deep link refresh-safe
    on GitHub Pages — see src/hooks/useHashRoute.js. */
 function renderRoute(path) {
@@ -34,7 +33,6 @@ function renderRoute(path) {
   if (path === '/robot') return <RobotPage />
   if (path === '/news') return <NewsPage />
   if (path === '/solutions') return <SolutionsPage />
-  if (path.startsWith('/solutions/')) return <SolutionDetailPage id={path.slice('/solutions/'.length)} />
   if (path === '/contact') return <ContactPage />
   return <NotFoundPage />
 }
