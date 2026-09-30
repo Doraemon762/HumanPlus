@@ -3,7 +3,7 @@
    - 100vw × 100vh, object-fit: cover, no black bars.
    - Muted autoplay loop (playsInline for mobile autoplay).
    - Poster frame for instant first paint before the video buffers.
-   - Lower-left editorial copy in the display face (庞门正道标题体).
+   - Lower-left editorial copy in the display face (default sans-serif).
    - CTA: capsule slider — a recessed frosted track that a brand-blue
      thumb sweeps across on hover, neumorphic rim + sheen.
    - Readability: layered text-shadow + very soft bottom-left scrim

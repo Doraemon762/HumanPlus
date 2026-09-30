@@ -26,16 +26,17 @@ export const nav = [
       { label: 'Motion-Strap', href: '/hardware/motion-strap' },
       { label: 'Glove-0', href: '/hardware/glove-0' },
       { label: 'Vision-0', href: '/hardware/vision-0' },
+      { label: 'Application', href: '/application' },
     ],
   },
   {
     // Data + Dataset both point at the same external HumanPlus1000 site.
+    // Application was moved under Hardware (kept its /application route).
     label: 'Data',
     href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
     external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
     children: [
       { label: 'Dataset', href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/', external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/' },
-      { label: 'Application', href: '/application' },
     ],
   },
   { label: 'Research', href: '/research' },

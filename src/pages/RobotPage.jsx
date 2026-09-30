@@ -140,7 +140,7 @@ export default function RobotPage() {
         />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col items-center justify-center px-6 pb-12 text-center lg:px-10">
-          {/* Brand tagline — PangMen display face, large one-line headline in soft #333 */}
+          {/* Brand tagline — display face (default sans-serif), large one-line headline in soft #333 */}
           <Reveal
             as="p"
             delay={1}

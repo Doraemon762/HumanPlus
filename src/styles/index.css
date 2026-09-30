@@ -1,21 +1,7 @@
-/* ── Display face: 庞门正道标题体 (free build) ───────────────────
-   Source TTF copied to src/assets/fonts/ so Vite fingerprints it and
-   rewrites the URL against `base` — a hand-written /fonts/... path in
-   `public/` would break on GitHub Pages' /HumanPlus/ sub-path.
-   The face ships ONE weight, declared as a single `font-weight: 400`
-   rather than a 100–900 range on purpose: a wide range makes the
-   browser believe the file covers 700 as well, so `font-bold` renders
-   silently un-bolded. Scoped to 400, a 700 request falls outside the
-   face and the browser synthesises real bold.
-   The glyphs are already cut on a slant, so callers must NOT stack
-   `font-style: italic` on top of it (that would oblique it twice). */
-@font-face {
-  font-family: 'PangMenTitle';
-  src: url('../assets/fonts/pangmen-title.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* ── Editorial display face ───────────────────────────────────────
+   The bespoke "庞门正道标题体" TTF was removed; the `font-display`
+   utility now resolves to the project's default sans-serif stack
+   (see `display` in tailwind.config.js). No custom face is loaded. */
 
 @media (max-width: 900px) {
   .m0-hero-grid {
@@ -241,46 +227,61 @@
       0 12px 24px -16px rgb(var(--brand-rgb) / 0.28);
   }
 
-  /* ── Product card hover sheen ───────────────────────────────
-     A single soft brand-blue → white light band sweeps across the
-     plate once on hover (see Product*Card components). No full-plate
-     blue fill, no lift, no colour shift. The band is clipped by the
-     card bounds: the Featured plate uses overflow-hidden + radius,
-     the trapezoid plates use clip-path: path() — so it never spills
-     outside the shape. It sits above the imagery (z-index 5) but below
-     the title/tag (z-10), so text and buttons stay readable & clickable. */
-  .sheen-bar {
+  /* ── Application flow module: Human → Data → Learning → Robot ──
+     A continuous data-flow track behind the four stage nodes. The track
+     line itself is static (a faint brand gradient); only the travelling
+     dots animate. Reduced-motion users see the static line + nodes and
+     can still read the full pipeline. */
+  .appflow-dot-x,
+  .appflow-dot-y {
     position: absolute;
-    top: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: rgb(var(--brand-rgb));
+    box-shadow: 0 0 8px rgb(var(--brand-rgb) / 0.7);
+  }
+  .appflow-dot-x {
+    top: 50%;
     left: 0;
-    width: 55%;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
-    background: linear-gradient(
-      105deg,
-      transparent 0%,
-      rgba(139, 185, 255, 0) 22%,
-      rgba(139, 185, 255, 0.28) 40%,
-      rgba(90, 156, 252, 0.42) 54%,
-      rgba(255, 255, 255, 0.62) 68%,
-      rgba(139, 185, 255, 0) 82%,
-      transparent 100%
-    );
-    transform: translateX(-180%);
-    will-change: transform;
+    margin-top: -3.5px;
+    animation: appflow-x 3s linear infinite;
   }
-  .group:hover .sheen-bar {
-    animation: sheen-sweep 0.85s ease-out;
+  .appflow-dot-y {
+    left: 50%;
+    top: 0;
+    margin-left: -3.5px;
+    animation: appflow-y 3s linear infinite;
   }
-  @keyframes sheen-sweep {
-    0% { transform: translateX(-180%); }
-    100% { transform: translateX(220%); }
+  @keyframes appflow-x {
+    0% { left: 0%; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
   }
+  @keyframes appflow-y {
+    0% { top: 0%; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  /* Gentle pulse for the central "Human Data" convergence node. */
+  .appflow-pulse {
+    animation: appflow-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes appflow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .group:hover .sheen-bar {
+    .appflow-dot-x,
+    .appflow-dot-y {
+      animation: none;
+      opacity: 0;
+    }
+    .appflow-pulse {
       animation: none;
     }
   }
-
 }

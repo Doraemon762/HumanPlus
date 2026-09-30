@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
    brightness. It snaps as its own viewport in the
    Hero ⇄ About ⇄ Products ⇄ Robotics hand-off (see useSectionSnap). */
 
-const VIDEO_SRC = 'videos/robotics/robotics-laundry.mp4'
+const VIDEO_SRC = 'videos/robotics/kitchen-v3.mp4'
 
 /**
  * Autoplaying background clip — same contract as the HumanPlus-1000

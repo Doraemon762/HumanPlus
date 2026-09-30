@@ -37,10 +37,10 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
-        /* Hero / editorial display face. Falls back to Inter, so any
-           string rendered in `font-display` keeps its metrics if the
-           TTF fails to load. */
-        display: ['PangMenTitle', 'Inter', 'system-ui', 'sans-serif'],
+        /* Editorial display face — resolves to the project's default
+           sans-serif (Inter) stack. The bespoke "庞门正道标题体" face was
+           removed; `font-display` callers now use the standard sans. */
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

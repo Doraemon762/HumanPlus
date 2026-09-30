@@ -9,10 +9,10 @@ import { trapezoidPath } from './trapezoidPath'
  * Layout (unchanged): enlarged product name on the LEFT (brand-blue →
  * light-blue gradient), keyed-out product image on the RIGHT.
  *
- * Hover: a single soft brand-blue/white sheen sweeps across the plate
- * once (see `.sheen-bar` in index.css). The sheen layer is clipped to
- * the trapezoid outline via `clip-path: path()`, so it never spills
- * outside the shape. No full-plate blue fill, no lift, no colour shift.
+ * Hover: a single, subtle scale-up of the whole card (scale 1.02 with a
+ * ~0.3s ease-out transition). No sheen / glow / glint — the glass plate
+ * keeps its white body + hairline stroke, the title keeps its blue
+ * gradient and the tag stays blue-filled.
  *
  * slantEdge 'right' → Glove-0 (left card),  right edge leans down-right
  * slantEdge 'left'  → Vision-0 (right card), left edge leans down-right
@@ -47,7 +47,7 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
     <a
       ref={ref}
       href={toHref(product.href)}
-      className="group relative block h-[200px] md:h-[210px]"
+      className="group relative block h-[200px] transition-transform duration-300 ease-out hover:scale-[1.02] md:h-[210px]"
     >
       {/* Glass plate: white body + hairline stroke + very soft shadow. */}
       <div className="glass-plate absolute inset-0">
@@ -79,17 +79,6 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
           className="pointer-events-none absolute right-0 top-1/2 z-[1] h-[88%] w-[56%] -translate-y-1/2 object-contain object-right"
         />
       )}
-
-      {/* Hover sheen — clipped to the trapezoid outline so it never
-          spills outside the plate. Sits above the image (z-1) but below
-          the title/tag (z-10). */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[5]"
-        style={path ? { clipPath: `path('${path}')` } : undefined}
-        aria-hidden="true"
-      >
-        <span className="sheen-bar" />
-      </div>
 
       {/* Title: left side, enlarged, brand blue → light-blue gradient. */}
       <div className="absolute left-7 top-1/2 z-10 max-w-[42%] -translate-y-1/2 md:left-9">

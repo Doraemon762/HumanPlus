@@ -6,11 +6,10 @@ import { toHref } from '../../hooks/useHashRoute'
  * Layout (unchanged): left = enlarged product name in a brand-blue →
  * light-blue gradient; right = product showcase triptych.
  *
- * Hover: a single soft brand-blue/white sheen sweeps across the plate
- * once (see `.sheen-bar` in index.css). The glass plate stays white at
- * rest and on hover — no full-plate blue fill, no lift, no colour
- * shift, so the title keeps its blue gradient and the tag stays
- * blue-filled.
+ * Hover: a single, subtle scale-up of the whole card (scale 1.02 with a
+ * ~0.3s ease-out transition). No sheen / glow / glint — the plate stays
+ * white at rest and on hover, the title keeps its blue gradient and the
+ * tag stays blue-filled.
  */
 export default function FeaturedProductCard({ product }) {
   const gallery = product.images && product.images.length
@@ -22,7 +21,7 @@ export default function FeaturedProductCard({ product }) {
   return (
     <a
       href={toHref(product.href)}
-      className="group block"
+      className="group block transition-transform duration-300 ease-out hover:scale-[1.02]"
     >
       <div className="relative flex aspect-[16/10] items-center overflow-hidden rounded-[20px] border border-black/[0.08] bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)] backdrop-blur-[12px] md:aspect-[3.4/1]">
         {/* Left: product name + capability tag */}
@@ -52,9 +51,6 @@ export default function FeaturedProductCard({ product }) {
             ))}
           </div>
         )}
-
-        {/* Hover sheen — clipped by the card's overflow-hidden + radius */}
-        <span className="sheen-bar" aria-hidden="true" />
       </div>
     </a>
   )

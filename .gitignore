@@ -46,3 +46,7 @@ _preview_dist/
 
 # Transient ffmpeg/python pkg cache
 .tmp_ffmpeg_pkgs/
+
+# Local large source copy of the 4K demo video (original, pre-compression).
+# Only the compressed web version (human-demo-1-1080.mp4) is committed.
+public/videos/demo/human-demo-1.mp4
