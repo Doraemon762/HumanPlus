@@ -1,0 +1,205 @@
+html.research-snap-active {
+  scroll-padding-top: 64px;
+  scroll-snap-type: y mandatory;
+}
+
+/* Keep the dark treatment local to the combined About / Research route. */
+html.research-snap-active nav {
+  border-color: rgb(255 255 255 / 0.1) !important;
+  background: rgb(8 10 15 / 0.88) !important;
+  color: #f5f7fb;
+}
+html.research-snap-active nav .text-ink,
+html.research-snap-active nav .text-ink\/70 { color: rgb(245 247 251 / 0.72) !important; }
+html.research-snap-active nav .hover\:text-ink:hover { color: #f5f7fb !important; }
+html.research-snap-active nav .border-black\/5 { border-color: rgb(255 255 255 / 0.1) !important; }
+html.research-snap-active nav .bg-white,
+html.research-snap-active nav .bg-white\/80 { background: rgb(8 10 15 / 0.95) !important; }
+
+.company-research-page { background: #07090d; color: #f5f7fb; }
+
+.company-about-panel {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background:
+    radial-gradient(70vw 52vh at 10% 100%, rgb(90 156 252 / 0.2), transparent 72%),
+    radial-gradient(44vw 42vh at 92% 8%, rgb(255 255 255 / 0.045), transparent 72%),
+    linear-gradient(180deg, #090c12 0%, #05070a 72%, #080b11 100%);
+}
+
+.company-about-glow {
+  position: absolute;
+  right: -18rem;
+  bottom: -24rem;
+  width: 46rem;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: rgb(90 156 252 / 0.12);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.company-particle-logo {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.company-about-content {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(18px);
+  pointer-events: none;
+  transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1), filter 900ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.company-about-content.is-visible { opacity: 1; filter: blur(0); transform: translateY(0); pointer-events: auto; }
+
+.research-about-title {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.18em;
+  color: #fff;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  font-weight: 650;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+.research-about-label { flex: 0 0 auto; color: #fff; font-weight: 560; }
+.research-about-stroke-word {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: transparent;
+  font-size: 0.94em;
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  -webkit-text-stroke: 1.35px #5a9cfc;
+  transform: translateY(0.015em) scale(1.04);
+  transform-origin: left bottom;
+}
+.company-about-copy { width: calc(100% - clamp(16rem, 25vw, 24rem)); max-width: 68rem; }
+.company-about-copy p { color: rgb(245 247 251 / 0.68); font-size: 1.125rem; line-height: 1.85; }
+
+.research-blue-white-fill {
+  color: transparent;
+  background: linear-gradient(180deg, #5a9cfc 0%, #76adf6 38%, #b9d7fb 68%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 8px 18px rgb(75 137 221 / 0.1));
+}
+
+.research-timeline-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background:
+    radial-gradient(62vw 46vh at 86% 2%, rgb(90 156 252 / 0.15), transparent 76%),
+    linear-gradient(180deg, #090c12 0%, #05070a 18%, #080b10 100%);
+}
+.research-timeline { position: relative; }
+.research-timeline::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 88px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgb(255 255 255 / 0.18) 8%, rgb(255 255 255 / 0.1) 92%, transparent);
+}
+.research-timeline-progress {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  left: 88px;
+  width: 2px;
+  height: 28px;
+  max-height: calc(100% - 2rem);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(90 156 252 / 0.16), #5a9cfc 22%, #91bff8 100%);
+  box-shadow: 0 0 14px rgb(90 156 252 / 0.22);
+}
+.research-timeline-slider { position: absolute; z-index: 7; left: 0; top: 21px; width: 105px; height: 44px; pointer-events: none; will-change: top; }
+.research-timeline-slider-year {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72px;
+  border: 1px solid rgb(255 255 255 / 0.9);
+  border-radius: 11px;
+  padding: 0.72rem 0.6rem;
+  color: #fff;
+  background: linear-gradient(135deg, #5a9cfc, #79b0f7 58%, #a8cefb);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.42), 0 14px 28px -17px rgb(67 130 218 / 0.68);
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 750;
+  line-height: 1;
+  text-align: center;
+  animation: research-year-change 240ms ease-out both;
+}
+.research-timeline-slider-dot { position: absolute; top: 50%; left: 88px; width: 17px; height: 17px; border: 4px solid rgb(255 255 255 / 0.96); border-radius: 999px; background: #5a9cfc; box-shadow: 0 0 0 5px rgb(90 156 252 / 0.14), 0 8px 22px rgb(61 126 222 / 0.28); transform: translate(-50%, -50%); }
+@keyframes research-year-change { from { opacity: 0.28; filter: blur(3px); transform: translateY(-4px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+
+.research-timeline-item { position: relative; padding-left: 126px; margin-bottom: clamp(4rem, 9vw, 8rem); scroll-margin-top: 88px; scroll-snap-align: start; scroll-snap-stop: always; }
+.research-timeline-item.is-first { scroll-snap-align: none; }
+.research-timeline-item:last-child { margin-bottom: 0; }
+.research-timeline-card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.11);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgb(23 29 40 / 0.92), rgb(8 11 17 / 0.82));
+  box-shadow: 0 30px 70px -36px rgb(0 0 0 / 0.95), inset 0 1px 0 rgb(255 255 255 / 0.09);
+  backdrop-filter: blur(22px) saturate(1.1);
+  transition: transform 620ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 620ms ease;
+}
+.research-timeline-card:hover { transform: translateY(-7px); box-shadow: 0 42px 82px -36px rgb(0 0 0 / 0.98), 0 18px 38px -24px rgb(90 156 252 / 0.34); }
+.research-timeline-media { min-height: 0; aspect-ratio: 16 / 9; align-self: center; overflow: hidden; background: #080b11; }
+.research-timeline-media img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform 760ms cubic-bezier(0.22, 0.61, 0.36, 1), filter 520ms ease; }
+.research-timeline-card:hover .research-timeline-media img { transform: scale(1.025); filter: saturate(1.03) brightness(1.015); }
+.research-timeline-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: clamp(1.5rem, 2.8vw, 3rem); }
+.research-venue { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.69rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(245 247 251 / 0.45); }
+.research-highlight { margin-top: 1rem; color: #5a9cfc; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; }
+.research-timeline-copy h3 { margin-top: 1.25rem; color: #f5f7fb; font-size: clamp(1.5rem, 2.4vw, 1.875rem); font-weight: 650; line-height: 1.25; letter-spacing: -0.025em; }
+.research-description { margin-top: 1.25rem; color: rgb(245 247 251 / 0.62); font-size: 1rem; line-height: 1.8; }
+.research-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.75rem; }
+.research-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.62rem 0.85rem 0.62rem 1rem;
+  color: #9bc6ff;
+  background: linear-gradient(145deg, rgb(19 25 36 / 0.98), rgb(9 13 20 / 0.96)) padding-box, linear-gradient(115deg, #5a9cfc 0%, #9bc6ff 38%, #fff 63%, #7eb5fa 100%) border-box;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07), 0 12px 26px -20px rgb(0 0 0 / 0.95);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+.research-link-button:hover { color: #fff; background: linear-gradient(145deg, rgb(21 28 40 / 0.98), rgb(10 15 23 / 0.96)) padding-box, linear-gradient(115deg, rgb(90 156 252 / 0.34), rgb(255 255 255 / 0.2), rgb(126 181 250 / 0.3)) border-box; }
+.research-link-arrow { color: #91bff8; font-size: 1.35rem; font-weight: 900; line-height: 1; }
+
+@media (max-width: 767px) {
+  .company-about-panel { min-height: auto; }
+  .company-about-copy { width: 100%; }
+  .company-about-copy p { font-size: 1rem; }
+  .research-about-title { flex-wrap: wrap; gap: 0.06em 0; }
+  .research-about-stroke-word { flex-basis: 100%; transform: none; }
+  .research-timeline::before, .research-timeline-progress, .research-timeline-slider-dot { left: 8px; }
+  .research-timeline-slider-year { left: 30px; }
+  .research-timeline-item { padding-top: 46px; padding-left: 30px; }
+  .research-timeline-card { grid-template-columns: 1fr; border-radius: 22px; }
+  .research-timeline-media { min-height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-about-content { transition: none; }
+  .research-timeline-card, .research-timeline-media img { transition: none; }
+}
