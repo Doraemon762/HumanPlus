@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import ParticleLogo from '../components/ui/ParticleLogo'
 import BorderGlow from '../components/ui/BorderGlow'
+import AboutTimelineSection from '../components/sections/AboutTimelineSection'
 import { research } from '../data/research'
 import '../styles/research-dark.css'
 
@@ -141,6 +142,7 @@ export default function ResearchPage() {
           </div>
         </div>
       </section>
+      <AboutTimelineSection />
     </div>
   )
 }
