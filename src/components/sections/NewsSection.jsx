@@ -6,7 +6,6 @@ const FEATURED = {
   title:
     'Embodied AI Frontier Covers the Launch of HUMANPLUS-1000, a 1,000-Hour WBI Dataset',
   date: 'September 14, 2026',
-  source: '具身智能之心',
   // import.meta.env.BASE_URL is './' (vite base) — resolves correctly under
   // the GitHub Pages sub-path /HumanPlus/.
   image: `${import.meta.env.BASE_URL}images/news/featured-news.png`,
@@ -58,13 +57,9 @@ export default function NewsSection() {
               </div>
             </div>
 
-            {/* right — source · title · date · excerpt · read more */}
+            {/* right — title · date · excerpt · read more */}
             <div className="flex flex-col">
-              <span className="inline-flex w-fit items-center rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-medium text-brand">
-                {n.source}
-              </span>
-
-              <h3 className="mt-5 text-[clamp(1.4rem,2.6vw,2.1rem)] font-bold leading-[1.25] tracking-tight text-ink">
+              <h3 className="text-[clamp(1.4rem,2.6vw,2.1rem)] font-bold leading-[1.25] tracking-tight text-ink">
                 {n.title}
               </h3>
 
