@@ -40,8 +40,8 @@ export default function MotionZeroFeatures() {
             </div>
             <img
               className="m0-battery-cells"
-              src={`${ASSET}/battery-cells.png`}
-              alt="Motion-0 battery modules"
+              src={`${ASSET}/battery-pack-blue.png`}
+              alt="Motion-0 pocket battery pack"
             />
             <div className="m0-battery-visual" aria-hidden="true">
               <img src={`${ASSET}/battery-beige-hd.png`} alt="" />
@@ -73,7 +73,7 @@ export default function MotionZeroFeatures() {
             <div className="m0-bento-copy">
               <p className="m0-gradient-text m0-metric">&lt;1CM</p>
               <h3>Tracking Accuracy</h3>
-              <p className="m0-description">Full-body tracking<br />For teleoperation</p>
+              <p className="m0-description">Precise full-body tracking<br />Accurate motion reconstruction</p>
             </div>
             <div className="m0-accuracy-pics">
               <img src={`${ASSET}/tracking-person.jpg`} alt="Human motion capture" />
