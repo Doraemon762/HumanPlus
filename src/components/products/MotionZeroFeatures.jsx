@@ -76,7 +76,6 @@ export default function MotionZeroFeatures() {
               <p className="m0-description">Full-body tracking<br />For teleoperation</p>
             </div>
             <div className="m0-accuracy-pics">
-              <span className="m0-accuracy-note">采数据照片+smpl图</span>
               <img src={`${ASSET}/tracking-person.jpg`} alt="Human motion capture" />
               <img src={`${ASSET}/tracking-robot.jpg`} alt="Robot reproducing the captured motion" />
             </div>

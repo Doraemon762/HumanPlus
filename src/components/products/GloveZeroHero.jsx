@@ -1,5 +1,8 @@
 import Reveal from '../ui/Reveal'
 import CtaLink from '../ui/CtaLink'
+import GloveZeroFeatures from './GloveZeroFeatures'
+import { GloveZeroHardwareSpecs, GloveZeroAccuracy } from './GloveZeroSpecs'
+import '../../styles/v0-g0-panels.css'
 
 /* Glove-0 hero — light, high-end hardware layout: 45% product copy on
    the left, 55% product visual on the right, floating in a soft grey
@@ -10,8 +13,9 @@ export default function GloveZeroHero({ product }) {
   const image = product.image || 'images/products/glove-0-showcase.png'
 
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-white to-[#F5F5F5] pt-16 font-sans">
-      <div className="mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-10 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:px-10">
+    <>
+      <section id="g0-hero" className="g0-panel relative isolate flex min-h-[100dvh] items-center overflow-hidden bg-gradient-to-b from-white via-white to-[#F5F5F5] pt-16 font-sans">
+      <div className="g0-panel-inner mx-auto grid w-full max-w-7xl content-center items-center gap-12 px-6 py-10 lg:grid-cols-[45fr_55fr] lg:gap-10 lg:px-10">
         {/* ── Left: kicker → name → intro → CTA ── */}
         <div className="relative z-[1] -translate-y-2 lg:-translate-y-4">
           <Reveal
@@ -56,5 +60,17 @@ export default function GloveZeroHero({ product }) {
         </div>
       </div>
     </section>
+
+      {/* NEW — capability showcase (3 cards). A SIBLING of the hero
+          section, so the hero's gradient / overflow-hidden are untouched.
+          Last module on the page, above the global Footer. */}
+      <GloveZeroFeatures />
+
+      {/* NEW — technical spec panels (Hardware & Communication, then
+          6-IMU accuracy + evaluation definition). Same .g0-panel treatment,
+          so they join the page's full-screen snap sequence. */}
+      <GloveZeroHardwareSpecs />
+      <GloveZeroAccuracy />
+    </>
   )
 }
