@@ -1,4 +1,5 @@
 import Reveal from '../ui/Reveal'
+import '../../styles/v0-g0-panels.css'
 
 /* Vision-0 specification — the SECOND full-screen panel of the Vision-0
    page (id="v0-spec", snaps after id="v0-hero" via the shared

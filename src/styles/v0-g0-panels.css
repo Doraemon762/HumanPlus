@@ -1,56 +1,52 @@
-/* Full-screen panel transitions — Vision-0 & Glove-0 ONLY.
-   Scoped entirely to `.v0-panel` / `.g0-panel` class names so no other
-   route (Home, Hardware, Motion-0, Research, Application, …) can be
-   affected. Imported by the two product components only.
+/* Full-screen panel presentation — Vision-0 & Glove-0 ONLY.
+   Scoped to `.v0-panel` / `.g0-panel` so no other route can be affected.
 
-   Why JS (useSectionSnap) instead of CSS scroll-snap:
-   the project already uses the shared `useSectionSnap` hook for full-screen
-   hand-offs (see ProductDetailPage.jsx). It gives a controlled ~1s eased
-   transition and ignores rapid flicks, which CSS `scroll-snap-type` cannot.
-   So this file only supplies the *visual* half: a restrained, GPU-cheap
-   fade/scale on each panel's content as it enters and leaves the viewport.
+   ── How the transition works now ───────────────────────────────────────
+   JS (useFullPageSections) performs ONE instant scrollTo per gesture — it
+   does not animate. All motion lives here, in CSS:
 
-   Restraint is the point — a 6px rise + 0.5% scale + 0.985→1 opacity over
-   700ms. No rotation, no 3D, no parallax, no particles, no glow. */
+     • the page itself cross-fades / rises via the `enter` animation on the
+       panel inner content, retriggered by toggling the `is-entering` class;
+     • everything else stays still, so the eye reads it as one clean cut.
+
+   The animation is intentionally short and small (600ms, 10px, no scale on
+   the text) so repeated section changes never feel slow in either direction
+   — the previous JS-animated version took 1000ms and made upward scrolling
+   feel sluggish. */
 
 .v0-panel,
 .g0-panel {
-  /* Panels are viewport-sized; dvh keeps them fully visible under mobile
-     browser chrome (address bar). vh is kept as the fallback for old
-     engines, dvh wins where supported. */
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100dvh; /* keeps content clear of mobile browser chrome */
   width: 100%;
 }
 
-/* Content layer inside each panel — this is what actually animates. */
 .v0-panel-inner,
 .g0-panel-inner {
-  transition:
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  will-change: transform, opacity;
 }
 
-/* Default (panel in view): full presence. */
-.v0-panel-inner,
-.g0-panel-inner {
-  opacity: 1;
-  transform: none;
+/* Entering a section: a short, restrained fade + rise. */
+.v0-panel-inner.is-entering,
+.g0-panel-inner.is-entering {
+  animation: vg-panel-enter 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Leaving / not yet arrived: slightly dimmed and a hair lower — barely
-   perceptible, but it gives the cut a cinematic feel. */
-html.vg-snap-leaving .v0-panel-inner,
-html.vg-snap-leaving .g0-panel-inner {
-  opacity: 0.985;
-  transform: translateY(6px);
+@keyframes vg-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* Respect reduced-motion: keep the snap, drop the animation. */
+/* Respect reduced-motion: instant, no motion. The JS pager still works. */
 @media (prefers-reduced-motion: reduce) {
-  .v0-panel-inner,
-  .g0-panel-inner {
-    transition: none;
+  .v0-panel-inner.is-entering,
+  .g0-panel-inner.is-entering {
+    animation: none;
   }
 }
