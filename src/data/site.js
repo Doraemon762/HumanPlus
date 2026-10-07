@@ -6,8 +6,8 @@
 
 export const site = {
   nameEn: 'HumanPlus',
-  nameZh: '人一智能',
-  logo: 'images/logo/logo.png', // relative, no leading slash — portable under base './'
+  nameZh: 'HumanPlus',
+  logo: 'images/logo/logo-full.png', // relative, no leading slash — portable under base './'
   // ⚠️ Placeholder tagline, NOT final brand copy — pending approval.
   tagline: 'Building Intelligence for Human Motion',
 }
@@ -15,7 +15,7 @@ export const site = {
 /* ── Navbar ─────────────────────────────────────────────────────────
    Every top-level item is its own ROUTE, not an anchor on the home
    page. `href` is the route path; Nav/Footer prefix it with '#' via
-   toHref(). `人一智能` appears only as the brand wordmark (allowed). */
+   toHref(). The brand is the HumanPlus wordmark logo (site.logo). */
 export const nav = [
   { label: 'Home', href: '/' },
   {
@@ -23,7 +23,7 @@ export const nav = [
     href: '/hardware',
     children: [
       { label: 'Motion-0', href: '/hardware/motion-0' },
-      { label: 'Motion-Strap', href: '/hardware/motion-strap' },
+      { label: 'Strap-0', href: '/hardware/motion-strap' },
       { label: 'Glove-0', href: '/hardware/glove-0' },
       { label: 'Vision-0', href: '/hardware/vision-0' },
       { label: 'Application', href: '/application' },

@@ -55,10 +55,9 @@ export default function Nav({ path }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
-        {/* Brand: logo left, wordmark right — real logo asset, no filters. */}
-        <a href={toHref('/')} className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <img src={site.logo} alt="HumanPlus logo" className="h-[28.8px] w-auto" />
-          <span className="text-sm font-semibold tracking-[0.2em] text-ink">人一智能</span>
+        {/* Brand: complete HumanPlus wordmark logo (no separate icon / wordmark). */}
+        <a href={toHref('/')} className="flex items-center" onClick={() => setMobileOpen(false)}>
+          <img src={site.logo} alt="HumanPlus" className="h-[28.8px] w-auto" />
         </a>
 
         {/* ── Desktop nav ── */}

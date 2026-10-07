@@ -1,110 +1,150 @@
-import Reveal from '../ui/Reveal'
-
-/* Small inline arrow (stroke = currentColor) */
-function ArrowDownSmall() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-brand" aria-hidden="true">
-      <path d="M12 5v14M6 13l6 6 6-6" />
-    </svg>
-  )
-}
+import { useEffect, useRef, useState } from 'react'
 
 /* A single labelled demo video.
-   - Uniform 16:9 frame + rounded corners + subtle grey frame background.
-   - `object-contain` so the original video ratio is preserved (no stretch,
-     no crop) — bars blend into the frame background.
-   - Native controls, preload="metadata" (no full download until played),
-     playsInline, no autoplay (perf-safe on load). */
-function VideoTile({ src, label }) {
+   - Uniform 16:9 frame + rounded corners; object-contain keeps the native
+     ratio (no stretch / crop) — bars blend into the frame background.
+   - `tone` flips the frame styling for the dark Robot Operation panel so the
+     video stays legible on black instead of washing out.
+   - Muted is forced via ref: React doesn't reliably reflect the JSX `muted`
+     attribute onto the live DOM <video>, so we set the property directly.
+     This keeps autoplay / loop silent WITHOUT touching any other page's videos. */
+function VideoTile({ src, label, tone = 'light' }) {
+  const videoRef = useRef(null)
+  useEffect(() => {
+    if (videoRef.current) videoRef.current.muted = true
+  }, [])
+  const frame =
+    tone === 'dark'
+      ? 'bg-white/5 ring-1 ring-white/15'
+      : 'bg-panel ring-1 ring-line'
+  const caption = tone === 'dark' ? 'text-white/55' : 'text-mute'
   return (
     <figure className="group">
-      <div className="relative aspect-video overflow-hidden rounded-2xl bg-panel ring-1 ring-line transition-all duration-300 group-hover:ring-brand/30 group-hover:shadow-[0_10px_40px_rgba(90,156,252,0.10)]">
+      <div className={`relative aspect-video overflow-hidden rounded-2xl transition-all duration-300 ${frame} group-hover:ring-brand/40 group-hover:shadow-[0_10px_40px_rgba(90,156,252,0.12)]`}>
         <video
+          ref={videoRef}
           src={src}
           className="h-full w-full object-contain"
           controls
+          muted
           preload="metadata"
           playsInline
         />
       </div>
-      <figcaption className="mt-3 text-center text-xs font-mono uppercase tracking-[0.18em] text-mute">
+      <figcaption className={`mt-3 text-center text-xs font-mono uppercase tracking-[0.18em] ${caption}`}>
         {label}
       </figcaption>
     </figure>
   )
 }
 
-/* Minimal descending connector between the two video groups.
-   A thin brand line + travelling dot (reuses .appflow-dot-y) and two
-   short labels — not a full flowchart. Reduced-motion users still see
-   the static line + labels. */
-function DemoConnector() {
-  return (
-    <div className="relative my-14 flex justify-center md:my-20">
-      <div className="relative flex flex-col items-center gap-3">
-        <span aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 rounded-full bg-gradient-to-b from-brand/0 via-brand/45 to-brand/0" />
-        <span aria-hidden className="appflow-dot-y" />
-        <ArrowDownSmall />
-        <span className="relative z-10 rounded-full border border-brand/30 bg-brandSoft px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.28em] text-brand">Human Data</span>
-        <ArrowDownSmall />
-        <span className="relative z-10 rounded-full border border-brand/30 bg-brandSoft px-4 py-1.5 text-[10px] font-mono uppercase tracking-[0.28em] text-brand">Robot Learning</span>
-        <ArrowDownSmall />
-      </div>
-    </div>
-  )
-}
+/* Human Demonstration uses the first two demo clips; Robot Operation uses the
+   last two. Both sets stay muted; the first Human clip keeps the
+   落地-人类踢足球.mp4 source from the earlier round. No clips are re-ordered. */
+const HUMAN_CLIPS = [
+  { src: 'videos/demo/落地-人类踢足球.mp4', label: 'Human Demonstration' },
+  { src: 'videos/demo/human-manipulation.mp4', label: 'Human Manipulation' },
+]
+const ROBOT_CLIPS = [
+  { src: 'videos/demo/robot-action.mp4', label: 'Robot Action' },
+  { src: 'videos/demo/robot-manipulation.mp4', label: 'Robot Manipulation' },
+]
 
 export default function ApplicationDemoSection() {
+  /* Two full-screen views stacked with `absolute inset-0`. Switching only
+     toggles opacity — there is NO scroll, NO scroll-snap, NO translateY slide.
+     The wheel/touch handlers act purely as a state trigger: they preventDefault
+     so the browser never actually scrolls, and only flip `active`. */
+  const [active, setActive] = useState('human')
+  const activeRef = useRef('human')
+  const lock = useRef(false)
+  const rootRef = useRef(null)
+
+  useEffect(() => {
+    const switchTo = (next) => {
+      if (activeRef.current === next || lock.current) return
+      activeRef.current = next
+      setActive(next)
+      // brief cooldown so one gesture = one switch, not a rapid fire
+      lock.current = true
+      setTimeout(() => {
+        lock.current = false
+      }, 600)
+    }
+
+    const root = rootRef.current
+    const onWheel = (e) => {
+      e.preventDefault()
+      if (lock.current) return
+      if (e.deltaY > 0) switchTo('robot')
+      else if (e.deltaY < 0) switchTo('human')
+    }
+    // touch: swipe up -> robot, swipe down -> human (passive, no preventDefault
+    // so video controls stay usable on mobile)
+    let touchStartY = 0
+    const onTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY
+    }
+    const onTouchEnd = (e) => {
+      const dy = touchStartY - e.changedTouches[0].clientY
+      if (Math.abs(dy) < 40) return
+      if (dy > 0) switchTo('robot')
+      else switchTo('human')
+    }
+
+    root.addEventListener('wheel', onWheel, { passive: false })
+    root.addEventListener('touchstart', onTouchStart, { passive: true })
+    root.addEventListener('touchend', onTouchEnd, { passive: true })
+    return () => {
+      root.removeEventListener('wheel', onWheel)
+      root.removeEventListener('touchstart', onTouchStart)
+      root.removeEventListener('touchend', onTouchEnd)
+    }
+  }, [])
+
   return (
-    <section className="relative bg-paper2 py-20 md:py-28" aria-label="Human to robot demo showcase">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-        {/* heading */}
-        <Reveal as="p" className="text-xs font-mono uppercase tracking-[0.3em] text-mute">
-          Human Demonstration → Robot Learning → Robotic Action
-        </Reveal>
-        <Reveal as="h2" delay={1} className="mt-4 font-black tracking-tight leading-[1.1] text-[clamp(2rem,6vw,3.5rem)] text-ink">
-          DEMO
-        </Reveal>
-        <Reveal delay={2} className="mt-4">
-          <p className="max-w-2xl text-base leading-relaxed text-ink/70">
-            From Human Demonstrations to Robotic Actions
-          </p>
-        </Reveal>
-
-        {/* Part 1 — Human Demonstration */}
-        <div className="mt-16 md:mt-20">
-          <Reveal as="h3" className="text-center font-black tracking-tight text-[clamp(1.25rem,3vw,1.75rem)] text-ink">
+    <div ref={rootRef} className="application-page relative h-screen w-full overflow-hidden bg-white">
+      {/* ── View 1 · Human Demonstration — white ground / black text ── */}
+      <section
+        className={`absolute inset-0 flex flex-col justify-center bg-white px-6 pb-16 pt-24 transition-opacity duration-200 lg:px-10 ${
+          active === 'human' ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        <div className="mx-auto w-full max-w-7xl">
+          <h3 className="font-black tracking-tight text-[clamp(1.6rem,4vw,2.5rem)] text-ink">
             Human Demonstration
-          </Reveal>
-          <Reveal delay={1} className="mt-3 text-center">
-            <p className="mx-auto max-w-xl text-sm leading-relaxed text-ink/70">
-              Capturing natural human behaviors and manipulation skills in the real world.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-            <VideoTile src="videos/demo/human-demo-1-1080.mp4" label="Human Demonstration" />
-            <VideoTile src="videos/demo/human-manipulation.mp4" label="Human Manipulation" />
+          </h3>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-ink/70">
+            Capturing natural human behaviors and manipulation skills in the real world.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+            {HUMAN_CLIPS.map((d) => (
+              <VideoTile key={d.src} src={d.src} label={d.label} tone="light" />
+            ))}
           </div>
         </div>
+      </section>
 
-        <DemoConnector />
-
-        {/* Part 2 — Robot Operation */}
-        <div>
-          <Reveal as="h3" className="text-center font-black tracking-tight text-[clamp(1.25rem,3vw,1.75rem)] text-ink">
+      {/* ── View 2 · Robot Operation — black ground / white text ── */}
+      <section
+        className={`absolute inset-0 flex flex-col justify-center bg-black px-6 pb-16 pt-24 transition-opacity duration-200 lg:px-10 ${
+          active === 'robot' ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        <div className="mx-auto w-full max-w-7xl">
+          <h3 className="font-black tracking-tight text-[clamp(1.6rem,4vw,2.5rem)] text-white">
             Robot Operation
-          </Reveal>
-          <Reveal delay={1} className="mt-3 text-center">
-            <p className="mx-auto max-w-xl text-sm leading-relaxed text-ink/70">
-              Translating human demonstrations into physical robotic actions.
-            </p>
-          </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-            <VideoTile src="videos/demo/robot-action.mp4" label="Robot Action" />
-            <VideoTile src="videos/demo/robot-manipulation.mp4" label="Robot Manipulation" />
+          </h3>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-white/70">
+            Translating human demonstrations into physical robotic actions.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+            {ROBOT_CLIPS.map((d) => (
+              <VideoTile key={d.src} src={d.src} label={d.label} tone="dark" />
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

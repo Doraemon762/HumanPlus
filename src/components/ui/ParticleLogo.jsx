@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const LOGO_SOURCE = 'images/logo/logo.png'
+const LOGO_SOURCE = 'images/logo/logo-full.png'
 const ORBIT_LEAD_MS = 1000
 const ASSEMBLE_MS = 3800
 const TOTAL_MS = ORBIT_LEAD_MS + ASSEMBLE_MS
@@ -59,7 +59,7 @@ export default function ParticleLogo({ onReveal }) {
       const { width, height } = size
       const largeWidth = Math.min(width * 0.42, height * 0.62)
       const finalWidth = Math.min(width * 0.31, height * 0.44)
-      const logoRatio = 1281 / 1109
+      const logoRatio = 981 / 173
       const largeCenter = { x: width * 0.5, y: height * 0.51 }
       const finalCenter = { x: width * 0.83, y: height * 0.72 }
       const centerX = largeCenter.x + (finalCenter.x - largeCenter.x) * travel

@@ -49,7 +49,10 @@ export default function App() {
     <>
       <Nav path={path} />
       <main>{renderRoute(path)}</main>
-      <Footer />
+      {/* Application is a self-contained full-page snap scroller (its own
+          100vh viewport), so the global Footer is omitted there to keep the
+          two screens edge-to-edge. Every other route keeps the Footer. */}
+      {path !== '/application' && <Footer />}
     </>
   )
 }

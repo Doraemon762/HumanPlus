@@ -66,26 +66,35 @@ export default function ResearchSection() {
                 )}
 
                 <div className="relative flex flex-1 flex-col p-6">
-                  {/* tag / award row — FIXED height so all three cards
-                      align on the same baseline. Cards with an award show
-                      only the gold ★ badge (the venue is in the text);
-                      others show the venue tag. Exactly one pill each. */}
-                  <div className="flex min-h-[28px] items-center">
-                    {item.highlight ? (
+                  {/* Logo row — sits ABOVE the title. Fixed min-height so the
+                      three cards' title rows stay on the same baseline even
+                      though the three logos (and one award chip) differ in
+                      rendered height. Paper 2 additionally shows a gold
+                      "Best Paper" chip to the RIGHT of its logo, on THIS row
+                      (never on the title row). The venue `tag` text is still
+                      NOT rendered here (kept only for /research ArticleRow). */}
+                  <div className="flex min-h-[48px] flex-wrap items-center gap-x-3 gap-y-2">
+                    {item.logo && (
+                      <img
+                        src={item.logo}
+                        alt=""
+                        loading="lazy"
+                        className="w-auto max-w-full object-contain"
+                        style={{ height: item.logoH }}
+                      />
+                    )}
+                    {item.highlight && (
                       <span className="inline-flex items-center rounded-full border border-amber-400/40 bg-amber-400/15 px-3 py-1 text-[11px] font-medium text-amber-700">
-                        ★ {item.highlight}
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center rounded-full bg-brand/15 px-3 py-1 text-[11px] font-medium tracking-wide text-brand">
-                        {item.tag}
+                        Best Paper
                       </span>
                     )}
                   </div>
 
-                  {/* title — FULL text, up to 3 lines, NO clamp. Fixed
-                      height keeps the title block bottom (and therefore
-                      the description start) aligned across all cards. */}
-                  <h3 className="mt-4 min-h-[72px] text-[15px] font-semibold leading-[1.35] text-[#111827] md:text-base">
+                  {/* title — full text, ≤3 lines, never clamped. Starts at
+                      the card's content left edge so all three titles align
+                      on the same vertical line (Best Paper lives on the logo
+                      row, not here, so it can't push the title sideways). */}
+                  <h3 className="mt-4 text-[15px] font-semibold leading-[1.35] text-[#111827] md:text-base">
                     {item.title}
                   </h3>
 

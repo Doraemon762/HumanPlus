@@ -28,6 +28,8 @@ export const research = [
     href: '#research',
     links: [{ label: 'Project', href: 'https://clotho-mocap.github.io/' }],
     highlight: null,
+    logo: 'images/logo/19.PNG',
+    logoH: 38,
   },
   {
     id: 'tic',
@@ -46,6 +48,8 @@ export const research = [
       { label: 'GitHub', href: 'https://github.com/ZuoCX1996/TIC' },
     ],
     highlight: 'Best Paper Award at SIGGRAPH 2025',
+    logo: 'images/logo/20.PNG',
+    logoH: 41,
   },
   {
     id: 'lip',
@@ -63,5 +67,7 @@ export const research = [
       { label: 'GitHub', href: 'https://github.com/ZuoCX1996/Loose-Inertial-Poser' },
     ],
     highlight: null,
+    logo: 'images/logo/21.PNG',
+    logoH: 44,
   },
 ]

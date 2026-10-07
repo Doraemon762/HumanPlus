@@ -43,12 +43,7 @@ export default function Footer() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
         {/* ── Left: brand + tagline ── */}
         <div className="max-w-xs">
-          <div className="flex items-center gap-2.5">
-            <span className="text-base font-semibold tracking-[0.22em] text-white">
-              {site.nameZh}
-            </span>
-            <span className="text-sm font-mono tracking-wide text-white/45">{site.nameEn}</span>
-          </div>
+          <img src={site.logo} alt="HumanPlus" className="h-[22px] w-auto brightness-0 invert" />
           <p className="mt-3 text-sm leading-relaxed text-white/55">{site.tagline}</p>
         </div>
 

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Renyi Intelligence (人一智能) corporate website — framework first pass",
+  "description": "HumanPlus corporate website — framework first pass",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

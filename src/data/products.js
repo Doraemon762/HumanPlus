@@ -50,7 +50,7 @@ export const products = [
   },
   {
     id: 'motion-strap',
-    name: 'Motion-Strap',
+    name: 'Strap-0',
     subtitle: '18-IMU',
     layout: null, // placeholder product — no specs / images invented yet
     href: '/hardware/motion-strap',

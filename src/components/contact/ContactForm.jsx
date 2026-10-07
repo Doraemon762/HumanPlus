@@ -14,7 +14,7 @@ const INQUIRY_OPTIONS = [
 ]
 const PRODUCT_INTEREST_OPTIONS = [
   'Motion-0',
-  'Motion-Strap',
+  'Strap-0',
   'Glove-0',
   'Vision-0',
   'Not sure yet',
