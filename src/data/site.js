@@ -7,7 +7,7 @@
 export const site = {
   nameEn: 'HumanPlus',
   nameZh: 'HumanPlus',
-  logo: 'images/logo/logo-full.png', // relative, no leading slash — portable under base './'
+  logo: 'images/logo/logo-large.png', // relative, no leading slash — portable under base './'
   // ⚠️ Placeholder tagline, NOT final brand copy — pending approval.
   tagline: 'Building Intelligence for Human Motion',
 }
