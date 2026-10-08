@@ -31,12 +31,10 @@ export default function HeroSection() {
         {/* Headline + CTA read as ONE visual block: line 1 is pure copy,
             line 2 is a flex row whose tail the capsule rides on. */}
         <h1
-          className="font-display font-light leading-[1.28] text-white"
+          className="font-display font-bold leading-[1.28] text-white"
           style={{
             fontSize: 'clamp(1.9rem, 4.4vw, 4rem)',
             letterSpacing: '0.055em',
-            textShadow:
-              '0 2px 26px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.65)',
           }}
         >
           {/* Line 1 — never wraps on desktop; the break is authored,

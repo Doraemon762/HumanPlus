@@ -1,0 +1,183 @@
+/* Motion-0 · Performance Test module
+   Pure-white stage · centered video (left) + white word panel (right).
+   Custom thin seek bar — no browser chrome, no card, no glow. */
+
+.mzpt-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #ffffff;
+  display: flex;
+  align-items: center; /* vertical-center the content group */
+  justify-content: center;
+  /* Top padding clears the 64px fixed nav; sides keep balanced whitespace. */
+  padding: clamp(88px, 9vw, 132px) clamp(24px, 6vw, 96px);
+  overflow: hidden;
+}
+
+/* The video + words as ONE centered group — never edge-to-edge. */
+.mzpt-content {
+  width: 100%;
+  max-width: 1240px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+
+/* ── Left: video ─────────────────────────────────────────── */
+.mzpt-left {
+  width: 100%;
+  min-width: 0;
+}
+.mzpt-video-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent; /* no card / no border */
+}
+.mzpt-video {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain; /* show the whole frame, never crop or stretch */
+  display: block;
+  border-radius: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.mzpt-revealed .mzpt-video {
+  opacity: 1;
+}
+
+/* ── Controls: play/pause + thin seek bar ────────────────── */
+.mzpt-controls {
+  margin-top: clamp(14px, 2vw, 22px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.mzpt-play {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.06);
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.mzpt-play:hover {
+  background: rgba(17, 17, 17, 0.12);
+}
+.mzpt-ico {
+  width: 16px;
+  height: 16px;
+}
+
+.mzpt-bar {
+  position: relative;
+  flex: 1;
+  height: 22px; /* generous hit area for mouse + touch */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none; /* let pointer-drag seek without scrolling the page */
+  outline: none;
+}
+.mzpt-bar:focus-visible .mzpt-track {
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.25);
+}
+.mzpt-track {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.14);
+}
+.mzpt-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background: #111111;
+  border-radius: 9999px;
+}
+.mzpt-thumb {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 9999px;
+  background: #111111;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Right: white panel, three black words ───────────────── */
+.mzpt-right {
+  background: #ffffff;
+  padding: clamp(28px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.mzpt-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 30px);
+}
+.mzpt-word {
+  color: #111111;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
+}
+.mzpt-revealed .mzpt-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Mobile: stack video over words, keep one viewport section ── */
+@media (max-width: 900px) {
+  .mzpt-content {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 7vw, 48px);
+  }
+  .mzpt-video {
+    max-height: 52vh;
+  }
+  .mzpt-right {
+    width: 100%;
+  }
+  .mzpt-word {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mzpt-video {
+    transition: none;
+    opacity: 1;
+  }
+  .mzpt-word {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

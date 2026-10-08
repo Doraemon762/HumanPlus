@@ -1,15 +1,19 @@
 import PageHeader from '../components/layout/PageHeader'
 import MotionZeroHero from '../components/products/MotionZeroHero'
 import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
+import MotionZeroPerformanceTest from '../components/sections/MotionZeroPerformanceTest'
+import MotionZeroSpecs from '../components/sections/MotionZeroSpecs'
 import GloveZeroHero from '../components/products/GloveZeroHero'
 import VisionZeroHero from '../components/products/VisionZeroHero'
 import useSectionSnap from '../hooks/useSectionSnap'
-import useFullPageSections from '../hooks/useFullPageSections'
 import { findProduct } from '../data/products'
 
-/* Motion-0's own full-screen snap sequence — Hero → Features.
-   Stable reference so the snap effect does not re-run. */
-const MOTION_ZERO_IDS = ['m0-hero', 'm0-features']
+/* Motion-0's full-screen snap sequence — every module is one screen.
+   Uses the mature index-driven pager (same as Vision-0 / Glove-0): symmetric
+   up/down logic, one instant jump per gesture, CSS does the visual transition.
+   Stable reference so the effect does not re-run. topOffset 0 — each section
+   already carries its own top padding to clear the 64px fixed nav. */
+const MOTION_ZERO_IDS = ['m0-hero', 'm0-features', 'm0-performance', 'm0-specs']
 
 /* Vision-0's full-screen sequence — Hero → Specification panel.
    Stable reference so the snap effect does not re-run. */
@@ -37,15 +41,16 @@ export default function ProductDetailPage({ id }) {
   const isGloveZero = product.id === 'glove-0'
   const isVisionZero = product.id === 'vision-0'
 
-  // Motion-0 keeps the original hook untouched.
-  useSectionSnap({ duration: 1000, ids: MOTION_ZERO_IDS, topOffset: 64 })
-
-  // Vision-0 and Glove-0 use the rewritten index-driven pager: identical
-  // logic in both directions, one instant jump per gesture, CSS does the
-  // visual transition. Enabled per-route, so every other page (Home,
-  // Research, Application, …) keeps normal scrolling.
-  useFullPageSections(VISION_ZERO_IDS, { topOffset: 64, enabled: isVisionZero })
-  useFullPageSections(GLOVE_ZERO_IDS, { topOffset: 64, enabled: isGloveZero })
+  // Site-wide full-page section pager == the EXACT hook Home uses
+  // (useSectionSnap): one rAF-eased scroll over 1000ms, wheel swallowed while
+  // animating, symmetric up/down. Each call auto-no-ops unless its section ids
+  // exist on the current page (the hook filters out missing elements and
+  // returns early when <2 match), so calling all three is safe and keeps ONE
+  // scroll mechanism for the whole site. duration 1000 + topOffset 0 match
+  // Home exactly.
+  useSectionSnap({ duration: 1000, ids: MOTION_ZERO_IDS, topOffset: 0 })
+  useSectionSnap({ duration: 1000, ids: VISION_ZERO_IDS, topOffset: 0 })
+  useSectionSnap({ duration: 1000, ids: GLOVE_ZERO_IDS, topOffset: 0 })
 
   return (
     <>
@@ -53,6 +58,8 @@ export default function ProductDetailPage({ id }) {
         <>
           <MotionZeroHero />
           <MotionZeroFeatures />
+          <MotionZeroPerformanceTest />
+          <MotionZeroSpecs />
         </>
       ) : isGloveZero ? (
         <GloveZeroHero product={product} />

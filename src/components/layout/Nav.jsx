@@ -17,6 +17,13 @@ const isActive = (path, href) => (href === '/' ? path === '/' : path === href ||
    never get the in-app hash prefix. */
 const externalProps = (url) => ({ href: url, target: '_blank', rel: 'noopener noreferrer' })
 
+/* A dropdown parent that already lists a child pointing at its own route
+   (e.g. Contact → Contact self-link) should NOT also render the generic
+   "All {label}" parent entry in the mobile accordion — that would show a
+   duplicate parent link. */
+const hasParentSelfLink = (item) =>
+  Array.isArray(item.children) && item.children.some((c) => c.href === item.href)
+
 export default function Nav({ path }) {
   /* Desktop: which dropdown is open (keyed by nav label). Hover-driven
      on the whole li wrapper, so moving the cursor across the small gap
@@ -62,7 +69,7 @@ export default function Nav({ path }) {
 
         {/* ── Desktop nav ── */}
         <ul className="hidden items-center gap-8 md:flex">
-          {nav.map((item) =>
+          {nav.map((item, i) =>
             item.children ? (
               <li
                 key={item.label}
@@ -87,20 +94,21 @@ export default function Nav({ path }) {
                     <Chevron open={openMenu === item.label} />
                   </a>
                 ) : (
-                  <button
-                    type="button"
-                    aria-expanded={openMenu === item.label}
-                    onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                  /* Internal parent with a dropdown: the label is a REAL
+                     link to its own route (click → navigate), while hover
+                     still opens the flyout (handled on the <li> wrapper). */
+                  <a
+                    href={toHref(item.href)}
                     className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
                       openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
                     }`}
                   >
                     {item.label}
                     <Chevron open={openMenu === item.label} />
-                  </button>
+                  </a>
                 )}
 
-                <div className={`dropdown-panel absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 ${openMenu === item.label ? 'open' : ''}`}>
+                <div className={`dropdown-panel absolute top-full z-50 pt-3 ${i === nav.length - 1 ? 'right-0' : 'left-1/2 -translate-x-1/2'} ${openMenu === item.label ? 'open' : ''}`}>
                   <div className="min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
                     {item.children.map((child) =>
                       child.external ? (
@@ -179,14 +187,16 @@ export default function Nav({ path }) {
                   <div className={`accordion-body ${mobileSub === item.label ? 'open' : ''}`}>
                     <div>
                       <ul className="pb-2">
-                        <li>
-                          <a
-                            {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}
-                            className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/60'}`}
-                          >
-                            All {item.label}
-                          </a>
-                        </li>
+                        {!hasParentSelfLink(item) && (
+                          <li>
+                            <a
+                              {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}
+                              className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/60'}`}
+                            >
+                              All {item.label}
+                            </a>
+                          </li>
+                        )}
                         {item.children.map((child) =>
                           child.external ? (
                             <li key={child.label}>

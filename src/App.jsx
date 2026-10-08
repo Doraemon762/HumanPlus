@@ -9,6 +9,7 @@ import ResearchPage from './pages/ResearchPage'
 import RobotPage from './pages/RobotPage'
 import NewsPage from './pages/NewsPage'
 import ContactPage from './pages/ContactPage'
+import RecruitmentPage from './pages/RecruitmentPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ApplicationPage from './pages/ApplicationPage'
 
@@ -32,6 +33,11 @@ function renderRoute(path) {
   if (path === '/robot') return <RobotPage />
   if (path === '/news') return <NewsPage />
   if (path === '/contact') return <ContactPage />
+  // Recruitment — single centered module, reachable at any of these.
+  // `/contact/joinus` is the canonical child route of Contact; legacy
+  // `/contact/career` + `/career` + `/join` aliases kept so old deep
+  // links still resolve.
+  if (path === '/contact/joinus' || path === '/contact/career' || path === '/join' || path === '/careers' || path === '/join-us' || path === '/career') return <RecruitmentPage />
   return <NotFoundPage />
 }
 

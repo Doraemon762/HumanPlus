@@ -27,7 +27,6 @@ function Icon({ name, className }) {
    `href: null` => no navigation (unused now, kept for safety). */
 const SOCIALS = [
   { key: 'xiaohongshu', label: '小红书', name: 'xiaohongshu', href: 'https://xhslink.cn/o/3z7NSJ5ZllV' },
-  { key: 'gmail', label: 'Gmail', name: 'gmail', href: 'mailto:official.humanplus@gmail.com' },
   { key: 'x', label: 'X', name: 'x', href: 'https://x.com/humanplus_team?s=11' },
   { key: 'youtube', label: 'YouTube', name: 'youtube', href: 'https://youtube.com/@humanplus-xyz?si=mUIXmAHwiIOa3t8V' },
   { key: 'huggingface', label: 'Hugging Face', name: 'huggingface', href: 'https://huggingface.co/humanplus-ai' },
@@ -45,6 +44,12 @@ export default function Footer() {
         <div className="max-w-xs">
           <img src={site.logo} alt="HumanPlus" className="h-[22px] w-auto brightness-0 invert" />
           <p className="mt-3 text-sm leading-relaxed text-white/55">{site.tagline}</p>
+          <a
+            href="mailto:info@humanplus.xyz"
+            className="mt-2 block text-xs no-underline text-white/55 transition-colors duration-200 hover:text-white/80"
+          >
+            info@humanplus.xyz
+          </a>
         </div>
 
         {/* ── Right: social ── */}

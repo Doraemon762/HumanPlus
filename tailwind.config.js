@@ -33,14 +33,48 @@ export default {
         /* Hairlines — semantic flip of the dark theme's white/xx borders */
         line: 'rgba(17,17,17,0.08)',
         lineStrong: 'rgba(17,17,17,0.14)',
+
+        /* ── HumanPlus Design System neutral scale (ADDITIVE) ──
+           `ink` / `mute` / `brand` / `paper` / `panel` / `line` above
+           are intentionally unchanged so existing pages render the same.
+           These add the system's explicit gray steps + brand gray. */
+        brandGray: '#E5E5E5', // §02 Brand Gray — large light sections / dividers
+        gray1: '#666666',     // §03 Gray 1 — secondary text
+        gray2: '#999999',     // §03 Gray 2 — auxiliary info
+        gray3: '#CCCCCC',     // §03 Gray 3 — hairline / weak border
+        inkAlt: '#1D1D1F',    // §03 Ink (system value; `ink` #111 kept for back-compat)
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Helvetica Neue', 'Arial', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         /* Editorial display face — resolves to the project's default
            sans-serif (Inter) stack. The bespoke "庞门正道标题体" face was
            removed; `font-display` callers now use the standard sans. */
         display: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      /* ── HumanPlus Design System tokens (ADDITIVE) ──
+         Radius / type / motion scales from docs/HUMANPLUS_DESIGN_SYSTEM.md.
+         New keys only — no override of Tailwind defaults. */
+      borderRadius: {
+        control: '10px', // §12 small control
+        card: '20px',    // §12 standard card
+        media: '28px',   // §12 large media / product image
+        pill: '9999px',  // §12 pill
+      },
+      fontSize: {
+        nav: ['13px', '1.2'],                       // §06 Navigation
+        caption: ['13px', '1.4'],                   // §06 Caption
+        'body-sm': ['14px', '1.5'],                 // §06 Body Small
+        'body-lg': ['18px', '1.45'],                // §06 Body Large
+        kicker: ['clamp(20px, 2.4vw, 24px)', '1.2'],   // §06 Section Kicker
+        heading: ['clamp(36px, 4.5vw, 48px)', '1.1'],  // §06 Section Heading
+        display: ['clamp(56px, 7vw, 80px)', '1.03'],   // §06 Display
+        hero: ['clamp(72px, 9vw, 96px)', '1.0'],       // §06 Hero Display
+      },
+      transitionDuration: {
+        fast: '150ms',   // §23 hover
+        normal: '250ms', // §23 hover
+        slow: '500ms',   // §22 motion
       },
     },
   },

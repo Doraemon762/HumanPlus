@@ -653,10 +653,19 @@
 
 /* Final preview rule: preserve the Figma composition at every desktop
    viewport. The complete 2048 × 840 board scales as one unit; cards never
-   reflow into the two-column layout used by the earlier draft. */
+   reflow into the two-column layout used by the earlier draft.
+
+   Full-screen note: this section is one of the Motion-0 "apple full-screen
+   scroll" targets, so it must fill the viewport on its own. It was pinned to
+   `100svh - 4rem` (836px at a 900px viewport), which left it short of a full
+   screen. It now claims a full 100svh minimum and grows only if the board
+   ever needs more room — `height: auto` replaces the hard height so nothing
+   is ever clipped. The board itself is width-capped by its own rule below,
+   so it stays centred and unchanged in composition. */
 .m0-bento-section {
-  min-height: calc(100svh - 4rem);
-  height: calc(100svh - 4rem);
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
   padding: clamp(12px, 1.6vw, 32px);
   overflow: hidden;
 }
@@ -1171,3 +1180,16 @@
     white-space: nowrap;
   }
 }
+
+/* Motion-0 now uses the site-wide full-page pager (useSectionSnap) — the SAME
+   hook Home uses. That hook drives the page with a single rAF-eased scroll
+   over 1000ms and does NOT toggle an enter class, so there is intentionally
+   NO per-section transform here. This matches Home (which has no per-section
+   enter animation): the "整屏移动" feel comes from the eased scroll itself,
+   and up/down run the identical code path (no asymmetry).
+
+   A previous implementation added a translate3d(0,7%,0) enter transform on
+   `.is-entering`; it was removed because getBoundingClientRect (which
+   useSectionSnap uses to locate snap stops) is affected by transforms, so the
+   transform made the pager aim at a wrong target and leave a sliver of the
+   previous section visible. */

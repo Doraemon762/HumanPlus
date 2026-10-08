@@ -4,7 +4,6 @@ import ProductsSection from '../components/sections/ProductsSection'
 import RoboticsSection from '../components/sections/RoboticsSection'
 import ResearchSection from '../components/sections/ResearchSection'
 import NewsSection from '../components/sections/NewsSection'
-import LogoWallSection from '../components/sections/LogoWallSection'
 
 /**
  * Home = overview / gateway. Every module introduces its topic and
@@ -16,11 +15,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ProductsSection />
       <RoboticsSection />
+      <ProductsSection />
       <ResearchSection />
       <NewsSection />
-      <LogoWallSection />
     </>
   )
 }

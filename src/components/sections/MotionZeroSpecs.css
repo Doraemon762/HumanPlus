@@ -1,0 +1,152 @@
+/* Motion-0 · Specification
+   A quiet, premium hardware spec sheet: white stage, fine hairline rules,
+   deep-grey keys + pure-black values. No cards, no shadows, no radius —
+   just editorial spacing. Hover is barely-there: a faint grey wash and a
+   slow fade of the rule. */
+
+.mzs-section {
+  background: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding: clamp(76px, 12vw, 144px) 0;
+  width: 100%;
+}
+
+/* The table is the hero of this module: it owns ~80% of the page width and
+   leaves a clean 10% gutter either side. `max-width: none` is required — the
+   previous 880px cap was what made it read as a narrow column. */
+.mzs-inner {
+  width: 80%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.mzs-title {
+  margin: 0 0 clamp(22px, 3vw, 40px);
+  color: #000000;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+  line-height: 1.1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mzs-table {
+  border-top: 1px solid #ededed;
+}
+
+/* 35 / 65 sits inside the requested 32–35 / 65–68 range; the gap was trimmed
+   from 44px to 32px so the wider table gives its extra room to the DETAILS
+   column rather than to empty gutter. */
+.mzs-rowhead,
+.mzs-row {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: clamp(16px, 2.4vw, 32px);
+  align-items: start;
+}
+
+.mzs-rowhead {
+  padding: clamp(10px, 1vw, 14px) 0;
+  border-bottom: 1px solid #ededed;
+}
+
+.mzs-rowhead span {
+  color: #8a8a8a;
+  /* 14px — inside the requested 14–16px header range (was 11px). */
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Row height pulled in (28px → 18px) now that the table is wider, so the
+   block stays composed instead of airy — but never cramped. */
+.mzs-row {
+  padding: clamp(12px, 1.3vw, 18px) 0;
+  border-bottom: 1px solid #ededed;
+  transition: background-color 260ms ease;
+}
+
+.mzs-row:hover {
+  background-color: #f6f6f6;
+}
+
+/* The rule itself slowly fades on hover for a calmer reading rhythm. */
+.mzs-row:hover {
+  border-bottom-color: #f1f1f1;
+}
+
+/* Key + value both land at 14–16px on desktop (were ~18.4px): smaller and
+   finer, still comfortable to read. Weights are unchanged — only the value
+   carries emphasis, so there is no bold-on-bold stacking. */
+.mzs-key,
+.mzs-val {
+  font-size: clamp(0.875rem, 1.05vw, 0.9375rem);
+  line-height: 1.5;
+  transition: color 260ms ease, filter 260ms ease;
+}
+
+.mzs-key {
+  color: #3a3a3a;
+  font-weight: 500;
+}
+
+.mzs-row:hover .mzs-key {
+  color: #111111;
+}
+
+.mzs-val {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Pure black cannot brighten, so the "brightness" cue lives on the key;
+   the value stays anchored and only its neighbour rule relaxes. */
+.mzs-row:hover .mzs-val {
+  filter: brightness(1);
+}
+
+/* Tablet: give the table most of the width (90%) — the desktop 80% reads too
+   narrow once the viewport shrinks. Two columns kept, a touch wider keys. */
+@media (max-width: 1024px) {
+  .mzs-inner {
+    width: 90%;
+  }
+  .mzs-rowhead,
+  .mzs-row {
+    grid-template-columns: 38% 62%;
+    gap: clamp(14px, 2.4vw, 24px);
+  }
+}
+
+/* Phone: near-full width (94%), smaller type, long text wraps normally. */
+@media (max-width: 640px) {
+  .mzs-inner {
+    width: 94%;
+  }
+
+  .mzs-rowhead,
+  .mzs-row {
+    grid-template-columns: 42% 58%;
+    gap: clamp(12px, 3vw, 20px);
+  }
+
+  .mzs-key,
+  .mzs-val {
+    font-size: clamp(0.8125rem, 3.4vw, 0.9375rem);
+    line-height: 1.5;
+    /* Long values wrap inside their own column instead of forcing the grid
+       wider — this is what guarantees no horizontal overflow. */
+    overflow-wrap: anywhere;
+  }
+
+  .mzs-rowhead span {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+}

@@ -16,7 +16,14 @@ import { useEffect } from 'react'
    reference (module-level constant) so the effect does not re-run on
    every render. */
 
-const DEFAULT_IDS = ['hero', 'about', 'products', 'robotics', 'research', 'news']
+// Order MUST follow the real DOM sequence in HomePage.jsx:
+//   hero → robotics → products → research → news → (logos, native scroll)
+// `about` was removed when the Life Capture / products modules were
+// reordered; keeping a stale id here (or a wrong order) makes the snap
+// chain skip a module. The els array is additionally sorted by document
+// position below, so the chain always tracks the true DOM order even if
+// these ids drift from HomePage's render order.
+const DEFAULT_IDS = ['hero', 'robotics', 'products', 'research', 'news']
 
 const easeInOutCubic = (t) =>
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
@@ -29,6 +36,18 @@ export default function useSectionSnap({ duration = 1000, ids, topOffset = 0 } =
 
     const els = sectionIds.map((id) => document.getElementById(id)).filter(Boolean)
     if (els.length < 2) return
+
+    // Authoritative ordering: sort by document position, NOT by the id
+    // array. This guarantees `stops` (and therefore currentIndex /
+    // nextIndex / previousIndex) follow the visible section order — so a
+    // module reorder in HomePage.jsx can never desync the snap chain and
+    // make a wheel gesture skip a screen.
+    els.sort((a, b) => {
+      const rel = a.compareDocumentPosition(b)
+      if (rel & Node.DOCUMENT_POSITION_FOLLOWING) return -1
+      if (rel & Node.DOCUMENT_POSITION_PRECEDING) return 1
+      return 0
+    })
 
     const mobileLayout = window.matchMedia('(pointer: coarse), (max-width: 900px), (orientation: portrait)').matches
     if (mobileLayout) return

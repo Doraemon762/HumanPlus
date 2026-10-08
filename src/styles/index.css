@@ -37,6 +37,68 @@
        without hard-coding a hex. Keep in sync with `brand` in
        tailwind.config.js (#5A9CFC). */
     --brand-rgb: 90 156 252;
+
+    /* ── HumanPlus Design System tokens (source of truth:
+       docs/HUMANPLUS_DESIGN_SYSTEM.md) ─────────────────────────────
+       These CSS custom properties mirror the canonical design tokens.
+       They are ADDITIVE and currently consumed only when explicitly
+       referenced (Tailwind utilities use near-equivalent hardcoded
+       values — see the doc's token-mapping appendix). Future components
+       should prefer these variables / the new Tailwind tokens. */
+    --color-brand-blue: #5a9cfc;
+    --color-brand-gray: #e5e5e5;
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-ink: #1d1d1f;
+    --color-gray-1: #666666;
+    --color-gray-2: #999999;
+    --color-gray-3: #cccccc;
+
+    --font-sans:
+      Inter, Helvetica Neue, Arial, system-ui, sans-serif;
+
+    --text-nav: 13px;
+    --text-caption: 13px;
+    --text-body-small: 14px;
+    --text-body: 16px;
+    --text-body-large: 18px;
+    --text-section-kicker: 20px;
+    --text-section-heading: 40px;
+    --text-display: 64px;
+    --text-hero: 80px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+    --spacing-unit: 4px;
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-64: 64px;
+    --spacing-80: 80px;
+    --spacing-96: 96px;
+    --spacing-120: 120px;
+    --spacing-144: 144px;
+
+    --radius-control: 10px;
+    --radius-card: 20px;
+    --radius-media: 28px;
+    --radius-pill: 9999px;
+
+    --content-max-width: 1440px;
+    --section-min-height: 100vh;
+
+    --motion-fast: 150ms;
+    --motion-normal: 250ms;
+    --motion-slow: 500ms;
   }
 
   html {
