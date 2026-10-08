@@ -34,7 +34,7 @@ export const products = [
     subtitle: '18-IMU',
     layout: null, // placeholder product — no specs / images invented yet
     href: '/hardware/motion-strap',
-    description: 'Product description goes here.',
+    description: 'Form-fitting motion capture system for precise, natural movement.\nPowered by advanced algorithms for high-quality motion data.',
     image: null,
   },
 ]

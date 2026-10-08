@@ -5,6 +5,7 @@ import MotionZeroPerformanceTest from '../components/sections/MotionZeroPerforma
 import MotionZeroSpecs from '../components/sections/MotionZeroSpecs'
 import GloveZeroHero from '../components/products/GloveZeroHero'
 import VisionZeroHero from '../components/products/VisionZeroHero'
+import StrapZeroHero from '../components/products/StrapZeroHero'
 import useSectionSnap from '../hooks/useSectionSnap'
 import { findProduct } from '../data/products'
 
@@ -40,6 +41,7 @@ export default function ProductDetailPage({ id }) {
   const isMotionZero = product.id === 'motion-0'
   const isGloveZero = product.id === 'glove-0'
   const isVisionZero = product.id === 'vision-0'
+  const isStrapZero = product.id === 'motion-strap'
 
   // Site-wide full-page section pager == the EXACT hook Home uses
   // (useSectionSnap): one rAF-eased scroll over 1000ms, wheel swallowed while
@@ -65,6 +67,8 @@ export default function ProductDetailPage({ id }) {
         <GloveZeroHero product={product} />
       ) : isVisionZero ? (
         <VisionZeroHero product={product} />
+      ) : isStrapZero ? (
+        <StrapZeroHero product={product} />
       ) : (
         <PageHeader label="Hardware" title={product.name} description={product.description} />
       )}
