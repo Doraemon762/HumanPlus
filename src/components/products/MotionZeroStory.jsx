@@ -126,7 +126,7 @@ function ImuSection() {
         <div ref={ref} className={`relative mx-auto mt-16 w-full max-w-3xl md:mt-24 ${inView ? 'in' : ''}`}>
           <img
             src="images/products/motion-0.png"
-            alt="Motion-0 garment with 11 IMU sensor positions"
+            alt="Weave garment with 11 IMU sensor positions"
             className="w-full select-none object-contain"
             style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6))' }}
           />
@@ -209,12 +209,12 @@ function PrecisionSection() {
 
         <div className="mt-16 grid gap-6 md:mt-24 md:grid-cols-[3fr_2fr] md:gap-10">
           <Reveal className="relative overflow-hidden">
-            <img src={`${IMG}/activity-cooking.jpg`} alt="Wearing Motion-0 while cooking" className="h-full w-full object-cover" />
+            <img src={`${IMG}/activity-cooking.jpg`} alt="Wearing Weave while cooking" className="h-full w-full object-cover" />
           </Reveal>
 
           <div className="relative overflow-hidden">
             <div ref={useParallax(-0.05)}>
-              <img src={`${IMG}/activity-reach.jpg`} alt="Reaching naturally while Motion-0 captures movement" className="w-full select-none object-cover" />
+              <img src={`${IMG}/activity-reach.jpg`} alt="Reaching naturally while Weave captures movement" className="w-full select-none object-cover" />
             </div>
             {/* Hairline skeleton — the captured body as data */}
             <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -260,7 +260,7 @@ export default function MotionZeroStory() {
           <div className="mt-16 grid items-center gap-12 md:mt-24 lg:grid-cols-[6fr_4fr] lg:gap-20">
             <Reveal>
               <p className="max-w-xl text-lg leading-[1.8] text-white/70 md:text-xl">
-                Motion-0 is worn where life actually happens — kitchens, laundries, workshops. No lab, no stage, no T-pose. Just people doing what people do, captured as data.
+                Weave is worn where life actually happens — kitchens, laundries, workshops. No lab, no stage, no T-pose. Just people doing what people do, captured as data.
               </p>
               <p className="m0-kicker mt-10">Cooking · Cleaning · Reaching · Living</p>
             </Reveal>
@@ -343,7 +343,7 @@ export default function MotionZeroStory() {
             <div ref={parallaxRef}>
               <img
                 src={`${IMG}/garment-worn.jpg`}
-                alt="Motion-0 worn — front and back"
+                alt="Weave worn — front and back"
                 className="w-full max-w-[340px] select-none object-cover lg:max-w-[380px]"
               />
             </div>
@@ -372,7 +372,7 @@ export default function MotionZeroStory() {
 
           <Reveal delay={1} className="relative">
             <div className="m0-video-fade relative overflow-hidden">
-              <img src={`${IMG}/activity-laundry.jpg`} alt="Everyday activity while wearing Motion-0" className="max-h-[80vh] w-full select-none object-cover object-top" />
+              <img src={`${IMG}/activity-laundry.jpg`} alt="Everyday activity while wearing Weave" className="max-h-[80vh] w-full select-none object-cover object-top" />
             </div>
           </Reveal>
         </div>
@@ -400,7 +400,7 @@ export default function MotionZeroStory() {
           </div>
 
           <Reveal delay={1} className="m0-video-fade relative mt-16 overflow-hidden md:mt-24">
-            <img src={`${IMG}/activity-cooking.jpg`} alt="Cooking while wearing Motion-0" className="max-h-[85vh] w-full select-none object-cover" />
+            <img src={`${IMG}/activity-cooking.jpg`} alt="Cooking while wearing Weave" className="max-h-[85vh] w-full select-none object-cover" />
           </Reveal>
         </div>
       </section>
@@ -408,7 +408,7 @@ export default function MotionZeroStory() {
       {/* ── 08 · BUILT FOR THE REAL WORLD ──────────────────────── */}
       <section className="relative bg-black">
         <div className="m0-video-fade relative">
-          <img src={`${IMG}/kitchen-wide.jpg`} alt="Two people wearing Motion-0 while cooking in a real kitchen" className="h-[70vh] w-full select-none object-cover md:h-[88vh]" />
+          <img src={`${IMG}/kitchen-wide.jpg`} alt="Two people wearing Weave while cooking in a real kitchen" className="h-[70vh] w-full select-none object-cover md:h-[88vh]" />
           <DataLabels
             labels={[
               { text: 'REAL ENVIRONMENT', top: '22%', left: '7%', delay: 0 },
@@ -430,7 +430,7 @@ export default function MotionZeroStory() {
           <Reveal className="relative">
             <img
               src="images/products/motion-0.png"
-              alt="Motion-0 garment — industrial design"
+              alt="Weave garment — industrial design"
               className="w-full select-none object-contain"
               style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.6))' }}
             />
@@ -452,7 +452,7 @@ export default function MotionZeroStory() {
             </Reveal>
             <Reveal delay={2} className="mt-8 max-w-sm">
               <p className="text-sm leading-[1.9] text-white/45 md:text-base">
-                Sensors, wiring and battery disappear into the garment — Motion-0 reads as clothing first, hardware second.
+                Sensors, wiring and battery disappear into the garment — Weave reads as clothing first, hardware second.
               </p>
             </Reveal>
           </div>
@@ -493,7 +493,7 @@ export default function MotionZeroStory() {
           </Reveal>
           <Reveal delay={1} className="mx-auto mt-8 max-w-xl">
             <p className="text-sm leading-[1.9] text-white/50 md:text-base">
-              Motion-0 captures the movement.
+              Weave captures the movement.
               <br />
               HumanPlus turns it into intelligence.
             </p>

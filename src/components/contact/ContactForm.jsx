@@ -13,8 +13,8 @@ const INQUIRY_OPTIONS = [
   'Other',
 ]
 const PRODUCT_INTEREST_OPTIONS = [
-  'Motion-0',
-  'Strap-0',
+  'Weave',
+  'Pulse',
   'Glove-0',
   'Vision-0',
   'Not sure yet',

@@ -7,12 +7,12 @@ function GlassCard({ className = '', children }) {
 
 export default function MotionZeroFeatures() {
   return (
-    <section id="m0-features" className="m0-features m0-bento-section font-sans" aria-label="Motion-0 product features">
+    <section id="m0-features" className="m0-features m0-bento-section font-sans" aria-label="Weave product features">
       <div className="m0-bento">
         <div className="m0-mobile-page m0-mobile-page-one">
           <GlassCard className="m0-bento-brand">
             <div className="m0-bento-copy">
-              <h2 className="m0-gradient-text m0-brand-name">Motion-0</h2>
+              <h2 className="m0-gradient-text m0-brand-name">Weave</h2>
               <span className="m0-brand-rule" aria-hidden="true" />
               <h3>Wear to capture</h3>
             </div>
@@ -21,7 +21,7 @@ export default function MotionZeroFeatures() {
                 className="m0-wear-set"
                 src={`${VIDEO}/wear-to-capture.mp4`}
                 poster={`${VIDEO}/wear-to-capture-poster.jpg`}
-                aria-label="Motion-0 wear-to-capture demonstration"
+                aria-label="Weave wear-to-capture demonstration"
                 autoPlay
                 muted
                 loop
@@ -41,7 +41,7 @@ export default function MotionZeroFeatures() {
             <img
               className="m0-battery-cells"
               src={`${ASSET}/battery-pack-blue.png`}
-              alt="Motion-0 pocket battery pack"
+              alt="Weave pocket battery pack"
             />
             <div className="m0-battery-visual" aria-hidden="true">
               <img src={`${ASSET}/battery-beige-hd.png`} alt="" />
@@ -59,14 +59,14 @@ export default function MotionZeroFeatures() {
               <p className="m0-description">Live full-body motion<br />for teleoperation</p>
             </div>
             <div className="m0-sensor-visual">
-              <img className="m0-sensor-outfit" src={`${ASSET}/sensor-outfit.png`} alt="Motion-0 jacket and trousers" />
+              <img className="m0-sensor-outfit" src={`${ASSET}/sensor-outfit.png`} alt="Weave jacket and trousers" />
             </div>
           </GlassCard>
         </div>
 
         <div className="m0-mobile-page m0-mobile-page-two">
           <article className="m0-bento-photo">
-            <img src={`${ASSET}/kitchen-figma.png`} alt="Motion-0 capture in a kitchen" />
+            <img src={`${ASSET}/kitchen-figma.png`} alt="Weave capture in a kitchen" />
           </article>
 
           <GlassCard className="m0-bento-accuracy">

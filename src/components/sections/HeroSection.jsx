@@ -60,7 +60,7 @@ export default function HeroSection() {
                 Aspect ratio lands at 2.7–3.0 : 1 across breakpoints. */}
             <a
               href="#/hardware/motion-0"
-              aria-label="Motion-0"
+              aria-label="Weave"
               className="group relative inline-flex h-[42px] w-[min(42vw,158px)] shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/40 font-display backdrop-blur-[6px] transition-all duration-500 hover:-translate-y-0.5 md:h-[48px] md:w-[clamp(168px,14vw,186px)]"
               style={{
                 /* Two stacked fills:
@@ -113,7 +113,7 @@ export default function HeroSection() {
                 className="relative z-10 text-[0.95rem] font-bold font-display tracking-[0.09em] text-white/90 transition-colors duration-500 group-hover:text-white md:text-[1rem] [-webkit-text-stroke:0.6px_currentColor]"
                 style={{ textShadow: '0 1px 2px rgba(28,54,92,0.38)' }}
               >
-                Motion-0
+                Weave
               </span>
             </a>
           </span>

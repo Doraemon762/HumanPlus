@@ -22,8 +22,8 @@ export const nav = [
     label: 'Hardware',
     href: '/hardware',
     children: [
-      { label: 'Motion-0', href: '/hardware/motion-0' },
-      { label: 'Strap-0', href: '/hardware/motion-strap' },
+      { label: 'Weave', href: '/hardware/motion-0' },
+      { label: 'Pulse', href: '/hardware/motion-strap' },
       { label: 'Application', href: '/application' },
     ],
   },

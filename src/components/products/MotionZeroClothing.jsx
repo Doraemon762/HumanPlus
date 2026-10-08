@@ -10,7 +10,7 @@ export default function MotionZeroClothing() {
     <section id="m0-clothing" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
       <img
         src={`${import.meta.env.BASE_URL}images/products/clothing-details.png`}
-        alt="Motion-0 garment detail"
+        alt="Weave garment detail"
         loading="lazy"
         className="h-screen w-full select-none object-contain"
       />

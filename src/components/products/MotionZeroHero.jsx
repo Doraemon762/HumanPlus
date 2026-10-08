@@ -24,10 +24,10 @@ export default function MotionZeroHero() {
           <Reveal
             as="h1"
             delay={1}
-            data-text="Motion-0"
+            data-text="Weave"
             className="m0-glass-title font-bold leading-[1.05] tracking-tight text-brand text-[clamp(2.5rem,5vw,4.25rem)]"
           >
-            Motion-0
+            Weave
           </Reveal>
 
           <Reveal
@@ -39,7 +39,7 @@ export default function MotionZeroHero() {
 
           <Reveal delay={3} className="mt-7 max-w-md">
             <p className="text-sm leading-[1.9] text-ink/60 md:text-[0.95rem]">
-              Motion-0 is a human motion sensing device designed for embodied AI data collection. Through multi-point inertial sensing, it accurately captures full-body human movements and provides high-quality motion data for robot learning and human-robot interaction.
+              Weave is a human motion sensing device designed for embodied AI data collection. Through multi-point inertial sensing, it accurately captures full-body human movements and provides high-quality motion data for robot learning and human-robot interaction.
             </p>
           </Reveal>
 
@@ -75,7 +75,7 @@ export default function MotionZeroHero() {
                   textShadow: '0 1px 1px rgba(25,72,145,0.28)',
                 }}
               >
-                Explore Motion-0
+                Explore Weave
                 <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-[3px]">→</span>
               </span>
             </a>
@@ -93,7 +93,7 @@ export default function MotionZeroHero() {
           <Reveal delay={2} className="relative w-full max-w-[560px] lg:max-w-[720px]">
             <img
               src={HERO_IMAGE}
-              alt="Motion-0 人体运动感知设备"
+              alt="Weave 人体运动感知设备"
               className="m0-product h-auto w-full select-none object-contain"
             />
           </Reveal>

@@ -15,7 +15,7 @@ const SPECS = [
 
 export default function MotionZeroSpecs() {
   return (
-    <section id="m0-specs" className="mzs-section" aria-label="Motion-0 specifications">
+    <section id="m0-specs" className="mzs-section" aria-label="Weave specifications">
       <div className="mzs-inner">
         <h2 className="mzs-title">Specification</h2>
 

@@ -20,7 +20,7 @@
 export const products = [
   {
     id: 'motion-0',
-    name: 'Motion-0',
+    name: 'Weave',
     subtitle: '11-IMU',
     layout: 'featured',
     href: '/hardware/motion-0',
@@ -30,7 +30,7 @@ export const products = [
   },
   {
     id: 'motion-strap',
-    name: 'Strap-0',
+    name: 'Pulse',
     subtitle: '18-IMU',
     layout: null, // placeholder product — no specs / images invented yet
     href: '/hardware/motion-strap',

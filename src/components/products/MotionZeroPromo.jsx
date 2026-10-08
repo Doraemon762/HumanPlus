@@ -10,10 +10,10 @@
    centre panel (which carries the Motion-0 mark). */
 export default function MotionZeroPromo() {
   return (
-    <section id="m0-promo" className="bg-white" aria-label="Motion-0 in the real world">
+    <section id="m0-promo" className="bg-white" aria-label="Weave in the real world">
       <img
         src="images/motion-0/promo-full.jpg"
-        alt="Motion-0 worn while cooking in a real kitchen"
+        alt="Weave worn while cooking in a real kitchen"
         loading="lazy"
         className="block h-screen w-full select-none object-cover object-center"
       />
