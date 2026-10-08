@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react'
 
-const LOGO_SOURCE = 'images/logo/logo-large.png'
+const LOGO_SOURCE = 'images/logo/logo.png'
 const ORBIT_LEAD_MS = 1000
 const ASSEMBLE_MS = 3800
 const TOTAL_MS = ORBIT_LEAD_MS + ASSEMBLE_MS
+
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
-const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+const easeInOutCubic = (t) => (
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+)
 
 export default function ParticleLogo({ onReveal }) {
   const canvasRef = useRef(null)
@@ -37,6 +40,9 @@ export default function ParticleLogo({ onReveal }) {
 
     const resize = () => {
       const rect = host.getBoundingClientRect()
+      // A full-viewport canvas becomes extremely expensive on 2x/3x screens.
+      // This cap keeps the dots crisp while avoiding multi-million-pixel
+      // redraws during the intro.
       const dpr = Math.min(window.devicePixelRatio || 1, 1.35)
       size = { width: rect.width, height: rect.height, dpr }
       canvas.width = Math.max(1, Math.round(rect.width * dpr))
@@ -58,10 +64,10 @@ export default function ParticleLogo({ onReveal }) {
       const travel = easeInOutCubic(Math.max(0, Math.min((progress - 0.49) / 0.35, 1)))
       const { width, height } = size
       const largeWidth = Math.min(width * 0.42, height * 0.62)
-      const finalWidth = Math.min(width * 0.31, height * 0.44)
-      const logoRatio = 7018 / 1831
+      const finalWidth = Math.min(width * 0.42, height * 0.59)
+      const logoRatio = 1281 / 1109
       const largeCenter = { x: width * 0.5, y: height * 0.51 }
-      const finalCenter = { x: width * 0.83, y: height * 0.72 }
+      const finalCenter = { x: width * 0.81, y: height * 0.64 }
       const centerX = largeCenter.x + (finalCenter.x - largeCenter.x) * travel
       const centerY = largeCenter.y + (finalCenter.y - largeCenter.y) * travel
       const logoWidth = largeWidth + (finalWidth - largeWidth) * travel
@@ -79,23 +85,36 @@ export default function ParticleLogo({ onReveal }) {
       particles.forEach((particle) => {
         const targetX = centerX + particle.nx * logoWidth
         const targetY = centerY + particle.ny * logoHeight
+        // Build an actual 3D cloud, rotate it around two spatial axes, then
+        // project it through a perspective camera. Near particles grow and
+        // brighten; far particles recede and dim before all points settle
+        // onto the flat logo plane.
         const yawX = particle.spaceX * yawCos + particle.spaceZ * yawSin
         const yawZ = -particle.spaceX * yawSin + particle.spaceZ * yawCos
         const rotatedY = particle.spaceY * pitchCos - yawZ * pitchSin
         const rotatedZ = particle.spaceY * pitchSin + yawZ * pitchCos
-        const perspective = Math.max(0.42, Math.min(2.15, 1.62 / (1.62 - rotatedZ)))
+        const cameraDistance = 1.62
+        const perspective = Math.max(0.42, Math.min(2.15, cameraDistance / (cameraDistance - rotatedZ)))
         const cloudExtent = Math.min(width, height) * 0.72
         const cloudX = largeCenter.x + yawX * cloudExtent * perspective
         const cloudY = largeCenter.y + rotatedY * cloudExtent * perspective
-        const shimmer = progress >= 0.84 ? Math.sin(now * 0.0017 + particle.phase) * 0.65 : 0
+        const shimmer = progress >= 0.84
+          ? Math.sin(now * 0.0017 + particle.phase) * 0.65
+          : 0
         const x = cloudX + (targetX - cloudX) * gather + shimmer
         const y = cloudY + (targetY - cloudY) * gather + shimmer * 0.45
         const pointerDistance = Math.hypot(x - pointer.x, y - pointer.y)
-        const hoverLinear = pointer.active && progress > 0.84 ? Math.max(0, 1 - pointerDistance / 54) : 0
+        const hoverDistance = 54
+        const hoverLinear = pointer.active && progress > 0.84
+          ? Math.max(0, 1 - pointerDistance / hoverDistance)
+          : 0
         const hover = hoverLinear * hoverLinear * (3 - 2 * hoverLinear)
         const depthLight = Math.max(0.34, Math.min(1, 0.28 + perspective * 0.48))
-        const opacity = introOpacity * Math.min(1, particle.opacity + hover * 0.62) * (depthLight + (1 - depthLight) * gather)
-        const radius = particle.radius * (0.58 + gather * 0.42) * (perspective + (1 - perspective) * gather)
+        const opacity = introOpacity
+          * Math.min(1, particle.opacity + hover * 0.62)
+          * (depthLight + (1 - depthLight) * gather)
+        const depthSize = perspective + (1 - perspective) * gather
+        const radius = particle.radius * (0.58 + gather * 0.42) * depthSize
 
         if (hover > 0.015) {
           const glowRadius = radius * (4.8 + hover * 2.8)
@@ -120,6 +139,8 @@ export default function ParticleLogo({ onReveal }) {
       context.globalAlpha = 1
       context.globalCompositeOperation = 'source-over'
       if (progress >= 0.49) revealContent()
+      // Stop consuming a full animation frame after the intro. Pointer
+      // movement requests a single new frame for the interactive glow.
       if (progress < 1) frame = requestAnimationFrame(draw)
     }
 
@@ -141,7 +162,11 @@ export default function ParticleLogo({ onReveal }) {
           const red = pixels[offset]
           const green = pixels[offset + 1]
           const blue = pixels[offset + 2]
-          if (!(alpha > 40 && !(red > 242 && green > 242 && blue > 242))) continue
+          const isLogo = alpha > 40 && !(red > 242 && green > 242 && blue > 242)
+          if (!isLogo) continue
+
+          // Use the source artwork's actual colour instead of its vertical
+          // position: the dark left stroke continues into the lower-left.
           const isLightPiece = green > 112
           const variant = (x + y) % 3
           const angle = ((x * 13 + y * 7) % 360) * (Math.PI / 180)
@@ -151,7 +176,9 @@ export default function ParticleLogo({ onReveal }) {
           points.push({
             nx: x / sampleWidth - 0.5,
             ny: y / sampleHeight - 0.5,
-            color: isLightPiece ? (variant === 0 ? '#8bbcff' : '#5a9cfc') : (variant === 0 ? '#174fbf' : '#2d75e5'),
+            color: isLightPiece
+              ? (variant === 0 ? '#b7d8ff' : '#78b3ff')
+              : (variant === 0 ? '#2f78df' : '#5a9cfc'),
             radius: 0.92 + Math.abs(Math.sin(x * 1.7 + y)) * 0.78,
             opacity: 0.72 + Math.abs(Math.sin(x * 0.41 + y * 0.73)) * 0.28,
             phase: x * 0.18 + y * 0.11,
@@ -163,7 +190,11 @@ export default function ParticleLogo({ onReveal }) {
       }
 
       particles = points
-      if (!particles.length) return revealContent()
+      if (!particles.length) {
+        revealContent()
+        return
+      }
+
       const rect = host.getBoundingClientRect()
       visible = visible || (rect.bottom > 0 && rect.top < window.innerHeight)
       if (visible && !playedRef.current) {

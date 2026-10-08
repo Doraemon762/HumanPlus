@@ -60,7 +60,7 @@ export default function Nav({ path }) {
     `${base} ${isActive(path, href) ? 'text-brand' : 'text-ink/70 hover:text-ink'}`
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
+    <nav className="site-nav fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Brand: complete HumanPlus wordmark logo (no separate icon / wordmark). */}
         <a href={toHref('/')} className="flex items-center" onClick={() => setMobileOpen(false)}>
@@ -109,7 +109,7 @@ export default function Nav({ path }) {
                 )}
 
                 <div className={`dropdown-panel absolute top-full z-50 pt-3 ${i === nav.length - 1 ? 'right-0' : 'left-1/2 -translate-x-1/2'} ${openMenu === item.label ? 'open' : ''}`}>
-                  <div className="min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
+                  <div className="site-nav-dropdown min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
                     {item.children.map((child) =>
                       child.external ? (
                         <a
@@ -156,7 +156,7 @@ export default function Nav({ path }) {
         {/* ── Mobile hamburger ── */}
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center md:hidden"
+          className="site-nav-mobile-toggle flex h-10 w-10 items-center justify-center md:hidden"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -171,7 +171,7 @@ export default function Nav({ path }) {
       {/* ── Mobile panel ── */}
       <div className={`accordion-body md:hidden ${mobileOpen ? 'open' : ''}`}>
         <div>
-          <ul className="border-t border-black/5 bg-white px-6 pb-6 pt-2">
+          <ul className="site-nav-mobile-panel border-t border-black/5 bg-white px-6 pb-6 pt-2">
             {nav.map((item) =>
               item.children ? (
                 <li key={item.label}>

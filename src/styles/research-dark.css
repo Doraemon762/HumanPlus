@@ -4,20 +4,65 @@ html.research-snap-active {
 }
 
 /* Keep the dark treatment local to the combined About / Research route. */
-html.research-snap-active nav {
+html.research-snap-active:not(.research-light-nav) nav {
   border-color: rgb(255 255 255 / 0.1) !important;
   background: rgb(8 10 15 / 0.88) !important;
   color: #f5f7fb;
 }
-html.research-snap-active nav .text-ink,
-html.research-snap-active nav .text-ink\/70 { color: rgb(245 247 251 / 0.72) !important; }
-html.research-snap-active nav .hover\:text-ink:hover { color: #f5f7fb !important; }
-html.research-snap-active nav .border-black\/5 { border-color: rgb(255 255 255 / 0.1) !important; }
-html.research-snap-active nav .bg-white,
-html.research-snap-active nav .bg-white\/80 { background: rgb(8 10 15 / 0.95) !important; }
+html.research-snap-active:not(.research-light-nav) nav .text-ink,
+html.research-snap-active:not(.research-light-nav) nav .text-ink\/70 { color: rgb(245 247 251 / 0.72) !important; }
+html.research-snap-active:not(.research-light-nav) nav .hover\:text-ink:hover { color: #f5f7fb !important; }
+html.research-snap-active:not(.research-light-nav) nav .border-black\/5 { border-color: rgb(255 255 255 / 0.1) !important; }
+html.research-snap-active:not(.research-light-nav) nav .bg-white,
+html.research-snap-active:not(.research-light-nav) nav .bg-white\/80 { background: rgb(8 10 15 / 0.95) !important; }
 /* Brand wordmark logo is a dark-on-transparent image; invert it to white so
    it stays legible on the dark About / Research nav (mirrors the footer). */
-html.research-snap-active nav img { filter: brightness(0) invert(1); }
+html.research-snap-active:not(.research-light-nav) nav img { filter: brightness(0) invert(1); }
+
+body .research-light-surface {
+  --research-light-progress: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+body .research-light-surface::before {
+  content: '';
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: calc(100svh - 64px);
+  pointer-events: none;
+  background: #080b11;
+  opacity: calc(1 - var(--research-light-progress));
+  transition: opacity 120ms linear;
+}
+
+html.research-light-nav .site-nav {
+  border-color: rgb(17 21 27 / 0.1) !important;
+  background: rgb(255 255 255 / 0.72) !important;
+  box-shadow: 0 10px 34px rgb(32 47 66 / 0.08);
+  color: #11151b;
+  backdrop-filter: blur(22px) saturate(1.25);
+  transition: background-color 900ms ease, border-color 900ms ease, box-shadow 900ms ease;
+}
+
+html.research-light-nav .site-nav img { filter: none; }
+html.research-light-nav .site-nav a,
+html.research-light-nav .site-nav button { color: rgb(17 21 27 / 0.68); }
+html.research-light-nav .site-nav [class~="text-brand"] { color: #397edb; }
+html.research-light-nav .site-nav a:hover,
+html.research-light-nav .site-nav button:hover { color: #11151b; }
+
+html.research-light-nav .site-nav-dropdown,
+html.research-light-nav .site-nav-mobile-panel {
+  border-color: rgb(17 21 27 / 0.1);
+  background: rgb(255 255 255 / 0.9);
+  box-shadow: 0 20px 50px -24px rgb(30 45 68 / 0.28);
+}
+
+html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b; }
 
 .company-research-page { background: #07090d; color: #f5f7fb; }
 

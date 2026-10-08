@@ -1,0 +1,210 @@
+.mvv-section {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100svh - 64px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(5rem, 8vh, 7.5rem) clamp(1.5rem, 6vw, 7rem);
+  color: #11151b;
+  background: #f1f3f5;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.mvv-side-rays {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: min(82vw, 1280px);
+  height: 100%;
+  opacity: 1;
+  -webkit-mask-image: radial-gradient(ellipse 112% 112% at 100% 0%, #000 0%, rgb(0 0 0 / 0.96) 34%, rgb(0 0 0 / 0.62) 67%, transparent 96%);
+  mask-image: radial-gradient(ellipse 112% 112% at 100% 0%, #000 0%, rgb(0 0 0 / 0.96) 34%, rgb(0 0 0 / 0.62) 67%, transparent 96%);
+}
+
+.mvv-shell {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1280px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(430px, 1.08fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
+}
+
+.mvv-copy {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 18rem;
+  display: flex;
+  align-items: center;
+}
+
+.mvv-copy-inner {
+  animation: mvv-copy-in 300ms ease both;
+}
+
+.mvv-copy h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.18em;
+  margin: 0;
+  font-size: clamp(3.3rem, 6.5vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.mvv-copy h2 span {
+  color: #252b35;
+  font-weight: 260;
+}
+
+.mvv-copy h2 strong {
+  color: #5a9cfc;
+  font-weight: 650;
+}
+
+.mvv-copy p {
+  max-width: 38rem;
+  min-height: 4.2em;
+  margin: clamp(2rem, 4vh, 3rem) 0 0;
+  color: rgb(17 21 27 / 0.64);
+  font-size: clamp(1.1rem, 1.5vw, 1.42rem);
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.mvv-visual {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+}
+
+.mvv-prism-stage {
+  position: relative;
+  width: min(108%, 630px);
+  aspect-ratio: 1.18;
+  isolation: isolate;
+}
+
+.mvv-prism-glow {
+  position: absolute;
+  z-index: -1;
+  inset: 14% 0 2%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 44%, rgb(235 248 255 / 0.76) 0%, rgb(179 219 255 / 0.48) 24%, rgb(90 156 252 / 0.26) 48%, transparent 76%);
+  filter: blur(64px);
+  animation: mvv-prism-aura 5.6s ease-in-out infinite alternate;
+}
+
+.mvv-prism-canvas {
+  position: absolute;
+  inset: 1% 0 0;
+  transform: translateY(5.5%);
+  filter:
+    drop-shadow(0 0 18px rgb(190 224 255 / 0.7))
+    drop-shadow(0 0 42px rgb(90 156 252 / 0.38));
+  -webkit-mask-image: radial-gradient(ellipse 76% 73% at 50% 51%, #000 42%, rgb(0 0 0 / 0.94) 61%, transparent 88%);
+  mask-image: radial-gradient(ellipse 76% 73% at 50% 51%, #000 42%, rgb(0 0 0 / 0.94) 61%, transparent 88%);
+}
+
+.mvv-label {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  border: 0;
+  color: #333333;
+  background: transparent;
+  cursor: pointer;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.mvv-label:hover,
+.mvv-label:focus-visible,
+.mvv-label.is-active {
+  color: #5a9cfc;
+}
+
+.mvv-label:hover { transform: translateY(-2px); }
+.mvv-label:focus-visible { outline: 2px solid #5a9cfc; outline-offset: 4px; border-radius: 0.5rem; }
+.mvv-label--mission { top: 1%; left: 50%; transform: translateX(-50%); }
+.mvv-label--mission:hover { transform: translate(-50%, -2px); }
+.mvv-label--vision { bottom: 3%; left: 0; }
+.mvv-label--values { right: 0; bottom: 3%; }
+
+.mvv-label-letter {
+  font-size: clamp(3.25rem, 5.6vw, 5.25rem);
+  font-weight: 650;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.mvv-label-name {
+  font-size: 0.78rem;
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes mvv-copy-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mvv-prism-aura {
+  from { transform: scale(0.92); opacity: 0.68; }
+  to { transform: scale(1.08); opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .mvv-section {
+    min-height: auto;
+    padding-block: 6rem 5rem;
+  }
+
+  .mvv-shell {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .mvv-copy {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 13rem;
+    align-items: flex-start;
+  }
+
+  .mvv-visual {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .mvv-copy h2 { font-size: clamp(3rem, 12vw, 5.4rem); }
+  .mvv-copy p { min-height: 3.5em; margin-top: 1.5rem; }
+  .mvv-prism-stage { width: min(100%, 470px); }
+  .mvv-side-rays { width: 100%; height: 48%; opacity: 0.72; }
+}
+
+@media (max-width: 520px) {
+  .mvv-section { padding-inline: 1.25rem; }
+  .mvv-copy h2 { white-space: normal; }
+  .mvv-prism-stage { width: 100%; aspect-ratio: 1.03; }
+  .mvv-prism-canvas { inset: 2% 0 0; }
+  .mvv-label { gap: 0.3rem; padding: 0.3rem; }
+  .mvv-label-letter { font-size: clamp(2.6rem, 13vw, 3.8rem); }
+  .mvv-label-name { font-size: 0.67rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mvv-copy-inner { animation: none; }
+  .mvv-label { transition: color 120ms linear; }
+  .mvv-prism-glow { animation: none; }
+}
