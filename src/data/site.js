@@ -24,8 +24,6 @@ export const nav = [
     children: [
       { label: 'Motion-0', href: '/hardware/motion-0' },
       { label: 'Strap-0', href: '/hardware/motion-strap' },
-      { label: 'Glove-0', href: '/hardware/glove-0' },
-      { label: 'Vision-0', href: '/hardware/vision-0' },
       { label: 'Application', href: '/application' },
     ],
   },
@@ -40,9 +38,5 @@ export const nav = [
     ],
   },
   { label: 'Research', href: '/research' },
-  {
-    label: 'Solutions',
-    href: '/solutions',
-  },
   { label: 'Contact', href: '/contact' },
 ]
