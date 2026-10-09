@@ -1,6 +1,6 @@
 html.research-snap-active {
   scroll-padding-top: 64px;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 /* Keep the dark treatment local to the combined About / Research route. */
