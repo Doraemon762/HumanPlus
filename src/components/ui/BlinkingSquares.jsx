@@ -20,23 +20,24 @@ const seeded = (index, salt) => {
 
 function BlinkingSquares({
   squareColor = '#2aa3ff',
-  gridSize = 52,
-  squareSize = 0.56,
-  minBrightness = 0.12,
+  accentColor = '#2588df',
+  gridSize = 108,
+  squareSize = 0.62,
+  minBrightness = 0.16,
   twinkleSpeed = 0.42,
-  twinkleStrength = 0.34,
-  opacity = 0.78,
+  twinkleStrength = 0.48,
+  opacity = 0.9,
   className = '',
 }) {
   const canvasRef = useRef(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
-    const host = canvas?.parentElement
-    if (!canvas || !host) return undefined
+    if (!canvas) return undefined
 
     const context = canvas.getContext('2d', { alpha: true })
     const color = hexToRgb(squareColor)
+    const accent = hexToRgb(accentColor)
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let width = 1
     let height = 1
@@ -46,7 +47,7 @@ function BlinkingSquares({
     let lastFrame = 0
 
     const resize = () => {
-      const rect = host.getBoundingClientRect()
+      const rect = canvas.getBoundingClientRect()
       width = Math.max(1, rect.width)
       height = Math.max(1, rect.height)
       dpr = Math.min(window.devicePixelRatio || 1, 1.25)
@@ -67,7 +68,7 @@ function BlinkingSquares({
       lastFrame = now
       context.clearRect(0, 0, width, height)
 
-      const columns = Math.max(18, Math.round(gridSize))
+      const columns = Math.max(18, Math.min(Math.round(gridSize), Math.round(width / 6)))
       const cell = width / columns
       const rows = Math.ceil(height / cell)
       const size = Math.max(1, cell * squareSize)
@@ -88,10 +89,13 @@ function BlinkingSquares({
           const pulse = 0.5 + 0.5 * Math.sin(time * rate * Math.PI * 2 + phase)
           const randomLevel = 0.36 + seeded(index, 12.3) * 0.64
           const brightness = Math.min(1, minBrightness + pulse * twinkleStrength * randomLevel)
+          const isAccent = seeded(index, 16.8) > 0.92
+          const cellColor = isAccent ? accent : color
+          const cellOpacity = Math.min(1, brightness * opacity * edgeDensity + (isAccent ? 0.21 : 0))
           const x = column * cell + (cell - size) * 0.5
           const y = row * cell + (cell - size) * 0.5
 
-          context.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${brightness * opacity * edgeDensity})`
+          context.fillStyle = `rgba(${cellColor.r}, ${cellColor.g}, ${cellColor.b}, ${cellOpacity})`
           context.fillRect(x, y, size, size)
         }
       }
@@ -117,8 +121,8 @@ function BlinkingSquares({
       else stop()
     }, { threshold: 0.01 })
 
-    resizeObserver.observe(host)
-    visibilityObserver.observe(host)
+    resizeObserver.observe(canvas)
+    visibilityObserver.observe(canvas)
     document.addEventListener('visibilitychange', onVisibility)
     resize()
 
@@ -128,7 +132,7 @@ function BlinkingSquares({
       visibilityObserver.disconnect()
       document.removeEventListener('visibilitychange', onVisibility)
     }
-  }, [gridSize, minBrightness, opacity, squareColor, squareSize, twinkleSpeed, twinkleStrength])
+  }, [accentColor, gridSize, minBrightness, opacity, squareColor, squareSize, twinkleSpeed, twinkleStrength])
 
   return <canvas ref={canvasRef} className={`blinking-squares ${className}`.trim()} aria-hidden="true" />
 }

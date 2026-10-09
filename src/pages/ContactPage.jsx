@@ -63,15 +63,11 @@ export default function ContactPage() {
       {/* ── Hero ── */}
       <section
         id="contact-hero"
-        className="contact-hero relative flex h-screen flex-col overflow-hidden bg-paper"
+        className="contact-hero relative flex h-screen flex-col overflow-hidden bg-white"
       >
         <BlinkingSquares
           className="contact-blinking-squares"
           squareColor="#2aa3ff"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_78%_48%,rgba(90,156,252,0.16),transparent_48%)]"
-          aria-hidden="true"
         />
         <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
           <Reveal as="p" className="text-xs font-mono uppercase tracking-[0.3em] text-mute">
