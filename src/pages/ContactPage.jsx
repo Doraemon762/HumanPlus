@@ -1,5 +1,6 @@
 import Reveal from '../components/ui/Reveal'
 import ContactForm from '../components/contact/ContactForm'
+import BlinkingSquares from '../components/ui/BlinkingSquares'
 import useContactSnap from '../hooks/useContactSnap'
 
 /* ── Static copy for the "How Can We Help?" band ───────────────────
@@ -62,11 +63,14 @@ export default function ContactPage() {
       {/* ── Hero ── */}
       <section
         id="contact-hero"
-        className="relative flex h-screen flex-col overflow-hidden bg-paper"
+        className="contact-hero relative flex h-screen flex-col overflow-hidden bg-paper"
       >
-        <div className="dot-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true" />
+        <BlinkingSquares
+          className="contact-blinking-squares"
+          squareColor="#2aa3ff"
+        />
         <div
-          className="pointer-events-none absolute -top-32 right-0 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(90,156,252,0.12),transparent_70%)] blur-3xl"
+          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_78%_48%,rgba(90,156,252,0.16),transparent_48%)]"
           aria-hidden="true"
         />
         <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
