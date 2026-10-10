@@ -28,25 +28,13 @@ export const nav = [
     ],
   },
   {
-    // Dataset (top) + HumanPlus1000 (child) both point at the same
-    // external HumanPlus1000 site. Application moved under Hardware.
     label: 'Dataset',
-    href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
-    external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/',
+    href: '/dataset',
     children: [
-      { label: 'HumanPlus1000', href: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/', external: 'https://humanplus-ai.github.io/HumanPlus1000.github.io/' },
+      { label: 'HumanPlus1000', href: '/dataset' },
     ],
   },
-  { label: 'Research', href: '/research' },
-  {
-    /* Contact stays top-level and is a REAL LINK (click → /contact);
-       hover opens a flyout with a single child page "Join Us"
-       (→ /contact/joinus). No self-link child is needed because the
-       trigger itself already navigates to the Contact page. */
-    label: 'Contact',
-    href: '/contact',
-    children: [
-      { label: 'Join Us', href: '/contact/joinus' },
-    ],
-  },
+  { label: 'About', href: '/research' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Careers', href: '/contact/joinus' },
 ]

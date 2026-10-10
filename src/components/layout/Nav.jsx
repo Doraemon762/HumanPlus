@@ -12,6 +12,12 @@ function Chevron({ open }) {
 
 /* A top-level item is active on its own route AND on any child route. */
 const isActive = (path, href) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`))
+const isExactActive = (path, href) => (href === '/' ? path === '/' : path === href)
+
+const isItemActive = (path, item) => (
+  isActive(path, item.href)
+  || item.children?.some((child) => !child.external && isActive(path, child.href))
+)
 
 /* External links (Data / Dataset → HumanPlus1000) open in a new tab and
    never get the in-app hash prefix. */
@@ -29,6 +35,7 @@ export default function Nav({ path }) {
      on the whole li wrapper, so moving the cursor across the small gap
      between trigger and panel never closes it. */
   const [openMenu, setOpenMenu] = useState(null)
+  const [homePastIntro, setHomePastIntro] = useState(false)
   const closeTimer = useRef(null)
 
   /* Mobile: hamburger + accordion state */
@@ -50,6 +57,32 @@ export default function Nav({ path }) {
 
   useEffect(() => () => clearTimeout(closeTimer.current), [])
 
+  useEffect(() => {
+    if (path !== '/') {
+      setHomePastIntro(false)
+      return undefined
+    }
+
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const products = document.getElementById('products')
+      setHomePastIntro(Boolean(products && products.getBoundingClientRect().top <= 72))
+    }
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(update)
+    }
+
+    update()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+    return () => {
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
+  }, [path])
+
   const scheduleClose = () => {
     clearTimeout(closeTimer.current)
     closeTimer.current = setTimeout(() => setOpenMenu(null), 120)
@@ -57,18 +90,18 @@ export default function Nav({ path }) {
   const cancelClose = () => clearTimeout(closeTimer.current)
 
   const linkClass = (href, base) =>
-    `${base} ${isActive(path, href) ? 'text-brand' : 'text-ink/70 hover:text-ink'}`
+    `${base} ${isExactActive(path, href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`
 
   return (
-    <nav className="site-nav fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
+    <nav className={`site-nav fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md ${path === '/' ? 'site-nav--home' : ''} ${homePastIntro ? 'site-nav--home-past-intro' : ''}`}>
+      <div className="relative mx-auto flex h-[72px] w-full items-center px-6 lg:px-12">
         {/* Brand: complete HumanPlus wordmark logo (no separate icon / wordmark). */}
         <a href={toHref('/')} className="flex items-center" onClick={() => setMobileOpen(false)}>
           <img src={site.logo} alt="HumanPlus" className="h-[28.8px] w-auto" />
         </a>
 
         {/* ── Desktop nav ── */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex">
           {nav.map((item, i) =>
             item.children ? (
               <li
@@ -86,8 +119,8 @@ export default function Nav({ path }) {
                      the panel for Dataset / Application. */
                   <a
                     {...externalProps(item.external)}
-                    className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
-                      openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
+                    className={`flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${
+                      openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
                     {item.label}
@@ -99,8 +132,8 @@ export default function Nav({ path }) {
                      still opens the flyout (handled on the <li> wrapper). */
                   <a
                     href={toHref(item.href)}
-                    className={`flex items-center gap-1.5 text-sm transition-colors duration-200 ${
-                      openMenu === item.label || isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-ink'
+                    className={`flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${
+                      openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
                     {item.label}
@@ -109,25 +142,25 @@ export default function Nav({ path }) {
                 )}
 
                 <div className={`dropdown-panel absolute top-full z-50 pt-3 ${i === nav.length - 1 ? 'right-0' : 'left-1/2 -translate-x-1/2'} ${openMenu === item.label ? 'open' : ''}`}>
-                  <div className="site-nav-dropdown min-w-[240px] rounded-[12px] border border-black/10 bg-white py-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.18)]">
+                  <div className="site-nav-dropdown min-w-[240px] py-2">
                     {item.children.map((child) =>
                       child.external ? (
                         <a
                           key={child.label}
                           {...externalProps(child.external)}
-                          className="block px-5 py-2.5 text-sm transition-colors duration-150 hover:bg-brandSoft hover:text-brand text-ink/70"
+                          className="site-nav-dropdown-link block px-5 py-2.5 text-xs font-medium uppercase tracking-[0.1em] text-ink/70"
                         >
-                          {child.label}
+                          <span>{child.label}</span>
                         </a>
                       ) : (
                         <a
                           key={child.label}
                           href={toHref(child.href)}
-                          className={`block px-5 py-2.5 text-sm transition-colors duration-150 hover:bg-brandSoft hover:text-brand ${
-                            isActive(path, child.href) ? 'text-brand' : 'text-ink/70'
+                          className={`site-nav-dropdown-link block px-5 py-2.5 text-xs font-medium uppercase tracking-[0.1em] ${
+                            isActive(path, child.href) ? 'is-active text-brand' : 'text-ink/70'
                           }`}
                         >
-                          {child.label}
+                          <span>{child.label}</span>
                         </a>
                       )
                     )}
@@ -139,12 +172,12 @@ export default function Nav({ path }) {
                 {item.external ? (
                   <a
                     {...externalProps(item.external)}
-                    className={`text-sm transition-colors duration-200 ${linkClass(item.href, '')}`}
+                    className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}
                   >
                     {item.label}
                   </a>
                 ) : (
-                  <a href={toHref(item.href)} className={`text-sm transition-colors duration-200 ${linkClass(item.href, '')}`}>
+                  <a href={toHref(item.href)} className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}>
                     {item.label}
                   </a>
                 )}
@@ -156,7 +189,7 @@ export default function Nav({ path }) {
         {/* ── Mobile hamburger ── */}
         <button
           type="button"
-          className="site-nav-mobile-toggle flex h-10 w-10 items-center justify-center md:hidden"
+          className="site-nav-mobile-toggle ml-auto flex h-10 w-10 items-center justify-center lg:hidden"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -169,7 +202,7 @@ export default function Nav({ path }) {
       </div>
 
       {/* ── Mobile panel ── */}
-      <div className={`accordion-body md:hidden ${mobileOpen ? 'open' : ''}`}>
+      <div className={`accordion-body lg:hidden ${mobileOpen ? 'open' : ''}`}>
         <div>
           <ul className="site-nav-mobile-panel border-t border-black/5 bg-white px-6 pb-6 pt-2">
             {nav.map((item) =>
@@ -179,7 +212,7 @@ export default function Nav({ path }) {
                     type="button"
                     aria-expanded={mobileSub === item.label}
                     onClick={() => setMobileSub(mobileSub === item.label ? null : item.label)}
-                    className={`flex w-full items-center justify-between py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}
+                    className={`flex w-full items-center justify-between py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}
                   >
                     {item.label}
                     <Chevron open={mobileSub === item.label} />
@@ -229,14 +262,14 @@ export default function Nav({ path }) {
                   {item.external ? (
                     <a
                       {...externalProps(item.external)}
-                      className={`block py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}
+                      className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
                       {item.label}
                     </a>
                   ) : (
                     <a
                       href={toHref(item.href)}
-                      className={`block py-3 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink'}`}
+                      className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
                       {item.label}
                     </a>

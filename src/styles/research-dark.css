@@ -1,5 +1,5 @@
 html.research-snap-active {
-  scroll-padding-top: 64px;
+  scroll-padding-top: 72px;
   scroll-snap-type: y proximity;
 }
 
@@ -11,13 +11,26 @@ html.research-snap-active:not(.research-light-nav) nav {
 }
 html.research-snap-active:not(.research-light-nav) nav .text-ink,
 html.research-snap-active:not(.research-light-nav) nav .text-ink\/70 { color: rgb(245 247 251 / 0.72) !important; }
-html.research-snap-active:not(.research-light-nav) nav .hover\:text-ink:hover { color: #f5f7fb !important; }
+html.research-snap-active:not(.research-light-nav) nav a:hover,
+html.research-snap-active:not(.research-light-nav) nav button:hover { color: #5a9cfc !important; }
 html.research-snap-active:not(.research-light-nav) nav .border-black\/5 { border-color: rgb(255 255 255 / 0.1) !important; }
 html.research-snap-active:not(.research-light-nav) nav .bg-white,
 html.research-snap-active:not(.research-light-nav) nav .bg-white\/80 { background: rgb(8 10 15 / 0.95) !important; }
 /* Brand wordmark logo is a dark-on-transparent image; invert it to white so
    it stays legible on the dark About / Research nav (mirrors the footer). */
 html.research-snap-active:not(.research-light-nav) nav img { filter: brightness(0) invert(1); }
+
+html.research-snap-active:not(.research-light-nav) .dropdown-panel { margin-top: 0.6rem; }
+html.research-snap-active:not(.research-light-nav) .site-nav-dropdown {
+  border-color: rgb(255 255 255 / 0.12);
+  background: rgb(8 10 15 / 0.62);
+  box-shadow: 0 16px 38px -24px rgb(0 0 0 / 0.68);
+  backdrop-filter: blur(18px) saturate(1.04);
+  -webkit-backdrop-filter: blur(18px) saturate(1.04);
+}
+html.research-snap-active:not(.research-light-nav) .site-nav-dropdown-link > span::after {
+  background: rgb(245 247 251 / 0.72);
+}
 
 body .research-light-surface {
   --research-light-progress: 0;
@@ -32,7 +45,7 @@ body .research-light-surface::before {
   top: 0;
   right: 0;
   left: 0;
-  height: calc(100svh - 64px);
+  height: calc(100svh - 72px);
   pointer-events: none;
   background: #080b11;
   opacity: calc(1 - var(--research-light-progress));
@@ -53,9 +66,14 @@ html.research-light-nav .site-nav a,
 html.research-light-nav .site-nav button { color: rgb(17 21 27 / 0.68); }
 html.research-light-nav .site-nav [class~="text-brand"] { color: #397edb; }
 html.research-light-nav .site-nav a:hover,
-html.research-light-nav .site-nav button:hover { color: #11151b; }
+html.research-light-nav .site-nav button:hover { color: #5a9cfc !important; }
 
-html.research-light-nav .site-nav-dropdown,
+html.research-light-nav .site-nav-dropdown {
+  border-color: rgb(17 21 27 / 0.1);
+  background: rgb(255 255 255 / 0.52);
+  box-shadow: 0 14px 34px -24px rgb(27 35 48 / 0.32);
+}
+
 html.research-light-nav .site-nav-mobile-panel {
   border-color: rgb(17 21 27 / 0.1);
   background: rgb(255 255 255 / 0.9);
@@ -109,7 +127,7 @@ html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b;
 
 .research-about-title {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 0.18em;
   color: #fff;
   font-size: clamp(3rem, 8vw, 7.5rem);
@@ -122,13 +140,13 @@ html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b;
   flex: 1 1 auto;
   min-width: 0;
   color: transparent;
-  font-size: 0.94em;
+  font-size: 1em;
   font-weight: 650;
   letter-spacing: -0.055em;
-  line-height: 0.98;
+  line-height: 0.94;
+  white-space: nowrap;
   -webkit-text-stroke: 1.35px #5a9cfc;
-  transform: translateY(0.015em) scale(1.04);
-  transform-origin: left bottom;
+  transform: none;
 }
 .company-about-copy { width: calc(100% - clamp(16rem, 25vw, 24rem)); max-width: 68rem; }
 .company-about-copy p { color: rgb(245 247 251 / 0.68); font-size: 1.125rem; line-height: 1.85; }

@@ -35,8 +35,31 @@
   text-transform: uppercase;
 }
 
+.mzs-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(280px, 0.78fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
 .mzs-table {
+  min-width: 0;
   border-top: 1px solid #ededed;
+}
+
+.mzs-visual {
+  display: grid;
+  min-width: 0;
+  margin: 0;
+  place-items: center;
+}
+
+.mzs-visual img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  max-height: min(64vh, 650px);
+  object-fit: contain;
 }
 
 /* 35 / 65 sits inside the requested 32–35 / 65–68 range; the gap was trimmed
@@ -121,6 +144,26 @@
   .mzs-row {
     grid-template-columns: 38% 62%;
     gap: clamp(14px, 2.4vw, 24px);
+  }
+
+  .mzs-content {
+    grid-template-columns: minmax(0, 1.25fr) minmax(230px, 0.75fr);
+    gap: clamp(24px, 4vw, 48px);
+  }
+}
+
+@media (max-width: 767px) {
+  .mzs-content {
+    grid-template-columns: 1fr;
+  }
+
+  .mzs-visual {
+    order: -1;
+  }
+
+  .mzs-visual img {
+    width: min(82vw, 420px);
+    max-height: 52vh;
   }
 }
 

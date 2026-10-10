@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import ParticleLogo from '../components/ui/ParticleLogo'
-import StrokeText from '../components/ui/StrokeText'
 import AboutTimelineSection from '../components/sections/AboutTimelineSection'
-import MvvSection from '../components/sections/MvvSection'
 import '../styles/research-dark.css'
 
 const COMPANY_INTRO = [
@@ -22,7 +20,7 @@ export default function ResearchPage() {
     const updateSurface = () => {
       const section = researchSection.current
       const lightProgress = section
-        ? Math.min(Math.max((window.innerHeight - section.getBoundingClientRect().top) / Math.max(1, window.innerHeight - 64), 0), 1)
+        ? Math.min(Math.max((window.innerHeight - section.getBoundingClientRect().top) / Math.max(1, window.innerHeight - 72), 0), 1)
         : 0
       if (section) section.style.setProperty('--research-light-progress', lightProgress.toFixed(4))
       document.documentElement.classList.toggle(
@@ -57,18 +55,7 @@ export default function ResearchPage() {
           <Reveal>
             <h1 className="research-about-title mt-5 max-w-7xl">
               <span className="research-about-label">About</span>{' '}
-              <StrokeText
-                text="HUMANPLUS"
-                strokeColor="#5a9cfc"
-                strokeWidth={1.35}
-                fillMode="none"
-                animated={false}
-                fontSize={128}
-                fontWeight={650}
-                letterSpacing={-6}
-                paddingRatio={0.025}
-                className="research-about-stroke-word"
-              />
+              <span className="research-about-stroke-word">HUMANPLUS</span>
             </h1>
           </Reveal>
           <div className="company-about-copy mt-12 space-y-7 md:mt-20 md:space-y-8">
@@ -81,7 +68,6 @@ export default function ResearchPage() {
         </div>
       </section>
       <div ref={researchSection} className="research-light-surface">
-        <MvvSection />
         <AboutTimelineSection />
       </div>
     </div>

@@ -26,7 +26,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 function Field({ label, required, error, children }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-mono uppercase tracking-[0.22em] text-mute">
+      <span className="mb-2 block text-sm font-medium tracking-normal text-ink/80">
         {label}
         {required && <span className="ml-1 text-brand">*</span>}
       </span>
@@ -37,7 +37,7 @@ function Field({ label, required, error, children }) {
 }
 
 const inputCls =
-  'w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-mute/60 outline-none transition-colors duration-200 focus:border-brandLine focus:bg-white'
+  'w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink/55 outline-none transition-colors duration-200 focus:border-brandLine focus:bg-white'
 
 function SelectField({ label, required, error, placeholder, options, value, onChange }) {
   return (
@@ -46,7 +46,7 @@ function SelectField({ label, required, error, placeholder, options, value, onCh
         <select
           value={value}
           onChange={onChange}
-          className={`${inputCls} appearance-none pr-10 ${value ? 'text-ink' : 'text-mute/60'}`}
+          className={`${inputCls} appearance-none pr-10 ${value ? 'text-ink' : 'text-ink/55'}`}
         >
           <option value="" disabled>
             {placeholder}
@@ -59,7 +59,7 @@ function SelectField({ label, required, error, placeholder, options, value, onCh
         </select>
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-mute"
+          className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink/55"
         >
           ▾
         </span>
@@ -208,14 +208,14 @@ export default function ContactForm() {
 
       {/* ── Contact Details ── */}
       <div className="border-b border-line pb-8">
-        <h3 className="text-xs font-mono uppercase tracking-[0.28em] text-mute">Contact Details</h3>
+        <h3 className="text-base font-semibold tracking-tight text-ink/85">Contact details</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <Field label="Full Name" required error={errors.fullName}>
             <input
               className={inputCls}
               value={form.fullName}
               onChange={update('fullName')}
-              placeholder="Jane Doe"
+              placeholder="Your name"
             />
           </Field>
           <Field label="Work Email" required error={errors.workEmail}>
@@ -224,7 +224,7 @@ export default function ContactForm() {
               className={inputCls}
               value={form.workEmail}
               onChange={update('workEmail')}
-              placeholder="jane@company.com"
+              placeholder="name@company.com"
             />
           </Field>
           <Field label="Company / Institution" error={errors.company}>
@@ -232,7 +232,7 @@ export default function ContactForm() {
               className={inputCls}
               value={form.company}
               onChange={update('company')}
-              placeholder="Company / University"
+              placeholder="Company or institution name"
             />
           </Field>
           <Field label="Country / Region" error={errors.country}>
@@ -240,7 +240,7 @@ export default function ContactForm() {
               className={inputCls}
               value={form.country}
               onChange={update('country')}
-              placeholder="e.g. China"
+              placeholder="Country or region"
             />
           </Field>
         </div>
@@ -248,13 +248,13 @@ export default function ContactForm() {
 
       {/* ── Inquiry ── */}
       <div className="border-b border-line py-8">
-        <h3 className="text-xs font-mono uppercase tracking-[0.28em] text-mute">Inquiry</h3>
+        <h3 className="text-base font-semibold tracking-tight text-ink/85">Inquiry details</h3>
         <div className="mt-6 space-y-6">
           <SelectField
             label="What are you interested in?"
             required
             error={errors.interestedIn}
-            placeholder="Select a product"
+            placeholder="Choose a product or area"
             options={PRODUCT_INTEREST_OPTIONS}
             value={form.interestedIn}
             onChange={update('interestedIn')}
@@ -263,7 +263,7 @@ export default function ContactForm() {
             label="What can we help you with?"
             required
             error={errors.inquiry}
-            placeholder="Select an option"
+            placeholder="Choose how we can help"
             options={INQUIRY_OPTIONS}
             value={form.inquiry}
             onChange={update('inquiry')}
@@ -274,7 +274,7 @@ export default function ContactForm() {
               <div className="pt-6">
                 <SelectField
                   label="Estimated Quantity"
-                  placeholder="Select quantity"
+                  placeholder="Choose an estimated quantity"
                   options={QUANTITY_OPTIONS}
                   value={form.estimatedQuantity}
                   onChange={update('estimatedQuantity')}
@@ -293,7 +293,7 @@ export default function ContactForm() {
             className={`${inputCls} resize-y leading-relaxed`}
             value={form.projectDetails}
             onChange={update('projectDetails')}
-            placeholder="Tell us about your needs..."
+            placeholder="Share your use case, timeline, and expected scale."
           />
         </Field>
       </div>

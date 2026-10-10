@@ -8,17 +8,17 @@ import useContactSnap from '../hooks/useContactSnap'
 const HELP = [
   {
     id: '01',
-    title: 'PRODUCT & PURCHASE',
+    title: 'Product & Purchase',
     desc: 'Product inquiries, purchasing, specifications, and deployment needs.',
   },
   {
     id: '02',
-    title: 'RESEARCH COLLABORATION',
+    title: 'Research Collaboration',
     desc: 'Academic research, embodied intelligence, and collaborative research projects.',
   },
   {
     id: '03',
-    title: 'DATA COLLECTION',
+    title: 'Data Collection',
     desc: 'Human data collection, multimodal data, and project-based collaboration.',
   },
 ]
@@ -70,13 +70,10 @@ export default function ContactPage() {
           squareColor="#2aa3ff"
         />
         <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
-          <Reveal as="p" className="text-xs font-mono uppercase tracking-[0.3em] text-mute">
-            Contact
-          </Reveal>
           <Reveal
             as="h1"
             delay={1}
-            className="mt-5 font-black leading-[1.04] tracking-tight text-ink text-[clamp(2.75rem,7vw,5.5rem)]"
+            className="font-black leading-[1.04] tracking-tight text-ink text-[clamp(2.75rem,7vw,5.5rem)]"
           >
             Let’s Talk.
           </Reveal>

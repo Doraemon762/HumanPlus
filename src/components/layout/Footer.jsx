@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { site } from '../../data/site'
 
 /* Brand icons — single-color simple-icons paths, forced white via
@@ -32,33 +33,95 @@ const SOCIALS = [
   { key: 'huggingface', label: 'Hugging Face', name: 'huggingface', href: 'https://huggingface.co/humanplus-ai' },
 ]
 
-/* Footer social icons. */
-const ICON_SIZE = 'h-[22px] w-[22px]'
-const GROUP_TITLE = 'text-[11px] font-mono uppercase tracking-[0.22em] text-white/40'
+const ICON_SIZE = 'h-[21px] w-[21px]'
+
+const FOOTER_GROUPS = [
+  {
+    title: 'Navigation',
+    links: [
+      { label: 'Home', href: '#/' },
+      { label: 'About', href: '#/research' },
+      { label: 'Contact', href: '#/contact' },
+      { label: 'Careers', href: '#/contact/joinus' },
+    ],
+  },
+  {
+    title: 'Hardware',
+    links: [
+      { label: 'WEAVE', href: '#/hardware/motion-0' },
+      { label: 'PULSE', href: '#/hardware/motion-strap' },
+      { label: 'Application', href: '#/application' },
+    ],
+  },
+  {
+    title: 'Dataset',
+    links: [{ label: 'HUMANPLUS1000', href: '#/dataset' }],
+  },
+]
 
 export default function Footer() {
-  return (
-    <footer className="w-full bg-[#0a0a0a] px-6 py-10 lg:px-10">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
-        {/* ── Left: brand + tagline ── */}
-        <div className="max-w-xs">
-          <img src={site.logo} alt="HumanPlus" className="h-[22px] w-auto brightness-0 invert" />
-          <p className="mt-3 text-sm leading-relaxed text-white/55">{site.tagline}</p>
-          <a
-            href="mailto:info@humanplus.xyz"
-            className="mt-2 block text-xs no-underline text-white/55 transition-colors duration-200 hover:text-white/80"
-          >
-            info@humanplus.xyz
-          </a>
-        </div>
+  const [emailCopied, setEmailCopied] = useState(false)
 
-        {/* ── Right: social ── */}
-        <div>
-          <h4 className={GROUP_TITLE}>Follow</h4>
-          <div className="mt-3 flex items-center gap-5">
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('info@humanplus.xyz')
+      setEmailCopied(true)
+      window.setTimeout(() => setEmailCopied(false), 1600)
+    } catch {
+      setEmailCopied(false)
+    }
+  }
+
+  return (
+    <footer className="w-full bg-[#0a0a0a] text-white">
+      <div className="mx-auto w-full max-w-[96rem] px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
+        <div className="grid gap-12 lg:grid-cols-[minmax(20rem,1.75fr)_repeat(3,minmax(8rem,0.65fr))] lg:gap-10">
+          <div className="max-w-[32rem]">
+            <img src={site.logo} alt="HumanPlus" className="h-[32px] w-auto brightness-0 invert" />
+            <p className="mt-5 text-[15px] leading-relaxed text-white/65 sm:text-base">
+              Capturing Human Life for Embodied Intelligence
+            </p>
+
+            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-4">
+              <span className="inline-flex cursor-default items-center gap-3 text-[18px] text-white/78 sm:text-[19px]">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+                  className="h-[26px] w-[26px] shrink-0"
+              aria-hidden="true"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+              <path d="M3 7l9 6l9 -6" />
+            </svg>
+            info@humanplus.xyz
+              </span>
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="group relative grid h-9 w-9 place-items-center rounded-md text-white/55 transition duration-200 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+                aria-label={emailCopied ? 'Email copied' : 'Copy email address'}
+                title={emailCopied ? 'Copied' : 'Copy email'}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-[21px] w-[21px]" aria-hidden="true">
+                  <rect x="8" y="8" width="11" height="11" rx="2" />
+                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+                  {emailCopied && <path d="m11.5 13.5 2 2 4-4" />}
+                </svg>
+                <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded bg-white px-2 py-1 text-[11px] font-medium text-[#111] opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+                  {emailCopied ? 'Copied' : 'Copy email'}
+                </span>
+              </button>
+            </div>
+
+            <div className="mt-7 flex items-center gap-5">
             {SOCIALS.map((s) => {
               const cls =
-                'inline-flex text-white/90 opacity-90 transition duration-200 ease-out hover:scale-110 hover:opacity-100 hover:text-white'
+                  'inline-flex text-white/70 transition duration-200 ease-out hover:-translate-y-0.5 hover:text-white'
               const inner = <Icon name={s.name} className={ICON_SIZE} />
               const isMail = s.href.startsWith('mailto:')
               return (
@@ -74,15 +137,32 @@ export default function Footer() {
                 </a>
               )
             })}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* ── Copyright rule ── */}
-      <div className="mx-auto mt-10 w-full max-w-7xl border-t border-white/10 pt-6">
-        <p className="text-xs font-mono tracking-wide text-white/45">
+          {FOOTER_GROUPS.map((group) => (
+            <nav key={group.title} aria-label={`${group.title} footer links`}>
+              <h4 className="text-[17px] font-semibold tracking-[-0.015em] text-white">{group.title}</h4>
+              <div className="mt-5 flex flex-col items-start gap-4">
+                {group.links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="origin-left text-[16px] font-normal leading-tight text-white/52 no-underline transition duration-200 ease-out hover:scale-[1.035] hover:text-white focus-visible:scale-[1.035] focus-visible:text-white focus-visible:outline-none"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </nav>
+          ))}
+          </div>
+
+        <div className="mt-12 border-t border-white/20 pt-7">
+          <p className="text-xs tracking-wide text-white/48 sm:text-sm">
           © 2026 {site.nameEn}. All rights reserved.
         </p>
+        </div>
       </div>
     </footer>
   )

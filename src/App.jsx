@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage'
 import RecruitmentPage from './pages/RecruitmentPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ApplicationPage from './pages/ApplicationPage'
+import DatasetPage from './pages/DatasetPage'
 
 /* ── Route table ──────────────────────────────────────────────────
    /                      home overview
@@ -26,6 +27,7 @@ function renderRoute(path) {
   if (path === '/hardware') return <ProductsPage />
   if (path.startsWith('/hardware/')) return <ProductDetailPage id={path.slice('/hardware/'.length)} />
   if (path === '/application') return <ApplicationPage />
+  if (path === '/dataset') return <DatasetPage />
   // Legacy /products routes kept for backward-compatible deep links.
   if (path === '/products') return <ProductsPage />
   if (path.startsWith('/products/')) return <ProductDetailPage id={path.slice('/products/'.length)} />
@@ -56,7 +58,7 @@ export default function App() {
       {/* Application is a self-contained full-page snap scroller (its own
           100vh viewport), so the global Footer is omitted there to keep the
           two screens edge-to-edge. Every other route keeps the Footer. */}
-      {path !== '/application' && <Footer />}
+      {path !== '/application' && path !== '/dataset' && <Footer />}
     </>
   )
 }
