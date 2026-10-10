@@ -23,9 +23,9 @@ import { featuredProducts, trapezoidProducts } from '../../data/products'
 const SHOWCASE = {
   'motion-0': {
     images: [
-      'images/products/motion-0-1.jpg',
-      'images/products/motion-0-2.jpg',
-      'images/products/motion-0-3.jpg',
+      'images/products/motion-0-1.webp',
+      'images/products/motion-0-2.webp',
+      'images/products/motion-0-3.webp',
     ],
     tag: 'Full-Body Motion Capture',
   },

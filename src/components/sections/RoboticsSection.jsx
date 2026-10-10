@@ -15,13 +15,11 @@ const VIDEO_SRC = 'videos/robotics/kitchen-v3.mp4'
  *    gesture-free playback while muted.
  *  - `muted` is asserted in the effect too, because some browsers drop
  *    React's `muted` prop on first mount and freeze the clip on frame 1.
- *  - IntersectionObserver plays on enter and pauses on leave, and
- *    `preload="none"` keeps it off the network until then — so on first
- *    page open ONLY the Hero clip downloads; this Life Capture clip is
- *    never fetched until the user actually snaps to it. Because the clip
- *    is now fast-start H.264 (see public/videos/robotics/kitchen-v3.mp4),
- *    playback can begin after only the first chunks arrive, so it starts
- *    quickly on arrival with no long black wait.
+ *  - IntersectionObserver plays on enter and pauses on leave. The browser
+ *    initially fetches only metadata; once the critical Hero has had a
+ *    moment to start, an idle warm-up changes preload to `auto`. This keeps
+ *    the second screen from competing with the Hero on first paint while
+ *    avoiding a cold video request when the user scrolls down.
  *  - `poster` paints the first frame instantly so there is never a black /
  *    blank gap while the clip buffers.
  */
@@ -33,6 +31,15 @@ function BackgroundVideo({ src, poster }) {
     if (!video) return
 
     video.muted = true
+
+    let warmupTimer
+    const warmUp = () => {
+      if (video.preload === 'auto') return
+      video.preload = 'auto'
+      video.load()
+    }
+
+    warmupTimer = window.setTimeout(warmUp, 900)
 
     const play = () => {
       const played = video.play()
@@ -46,14 +53,20 @@ function BackgroundVideo({ src, poster }) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) play()
+        if (entry.isIntersecting) {
+          warmUp()
+          play()
+        }
         else video.pause()
       },
       { threshold: 0.25 }
     )
     observer.observe(video)
 
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (warmupTimer) window.clearTimeout(warmupTimer)
+    }
   }, [])
 
   return (
@@ -64,7 +77,7 @@ function BackgroundVideo({ src, poster }) {
       muted
       loop
       playsInline
-      preload="none"
+      preload="metadata"
       tabIndex={-1}
       aria-hidden="true"
       className="absolute inset-0 h-full w-full bg-white object-cover select-none outline-none focus:outline-none"
