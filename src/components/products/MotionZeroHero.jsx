@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import '@fontsource-variable/inter'
 import Reveal from '../ui/Reveal'
 import MotionDataField from './MotionDataField'
@@ -91,7 +92,10 @@ export default function MotionZeroHero() {
           <div className="m0-floor-glow pointer-events-none absolute inset-0" aria-hidden="true" />
 
           <Reveal delay={2} className="relative w-full max-w-[560px] lg:max-w-[720px]">
-            <img
+            <OptimizedImage
+              loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 1023px) 100vw, 55vw"
               src={HERO_IMAGE}
               alt="Weave 人体运动感知设备"
               className="m0-product h-auto w-full select-none object-contain"

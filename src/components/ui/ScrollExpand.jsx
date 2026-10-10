@@ -1,3 +1,4 @@
+import DeferredVideo from './DeferredVideo'
 import { useCallback, useEffect, useRef } from 'react'
 import './ScrollExpand.css'
 
@@ -136,7 +137,7 @@ export default function ScrollExpand({
         <span ref={holdSnapMiddleRef} className="scroll-expand__hold-snap" aria-hidden="true" />
         <div ref={stageRef} className="scroll-expand__stage">
           <div ref={frameRef} className="scroll-expand__frame">
-            <video
+            <DeferredVideo
               ref={mediaRef}
               className="scroll-expand__media"
               src={src}

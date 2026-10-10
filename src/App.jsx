@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import useHashRoute from './hooks/useHashRoute'
 import HomePage from './pages/HomePage'
-import ProductsPage from './pages/ProductsPage'
-import ProductDetailPage from './pages/ProductDetailPage'
-import ResearchPage from './pages/ResearchPage'
-import RobotPage from './pages/RobotPage'
-import NewsPage from './pages/NewsPage'
-import ContactPage from './pages/ContactPage'
-import RecruitmentPage from './pages/RecruitmentPage'
-import NotFoundPage from './pages/NotFoundPage'
-import ApplicationPage from './pages/ApplicationPage'
-import DatasetPage from './pages/DatasetPage'
+const ProductsPage = lazy(() => import('./pages/ProductsPage'))
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
+const ResearchPage = lazy(() => import('./pages/ResearchPage'))
+const RobotPage = lazy(() => import('./pages/RobotPage'))
+const NewsPage = lazy(() => import('./pages/NewsPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const RecruitmentPage = lazy(() => import('./pages/RecruitmentPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const ApplicationPage = lazy(() => import('./pages/ApplicationPage'))
+const DatasetPage = lazy(() => import('./pages/DatasetPage'))
 
 /* ── Route table ──────────────────────────────────────────────────
    /                      home overview
@@ -54,7 +54,11 @@ export default function App() {
   return (
     <>
       <Nav path={path} />
-      <main>{renderRoute(path)}</main>
+      <main>
+        <Suspense fallback={<div className="min-h-screen bg-white" role="status" aria-label="Loading" />}>
+          {renderRoute(path)}
+        </Suspense>
+      </main>
       {/* Application is a self-contained full-page snap scroller (its own
           100vh viewport), so the global Footer is omitted there to keep the
           two screens edge-to-edge. Every other route keeps the Footer. */}

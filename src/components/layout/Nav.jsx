@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { useEffect, useRef, useState } from 'react'
 import { nav, site } from '../../data/site'
 import { toHref } from '../../hooks/useHashRoute'
@@ -97,7 +98,7 @@ export default function Nav({ path }) {
       <div className="relative mx-auto flex h-[72px] w-full items-center px-6 lg:px-12">
         {/* Brand: complete HumanPlus wordmark logo (no separate icon / wordmark). */}
         <a href={toHref('/')} className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <img src={site.logo} alt="HumanPlus" className="h-[28.8px] w-auto" />
+          <OptimizedImage src={site.logo} alt="HumanPlus" loading="eager" sizes="120px" className="h-[28.8px] w-auto" />
         </a>
 
         {/* ── Desktop nav ── */}

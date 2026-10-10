@@ -1,3 +1,4 @@
+import DeferredVideo from '../ui/DeferredVideo'
 /* ── Hero ─────────────────────────────────────────────────────────
    Full-screen video first screen.
    - 100vw × 100vh, object-fit: cover, no black bars.
@@ -12,7 +13,8 @@
 export default function HeroSection() {
   return (
     <section id="hero" className="relative h-[100vh] w-full overflow-hidden bg-black">
-      <video
+      <DeferredVideo
+        priority
         className="pointer-events-none absolute inset-0 block h-full w-full object-cover"
         src="videos/home/hero-laundry.mp4"
         poster="videos/home/hero-laundry-poster.jpg"

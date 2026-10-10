@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 
 /* Pulse strap product photo — studio shot on its own light backdrop,
@@ -47,7 +48,10 @@ export default function StrapZeroHero({ product }) {
         {/* ── Right: the strap itself — large, uncropped, no card ── */}
         <div className="relative z-[1] flex items-center justify-center lg:justify-end">
           <Reveal delay={2} className="relative w-full max-w-[440px] lg:max-w-[540px]">
-            <img
+            <OptimizedImage
+              loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 1023px) 100vw, 55vw"
               src={HERO_IMAGE}
               alt={`${product.name} 穿戴式动捕绑带`}
               className="h-auto w-full select-none object-contain"

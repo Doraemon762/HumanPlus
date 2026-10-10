@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { useEffect, useRef, useState } from 'react'
 import { toHref } from '../../hooks/useHashRoute'
 import { trapezoidPath } from './trapezoidPath'
@@ -71,7 +72,7 @@ export default function ProductTrapezoidCard({ product, slantEdge = 'right' }) {
 
       {/* Product image: keyed-out PNG, right side, enlarged, contained. */}
       {product.image && (
-        <img
+        <OptimizedImage
           src={product.image}
           alt={product.name}
           loading="lazy"

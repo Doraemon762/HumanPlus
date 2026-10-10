@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 
 /* Featured News — one important story shown as a horizontal glass card.
@@ -48,8 +49,9 @@ export default function NewsSection() {
             {/* left — 16:9 image, contain, no crop */}
             <div className="flex items-center justify-center overflow-hidden rounded-2xl bg-white/40">
               <div className="aspect-[16/9] w-full">
-                <img
+                <OptimizedImage
                   src={n.image}
+                  sizes="(max-width: 767px) 100vw, 50vw"
                   alt={n.title}
                   loading="lazy"
                   className="h-full w-full object-contain"

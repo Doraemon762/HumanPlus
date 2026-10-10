@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 /* Partner logos — kept in original form (no edits to the source files),
    shown in their true colours with no greyscale / hover effects.
    The source folder currently holds 17 logos (no 15.png); if 15.png is
@@ -32,7 +33,8 @@ function MarqueeRow({ items, direction }) {
       >
         {doubled.map((logo, idx) => (
           <div key={idx} className="flex shrink-0 items-center px-7 md:px-10">
-            <img
+            <OptimizedImage
+              sizes="180px"
               src={logo.src}
               alt={logo.alt}
               loading="lazy"

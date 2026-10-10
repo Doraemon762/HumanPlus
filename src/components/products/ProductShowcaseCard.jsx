@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { toHref } from '../../hooks/useHashRoute'
 
 /**
@@ -19,7 +20,7 @@ export default function ProductShowcaseCard({ product }) {
       className="group relative block overflow-hidden rounded-[18px] border border-black/[0.07] bg-white shadow-[0_10px_34px_-12px_rgba(17,45,90,0.18)] transition-[background-color,border-color,box-shadow,transform] duration-500 ease-out hover:-translate-y-[2px] hover:border-brand hover:bg-brand hover:shadow-[0_20px_46px_-14px_rgba(90,156,252,0.55)]"
     >
       <div className="flex h-[200px] items-center justify-center px-8 md:h-[240px]">
-        <img
+        <OptimizedImage
           src={product.image}
           alt={product.name}
           loading="lazy"

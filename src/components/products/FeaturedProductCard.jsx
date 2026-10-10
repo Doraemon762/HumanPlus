@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { toHref } from '../../hooks/useHashRoute'
 
 /**
@@ -40,7 +41,8 @@ export default function FeaturedProductCard({ product }) {
         {gallery.length > 0 && (
           <div className="relative flex h-full w-[56%] items-center justify-end gap-2 pr-5 md:gap-6 md:pr-8">
             {gallery.map((src, i) => (
-              <img
+              <OptimizedImage
+                sizes="(max-width: 767px) 20vw, 15vw"
                 key={i}
                 src={src}
                 alt={`${product.name} view ${i + 1}`}

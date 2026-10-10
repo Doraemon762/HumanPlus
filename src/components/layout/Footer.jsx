@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { useState } from 'react'
 import { site } from '../../data/site'
 
@@ -77,7 +78,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[96rem] px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(20rem,1.75fr)_repeat(3,minmax(8rem,0.65fr))] lg:gap-10">
           <div className="max-w-[32rem]">
-            <img src={site.logo} alt="HumanPlus" className="h-[32px] w-auto brightness-0 invert" />
+            <OptimizedImage src={site.logo} alt="HumanPlus" className="h-[32px] w-auto brightness-0 invert" />
             <p className="mt-5 text-[15px] leading-relaxed text-white/65 sm:text-base">
               Capturing Human Life for Embodied Intelligence
             </p>

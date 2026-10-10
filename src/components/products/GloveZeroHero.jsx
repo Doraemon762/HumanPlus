@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 import CtaLink from '../ui/CtaLink'
 import GloveZeroFeatures from './GloveZeroFeatures'
@@ -50,7 +51,10 @@ export default function GloveZeroHero({ product }) {
         <div className="relative z-[1] flex items-center justify-center lg:justify-end">
           <Reveal delay={2} className="relative w-full max-w-[520px] lg:max-w-[640px]">
             <div className="overflow-hidden rounded-[24px] bg-gradient-to-b from-panel to-panel2 p-8 shadow-[0_30px_80px_-24px_rgba(17,17,17,0.22)]">
-              <img
+              <OptimizedImage
+                loading="eager"
+                fetchPriority="high"
+                sizes="(max-width: 1023px) 100vw, 55vw"
                 src={image}
                 alt={`${product.name} wearable sensing glove`}
                 className="h-auto w-full select-none object-contain"

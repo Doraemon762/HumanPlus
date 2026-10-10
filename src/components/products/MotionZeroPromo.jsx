@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 /* ── Motion-0 promo banner ────────────────────────────────────────
    Pure full-bleed image strip, placed directly under the feature
    module. No title, no copy, no buttons, no container chrome — the
@@ -11,7 +12,7 @@
 export default function MotionZeroPromo() {
   return (
     <section id="m0-promo" className="bg-white" aria-label="Weave in the real world">
-      <img
+      <OptimizedImage
         src="images/motion-0/promo-full.jpg"
         alt="Weave worn while cooking in a real kitchen"
         loading="lazy"

@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import './MotionZeroSpecs.css'
 
 /* Motion-0 · Device Specifications
@@ -35,7 +36,7 @@ export default function MotionZeroSpecs() {
           </div>
 
           <figure className="mzs-visual">
-            <img
+            <OptimizedImage
               src="images/motion-0/weave-garment-set.png"
               alt="HumanPlus Weave jacket and trousers"
               loading="lazy"

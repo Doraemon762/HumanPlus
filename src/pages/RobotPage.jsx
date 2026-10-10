@@ -1,3 +1,5 @@
+import OptimizedImage from '../components/ui/OptimizedImage'
+import DeferredVideo from '../components/ui/DeferredVideo'
 import { useEffect, useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 
@@ -151,7 +153,7 @@ export default function RobotPage() {
 
           {/* Core visual — centred, original ratio, never cropped / stretched / distorted */}
           <Reveal delay={2} className="mt-8 flex w-full justify-center md:mt-12">
-            <img
+            <OptimizedImage
               src={heroImg}
               alt="A robot and a human reach toward each other — the human wears HumanPlus smart apparel and gloves, symbolising the link between human motion capture and robotic intelligence."
               className="h-auto w-auto max-w-full object-contain drop-shadow-[0_24px_60px_rgba(17,17,17,0.10)]"
@@ -169,7 +171,7 @@ export default function RobotPage() {
       >
         {/* Pinned full-bleed stage — both videos share the exact same frame. */}
         <div className="relative h-screen w-full overflow-hidden bg-white">
-          <video
+          <DeferredVideo
             src={humanVideo}
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -183,7 +185,7 @@ export default function RobotPage() {
               willChange: 'opacity',
             }}
           />
-          <video
+          <DeferredVideo
             src={robotVideo}
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay

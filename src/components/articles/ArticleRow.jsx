@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import MediaPlaceholder from '../ui/MediaPlaceholder'
 import { toHref } from '../../hooks/useHashRoute'
 
@@ -27,7 +28,7 @@ export default function ArticleRow({
   return (
     <a href={toHref(href)} className="group grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
       {image ? (
-        <img
+        <OptimizedImage
           src={image}
           alt={title}
           loading="lazy"

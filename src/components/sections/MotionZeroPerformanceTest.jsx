@@ -1,3 +1,4 @@
+import DeferredVideo from '../ui/DeferredVideo'
 import { useEffect, useRef, useState } from 'react'
 import './MotionZeroPerformanceTest.css'
 
@@ -159,7 +160,7 @@ export default function MotionZeroPerformanceTest() {
         {/* ── Left: video + custom controls ── */}
         <div className="mzpt-left">
           <div className="mzpt-video-wrap" onClick={togglePlay}>
-            <video
+            <DeferredVideo
               ref={videoRef}
               className="mzpt-video"
               src="videos/motion-0/performance-test.mp4"

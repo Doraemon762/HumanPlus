@@ -1,3 +1,5 @@
+import DeferredVideo from '../ui/DeferredVideo'
+import OptimizedImage from '../ui/OptimizedImage'
 const ASSET = 'images/motion-0/bento'
 const VIDEO = 'videos/motion-0'
 
@@ -17,7 +19,7 @@ export default function MotionZeroFeatures() {
               <h3>Wear to capture</h3>
             </div>
             <div className="m0-wear-frame">
-              <video
+              <DeferredVideo
                 className="m0-wear-set"
                 src={`${VIDEO}/wear-to-capture.mp4`}
                 poster={`${VIDEO}/wear-to-capture-poster.jpg`}
@@ -38,14 +40,15 @@ export default function MotionZeroFeatures() {
               <h3>Battery life</h3>
               <p className="m0-description">Pocket battery<br />Stable long-term capture</p>
             </div>
-            <img
+            <OptimizedImage
+              sizes="(max-width: 767px) 50vw, 20vw"
               className="m0-battery-cells"
               src={`${ASSET}/battery-pack-blue.png`}
               alt="Weave pocket battery pack"
             />
             <div className="m0-battery-visual" aria-hidden="true">
-              <img src={`${ASSET}/battery-beige-hd.png`} alt="" />
-              <img src={`${ASSET}/battery-blue-hd.png`} alt="" />
+              <OptimizedImage sizes="(max-width: 767px) 25vw, 10vw" src={`${ASSET}/battery-beige-hd.png`} alt="" />
+              <OptimizedImage sizes="(max-width: 767px) 25vw, 10vw" src={`${ASSET}/battery-blue-hd.png`} alt="" />
             </div>
           </GlassCard>
 
@@ -59,14 +62,14 @@ export default function MotionZeroFeatures() {
               <p className="m0-description">Live full-body motion<br />for teleoperation</p>
             </div>
             <div className="m0-sensor-visual">
-              <img className="m0-sensor-outfit" src={`${ASSET}/sensor-outfit.png`} alt="Weave jacket and trousers" />
+              <OptimizedImage sizes="(max-width: 767px) 50vw, 20vw" className="m0-sensor-outfit" src={`${ASSET}/sensor-outfit.png`} alt="Weave jacket and trousers" />
             </div>
           </GlassCard>
         </div>
 
         <div className="m0-mobile-page m0-mobile-page-two">
           <article className="m0-bento-photo">
-            <img src={`${ASSET}/kitchen-figma.png`} alt="Weave capture in a kitchen" />
+            <OptimizedImage sizes="(max-width: 767px) 100vw, 30vw" src={`${ASSET}/kitchen-figma.png`} alt="Weave capture in a kitchen" />
           </article>
 
           <GlassCard className="m0-bento-accuracy">
@@ -76,8 +79,8 @@ export default function MotionZeroFeatures() {
               <p className="m0-description">Precise full-body tracking<br />Accurate motion reconstruction</p>
             </div>
             <div className="m0-accuracy-pics">
-              <img src={`${ASSET}/tracking-person.jpg`} alt="Human motion capture" />
-              <img src={`${ASSET}/tracking-robot.jpg`} alt="Robot reproducing the captured motion" />
+              <OptimizedImage sizes="(max-width: 767px) 40vw, 15vw" src={`${ASSET}/tracking-person.jpg`} alt="Human motion capture" />
+              <OptimizedImage sizes="(max-width: 767px) 40vw, 15vw" src={`${ASSET}/tracking-robot.jpg`} alt="Robot reproducing the captured motion" />
             </div>
           </GlassCard>
 
@@ -88,8 +91,8 @@ export default function MotionZeroFeatures() {
               <p className="m0-description">Easy to wear<br />Easy to maintain</p>
             </div>
             <div className="m0-fabric-pics">
-              <img src={`${ASSET}/fabric-beige.jpg`} alt="Beige washable fabric" />
-              <img src={`${ASSET}/fabric-blue.jpg`} alt="Blue washable fabric" />
+              <OptimizedImage sizes="(max-width: 767px) 40vw, 15vw" src={`${ASSET}/fabric-beige.jpg`} alt="Beige washable fabric" />
+              <OptimizedImage sizes="(max-width: 767px) 40vw, 15vw" src={`${ASSET}/fabric-blue.jpg`} alt="Blue washable fabric" />
             </div>
           </GlassCard>
         </div>

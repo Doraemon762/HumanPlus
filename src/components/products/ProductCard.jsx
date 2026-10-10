@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import MediaPlaceholder from '../ui/MediaPlaceholder'
 import { toHref } from '../../hooks/useHashRoute'
 
@@ -12,7 +13,7 @@ export default function ProductCard({ product }) {
       className="group flex h-full flex-col rounded-[20px] border border-black/10 bg-white p-6 transition-colors duration-300 hover:border-brandLine"
     >
       {product.image ? (
-        <img
+        <OptimizedImage
           src={product.image}
           alt={product.name}
           loading="lazy"

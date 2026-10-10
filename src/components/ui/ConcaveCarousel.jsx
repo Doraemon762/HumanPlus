@@ -1,4 +1,5 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import OptimizedImage from './OptimizedImage'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { InertiaPlugin } from 'gsap/InertiaPlugin'
@@ -228,11 +229,12 @@ export default function ConcaveCarousel({ items = [], ariaLabel = 'Research pape
               }}
               key={`${item.title}-${index}`}
             >
-              <div
+              <OptimizedImage
                 className="concave-carousel__media"
-                role="img"
-                aria-label={item.alt || item.title}
-                style={{ backgroundImage: `url(${item.src})` }}
+                src={item.src}
+                alt={item.alt || item.title}
+                sizes="(max-width: 767px) 75vw, 40vw"
+                style={{ objectFit: 'contain' }}
               />
             </div>
           ))}

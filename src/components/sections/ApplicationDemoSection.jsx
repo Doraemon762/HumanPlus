@@ -1,3 +1,4 @@
+import DeferredVideo from '../ui/DeferredVideo'
 import { useEffect, useRef, useState } from 'react'
 
 /* A single labelled demo video.
@@ -8,7 +9,7 @@ import { useEffect, useRef, useState } from 'react'
    - Muted is forced via ref: React doesn't reliably reflect the JSX `muted`
      attribute onto the live DOM <video>, so we set the property directly.
      This keeps autoplay / loop silent WITHOUT touching any other page's videos. */
-function VideoTile({ src, label, tone = 'light' }) {
+function VideoTile({ src, label, tone = 'light', enabled }) {
   const videoRef = useRef(null)
   useEffect(() => {
     if (videoRef.current) videoRef.current.muted = true
@@ -21,7 +22,8 @@ function VideoTile({ src, label, tone = 'light' }) {
   return (
     <figure className="group">
       <div className={`relative aspect-video overflow-hidden rounded-2xl transition-all duration-300 ${frame} group-hover:ring-brand/40 group-hover:shadow-[0_10px_40px_rgba(90,156,252,0.12)]`}>
-        <video
+        <DeferredVideo
+          enabled={enabled}
           ref={videoRef}
           src={src}
           className="h-full w-full object-contain"
@@ -119,7 +121,7 @@ export default function ApplicationDemoSection() {
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
             {HUMAN_CLIPS.map((d) => (
-              <VideoTile key={d.src} src={d.src} label={d.label} tone="light" />
+              <VideoTile key={d.src} src={d.src} label={d.label} tone="light" enabled={active === 'human'} />
             ))}
           </div>
         </div>
@@ -140,7 +142,7 @@ export default function ApplicationDemoSection() {
           </p>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
             {ROBOT_CLIPS.map((d) => (
-              <VideoTile key={d.src} src={d.src} label={d.label} tone="dark" />
+              <VideoTile key={d.src} src={d.src} label={d.label} tone="dark" enabled={active === 'robot'} />
             ))}
           </div>
         </div>

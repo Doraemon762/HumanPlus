@@ -1,0 +1,1805 @@
+{
+  "images": {
+    "images/logo/1.png": {
+      "width": 1050,
+      "height": 323,
+      "variants": [
+        {
+          "src": "media/images/logo/1.png.480.webp",
+          "width": 480,
+          "bytes": 9634
+        }
+      ]
+    },
+    "images/logo/10.png": {
+      "width": 1280,
+      "height": 627,
+      "variants": [
+        {
+          "src": "media/images/logo/10.png.480.webp",
+          "width": 480,
+          "bytes": 12960
+        }
+      ]
+    },
+    "images/logo/11.png": {
+      "width": 681,
+      "height": 225,
+      "variants": [
+        {
+          "src": "media/images/logo/11.png.480.webp",
+          "width": 480,
+          "bytes": 9078
+        }
+      ]
+    },
+    "images/logo/12.png": {
+      "width": 191,
+      "height": 48,
+      "variants": [
+        {
+          "src": "media/images/logo/12.png.191.webp",
+          "width": 191,
+          "bytes": 2274
+        }
+      ]
+    },
+    "images/logo/13.png": {
+      "width": 3840,
+      "height": 2160,
+      "variants": [
+        {
+          "src": "media/images/logo/13.png.480.webp",
+          "width": 480,
+          "bytes": 12516
+        }
+      ]
+    },
+    "images/logo/14.png": {
+      "width": 154,
+      "height": 58,
+      "variants": [
+        {
+          "src": "media/images/logo/14.png.154.webp",
+          "width": 154,
+          "bytes": 2066
+        }
+      ]
+    },
+    "images/logo/16.png": {
+      "width": 1394,
+      "height": 844,
+      "variants": [
+        {
+          "src": "media/images/logo/16.png.480.webp",
+          "width": 480,
+          "bytes": 13446
+        }
+      ]
+    },
+    "images/logo/17.png": {
+      "width": 374,
+      "height": 163,
+      "variants": [
+        {
+          "src": "media/images/logo/17.png.374.webp",
+          "width": 374,
+          "bytes": 6314
+        }
+      ]
+    },
+    "images/logo/18.png": {
+      "width": 406,
+      "height": 154,
+      "variants": [
+        {
+          "src": "media/images/logo/18.png.406.webp",
+          "width": 406,
+          "bytes": 3664
+        }
+      ]
+    },
+    "images/logo/19.PNG": {
+      "width": 1280,
+      "height": 489,
+      "variants": [
+        {
+          "src": "media/images/logo/19.PNG.480.webp",
+          "width": 480,
+          "bytes": 26184
+        }
+      ]
+    },
+    "images/logo/2.png": {
+      "width": 586,
+      "height": 239,
+      "variants": [
+        {
+          "src": "media/images/logo/2.png.480.webp",
+          "width": 480,
+          "bytes": 17772
+        }
+      ]
+    },
+    "images/logo/20.PNG": {
+      "width": 576,
+      "height": 144,
+      "variants": [
+        {
+          "src": "media/images/logo/20.PNG.480.webp",
+          "width": 480,
+          "bytes": 15588
+        }
+      ]
+    },
+    "images/logo/21.PNG": {
+      "width": 1246,
+      "height": 520,
+      "variants": [
+        {
+          "src": "media/images/logo/21.PNG.480.webp",
+          "width": 480,
+          "bytes": 25636
+        }
+      ]
+    },
+    "images/logo/3.png": {
+      "width": 1280,
+      "height": 654,
+      "variants": [
+        {
+          "src": "media/images/logo/3.png.480.webp",
+          "width": 480,
+          "bytes": 6070
+        }
+      ]
+    },
+    "images/logo/4.png": {
+      "width": 658,
+      "height": 220,
+      "variants": [
+        {
+          "src": "media/images/logo/4.png.480.webp",
+          "width": 480,
+          "bytes": 9776
+        }
+      ]
+    },
+    "images/logo/5.png": {
+      "width": 1400,
+      "height": 600,
+      "variants": [
+        {
+          "src": "media/images/logo/5.png.480.webp",
+          "width": 480,
+          "bytes": 8096
+        }
+      ]
+    },
+    "images/logo/6.png": {
+      "width": 1000,
+      "height": 413,
+      "variants": [
+        {
+          "src": "media/images/logo/6.png.480.webp",
+          "width": 480,
+          "bytes": 13400
+        }
+      ]
+    },
+    "images/logo/7.png": {
+      "width": 1280,
+      "height": 667,
+      "variants": [
+        {
+          "src": "media/images/logo/7.png.480.webp",
+          "width": 480,
+          "bytes": 9920
+        }
+      ]
+    },
+    "images/logo/8.png": {
+      "width": 852,
+      "height": 240,
+      "variants": [
+        {
+          "src": "media/images/logo/8.png.480.webp",
+          "width": 480,
+          "bytes": 15464
+        }
+      ]
+    },
+    "images/logo/9.png": {
+      "width": 707,
+      "height": 296,
+      "variants": [
+        {
+          "src": "media/images/logo/9.png.480.webp",
+          "width": 480,
+          "bytes": 4850
+        }
+      ]
+    },
+    "images/logo/logo-large.png": {
+      "width": 7018,
+      "height": 1831,
+      "variants": [
+        {
+          "src": "media/images/logo/logo-large.png.480.webp",
+          "width": 480,
+          "bytes": 8636
+        }
+      ]
+    },
+    "images/logo/logo.png": {
+      "width": 1281,
+      "height": 1109,
+      "variants": [
+        {
+          "src": "media/images/logo/logo.png.480.webp",
+          "width": 480,
+          "bytes": 13316
+        }
+      ]
+    },
+    "images/motion-0/activity-cooking.jpg": {
+      "width": 1200,
+      "height": 800,
+      "variants": [
+        {
+          "src": "media/images/motion-0/activity-cooking.jpg.480.webp",
+          "width": 480,
+          "bytes": 11230
+        },
+        {
+          "src": "media/images/motion-0/activity-cooking.jpg.960.webp",
+          "width": 960,
+          "bytes": 27034
+        },
+        {
+          "src": "media/images/motion-0/activity-cooking.jpg.1200.webp",
+          "width": 1200,
+          "bytes": 37756
+        }
+      ]
+    },
+    "images/motion-0/activity-laundry.jpg": {
+      "width": 1067,
+      "height": 1600,
+      "variants": [
+        {
+          "src": "media/images/motion-0/activity-laundry.jpg.480.webp",
+          "width": 480,
+          "bytes": 25150
+        },
+        {
+          "src": "media/images/motion-0/activity-laundry.jpg.960.webp",
+          "width": 960,
+          "bytes": 61890
+        },
+        {
+          "src": "media/images/motion-0/activity-laundry.jpg.1067.webp",
+          "width": 1067,
+          "bytes": 73944
+        }
+      ]
+    },
+    "images/motion-0/activity-reach.jpg": {
+      "width": 1067,
+      "height": 1600,
+      "variants": [
+        {
+          "src": "media/images/motion-0/activity-reach.jpg.480.webp",
+          "width": 480,
+          "bytes": 20854
+        },
+        {
+          "src": "media/images/motion-0/activity-reach.jpg.960.webp",
+          "width": 960,
+          "bytes": 53758
+        },
+        {
+          "src": "media/images/motion-0/activity-reach.jpg.1067.webp",
+          "width": 1067,
+          "bytes": 66500
+        }
+      ]
+    },
+    "images/motion-0/bento/battery-beige-hd.png": {
+      "width": 2742,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/battery-beige-hd.png.480.webp",
+          "width": 480,
+          "bytes": 22750
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-beige-hd.png.960.webp",
+          "width": 960,
+          "bytes": 68900
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-beige-hd.png.1920.webp",
+          "width": 1920,
+          "bytes": 284134
+        }
+      ]
+    },
+    "images/motion-0/bento/battery-blue-hd.png": {
+      "width": 2743,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/battery-blue-hd.png.480.webp",
+          "width": 480,
+          "bytes": 23902
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-blue-hd.png.960.webp",
+          "width": 960,
+          "bytes": 57894
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-blue-hd.png.1920.webp",
+          "width": 1920,
+          "bytes": 145724
+        }
+      ]
+    },
+    "images/motion-0/bento/battery-cells.png": {
+      "width": 1448,
+      "height": 1086,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/battery-cells.png.480.webp",
+          "width": 480,
+          "bytes": 26396
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-cells.png.960.webp",
+          "width": 960,
+          "bytes": 69490
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-cells.png.1448.webp",
+          "width": 1448,
+          "bytes": 122680
+        }
+      ]
+    },
+    "images/motion-0/bento/battery-pack-blue.png": {
+      "width": 1859,
+      "height": 846,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/battery-pack-blue.png.480.webp",
+          "width": 480,
+          "bytes": 12282
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-pack-blue.png.960.webp",
+          "width": 960,
+          "bytes": 28158
+        },
+        {
+          "src": "media/images/motion-0/bento/battery-pack-blue.png.1859.webp",
+          "width": 1859,
+          "bytes": 70652
+        }
+      ]
+    },
+    "images/motion-0/bento/fabric-beige.jpg": {
+      "width": 2742,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/fabric-beige.jpg.480.webp",
+          "width": 480,
+          "bytes": 19282
+        },
+        {
+          "src": "media/images/motion-0/bento/fabric-beige.jpg.960.webp",
+          "width": 960,
+          "bytes": 317288
+        },
+        {
+          "src": "media/images/motion-0/bento/fabric-beige.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 1023006
+        }
+      ]
+    },
+    "images/motion-0/bento/fabric-blue.jpg": {
+      "width": 2743,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/fabric-blue.jpg.480.webp",
+          "width": 480,
+          "bytes": 8456
+        },
+        {
+          "src": "media/images/motion-0/bento/fabric-blue.jpg.960.webp",
+          "width": 960,
+          "bytes": 58674
+        },
+        {
+          "src": "media/images/motion-0/bento/fabric-blue.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 286692
+        }
+      ]
+    },
+    "images/motion-0/bento/jacket-figma.png": {
+      "width": 2743,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/jacket-figma.png.480.webp",
+          "width": 480,
+          "bytes": 20400
+        },
+        {
+          "src": "media/images/motion-0/bento/jacket-figma.png.960.webp",
+          "width": 960,
+          "bytes": 47192
+        },
+        {
+          "src": "media/images/motion-0/bento/jacket-figma.png.1920.webp",
+          "width": 1920,
+          "bytes": 119992
+        }
+      ]
+    },
+    "images/motion-0/bento/kitchen-figma.png": {
+      "width": 478,
+      "height": 748,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/kitchen-figma.png.478.webp",
+          "width": 478,
+          "bytes": 26074
+        }
+      ]
+    },
+    "images/motion-0/bento/pants-figma.png": {
+      "width": 2742,
+      "height": 3840,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/pants-figma.png.480.webp",
+          "width": 480,
+          "bytes": 22862
+        },
+        {
+          "src": "media/images/motion-0/bento/pants-figma.png.960.webp",
+          "width": 960,
+          "bytes": 51988
+        },
+        {
+          "src": "media/images/motion-0/bento/pants-figma.png.1920.webp",
+          "width": 1920,
+          "bytes": 128878
+        }
+      ]
+    },
+    "images/motion-0/bento/sensor-outfit.png": {
+      "width": 1086,
+      "height": 1032,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/sensor-outfit.png.480.webp",
+          "width": 480,
+          "bytes": 51482
+        },
+        {
+          "src": "media/images/motion-0/bento/sensor-outfit.png.960.webp",
+          "width": 960,
+          "bytes": 175030
+        },
+        {
+          "src": "media/images/motion-0/bento/sensor-outfit.png.1086.webp",
+          "width": 1086,
+          "bytes": 145338
+        }
+      ]
+    },
+    "images/motion-0/bento/tracking-person.jpg": {
+      "width": 1920,
+      "height": 1080,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/tracking-person.jpg.480.webp",
+          "width": 480,
+          "bytes": 13400
+        },
+        {
+          "src": "media/images/motion-0/bento/tracking-person.jpg.960.webp",
+          "width": 960,
+          "bytes": 36922
+        },
+        {
+          "src": "media/images/motion-0/bento/tracking-person.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 95986
+        }
+      ]
+    },
+    "images/motion-0/bento/tracking-person.png": {
+      "width": 150,
+      "height": 143,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/tracking-person.png.150.webp",
+          "width": 150,
+          "bytes": 3944
+        }
+      ]
+    },
+    "images/motion-0/bento/tracking-robot.jpg": {
+      "width": 1920,
+      "height": 1080,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/tracking-robot.jpg.480.webp",
+          "width": 480,
+          "bytes": 14000
+        },
+        {
+          "src": "media/images/motion-0/bento/tracking-robot.jpg.960.webp",
+          "width": 960,
+          "bytes": 37498
+        },
+        {
+          "src": "media/images/motion-0/bento/tracking-robot.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 87198
+        }
+      ]
+    },
+    "images/motion-0/bento/wear-set-figma.png": {
+      "width": 1086,
+      "height": 1032,
+      "variants": [
+        {
+          "src": "media/images/motion-0/bento/wear-set-figma.png.480.webp",
+          "width": 480,
+          "bytes": 51482
+        },
+        {
+          "src": "media/images/motion-0/bento/wear-set-figma.png.960.webp",
+          "width": 960,
+          "bytes": 175030
+        },
+        {
+          "src": "media/images/motion-0/bento/wear-set-figma.png.1086.webp",
+          "width": 1086,
+          "bytes": 145338
+        }
+      ]
+    },
+    "images/motion-0/garment-worn.jpg": {
+      "width": 800,
+      "height": 1200,
+      "variants": [
+        {
+          "src": "media/images/motion-0/garment-worn.jpg.480.webp",
+          "width": 480,
+          "bytes": 24738
+        },
+        {
+          "src": "media/images/motion-0/garment-worn.jpg.800.webp",
+          "width": 800,
+          "bytes": 49778
+        }
+      ]
+    },
+    "images/motion-0/kitchen-wide.jpg": {
+      "width": 1920,
+      "height": 1080,
+      "variants": [
+        {
+          "src": "media/images/motion-0/kitchen-wide.jpg.480.webp",
+          "width": 480,
+          "bytes": 10384
+        },
+        {
+          "src": "media/images/motion-0/kitchen-wide.jpg.960.webp",
+          "width": 960,
+          "bytes": 26608
+        },
+        {
+          "src": "media/images/motion-0/kitchen-wide.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 63674
+        }
+      ]
+    },
+    "images/motion-0/promo-full.jpg": {
+      "width": 2560,
+      "height": 1163,
+      "variants": [
+        {
+          "src": "media/images/motion-0/promo-full.jpg.480.webp",
+          "width": 480,
+          "bytes": 16178
+        },
+        {
+          "src": "media/images/motion-0/promo-full.jpg.960.webp",
+          "width": 960,
+          "bytes": 40112
+        },
+        {
+          "src": "media/images/motion-0/promo-full.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 96960
+        }
+      ]
+    },
+    "images/motion-0/weave-garment-set.png": {
+      "width": 1086,
+      "height": 1032,
+      "variants": [
+        {
+          "src": "media/images/motion-0/weave-garment-set.png.480.webp",
+          "width": 480,
+          "bytes": 56138
+        },
+        {
+          "src": "media/images/motion-0/weave-garment-set.png.960.webp",
+          "width": 960,
+          "bytes": 163120
+        },
+        {
+          "src": "media/images/motion-0/weave-garment-set.png.1086.webp",
+          "width": 1086,
+          "bytes": 160842
+        }
+      ]
+    },
+    "images/news/featured-news.png": {
+      "width": 782,
+      "height": 328,
+      "variants": [
+        {
+          "src": "media/images/news/featured-news.png.480.webp",
+          "width": 480,
+          "bytes": 16916
+        },
+        {
+          "src": "media/images/news/featured-news.png.782.webp",
+          "width": 782,
+          "bytes": 28716
+        }
+      ]
+    },
+    "images/products/clothing-details.png": {
+      "width": 1280,
+      "height": 499,
+      "variants": [
+        {
+          "src": "media/images/products/clothing-details.png.480.webp",
+          "width": 480,
+          "bytes": 15218
+        },
+        {
+          "src": "media/images/products/clothing-details.png.960.webp",
+          "width": 960,
+          "bytes": 39164
+        },
+        {
+          "src": "media/images/products/clothing-details.png.1280.webp",
+          "width": 1280,
+          "bytes": 55724
+        }
+      ]
+    },
+    "images/products/glove-0-showcase.png": {
+      "width": 1600,
+      "height": 900,
+      "variants": [
+        {
+          "src": "media/images/products/glove-0-showcase.png.480.webp",
+          "width": 480,
+          "bytes": 15296
+        },
+        {
+          "src": "media/images/products/glove-0-showcase.png.960.webp",
+          "width": 960,
+          "bytes": 36178
+        },
+        {
+          "src": "media/images/products/glove-0-showcase.png.1600.webp",
+          "width": 1600,
+          "bytes": 63632
+        }
+      ]
+    },
+    "images/products/glove-0.png": {
+      "width": 1071,
+      "height": 1468,
+      "variants": [
+        {
+          "src": "media/images/products/glove-0.png.480.webp",
+          "width": 480,
+          "bytes": 27824
+        },
+        {
+          "src": "media/images/products/glove-0.png.960.webp",
+          "width": 960,
+          "bytes": 92026
+        },
+        {
+          "src": "media/images/products/glove-0.png.1071.webp",
+          "width": 1071,
+          "bytes": 84638
+        }
+      ]
+    },
+    "images/products/glove-0.webp": {
+      "width": 1071,
+      "height": 1468,
+      "variants": [
+        {
+          "src": "media/images/products/glove-0.webp.480.webp",
+          "width": 480,
+          "bytes": 11816
+        },
+        {
+          "src": "media/images/products/glove-0.webp.960.webp",
+          "width": 960,
+          "bytes": 41320
+        },
+        {
+          "src": "media/images/products/glove-0.webp.1071.webp",
+          "width": 1071,
+          "bytes": 63072
+        }
+      ]
+    },
+    "images/products/motion-0-1.webp": {
+      "width": 1200,
+      "height": 1800,
+      "variants": [
+        {
+          "src": "media/images/products/motion-0-1.webp.480.webp",
+          "width": 480,
+          "bytes": 23624
+        },
+        {
+          "src": "media/images/products/motion-0-1.webp.960.webp",
+          "width": 960,
+          "bytes": 52998
+        },
+        {
+          "src": "images/products/motion-0-1.webp",
+          "width": 1200,
+          "bytes": 63158
+        }
+      ]
+    },
+    "images/products/motion-0-2.webp": {
+      "width": 1200,
+      "height": 1800,
+      "variants": [
+        {
+          "src": "media/images/products/motion-0-2.webp.480.webp",
+          "width": 480,
+          "bytes": 21658
+        },
+        {
+          "src": "media/images/products/motion-0-2.webp.960.webp",
+          "width": 960,
+          "bytes": 47638
+        },
+        {
+          "src": "images/products/motion-0-2.webp",
+          "width": 1200,
+          "bytes": 58698
+        }
+      ]
+    },
+    "images/products/motion-0-3.webp": {
+      "width": 1200,
+      "height": 1800,
+      "variants": [
+        {
+          "src": "media/images/products/motion-0-3.webp.480.webp",
+          "width": 480,
+          "bytes": 19090
+        },
+        {
+          "src": "media/images/products/motion-0-3.webp.960.webp",
+          "width": 960,
+          "bytes": 42820
+        },
+        {
+          "src": "images/products/motion-0-3.webp",
+          "width": 1200,
+          "bytes": 53162
+        }
+      ]
+    },
+    "images/products/motion-0-showcase.png": {
+      "width": 3000,
+      "height": 1363,
+      "variants": [
+        {
+          "src": "media/images/products/motion-0-showcase.png.480.webp",
+          "width": 480,
+          "bytes": 16388
+        },
+        {
+          "src": "media/images/products/motion-0-showcase.png.960.webp",
+          "width": 960,
+          "bytes": 40172
+        },
+        {
+          "src": "media/images/products/motion-0-showcase.png.1920.webp",
+          "width": 1920,
+          "bytes": 96132
+        }
+      ]
+    },
+    "images/products/motion-0.png": {
+      "width": 1400,
+      "height": 908,
+      "variants": [
+        {
+          "src": "media/images/products/motion-0.png.480.webp",
+          "width": 480,
+          "bytes": 19148
+        },
+        {
+          "src": "media/images/products/motion-0.png.960.webp",
+          "width": 960,
+          "bytes": 40912
+        },
+        {
+          "src": "media/images/products/motion-0.png.1400.webp",
+          "width": 1400,
+          "bytes": 61052
+        }
+      ]
+    },
+    "images/products/pulse-strap.jpg": {
+      "width": 1254,
+      "height": 1254,
+      "variants": [
+        {
+          "src": "media/images/products/pulse-strap.jpg.480.webp",
+          "width": 480,
+          "bytes": 20306
+        },
+        {
+          "src": "media/images/products/pulse-strap.jpg.960.webp",
+          "width": 960,
+          "bytes": 60618
+        },
+        {
+          "src": "media/images/products/pulse-strap.jpg.1254.webp",
+          "width": 1254,
+          "bytes": 93266
+        }
+      ]
+    },
+    "images/products/vision-0-showcase.png": {
+      "width": 1660,
+      "height": 1242,
+      "variants": [
+        {
+          "src": "media/images/products/vision-0-showcase.png.480.webp",
+          "width": 480,
+          "bytes": 16506
+        },
+        {
+          "src": "media/images/products/vision-0-showcase.png.960.webp",
+          "width": 960,
+          "bytes": 47626
+        },
+        {
+          "src": "media/images/products/vision-0-showcase.png.1660.webp",
+          "width": 1660,
+          "bytes": 93948
+        }
+      ]
+    },
+    "images/products/vision-0-v3.png": {
+      "width": 1444,
+      "height": 1013,
+      "variants": [
+        {
+          "src": "media/images/products/vision-0-v3.png.480.webp",
+          "width": 480,
+          "bytes": 31824
+        },
+        {
+          "src": "media/images/products/vision-0-v3.png.960.webp",
+          "width": 960,
+          "bytes": 117162
+        },
+        {
+          "src": "media/images/products/vision-0-v3.png.1444.webp",
+          "width": 1444,
+          "bytes": 235430
+        }
+      ]
+    },
+    "images/products/vision-0.jpg": {
+      "width": 818,
+      "height": 545,
+      "variants": [
+        {
+          "src": "media/images/products/vision-0.jpg.480.webp",
+          "width": 480,
+          "bytes": 11424
+        },
+        {
+          "src": "media/images/products/vision-0.jpg.818.webp",
+          "width": 818,
+          "bytes": 40116
+        }
+      ]
+    },
+    "images/products/vision-0.png": {
+      "width": 818,
+      "height": 545,
+      "variants": [
+        {
+          "src": "media/images/products/vision-0.png.480.webp",
+          "width": 480,
+          "bytes": 28480
+        },
+        {
+          "src": "media/images/products/vision-0.png.818.webp",
+          "width": 818,
+          "bytes": 56630
+        }
+      ]
+    },
+    "images/research/humanplus-1000-bg.jpg": {
+      "width": 2560,
+      "height": 1440,
+      "variants": [
+        {
+          "src": "media/images/research/humanplus-1000-bg.jpg.480.webp",
+          "width": 480,
+          "bytes": 25526
+        },
+        {
+          "src": "media/images/research/humanplus-1000-bg.jpg.960.webp",
+          "width": 960,
+          "bytes": 66014
+        },
+        {
+          "src": "media/images/research/humanplus-1000-bg.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 149548
+        }
+      ]
+    },
+    "images/research/papers/10.png": {
+      "width": 2919,
+      "height": 1187,
+      "variants": [
+        {
+          "src": "media/images/research/papers/10.png.480.webp",
+          "width": 480,
+          "bytes": 17406
+        },
+        {
+          "src": "media/images/research/papers/10.png.960.webp",
+          "width": 960,
+          "bytes": 45616
+        },
+        {
+          "src": "media/images/research/papers/10.png.1920.webp",
+          "width": 1920,
+          "bytes": 116176
+        }
+      ]
+    },
+    "images/research/papers/11.png": {
+      "width": 5588,
+      "height": 1823,
+      "variants": [
+        {
+          "src": "media/images/research/papers/11.png.480.webp",
+          "width": 480,
+          "bytes": 14458
+        },
+        {
+          "src": "media/images/research/papers/11.png.960.webp",
+          "width": 960,
+          "bytes": 42770
+        },
+        {
+          "src": "media/images/research/papers/11.png.1920.webp",
+          "width": 1920,
+          "bytes": 117462
+        }
+      ]
+    },
+    "images/research/papers/12.png": {
+      "width": 1062,
+      "height": 1359,
+      "variants": [
+        {
+          "src": "media/images/research/papers/12.png.480.webp",
+          "width": 480,
+          "bytes": 85308
+        },
+        {
+          "src": "media/images/research/papers/12.png.960.webp",
+          "width": 960,
+          "bytes": 200816
+        },
+        {
+          "src": "media/images/research/papers/12.png.1062.webp",
+          "width": 1062,
+          "bytes": 160804
+        }
+      ]
+    },
+    "images/research/papers/13.png": {
+      "width": 2400,
+      "height": 1070,
+      "variants": [
+        {
+          "src": "media/images/research/papers/13.png.480.webp",
+          "width": 480,
+          "bytes": 16186
+        },
+        {
+          "src": "media/images/research/papers/13.png.960.webp",
+          "width": 960,
+          "bytes": 44884
+        },
+        {
+          "src": "media/images/research/papers/13.png.1920.webp",
+          "width": 1920,
+          "bytes": 136184
+        }
+      ]
+    },
+    "images/research/papers/15.png": {
+      "width": 646,
+      "height": 456,
+      "variants": [
+        {
+          "src": "media/images/research/papers/15.png.480.webp",
+          "width": 480,
+          "bytes": 13148
+        },
+        {
+          "src": "media/images/research/papers/15.png.646.webp",
+          "width": 646,
+          "bytes": 18854
+        }
+      ]
+    },
+    "images/research/papers/17.png": {
+      "width": 2129,
+      "height": 1000,
+      "variants": [
+        {
+          "src": "media/images/research/papers/17.png.480.webp",
+          "width": 480,
+          "bytes": 10024
+        },
+        {
+          "src": "media/images/research/papers/17.png.960.webp",
+          "width": 960,
+          "bytes": 23036
+        },
+        {
+          "src": "media/images/research/papers/17.png.1920.webp",
+          "width": 1920,
+          "bytes": 47112
+        }
+      ]
+    },
+    "images/research/papers/19.png": {
+      "width": 6394,
+      "height": 2085,
+      "variants": [
+        {
+          "src": "media/images/research/papers/19.png.480.webp",
+          "width": 480,
+          "bytes": 12812
+        },
+        {
+          "src": "media/images/research/papers/19.png.960.webp",
+          "width": 960,
+          "bytes": 31634
+        },
+        {
+          "src": "media/images/research/papers/19.png.1920.webp",
+          "width": 1920,
+          "bytes": 75248
+        }
+      ]
+    },
+    "images/research/papers/2.png": {
+      "width": 1418,
+      "height": 945,
+      "variants": [
+        {
+          "src": "media/images/research/papers/2.png.480.webp",
+          "width": 480,
+          "bytes": 20360
+        },
+        {
+          "src": "media/images/research/papers/2.png.960.webp",
+          "width": 960,
+          "bytes": 45786
+        },
+        {
+          "src": "media/images/research/papers/2.png.1418.webp",
+          "width": 1418,
+          "bytes": 69480
+        }
+      ]
+    },
+    "images/research/papers/21.png": {
+      "width": 1317,
+      "height": 695,
+      "variants": [
+        {
+          "src": "media/images/research/papers/21.png.480.webp",
+          "width": 480,
+          "bytes": 13276
+        },
+        {
+          "src": "media/images/research/papers/21.png.960.webp",
+          "width": 960,
+          "bytes": 40364
+        },
+        {
+          "src": "media/images/research/papers/21.png.1317.webp",
+          "width": 1317,
+          "bytes": 64254
+        }
+      ]
+    },
+    "images/research/papers/26.png": {
+      "width": 502,
+      "height": 246,
+      "variants": [
+        {
+          "src": "media/images/research/papers/26.png.480.webp",
+          "width": 480,
+          "bytes": 9246
+        },
+        {
+          "src": "media/images/research/papers/26.png.502.webp",
+          "width": 502,
+          "bytes": 10154
+        }
+      ]
+    },
+    "images/research/papers/27.jpg": {
+      "width": 300,
+      "height": 279,
+      "variants": [
+        {
+          "src": "media/images/research/papers/27.jpg.300.webp",
+          "width": 300,
+          "bytes": 6592
+        }
+      ]
+    },
+    "images/research/papers/29.webp": {
+      "width": 720,
+      "height": 246,
+      "variants": [
+        {
+          "src": "media/images/research/papers/29.webp.480.webp",
+          "width": 480,
+          "bytes": 14192
+        },
+        {
+          "src": "media/images/research/papers/29.webp.720.webp",
+          "width": 720,
+          "bytes": 25858
+        }
+      ]
+    },
+    "images/research/papers/3.png": {
+      "width": 945,
+      "height": 1418,
+      "variants": [
+        {
+          "src": "media/images/research/papers/3.png.480.webp",
+          "width": 480,
+          "bytes": 31026
+        },
+        {
+          "src": "media/images/research/papers/3.png.945.webp",
+          "width": 945,
+          "bytes": 77842
+        }
+      ]
+    },
+    "images/research/papers/31.png": {
+      "width": 386,
+      "height": 153,
+      "variants": [
+        {
+          "src": "media/images/research/papers/31.png.386.webp",
+          "width": 386,
+          "bytes": 2120
+        }
+      ]
+    },
+    "images/research/papers/32.png": {
+      "width": 1568,
+      "height": 882,
+      "variants": [
+        {
+          "src": "media/images/research/papers/32.png.480.webp",
+          "width": 480,
+          "bytes": 24142
+        },
+        {
+          "src": "media/images/research/papers/32.png.960.webp",
+          "width": 960,
+          "bytes": 57378
+        },
+        {
+          "src": "media/images/research/papers/32.png.1568.webp",
+          "width": 1568,
+          "bytes": 98916
+        }
+      ]
+    },
+    "images/research/papers/4.png": {
+      "width": 6193,
+      "height": 2205,
+      "variants": [
+        {
+          "src": "media/images/research/papers/4.png.480.webp",
+          "width": 480,
+          "bytes": 14444
+        },
+        {
+          "src": "media/images/research/papers/4.png.960.webp",
+          "width": 960,
+          "bytes": 41620
+        },
+        {
+          "src": "media/images/research/papers/4.png.1920.webp",
+          "width": 1920,
+          "bytes": 108216
+        }
+      ]
+    },
+    "images/research/papers/5.png": {
+      "width": 1918,
+      "height": 1474,
+      "variants": [
+        {
+          "src": "media/images/research/papers/5.png.480.webp",
+          "width": 480,
+          "bytes": 25082
+        },
+        {
+          "src": "media/images/research/papers/5.png.960.webp",
+          "width": 960,
+          "bytes": 61616
+        },
+        {
+          "src": "media/images/research/papers/5.png.1918.webp",
+          "width": 1918,
+          "bytes": 134192
+        }
+      ]
+    },
+    "images/research/papers/6.png": {
+      "width": 852,
+      "height": 834,
+      "variants": [
+        {
+          "src": "media/images/research/papers/6.png.480.webp",
+          "width": 480,
+          "bytes": 30544
+        },
+        {
+          "src": "media/images/research/papers/6.png.852.webp",
+          "width": 852,
+          "bytes": 64560
+        }
+      ]
+    },
+    "images/research/papers/7.png": {
+      "width": 5976,
+      "height": 1299,
+      "variants": [
+        {
+          "src": "media/images/research/papers/7.png.480.webp",
+          "width": 480,
+          "bytes": 4768
+        },
+        {
+          "src": "media/images/research/papers/7.png.960.webp",
+          "width": 960,
+          "bytes": 11590
+        },
+        {
+          "src": "media/images/research/papers/7.png.1920.webp",
+          "width": 1920,
+          "bytes": 29748
+        }
+      ]
+    },
+    "images/research/papers/8.png": {
+      "width": 1704,
+      "height": 1134,
+      "variants": [
+        {
+          "src": "media/images/research/papers/8.png.480.webp",
+          "width": 480,
+          "bytes": 27326
+        },
+        {
+          "src": "media/images/research/papers/8.png.960.webp",
+          "width": 960,
+          "bytes": 68858
+        },
+        {
+          "src": "media/images/research/papers/8.png.1704.webp",
+          "width": 1704,
+          "bytes": 140682
+        }
+      ]
+    },
+    "images/research/research-clotho.png": {
+      "width": 1568,
+      "height": 882,
+      "variants": [
+        {
+          "src": "media/images/research/research-clotho.png.480.webp",
+          "width": 480,
+          "bytes": 24142
+        },
+        {
+          "src": "media/images/research/research-clotho.png.960.webp",
+          "width": 960,
+          "bytes": 57378
+        },
+        {
+          "src": "media/images/research/research-clotho.png.1568.webp",
+          "width": 1568,
+          "bytes": 98916
+        }
+      ]
+    },
+    "images/research/research-lip.jpg": {
+      "width": 2310,
+      "height": 1299,
+      "variants": [
+        {
+          "src": "media/images/research/research-lip.jpg.480.webp",
+          "width": 480,
+          "bytes": 21084
+        },
+        {
+          "src": "media/images/research/research-lip.jpg.960.webp",
+          "width": 960,
+          "bytes": 55762
+        },
+        {
+          "src": "media/images/research/research-lip.jpg.1920.webp",
+          "width": 1920,
+          "bytes": 125522
+        }
+      ]
+    },
+    "images/research/research-tic.jpg": {
+      "width": 1641,
+      "height": 923,
+      "variants": [
+        {
+          "src": "media/images/research/research-tic.jpg.480.webp",
+          "width": 480,
+          "bytes": 19386
+        },
+        {
+          "src": "media/images/research/research-tic.jpg.960.webp",
+          "width": 960,
+          "bytes": 52022
+        },
+        {
+          "src": "media/images/research/research-tic.jpg.1641.webp",
+          "width": 1641,
+          "bytes": 115084
+        }
+      ]
+    },
+    "images/research/story/phase-01-foot.png": {
+      "width": 660,
+      "height": 295,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-01-foot.png.480.webp",
+          "width": 480,
+          "bytes": 16822
+        },
+        {
+          "src": "media/images/research/story/phase-01-foot.png.660.webp",
+          "width": 660,
+          "bytes": 23484
+        }
+      ]
+    },
+    "images/research/story/phase-01-gaze.png": {
+      "width": 386,
+      "height": 153,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-01-gaze.png.386.webp",
+          "width": 386,
+          "bytes": 2120
+        }
+      ]
+    },
+    "images/research/story/phase-02-dispad.png": {
+      "width": 646,
+      "height": 456,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-02-dispad.png.480.webp",
+          "width": 480,
+          "bytes": 13148
+        },
+        {
+          "src": "media/images/research/story/phase-02-dispad.png.646.webp",
+          "width": 646,
+          "bytes": 18854
+        }
+      ]
+    },
+    "images/research/story/phase-02-overview-full.png": {
+      "width": 1262,
+      "height": 1364,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-02-overview-full.png.480.webp",
+          "width": 480,
+          "bytes": 19980
+        },
+        {
+          "src": "media/images/research/story/phase-02-overview-full.png.960.webp",
+          "width": 960,
+          "bytes": 48490
+        },
+        {
+          "src": "media/images/research/story/phase-02-overview-full.png.1262.webp",
+          "width": 1262,
+          "bytes": 67000
+        }
+      ]
+    },
+    "images/research/story/phase-02-sensocks.png": {
+      "width": 502,
+      "height": 246,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-02-sensocks.png.480.webp",
+          "width": 480,
+          "bytes": 9246
+        },
+        {
+          "src": "media/images/research/story/phase-02-sensocks.png.502.webp",
+          "width": 502,
+          "bytes": 10154
+        }
+      ]
+    },
+    "images/research/story/phase-02-tight-suit-white.png": {
+      "width": 1900,
+      "height": 2085,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-02-tight-suit-white.png.480.webp",
+          "width": 480,
+          "bytes": 20132
+        },
+        {
+          "src": "media/images/research/story/phase-02-tight-suit-white.png.960.webp",
+          "width": 960,
+          "bytes": 49446
+        },
+        {
+          "src": "media/images/research/story/phase-02-tight-suit-white.png.1900.webp",
+          "width": 1900,
+          "bytes": 109014
+        }
+      ]
+    },
+    "images/research/story/phase-03-loose-jacket.png": {
+      "width": 2400,
+      "height": 1070,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-03-loose-jacket.png.480.webp",
+          "width": 480,
+          "bytes": 16186
+        },
+        {
+          "src": "media/images/research/story/phase-03-loose-jacket.png.960.webp",
+          "width": 960,
+          "bytes": 44884
+        },
+        {
+          "src": "media/images/research/story/phase-03-loose-jacket.png.1920.webp",
+          "width": 1920,
+          "bytes": 136184
+        }
+      ]
+    },
+    "images/research/story/phase-03-moda.png": {
+      "width": 1704,
+      "height": 1134,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-03-moda.png.480.webp",
+          "width": 480,
+          "bytes": 27326
+        },
+        {
+          "src": "media/images/research/story/phase-03-moda.png.960.webp",
+          "width": 960,
+          "bytes": 68858
+        },
+        {
+          "src": "media/images/research/story/phase-03-moda.png.1704.webp",
+          "width": 1704,
+          "bytes": 140682
+        }
+      ]
+    },
+    "images/research/story/phase-04-clotho.png": {
+      "width": 1568,
+      "height": 882,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-04-clotho.png.480.webp",
+          "width": 480,
+          "bytes": 24142
+        },
+        {
+          "src": "media/images/research/story/phase-04-clotho.png.960.webp",
+          "width": 960,
+          "bytes": 57378
+        },
+        {
+          "src": "media/images/research/story/phase-04-clotho.png.1568.webp",
+          "width": 1568,
+          "bytes": 98916
+        }
+      ]
+    },
+    "images/research/story/phase-04-imitation.png": {
+      "width": 1418,
+      "height": 945,
+      "variants": [
+        {
+          "src": "media/images/research/story/phase-04-imitation.png.480.webp",
+          "width": 480,
+          "bytes": 20360
+        },
+        {
+          "src": "media/images/research/story/phase-04-imitation.png.960.webp",
+          "width": 960,
+          "bytes": 45786
+        },
+        {
+          "src": "media/images/research/story/phase-04-imitation.png.1418.webp",
+          "width": 1418,
+          "bytes": 69480
+        }
+      ]
+    },
+    "images/robot/robot.png": {
+      "width": 2132,
+      "height": 738,
+      "variants": [
+        {
+          "src": "media/images/robot/robot.png.480.webp",
+          "width": 480,
+          "bytes": 13648
+        },
+        {
+          "src": "media/images/robot/robot.png.960.webp",
+          "width": 960,
+          "bytes": 33348
+        },
+        {
+          "src": "media/images/robot/robot.png.1920.webp",
+          "width": 1920,
+          "bytes": 97278
+        }
+      ]
+    }
+  },
+  "videos": {
+    "videos/demo/human-demo-1-1080.mp4": {
+      "desktop": {
+        "src": "media/videos/demo/human-demo-1-1080.desktop.mp4",
+        "bytes": 13287162
+      },
+      "mobile": {
+        "src": "media/videos/demo/human-demo-1-1080.mobile.mp4",
+        "bytes": 4103650
+      },
+      "poster": "media/videos/demo/human-demo-1-1080.poster.webp"
+    },
+    "videos/demo/human-manipulation.mp4": {
+      "desktop": {
+        "src": "media/videos/demo/human-manipulation.desktop.mp4",
+        "bytes": 725289
+      },
+      "mobile": {
+        "src": "media/videos/demo/human-manipulation.mobile.mp4",
+        "bytes": 166292
+      },
+      "poster": "media/videos/demo/human-manipulation.poster.webp"
+    },
+    "videos/demo/robot-action.mp4": {
+      "desktop": {
+        "src": "media/videos/demo/robot-action.desktop.mp4",
+        "bytes": 1387859
+      },
+      "mobile": {
+        "src": "media/videos/demo/robot-action.mobile.mp4",
+        "bytes": 380285
+      },
+      "poster": "media/videos/demo/robot-action.poster.webp"
+    },
+    "videos/demo/robot-manipulation.mp4": {
+      "desktop": {
+        "src": "media/videos/demo/robot-manipulation.desktop.mp4",
+        "bytes": 2891774
+      },
+      "mobile": {
+        "src": "media/videos/demo/robot-manipulation.mobile.mp4",
+        "bytes": 747701
+      },
+      "poster": "media/videos/demo/robot-manipulation.poster.webp"
+    },
+    "videos/demo/落地-人类踢足球.mp4": {
+      "desktop": {
+        "src": "media/videos/demo/落地-人类踢足球.desktop.mp4",
+        "bytes": 563463
+      },
+      "mobile": {
+        "src": "media/videos/demo/落地-人类踢足球.mobile.mp4",
+        "bytes": 136555
+      },
+      "poster": "media/videos/demo/落地-人类踢足球.poster.webp"
+    },
+    "videos/home/hero-kitchen.mp4": {
+      "desktop": {
+        "src": "media/videos/home/hero-kitchen.desktop.mp4",
+        "bytes": 6250875
+      },
+      "mobile": {
+        "src": "media/videos/home/hero-kitchen.mobile.mp4",
+        "bytes": 1879763
+      },
+      "poster": "media/videos/home/hero-kitchen.poster.webp"
+    },
+    "videos/home/hero-laundry.mp4": {
+      "desktop": {
+        "src": "media/videos/home/hero-laundry.desktop.mp4",
+        "bytes": 4817342
+      },
+      "mobile": {
+        "src": "media/videos/home/hero-laundry.mobile.mp4",
+        "bytes": 1215270
+      },
+      "poster": "media/videos/home/hero-laundry.poster.webp"
+    },
+    "videos/motion-0/digital-motion.mp4": {
+      "desktop": {
+        "src": "media/videos/motion-0/digital-motion.desktop.mp4",
+        "bytes": 4612187
+      },
+      "mobile": {
+        "src": "media/videos/motion-0/digital-motion.mobile.mp4",
+        "bytes": 1387010
+      },
+      "poster": "media/videos/motion-0/digital-motion.poster.webp"
+    },
+    "videos/motion-0/kitchen-real.mp4": {
+      "desktop": {
+        "src": "media/videos/motion-0/kitchen-real.desktop.mp4",
+        "bytes": 6150957
+      },
+      "mobile": {
+        "src": "media/videos/motion-0/kitchen-real.mobile.mp4",
+        "bytes": 1870329
+      },
+      "poster": "media/videos/motion-0/kitchen-real.poster.webp"
+    },
+    "videos/motion-0/performance-test.mp4": {
+      "desktop": {
+        "src": "media/videos/motion-0/performance-test.desktop.mp4",
+        "bytes": 10268833
+      },
+      "mobile": {
+        "src": "media/videos/motion-0/performance-test.mobile.mp4",
+        "bytes": 2724828
+      },
+      "poster": "media/videos/motion-0/performance-test.poster.webp"
+    },
+    "videos/motion-0/wear-to-capture.mp4": {
+      "desktop": {
+        "src": "media/videos/motion-0/wear-to-capture.desktop.mp4",
+        "bytes": 631930
+      },
+      "mobile": {
+        "src": "media/videos/motion-0/wear-to-capture.mobile.mp4",
+        "bytes": 328431
+      },
+      "poster": "media/videos/motion-0/wear-to-capture.poster.webp"
+    },
+    "videos/research/kitchen-vlog.mp4": {
+      "desktop": {
+        "src": "media/videos/research/kitchen-vlog.desktop.mp4",
+        "bytes": 6156046
+      },
+      "mobile": {
+        "src": "media/videos/research/kitchen-vlog.mobile.mp4",
+        "bytes": 1870097
+      },
+      "poster": "media/videos/research/kitchen-vlog.poster.webp"
+    },
+    "videos/robot/human-soccer.mp4": {
+      "desktop": {
+        "src": "media/videos/robot/human-soccer.desktop.mp4",
+        "bytes": 563463
+      },
+      "mobile": {
+        "src": "media/videos/robot/human-soccer.mobile.mp4",
+        "bytes": 136555
+      },
+      "poster": "media/videos/robot/human-soccer.poster.webp"
+    },
+    "videos/robot/robot-soccer.mp4": {
+      "desktop": {
+        "src": "media/videos/robot/robot-soccer.desktop.mp4",
+        "bytes": 1387859
+      },
+      "mobile": {
+        "src": "media/videos/robot/robot-soccer.mobile.mp4",
+        "bytes": 380285
+      },
+      "poster": "media/videos/robot/robot-soccer.poster.webp"
+    },
+    "videos/robotics/kitchen-v3.mp4": {
+      "desktop": {
+        "src": "media/videos/robotics/kitchen-v3.desktop.mp4",
+        "bytes": 6202849
+      },
+      "mobile": {
+        "src": "media/videos/robotics/kitchen-v3.mobile.mp4",
+        "bytes": 1849873
+      },
+      "poster": "media/videos/robotics/kitchen-v3.poster.webp"
+    },
+    "videos/robotics/robotics-laundry.mp4": {
+      "desktop": {
+        "src": "media/videos/robotics/robotics-laundry.desktop.mp4",
+        "bytes": 2336868
+      },
+      "mobile": {
+        "src": "media/videos/robotics/robotics-laundry.mobile.mp4",
+        "bytes": 1155042
+      },
+      "poster": "media/videos/robotics/robotics-laundry.poster.webp"
+    }
+  }
+}

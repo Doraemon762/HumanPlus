@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 /* ── Clothing detail — full-screen garment image ──────────────────
    A single full-bleed image of the Motion-0 garment, shown at 100vh
    with its native aspect ratio intact (object-contain → no crop, no
@@ -8,7 +9,7 @@
 export default function MotionZeroClothing() {
   return (
     <section id="m0-clothing" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
-      <img
+      <OptimizedImage
         src={`${import.meta.env.BASE_URL}images/products/clothing-details.png`}
         alt="Weave garment detail"
         loading="lazy"

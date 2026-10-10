@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import DeferredVideo from '../ui/DeferredVideo'
+import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 import useReveal from '../../hooks/useReveal'
 import useParallax from '../../hooks/useParallax'
@@ -11,51 +12,8 @@ const VID = 'videos/motion-0'
    Same contract as the Robotics background clip: muted + loop +
    playsInline, IntersectionObserver plays on enter / pauses on leave
    so nothing burns cycles off-screen. */
-function StoryVideo({ src, className = '', poster }) {
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    video.muted = true
-
-    const play = () => {
-      const played = video.play()
-      if (played && typeof played.catch === 'function') played.catch(() => {})
-    }
-
-    if (typeof IntersectionObserver === 'undefined') {
-      play()
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) play()
-        else video.pause()
-      },
-      { threshold: 0.25 }
-    )
-    observer.observe(video)
-
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <video
-      ref={videoRef}
-      src={src}
-      poster={poster}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      tabIndex={-1}
-      aria-hidden="true"
-      className={`select-none outline-none focus:outline-none ${className}`}
-    />
-  )
+function StoryVideo({ src, className = "", poster }) {
+  return <DeferredVideo src={src} poster={poster} autoPlay muted loop tabIndex={-1} aria-hidden="true" className={`select-none outline-none focus:outline-none ${className}`} />
 }
 
 /* Data labels that drift in and out over footage — never permanent. */
@@ -124,7 +82,7 @@ function ImuSection() {
         </SectionHead>
 
         <div ref={ref} className={`relative mx-auto mt-16 w-full max-w-3xl md:mt-24 ${inView ? 'in' : ''}`}>
-          <img
+          <OptimizedImage
             src="images/products/motion-0.png"
             alt="Weave garment with 11 IMU sensor positions"
             className="w-full select-none object-contain"
@@ -209,12 +167,12 @@ function PrecisionSection() {
 
         <div className="mt-16 grid gap-6 md:mt-24 md:grid-cols-[3fr_2fr] md:gap-10">
           <Reveal className="relative overflow-hidden">
-            <img src={`${IMG}/activity-cooking.jpg`} alt="Wearing Weave while cooking" className="h-full w-full object-cover" />
+            <OptimizedImage src={`${IMG}/activity-cooking.jpg`} alt="Wearing Weave while cooking" className="h-full w-full object-cover" />
           </Reveal>
 
           <div className="relative overflow-hidden">
             <div ref={useParallax(-0.05)}>
-              <img src={`${IMG}/activity-reach.jpg`} alt="Reaching naturally while Weave captures movement" className="w-full select-none object-cover" />
+              <OptimizedImage src={`${IMG}/activity-reach.jpg`} alt="Reaching naturally while Weave captures movement" className="w-full select-none object-cover" />
             </div>
             {/* Hairline skeleton — the captured body as data */}
             <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -341,7 +299,7 @@ export default function MotionZeroStory() {
 
           <Reveal delay={2} className="relative lg:justify-self-end">
             <div ref={parallaxRef}>
-              <img
+              <OptimizedImage
                 src={`${IMG}/garment-worn.jpg`}
                 alt="Weave worn — front and back"
                 className="w-full max-w-[340px] select-none object-cover lg:max-w-[380px]"
@@ -372,7 +330,7 @@ export default function MotionZeroStory() {
 
           <Reveal delay={1} className="relative">
             <div className="m0-video-fade relative overflow-hidden">
-              <img src={`${IMG}/activity-laundry.jpg`} alt="Everyday activity while wearing Weave" className="max-h-[80vh] w-full select-none object-cover object-top" />
+              <OptimizedImage src={`${IMG}/activity-laundry.jpg`} alt="Everyday activity while wearing Weave" className="max-h-[80vh] w-full select-none object-cover object-top" />
             </div>
           </Reveal>
         </div>
@@ -400,7 +358,7 @@ export default function MotionZeroStory() {
           </div>
 
           <Reveal delay={1} className="m0-video-fade relative mt-16 overflow-hidden md:mt-24">
-            <img src={`${IMG}/activity-cooking.jpg`} alt="Cooking while wearing Weave" className="max-h-[85vh] w-full select-none object-cover" />
+            <OptimizedImage src={`${IMG}/activity-cooking.jpg`} alt="Cooking while wearing Weave" className="max-h-[85vh] w-full select-none object-cover" />
           </Reveal>
         </div>
       </section>
@@ -408,7 +366,7 @@ export default function MotionZeroStory() {
       {/* ── 08 · BUILT FOR THE REAL WORLD ──────────────────────── */}
       <section className="relative bg-black">
         <div className="m0-video-fade relative">
-          <img src={`${IMG}/kitchen-wide.jpg`} alt="Two people wearing Weave while cooking in a real kitchen" className="h-[70vh] w-full select-none object-cover md:h-[88vh]" />
+          <OptimizedImage src={`${IMG}/kitchen-wide.jpg`} alt="Two people wearing Weave while cooking in a real kitchen" className="h-[70vh] w-full select-none object-cover md:h-[88vh]" />
           <DataLabels
             labels={[
               { text: 'REAL ENVIRONMENT', top: '22%', left: '7%', delay: 0 },
@@ -428,7 +386,7 @@ export default function MotionZeroStory() {
       <section className="bg-black py-28 md:py-40">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-16 px-6 lg:grid-cols-[7fr_4fr] lg:gap-12 lg:px-10">
           <Reveal className="relative">
-            <img
+            <OptimizedImage
               src="images/products/motion-0.png"
               alt="Weave garment — industrial design"
               className="w-full select-none object-contain"

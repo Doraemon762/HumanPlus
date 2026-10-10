@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import DeferredVideo from '../ui/DeferredVideo'
 
 /* ── Robotics ────────────────────────────────────────────────────
    A single full-screen (100vh) immersive video band. No heading, no
@@ -15,74 +15,13 @@ const VIDEO_SRC = 'videos/robotics/kitchen-v3.mp4'
  *    gesture-free playback while muted.
  *  - `muted` is asserted in the effect too, because some browsers drop
  *    React's `muted` prop on first mount and freeze the clip on frame 1.
- *  - IntersectionObserver plays on enter and pauses on leave. The browser
- *    initially fetches only metadata; once the critical Hero has had a
- *    moment to start, an idle warm-up changes preload to `auto`. This keeps
- *    the second screen from competing with the Hero on first paint while
- *    avoiding a cold video request when the user scrolls down.
+ *  - DeferredVideo assigns the source only when visible and pauses on leave.
+ *    The second screen does not compete with the Hero on first paint.
  *  - `poster` paints the first frame instantly so there is never a black /
  *    blank gap while the clip buffers.
  */
 function BackgroundVideo({ src, poster }) {
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    video.muted = true
-
-    let warmupTimer
-    const warmUp = () => {
-      if (video.preload === 'auto') return
-      video.preload = 'auto'
-      video.load()
-    }
-
-    warmupTimer = window.setTimeout(warmUp, 900)
-
-    const play = () => {
-      const played = video.play()
-      if (played && typeof played.catch === 'function') played.catch(() => {})
-    }
-
-    if (typeof IntersectionObserver === 'undefined') {
-      play()
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          warmUp()
-          play()
-        }
-        else video.pause()
-      },
-      { threshold: 0.25 }
-    )
-    observer.observe(video)
-
-    return () => {
-      observer.disconnect()
-      if (warmupTimer) window.clearTimeout(warmupTimer)
-    }
-  }, [])
-
-  return (
-    <video
-      ref={videoRef}
-      src={src}
-      poster={poster}
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      tabIndex={-1}
-      aria-hidden="true"
-      className="absolute inset-0 h-full w-full bg-white object-cover select-none outline-none focus:outline-none"
-    />
-  )
+  return <DeferredVideo src={src} poster={poster} autoPlay muted loop tabIndex={-1} aria-hidden="true" className="absolute inset-0 h-full w-full bg-white object-cover select-none outline-none focus:outline-none" />
 }
 
 export default function RoboticsSection() {

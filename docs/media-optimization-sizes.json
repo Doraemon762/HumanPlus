@@ -1,0 +1,567 @@
+{
+  "images": [
+    {
+      "source": "images/logo/1.png",
+      "originalBytes": 190138,
+      "optimizedBytes": 9634
+    },
+    {
+      "source": "images/logo/10.png",
+      "originalBytes": 137208,
+      "optimizedBytes": 12960
+    },
+    {
+      "source": "images/logo/11.png",
+      "originalBytes": 87662,
+      "optimizedBytes": 9078
+    },
+    {
+      "source": "images/logo/12.png",
+      "originalBytes": 4718,
+      "optimizedBytes": 2274
+    },
+    {
+      "source": "images/logo/13.png",
+      "originalBytes": 49702,
+      "optimizedBytes": 12516
+    },
+    {
+      "source": "images/logo/14.png",
+      "originalBytes": 4123,
+      "optimizedBytes": 2066
+    },
+    {
+      "source": "images/logo/16.png",
+      "originalBytes": 92367,
+      "optimizedBytes": 13446
+    },
+    {
+      "source": "images/logo/17.png",
+      "originalBytes": 10801,
+      "optimizedBytes": 6314
+    },
+    {
+      "source": "images/logo/18.png",
+      "originalBytes": 31216,
+      "optimizedBytes": 3664
+    },
+    {
+      "source": "images/logo/19.PNG",
+      "originalBytes": 148265,
+      "optimizedBytes": 26184
+    },
+    {
+      "source": "images/logo/2.png",
+      "originalBytes": 108869,
+      "optimizedBytes": 17772
+    },
+    {
+      "source": "images/logo/20.PNG",
+      "originalBytes": 14893,
+      "optimizedBytes": 15588
+    },
+    {
+      "source": "images/logo/21.PNG",
+      "originalBytes": 51427,
+      "optimizedBytes": 25636
+    },
+    {
+      "source": "images/logo/3.png",
+      "originalBytes": 83310,
+      "optimizedBytes": 6070
+    },
+    {
+      "source": "images/logo/4.png",
+      "originalBytes": 64189,
+      "optimizedBytes": 9776
+    },
+    {
+      "source": "images/logo/5.png",
+      "originalBytes": 226717,
+      "optimizedBytes": 8096
+    },
+    {
+      "source": "images/logo/6.png",
+      "originalBytes": 178204,
+      "optimizedBytes": 13400
+    },
+    {
+      "source": "images/logo/7.png",
+      "originalBytes": 126212,
+      "optimizedBytes": 9920
+    },
+    {
+      "source": "images/logo/8.png",
+      "originalBytes": 124137,
+      "optimizedBytes": 15464
+    },
+    {
+      "source": "images/logo/9.png",
+      "originalBytes": 30633,
+      "optimizedBytes": 4850
+    },
+    {
+      "source": "images/logo/logo-large.png",
+      "originalBytes": 155741,
+      "optimizedBytes": 8636
+    },
+    {
+      "source": "images/logo/logo.png",
+      "originalBytes": 31858,
+      "optimizedBytes": 13316
+    },
+    {
+      "source": "images/motion-0/activity-cooking.jpg",
+      "originalBytes": 67602,
+      "optimizedBytes": 37756
+    },
+    {
+      "source": "images/motion-0/activity-laundry.jpg",
+      "originalBytes": 122214,
+      "optimizedBytes": 73944
+    },
+    {
+      "source": "images/motion-0/activity-reach.jpg",
+      "originalBytes": 124418,
+      "optimizedBytes": 66500
+    },
+    {
+      "source": "images/motion-0/bento/battery-beige-hd.png",
+      "originalBytes": 7935729,
+      "optimizedBytes": 284134
+    },
+    {
+      "source": "images/motion-0/bento/battery-blue-hd.png",
+      "originalBytes": 3843965,
+      "optimizedBytes": 145724
+    },
+    {
+      "source": "images/motion-0/bento/battery-cells.png",
+      "originalBytes": 1455532,
+      "optimizedBytes": 122680
+    },
+    {
+      "source": "images/motion-0/bento/battery-pack-blue.png",
+      "originalBytes": 787939,
+      "optimizedBytes": 70652
+    },
+    {
+      "source": "images/motion-0/bento/fabric-beige.jpg",
+      "originalBytes": 3585711,
+      "optimizedBytes": 1023006
+    },
+    {
+      "source": "images/motion-0/bento/fabric-blue.jpg",
+      "originalBytes": 1833385,
+      "optimizedBytes": 286692
+    },
+    {
+      "source": "images/motion-0/bento/jacket-figma.png",
+      "originalBytes": 3866083,
+      "optimizedBytes": 119992
+    },
+    {
+      "source": "images/motion-0/bento/kitchen-figma.png",
+      "originalBytes": 383133,
+      "optimizedBytes": 26074
+    },
+    {
+      "source": "images/motion-0/bento/pants-figma.png",
+      "originalBytes": 3283910,
+      "optimizedBytes": 128878
+    },
+    {
+      "source": "images/motion-0/bento/sensor-outfit.png",
+      "originalBytes": 1272943,
+      "optimizedBytes": 145338
+    },
+    {
+      "source": "images/motion-0/bento/tracking-person.jpg",
+      "originalBytes": 220523,
+      "optimizedBytes": 95986
+    },
+    {
+      "source": "images/motion-0/bento/tracking-person.png",
+      "originalBytes": 35626,
+      "optimizedBytes": 3944
+    },
+    {
+      "source": "images/motion-0/bento/tracking-robot.jpg",
+      "originalBytes": 210288,
+      "optimizedBytes": 87198
+    },
+    {
+      "source": "images/motion-0/bento/wear-set-figma.png",
+      "originalBytes": 1272943,
+      "optimizedBytes": 145338
+    },
+    {
+      "source": "images/motion-0/garment-worn.jpg",
+      "originalBytes": 81675,
+      "optimizedBytes": 49778
+    },
+    {
+      "source": "images/motion-0/kitchen-wide.jpg",
+      "originalBytes": 131155,
+      "optimizedBytes": 63674
+    },
+    {
+      "source": "images/motion-0/promo-full.jpg",
+      "originalBytes": 255121,
+      "optimizedBytes": 96960
+    },
+    {
+      "source": "images/motion-0/weave-garment-set.png",
+      "originalBytes": 1263805,
+      "optimizedBytes": 160842
+    },
+    {
+      "source": "images/news/featured-news.png",
+      "originalBytes": 377778,
+      "optimizedBytes": 28716
+    },
+    {
+      "source": "images/products/clothing-details.png",
+      "originalBytes": 744037,
+      "optimizedBytes": 55724
+    },
+    {
+      "source": "images/products/glove-0-showcase.png",
+      "originalBytes": 594802,
+      "optimizedBytes": 63632
+    },
+    {
+      "source": "images/products/glove-0.png",
+      "originalBytes": 863562,
+      "optimizedBytes": 84638
+    },
+    {
+      "source": "images/products/glove-0.webp",
+      "originalBytes": 65534,
+      "optimizedBytes": 63072
+    },
+    {
+      "source": "images/products/motion-0-1.webp",
+      "originalBytes": 63158,
+      "optimizedBytes": 63158
+    },
+    {
+      "source": "images/products/motion-0-2.webp",
+      "originalBytes": 58698,
+      "optimizedBytes": 58698
+    },
+    {
+      "source": "images/products/motion-0-3.webp",
+      "originalBytes": 53162,
+      "optimizedBytes": 53162
+    },
+    {
+      "source": "images/products/motion-0-showcase.png",
+      "originalBytes": 4915117,
+      "optimizedBytes": 96132
+    },
+    {
+      "source": "images/products/motion-0.png",
+      "originalBytes": 731278,
+      "optimizedBytes": 61052
+    },
+    {
+      "source": "images/products/pulse-strap.jpg",
+      "originalBytes": 733230,
+      "optimizedBytes": 93266
+    },
+    {
+      "source": "images/products/vision-0-showcase.png",
+      "originalBytes": 629022,
+      "optimizedBytes": 93948
+    },
+    {
+      "source": "images/products/vision-0-v3.png",
+      "originalBytes": 1844782,
+      "optimizedBytes": 235430
+    },
+    {
+      "source": "images/products/vision-0.jpg",
+      "originalBytes": 301841,
+      "optimizedBytes": 40116
+    },
+    {
+      "source": "images/products/vision-0.png",
+      "originalBytes": 693510,
+      "optimizedBytes": 56630
+    },
+    {
+      "source": "images/research/humanplus-1000-bg.jpg",
+      "originalBytes": 308937,
+      "optimizedBytes": 149548
+    },
+    {
+      "source": "images/research/papers/10.png",
+      "originalBytes": 2289555,
+      "optimizedBytes": 116176
+    },
+    {
+      "source": "images/research/papers/11.png",
+      "originalBytes": 5344088,
+      "optimizedBytes": 117462
+    },
+    {
+      "source": "images/research/papers/12.png",
+      "originalBytes": 462678,
+      "optimizedBytes": 160804
+    },
+    {
+      "source": "images/research/papers/13.png",
+      "originalBytes": 1927045,
+      "optimizedBytes": 136184
+    },
+    {
+      "source": "images/research/papers/15.png",
+      "originalBytes": 72710,
+      "optimizedBytes": 18854
+    },
+    {
+      "source": "images/research/papers/17.png",
+      "originalBytes": 325199,
+      "optimizedBytes": 47112
+    },
+    {
+      "source": "images/research/papers/19.png",
+      "originalBytes": 7831379,
+      "optimizedBytes": 75248
+    },
+    {
+      "source": "images/research/papers/2.png",
+      "originalBytes": 306349,
+      "optimizedBytes": 69480
+    },
+    {
+      "source": "images/research/papers/21.png",
+      "originalBytes": 369352,
+      "optimizedBytes": 64254
+    },
+    {
+      "source": "images/research/papers/26.png",
+      "originalBytes": 93911,
+      "optimizedBytes": 10154
+    },
+    {
+      "source": "images/research/papers/27.jpg",
+      "originalBytes": 43771,
+      "optimizedBytes": 6592
+    },
+    {
+      "source": "images/research/papers/29.webp",
+      "originalBytes": 65352,
+      "optimizedBytes": 25858
+    },
+    {
+      "source": "images/research/papers/3.png",
+      "originalBytes": 816613,
+      "optimizedBytes": 77842
+    },
+    {
+      "source": "images/research/papers/31.png",
+      "originalBytes": 20731,
+      "optimizedBytes": 2120
+    },
+    {
+      "source": "images/research/papers/32.png",
+      "originalBytes": 911811,
+      "optimizedBytes": 98916
+    },
+    {
+      "source": "images/research/papers/4.png",
+      "originalBytes": 7908387,
+      "optimizedBytes": 108216
+    },
+    {
+      "source": "images/research/papers/5.png",
+      "originalBytes": 2058790,
+      "optimizedBytes": 134192
+    },
+    {
+      "source": "images/research/papers/6.png",
+      "originalBytes": 822191,
+      "optimizedBytes": 64560
+    },
+    {
+      "source": "images/research/papers/7.png",
+      "originalBytes": 521580,
+      "optimizedBytes": 29748
+    },
+    {
+      "source": "images/research/papers/8.png",
+      "originalBytes": 763672,
+      "optimizedBytes": 140682
+    },
+    {
+      "source": "images/research/research-clotho.png",
+      "originalBytes": 911811,
+      "optimizedBytes": 98916
+    },
+    {
+      "source": "images/research/research-lip.jpg",
+      "originalBytes": 873455,
+      "optimizedBytes": 125522
+    },
+    {
+      "source": "images/research/research-tic.jpg",
+      "originalBytes": 791714,
+      "optimizedBytes": 115084
+    },
+    {
+      "source": "images/research/story/phase-01-foot.png",
+      "originalBytes": 41831,
+      "optimizedBytes": 23484
+    },
+    {
+      "source": "images/research/story/phase-01-gaze.png",
+      "originalBytes": 20731,
+      "optimizedBytes": 2120
+    },
+    {
+      "source": "images/research/story/phase-02-dispad.png",
+      "originalBytes": 72710,
+      "optimizedBytes": 18854
+    },
+    {
+      "source": "images/research/story/phase-02-overview-full.png",
+      "originalBytes": 743629,
+      "optimizedBytes": 67000
+    },
+    {
+      "source": "images/research/story/phase-02-sensocks.png",
+      "originalBytes": 93911,
+      "optimizedBytes": 10154
+    },
+    {
+      "source": "images/research/story/phase-02-tight-suit-white.png",
+      "originalBytes": 1791853,
+      "optimizedBytes": 109014
+    },
+    {
+      "source": "images/research/story/phase-03-loose-jacket.png",
+      "originalBytes": 1927045,
+      "optimizedBytes": 136184
+    },
+    {
+      "source": "images/research/story/phase-03-moda.png",
+      "originalBytes": 763672,
+      "optimizedBytes": 140682
+    },
+    {
+      "source": "images/research/story/phase-04-clotho.png",
+      "originalBytes": 911811,
+      "optimizedBytes": 98916
+    },
+    {
+      "source": "images/research/story/phase-04-imitation.png",
+      "originalBytes": 306349,
+      "optimizedBytes": 69480
+    },
+    {
+      "source": "images/robot/robot.png",
+      "originalBytes": 862966,
+      "optimizedBytes": 97278
+    }
+  ],
+  "videos": [
+    {
+      "source": "videos/demo/human-demo-1-1080.mp4",
+      "originalBytes": 18802175,
+      "desktopBytes": 13287162,
+      "mobileBytes": 4103650
+    },
+    {
+      "source": "videos/demo/human-manipulation.mp4",
+      "originalBytes": 1208122,
+      "desktopBytes": 725289,
+      "mobileBytes": 166292
+    },
+    {
+      "source": "videos/demo/robot-action.mp4",
+      "originalBytes": 2280859,
+      "desktopBytes": 1387859,
+      "mobileBytes": 380285
+    },
+    {
+      "source": "videos/demo/robot-manipulation.mp4",
+      "originalBytes": 4673234,
+      "desktopBytes": 2891774,
+      "mobileBytes": 747701
+    },
+    {
+      "source": "videos/demo/落地-人类踢足球.mp4",
+      "originalBytes": 935802,
+      "desktopBytes": 563463,
+      "mobileBytes": 136555
+    },
+    {
+      "source": "videos/home/hero-kitchen.mp4",
+      "originalBytes": 14404229,
+      "desktopBytes": 6250875,
+      "mobileBytes": 1879763
+    },
+    {
+      "source": "videos/home/hero-laundry.mp4",
+      "originalBytes": 7389974,
+      "desktopBytes": 4817342,
+      "mobileBytes": 1215270
+    },
+    {
+      "source": "videos/motion-0/digital-motion.mp4",
+      "originalBytes": 7169177,
+      "desktopBytes": 4612187,
+      "mobileBytes": 1387010
+    },
+    {
+      "source": "videos/motion-0/kitchen-real.mp4",
+      "originalBytes": 10293148,
+      "desktopBytes": 6150957,
+      "mobileBytes": 1870329
+    },
+    {
+      "source": "videos/motion-0/performance-test.mp4",
+      "originalBytes": 15674887,
+      "desktopBytes": 10268833,
+      "mobileBytes": 2724828
+    },
+    {
+      "source": "videos/motion-0/wear-to-capture.mp4",
+      "originalBytes": 1069255,
+      "desktopBytes": 631930,
+      "mobileBytes": 328431
+    },
+    {
+      "source": "videos/research/kitchen-vlog.mp4",
+      "originalBytes": 10293148,
+      "desktopBytes": 6156046,
+      "mobileBytes": 1870097
+    },
+    {
+      "source": "videos/robot/human-soccer.mp4",
+      "originalBytes": 935802,
+      "desktopBytes": 563463,
+      "mobileBytes": 136555
+    },
+    {
+      "source": "videos/robot/robot-soccer.mp4",
+      "originalBytes": 2280859,
+      "desktopBytes": 1387859,
+      "mobileBytes": 380285
+    },
+    {
+      "source": "videos/robotics/kitchen-v3.mp4",
+      "originalBytes": 10576274,
+      "desktopBytes": 6202849,
+      "mobileBytes": 1849873
+    },
+    {
+      "source": "videos/robotics/robotics-laundry.mp4",
+      "originalBytes": 3374698,
+      "desktopBytes": 2336868,
+      "mobileBytes": 1155042
+    }
+  ]
+}

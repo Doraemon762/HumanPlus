@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 import { research } from '../../data/research'
 
@@ -56,8 +57,9 @@ export default function ResearchSection() {
                     fills the box with zero letterboxing. */}
                 {item.image && (
                   <div className="relative w-full shrink-0 overflow-hidden aspect-[16/9]">
-                    <img
+                    <OptimizedImage
                       src={item.image}
+                      sizes="(max-width: 767px) 100vw, 33vw"
                       alt={item.title}
                       loading="lazy"
                       className="h-full w-full object-contain"
@@ -75,8 +77,9 @@ export default function ResearchSection() {
                       NOT rendered here (kept only for /research ArticleRow). */}
                   <div className="flex min-h-[48px] flex-wrap items-center gap-x-3 gap-y-2">
                     {item.logo && (
-                      <img
+                      <OptimizedImage
                         src={item.logo}
+                        sizes="160px"
                         alt=""
                         loading="lazy"
                         className="w-auto max-w-full object-contain"
