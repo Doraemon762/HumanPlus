@@ -471,97 +471,97 @@
       "source": "videos/demo/human-demo-1-1080.mp4",
       "originalBytes": 18802175,
       "desktopBytes": 13287162,
-      "mobileBytes": 4103650
+      "mobileBytes": 10269805
     },
     {
       "source": "videos/demo/human-manipulation.mp4",
       "originalBytes": 1208122,
       "desktopBytes": 725289,
-      "mobileBytes": 166292
+      "mobileBytes": 498935
     },
     {
       "source": "videos/demo/robot-action.mp4",
       "originalBytes": 2280859,
       "desktopBytes": 1387859,
-      "mobileBytes": 380285
+      "mobileBytes": 1085545
     },
     {
       "source": "videos/demo/robot-manipulation.mp4",
       "originalBytes": 4673234,
       "desktopBytes": 2891774,
-      "mobileBytes": 747701
+      "mobileBytes": 2138297
     },
     {
       "source": "videos/demo/落地-人类踢足球.mp4",
       "originalBytes": 935802,
       "desktopBytes": 563463,
-      "mobileBytes": 136555
+      "mobileBytes": 412546
     },
     {
       "source": "videos/home/hero-kitchen.mp4",
       "originalBytes": 14404229,
       "desktopBytes": 6250875,
-      "mobileBytes": 1879763
+      "mobileBytes": 4952770
     },
     {
       "source": "videos/home/hero-laundry.mp4",
       "originalBytes": 7389974,
       "desktopBytes": 4817342,
-      "mobileBytes": 1215270
+      "mobileBytes": 7389955
     },
     {
       "source": "videos/motion-0/digital-motion.mp4",
       "originalBytes": 7169177,
       "desktopBytes": 4612187,
-      "mobileBytes": 1387010
+      "mobileBytes": 3998805
     },
     {
       "source": "videos/motion-0/kitchen-real.mp4",
       "originalBytes": 10293148,
       "desktopBytes": 6150957,
-      "mobileBytes": 1870329
+      "mobileBytes": 4945230
     },
     {
       "source": "videos/motion-0/performance-test.mp4",
       "originalBytes": 15674887,
       "desktopBytes": 10268833,
-      "mobileBytes": 2724828
+      "mobileBytes": 7496590
     },
     {
       "source": "videos/motion-0/wear-to-capture.mp4",
       "originalBytes": 1069255,
       "desktopBytes": 631930,
-      "mobileBytes": 328431
+      "mobileBytes": 897441
     },
     {
       "source": "videos/research/kitchen-vlog.mp4",
       "originalBytes": 10293148,
       "desktopBytes": 6156046,
-      "mobileBytes": 1870097
+      "mobileBytes": 4944757
     },
     {
       "source": "videos/robot/human-soccer.mp4",
       "originalBytes": 935802,
       "desktopBytes": 563463,
-      "mobileBytes": 136555
+      "mobileBytes": 412546
     },
     {
       "source": "videos/robot/robot-soccer.mp4",
       "originalBytes": 2280859,
       "desktopBytes": 1387859,
-      "mobileBytes": 380285
+      "mobileBytes": 1085545
     },
     {
       "source": "videos/robotics/kitchen-v3.mp4",
       "originalBytes": 10576274,
       "desktopBytes": 6202849,
-      "mobileBytes": 1849873
+      "mobileBytes": 4929449
     },
     {
       "source": "videos/robotics/robotics-laundry.mp4",
       "originalBytes": 3374698,
       "desktopBytes": 2336868,
-      "mobileBytes": 1155042
+      "mobileBytes": 3385563
     }
   ]
 }

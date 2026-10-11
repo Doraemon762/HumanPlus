@@ -1631,8 +1631,8 @@
         "bytes": 13287162
       },
       "mobile": {
-        "src": "media/videos/demo/human-demo-1-1080.mobile.mp4",
-        "bytes": 4103650
+        "src": "media/videos/demo/human-demo-1-1080.mobile-hq.mp4",
+        "bytes": 10269805
       },
       "poster": "media/videos/demo/human-demo-1-1080.poster.webp"
     },
@@ -1642,8 +1642,8 @@
         "bytes": 725289
       },
       "mobile": {
-        "src": "media/videos/demo/human-manipulation.mobile.mp4",
-        "bytes": 166292
+        "src": "media/videos/demo/human-manipulation.mobile-hq.mp4",
+        "bytes": 498935
       },
       "poster": "media/videos/demo/human-manipulation.poster.webp"
     },
@@ -1653,8 +1653,8 @@
         "bytes": 1387859
       },
       "mobile": {
-        "src": "media/videos/demo/robot-action.mobile.mp4",
-        "bytes": 380285
+        "src": "media/videos/demo/robot-action.mobile-hq.mp4",
+        "bytes": 1085545
       },
       "poster": "media/videos/demo/robot-action.poster.webp"
     },
@@ -1664,8 +1664,8 @@
         "bytes": 2891774
       },
       "mobile": {
-        "src": "media/videos/demo/robot-manipulation.mobile.mp4",
-        "bytes": 747701
+        "src": "media/videos/demo/robot-manipulation.mobile-hq.mp4",
+        "bytes": 2138297
       },
       "poster": "media/videos/demo/robot-manipulation.poster.webp"
     },
@@ -1675,8 +1675,8 @@
         "bytes": 563463
       },
       "mobile": {
-        "src": "media/videos/demo/落地-人类踢足球.mobile.mp4",
-        "bytes": 136555
+        "src": "media/videos/demo/落地-人类踢足球.mobile-hq.mp4",
+        "bytes": 412546
       },
       "poster": "media/videos/demo/落地-人类踢足球.poster.webp"
     },
@@ -1686,8 +1686,8 @@
         "bytes": 6250875
       },
       "mobile": {
-        "src": "media/videos/home/hero-kitchen.mobile.mp4",
-        "bytes": 1879763
+        "src": "media/videos/home/hero-kitchen.mobile-hq.mp4",
+        "bytes": 4952770
       },
       "poster": "media/videos/home/hero-kitchen.poster.webp"
     },
@@ -1697,8 +1697,8 @@
         "bytes": 4817342
       },
       "mobile": {
-        "src": "media/videos/home/hero-laundry.mobile.mp4",
-        "bytes": 1215270
+        "src": "media/videos/home/hero-laundry.mobile-hq.mp4",
+        "bytes": 7389955
       },
       "poster": "media/videos/home/hero-laundry.poster.webp"
     },
@@ -1708,8 +1708,8 @@
         "bytes": 4612187
       },
       "mobile": {
-        "src": "media/videos/motion-0/digital-motion.mobile.mp4",
-        "bytes": 1387010
+        "src": "media/videos/motion-0/digital-motion.mobile-hq.mp4",
+        "bytes": 3998805
       },
       "poster": "media/videos/motion-0/digital-motion.poster.webp"
     },
@@ -1719,8 +1719,8 @@
         "bytes": 6150957
       },
       "mobile": {
-        "src": "media/videos/motion-0/kitchen-real.mobile.mp4",
-        "bytes": 1870329
+        "src": "media/videos/motion-0/kitchen-real.mobile-hq.mp4",
+        "bytes": 4945230
       },
       "poster": "media/videos/motion-0/kitchen-real.poster.webp"
     },
@@ -1730,8 +1730,8 @@
         "bytes": 10268833
       },
       "mobile": {
-        "src": "media/videos/motion-0/performance-test.mobile.mp4",
-        "bytes": 2724828
+        "src": "media/videos/motion-0/performance-test.mobile-hq.mp4",
+        "bytes": 7496590
       },
       "poster": "media/videos/motion-0/performance-test.poster.webp"
     },
@@ -1741,8 +1741,8 @@
         "bytes": 631930
       },
       "mobile": {
-        "src": "media/videos/motion-0/wear-to-capture.mobile.mp4",
-        "bytes": 328431
+        "src": "media/videos/motion-0/wear-to-capture.mobile-hq.mp4",
+        "bytes": 897441
       },
       "poster": "media/videos/motion-0/wear-to-capture.poster.webp"
     },
@@ -1752,8 +1752,8 @@
         "bytes": 6156046
       },
       "mobile": {
-        "src": "media/videos/research/kitchen-vlog.mobile.mp4",
-        "bytes": 1870097
+        "src": "media/videos/research/kitchen-vlog.mobile-hq.mp4",
+        "bytes": 4944757
       },
       "poster": "media/videos/research/kitchen-vlog.poster.webp"
     },
@@ -1763,8 +1763,8 @@
         "bytes": 563463
       },
       "mobile": {
-        "src": "media/videos/robot/human-soccer.mobile.mp4",
-        "bytes": 136555
+        "src": "media/videos/robot/human-soccer.mobile-hq.mp4",
+        "bytes": 412546
       },
       "poster": "media/videos/robot/human-soccer.poster.webp"
     },
@@ -1774,8 +1774,8 @@
         "bytes": 1387859
       },
       "mobile": {
-        "src": "media/videos/robot/robot-soccer.mobile.mp4",
-        "bytes": 380285
+        "src": "media/videos/robot/robot-soccer.mobile-hq.mp4",
+        "bytes": 1085545
       },
       "poster": "media/videos/robot/robot-soccer.poster.webp"
     },
@@ -1785,8 +1785,8 @@
         "bytes": 6202849
       },
       "mobile": {
-        "src": "media/videos/robotics/kitchen-v3.mobile.mp4",
-        "bytes": 1849873
+        "src": "media/videos/robotics/kitchen-v3.mobile-hq.mp4",
+        "bytes": 4929449
       },
       "poster": "media/videos/robotics/kitchen-v3.poster.webp"
     },
@@ -1796,8 +1796,8 @@
         "bytes": 2336868
       },
       "mobile": {
-        "src": "media/videos/robotics/robotics-laundry.mobile.mp4",
-        "bytes": 1155042
+        "src": "media/videos/robotics/robotics-laundry.mobile-hq.mp4",
+        "bytes": 3385563
       },
       "poster": "media/videos/robotics/robotics-laundry.poster.webp"
     }

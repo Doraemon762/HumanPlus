@@ -19,8 +19,12 @@ async function files(dir) {
   return nested.flat().sort()
 }
 
+const mobileOnly = process.argv.includes('--mobile-only')
 const report = { images: [], videos: [] }
-if (!process.argv.includes('--videos-only')) {
+if (mobileOnly || process.argv.includes('--videos-only')) {
+  try { report.images = JSON.parse(await fs.readFile(path.join(root, 'docs/media-optimization-sizes.json'), 'utf8')).images } catch (error) { if (error.code !== 'ENOENT') throw error }
+}
+if (!process.argv.includes('--videos-only') && !mobileOnly) {
   for (const input of await files(path.join(publicDir, 'images'))) {
     if (!/\.(png|jpe?g|webp)$/i.test(input)) continue
     const source = path.relative(publicDir, input).split(path.sep).join('/')
@@ -45,7 +49,7 @@ if (!process.argv.includes('--videos-only')) {
   console.log(`Optimized ${report.images.length} images`)
 }
 
-if (process.argv.includes('--videos') || process.argv.includes('--videos-only')) {
+if (process.argv.includes('--videos') || process.argv.includes('--videos-only') || mobileOnly) {
   for (const input of await files(path.join(publicDir, 'videos'))) {
     if (!input.endsWith('.mp4')) continue
     const source = path.relative(publicDir, input).split(path.sep).join('/')
@@ -54,13 +58,19 @@ if (process.argv.includes('--videos') || process.argv.includes('--videos-only'))
     await fs.mkdir(path.dirname(path.join(publicDir, poster)), { recursive: true })
     const frame = execFileSync(ffmpeg, ['-hide_banner', '-loglevel', 'error', '-ss', '0.1', '-i', input, '-frames:v', '1', '-vf', 'scale=1280:-2', '-f', 'image2pipe', '-vcodec', 'mjpeg', 'pipe:1'], { maxBuffer: 20 * 1024 * 1024 })
     await sharp(frame).webp({ quality: 84 }).toFile(path.join(publicDir, poster))
-    const variants = {}
-    for (const [name, width, height, crf, rate] of [['desktop',1920,1080,26,'2200k'], ['mobile',960,540,28,'900k']]) {
-      const src = `${stem}.${name}.mp4`
-      execFileSync(ffmpeg, ['-hide_banner', '-loglevel', 'error', '-y', '-i', input,
+    const variants = mobileOnly ? { desktop: manifest.videos[source].desktop } : {}
+    const hero = source === 'videos/home/hero-laundry.mp4'
+    const profiles = [['desktop',1920,1080,26,'2200k'], ['mobile',hero ? 1920 : 1280,hero ? 1080 : 1280,hero ? 22 : 23,hero ? '4000k' : '2400k']]
+    for (const [name, width, height, crf, rate] of profiles.filter(([name]) => !mobileOnly || name === 'mobile')) {
+      const src = `${stem}.${name === 'mobile' ? 'mobile-hq' : name}.mp4`
+      // The existing hero is already 1080p H.264; remuxing avoids generation loss.
+      const args = name === 'mobile' && hero
+        ? ['-hide_banner', '-loglevel', 'error', '-y', '-i', input, '-map', '0:v:0', '-map', '0:a?', '-c', 'copy', '-movflags', '+faststart', path.join(publicDir, src)]
+        : ['-hide_banner', '-loglevel', 'error', '-y', '-i', input,
         '-map', '0:v:0', '-map', '0:a?', '-vf', `scale=w='min(iw,${width})':h='min(ih,${height})':force_original_aspect_ratio=decrease,scale=trunc(iw/2)*2:trunc(ih/2)*2,fps=30`,
-        '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(crf), '-maxrate', rate, '-bufsize', name === 'mobile' ? '1800k' : '4400k',
-        '-pix_fmt', 'yuv420p', '-g', '60', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', path.join(publicDir, src)], {stdio: ['ignore','ignore','inherit']})
+        '-c:v', 'libx264', '-preset', 'veryfast', '-crf', String(crf), '-maxrate', rate, '-bufsize', name === 'mobile' ? (hero ? '8000k' : '4800k') : '4400k',
+        '-pix_fmt', 'yuv420p', '-g', '60', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', path.join(publicDir, src)]
+      execFileSync(ffmpeg, args, {stdio: ['ignore','ignore','inherit']})
       variants[name] = { src, bytes: (await fs.stat(path.join(publicDir, src))).size }
     }
     const originalBytes = (await fs.stat(input)).size

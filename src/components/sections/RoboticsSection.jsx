@@ -28,7 +28,7 @@ export default function RoboticsSection() {
   return (
     <section
       id="robotics"
-      className="relative h-screen w-full overflow-hidden bg-white"
+      className="relative h-[100svh] w-full overflow-hidden bg-white md:h-screen"
     >
       {/* Full-bleed, 100% opaque clip — full brightness, no veil,
           fills the whole viewport (immersive). Poster paints the first

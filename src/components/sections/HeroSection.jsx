@@ -12,10 +12,10 @@ import DeferredVideo from '../ui/DeferredVideo'
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative h-[100vh] w-full overflow-hidden bg-black">
+    <section id="hero" className="relative h-[100svh] w-full overflow-hidden bg-black md:h-[100vh]">
       <DeferredVideo
         priority
-        className="pointer-events-none absolute inset-0 block h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 block h-full w-full object-cover object-[38%_center] md:object-center"
         src="videos/home/hero-laundry.mp4"
         poster="videos/home/hero-laundry-poster.jpg"
         autoPlay
@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
 
       {/* Lower-left content: headline + CTA */}
-      <div className="absolute z-10 w-[min(92%,1180px)] left-[clamp(1.5rem,5vw,5rem)] bottom-[clamp(2.25rem,9vh,7rem)]">
+      <div className="absolute z-10 left-6 right-6 bottom-[max(2.25rem,env(safe-area-inset-bottom))] md:right-auto md:w-[min(92%,1180px)] md:left-[clamp(1.5rem,5vw,5rem)] md:bottom-[clamp(2.25rem,9vh,7rem)]">
         {/* Headline + CTA read as ONE visual block: line 1 is pure copy,
             line 2 is a flex row whose tail the capsule rides on. */}
         <h1

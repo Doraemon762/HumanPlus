@@ -170,10 +170,10 @@ export default function RobotPage() {
         aria-label="Human behavior to robotic action"
       >
         {/* Pinned full-bleed stage — both videos share the exact same frame. */}
-        <div className="relative h-screen w-full overflow-hidden bg-white">
+        <div className="relative h-[100svh] w-full overflow-hidden bg-white md:h-screen">
           <DeferredVideo
             src={humanVideo}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-contain md:object-cover"
             autoPlay
             muted
             loop
@@ -187,7 +187,7 @@ export default function RobotPage() {
           />
           <DeferredVideo
             src={robotVideo}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-contain md:object-cover"
             autoPlay
             muted
             loop
