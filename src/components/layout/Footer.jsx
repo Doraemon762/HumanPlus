@@ -79,12 +79,12 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[minmax(20rem,1.75fr)_repeat(3,minmax(8rem,0.65fr))] lg:gap-10">
           <div className="max-w-[32rem]">
             <OptimizedImage src={site.logo} alt="HumanPlus" className="h-[32px] w-auto brightness-0 invert" />
-            <p className="mt-5 text-[15px] leading-relaxed text-white/65 sm:text-base">
+            <p className="mt-4 text-[16px] leading-relaxed text-white/70 sm:text-[17px]">
               Capturing Human Life for Embodied Intelligence
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-4">
-              <span className="inline-flex cursor-default items-center gap-3 text-[18px] text-white/78 sm:text-[19px]">
+            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-4">
+              <button type="button" onClick={copyEmail} title="Copy" aria-label="Copy email address" className="inline-flex cursor-pointer items-center gap-3 text-[16px] leading-none text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:text-[17px]">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -100,26 +100,11 @@ export default function Footer() {
               <path d="M3 7l9 6l9 -6" />
             </svg>
             info@humanplus.xyz
-              </span>
-              <button
-                type="button"
-                onClick={copyEmail}
-                className="group relative grid h-9 w-9 place-items-center rounded-md text-white/55 transition duration-200 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
-                aria-label={emailCopied ? 'Email copied' : 'Copy email address'}
-                title={emailCopied ? 'Copied' : 'Copy email'}
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-[21px] w-[21px]" aria-hidden="true">
-                  <rect x="8" y="8" width="11" height="11" rx="2" />
-                  <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
-                  {emailCopied && <path d="m11.5 13.5 2 2 4-4" />}
-                </svg>
-                <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded bg-white px-2 py-1 text-[11px] font-medium text-[#111] opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
-                  {emailCopied ? 'Copied' : 'Copy email'}
-                </span>
               </button>
+              <span role="status" aria-live="polite" className="inline-flex h-[26px] items-center text-xs leading-none text-white/70">{emailCopied ? 'Copied' : ''}</span>
             </div>
 
-            <div className="mt-7 flex items-center gap-5">
+            <div className="mt-8 flex items-center gap-5">
             {SOCIALS.map((s) => {
               const cls =
                   'inline-flex text-white/70 transition duration-200 ease-out hover:-translate-y-0.5 hover:text-white'
@@ -143,13 +128,13 @@ export default function Footer() {
 
           {FOOTER_GROUPS.map((group) => (
             <nav key={group.title} aria-label={`${group.title} footer links`}>
-              <h4 className="text-[17px] font-semibold tracking-[-0.015em] text-white">{group.title}</h4>
+              <h4 className="text-[20px] font-bold tracking-[-0.015em] text-white">{group.title}</h4>
               <div className="mt-5 flex flex-col items-start gap-4">
                 {group.links.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="origin-left text-[16px] font-normal leading-tight text-white/52 no-underline transition duration-200 ease-out hover:scale-[1.035] hover:text-white focus-visible:scale-[1.035] focus-visible:text-white focus-visible:outline-none"
+                    className="footer-text-link text-[16px] font-normal leading-tight text-white/52 no-underline transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none"
                   >
                     {link.label}
                   </a>

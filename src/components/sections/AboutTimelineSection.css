@@ -67,6 +67,7 @@
 .about-timeline-project:hover { border-color: #a9c9ee; box-shadow: none; }
 .about-timeline-project-media { position: relative; grid-column: 1 / -1; display: grid; width: 100%; height: clamp(14rem, 38vh, 23rem); min-height: 0; place-items: center; overflow: hidden; border-radius: 1.15rem; background: #ffffff; }
 .about-timeline-project-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.about-timeline-project-media video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .about-timeline-project.is-dataset-card .about-timeline-project-media img { object-fit: cover; object-position: center 62%; }
 .about-timeline-project-media span { color: rgb(79 100 126 / 0.28); font: 650 0.65rem/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.18em; }
 .about-timeline-project-copy { display: flex; min-width: 0; flex-direction: column; gap: 0.54rem; }

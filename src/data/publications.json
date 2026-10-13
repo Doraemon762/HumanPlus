@@ -1,0 +1,188 @@
+[
+  {
+    "year": 2026,
+    "title": "Distinguishing Imitation Error from Intrinsic Motion Learning Difficulty",
+    "venue": "ICML 2026",
+    "href": "https://arxiv.org/abs/2512.07248"
+  },
+  {
+    "year": 2026,
+    "title": "Improving Sparse IMU-based Motion Capture with Motion Label Smoothing",
+    "venue": "AAAI 2026",
+    "href": "https://arxiv.org/abs/2511.22288"
+  },
+  {
+    "year": 2025,
+    "title": "ToF-IP: Time-of-Flight Enhanced Sparse Inertial Poser for Real-time Human Motion Capture",
+    "venue": "NeurIPS 2025",
+    "href": "https://openreview.net/forum?id=fLKrX29Zy6"
+  },
+  {
+    "year": 2025,
+    "title": "Shape-aware Inertial Poser: Motion Tracking for Humans with Diverse Shapes Using Sparse Inertial Sensors",
+    "venue": "ACM TOG (SIGGRAPH Asia) 2025",
+    "href": "https://arxiv.org/abs/2510.17101"
+  },
+  {
+    "year": 2025,
+    "title": "Transformer IMU Calibrator: Dynamic On-body IMU Calibration for Inertial Motion Capture",
+    "venue": "ACM TOG (SIGGRAPH 2025)",
+    "href": "https://arxiv.org/abs/2506.10580"
+  },
+  {
+    "year": 2025,
+    "title": "FIP: Endowing Robust Motion Capture on Daily Garment by Fusing Flex and Inertial Sensors",
+    "venue": "CHI 2025",
+    "href": "https://arxiv.org/abs/2502.15058"
+  },
+  {
+    "year": 2025,
+    "title": "MODA: Motion-drift augmentation for inertial human motion analysis",
+    "venue": "CVPR 2025",
+    "href": "https://openaccess.thecvf.com/content/CVPR2025/papers/Wu_MODA_Motion-Drift_Augmentation_for_Inertial_Human_Motion_Analysis_CVPR_2025_paper.pdf"
+  },
+  {
+    "year": 2025,
+    "title": "DistMovGen: A Knowledge Distillation-Enhanced Framework for Real-Time Virtual Character Motion Generation",
+    "venue": "ICXR 2025",
+    "href": "https://doi.org/10.1007/978-981-95-7195-6_4"
+  },
+  {
+    "year": 2024,
+    "title": "Accurate and Steady Inertial Pose Estimation through Sequence Structure Learning and Modulation",
+    "venue": "NeurIPS 2024",
+    "href": "https://openreview.net/forum?id=j2hzCTqbF0"
+  },
+  {
+    "year": 2024,
+    "title": "SATPose: Improving Monocular 3D Pose Estimation with Spatial-aware Ground Tactility",
+    "venue": "ACM Multimedia 2024",
+    "href": "https://dl.acm.org/doi/10.1145/3664647.3681654"
+  },
+  {
+    "year": 2024,
+    "title": "SuDA: Support-based Domain Adaptation for Sim2Real Hinge Joint Tracking with Flexible Sensors",
+    "venue": "ICML 2024",
+    "href": "https://arxiv.org/abs/2405.16152"
+  },
+  {
+    "year": 2024,
+    "title": "Loose Inertial Poser: Motion Capture with IMU-attached Loose-Wear Jacket",
+    "venue": "CVPR 2024",
+    "href": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zuo_Loose_Inertial_Poser_Motion_Capture_with_IMU-attached_Loose-Wear_Jacket_CVPR_2024_paper.pdf"
+  },
+  {
+    "year": 2024,
+    "title": "Diverse Motion In-betweening from Sparse Keyframes with Dual Posture Stitching",
+    "venue": "IEEE TVCG",
+    "href": "https://arxiv.org/abs/2303.14457"
+  },
+  {
+    "year": 2023,
+    "title": "Self-Adaptive Motion Tracking against On-body Displacement of Flexible Sensors",
+    "venue": "NeurIPS 2023",
+    "href": "https://openreview.net/forum?id=5ZMBiS1uMq"
+  },
+  {
+    "year": 2023,
+    "title": "TouchEditor: Interaction Design and Evaluation of a Flexible Touchpad for Text Editing of Head-Mounted Displays in Speech-unfriendly Environments",
+    "venue": "IMWUT 2023",
+    "href": "https://dl.acm.org/doi/10.1145/3631454"
+  },
+  {
+    "year": 2023,
+    "title": "DisPad: Flexible On-Body Displacement of Fabric Sensors for Robust Joint-Motion Tracking",
+    "venue": "IMWUT 2023",
+    "href": "https://arxiv.org/abs/2301.06249"
+  },
+  {
+    "year": 2023,
+    "title": "Motion-R3: Fast and Accurate Motion Annotation via Representation-based Representativeness Ranking",
+    "venue": "arXiv 2023",
+    "href": "https://arxiv.org/abs/2304.01672"
+  },
+  {
+    "year": 2023,
+    "title": "Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance",
+    "venue": "SIGGRAPH Asia 2023 (ACM TOG)",
+    "href": "https://arxiv.org/abs/2309.10226"
+  },
+  {
+    "year": 2023,
+    "title": "Touch-and-Heal: Data-driven Affective Computing in Tactile Interaction with Robotic Dog",
+    "venue": "IMWUT 2023 (vol 7)",
+    "href": "https://dl.acm.org/doi/10.1145/3596258"
+  },
+  {
+    "year": 2022,
+    "title": "Handwriting Velcro: Endowing AR Glasses with Personalized and Posture-adaptive Text Input Using Flexible Touch Sensor",
+    "venue": "IMWUT 2022 (vol 6)",
+    "href": "https://dl.acm.org/doi/10.1145/3569461"
+  },
+  {
+    "year": 2022,
+    "title": "Analyzing Human Muscle State with Flexible Sensors",
+    "venue": "Journal of Sensors 2022",
+    "href": "https://www.hindawi.com/journals/js/2022/5227955/"
+  },
+  {
+    "year": 2022,
+    "title": "Quantitative and Qualitative Exploration of Electronic Device Position on User Experience of Smart Clothes",
+    "venue": "CSASE 2022",
+    "href": "https://www.semanticscholar.org/paper/afa8a286ffa9cd07c1a4ccafe70bd3684c89d01c"
+  },
+  {
+    "year": 2021,
+    "title": "Robust Elbow Angle Prediction With Aging Soft Sensors via Output-Level Domain Adaptation",
+    "venue": "IEEE Sensors Journal 2021",
+    "href": "https://doi.org/10.1109/JSEN.2021.3091004"
+  },
+  {
+    "year": 2021,
+    "title": "Human posture tracking with flexible sensors for motion recognition",
+    "venue": "Computer Animation and Virtual Worlds 2021",
+    "href": "https://orca.cardiff.ac.uk/140342/1/CAVW_Human_Posture_Tracking.pdf"
+  },
+  {
+    "year": 2020,
+    "title": "Sensock: 3D Foot Reconstruction with Flexible Sensors",
+    "venue": "CHI 2020",
+    "href": "https://dl.acm.org/doi/10.1145/3313831.3376387"
+  },
+  {
+    "year": 2020,
+    "title": "3D Upper Body Reconstruction with Sparse Soft Sensors",
+    "venue": "Soft Robotics 2020",
+    "href": "https://doi.org/10.1089/soro.2019.0187"
+  },
+  {
+    "year": 2019,
+    "title": "MagicGlove: Estimation for Flexion Angle of Fingers",
+    "venue": "IEEE SSCI 2019",
+    "href": "https://doi.org/10.1109/SSCI44817.2019.9002916"
+  },
+  {
+    "year": 2019,
+    "title": "Accurate and Fast Classification of Foot Gestures for Virtual Locomotion",
+    "venue": "ISMAR 2019",
+    "href": "https://ieeexplore.ieee.org/document/8943618"
+  },
+  {
+    "year": 2018,
+    "title": "Optimizing Neural Network as Locomotion Controller With Motion Data",
+    "venue": "IEEE Access 2018",
+    "href": "https://doi.org/10.1109/ACCESS.2018.2834380"
+  },
+  {
+    "year": 2017,
+    "title": "Understanding the impact of multimodal interaction using gaze informed mid-air gesture control in 3D virtual objects manipulation",
+    "venue": "IJHCS 2017",
+    "href": "https://doi.org/10.1016/j.ijhcs.2017.04.002"
+  },
+  {
+    "year": 2026,
+    "title": "CLOTHO: Canonicalizing IMUs from Loose Inertial Garments for Accurate Human Motion Tracking",
+    "venue": "SIGGRAPH Asia 2026 (ACM TOG)",
+    "href": "https://clotho-mocap.github.io/"
+  }
+]

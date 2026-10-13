@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import useHashRoute from './hooks/useHashRoute'
+import useSiteMotion from './hooks/useSiteMotion'
 import HomePage from './pages/HomePage'
 const ProductsPage = lazy(() => import('./pages/ProductsPage'))
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
@@ -45,6 +46,7 @@ function renderRoute(path) {
 
 export default function App() {
   const path = useHashRoute()
+  useSiteMotion(path)
 
   /* New route = new page: always start at the top. */
   useEffect(() => {

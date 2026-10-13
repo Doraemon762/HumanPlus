@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './AboutTimelineSection.css'
 import ScrollExpand from '../ui/ScrollExpand'
 import StrokeText from '../ui/StrokeText'
+import DeferredVideo from '../ui/DeferredVideo'
 
 const PHASES = [
   {
@@ -15,25 +16,11 @@ const PHASES = [
       "On-body"
     ],
     "visual": {
-      "primary": "images/research/clothing-20261012/upper-body.jpeg",
+      "primary": "media/research-20261013/wiring-left-2023.png",
       "secondary": "images/research/clothing-20261012/wiring.png",
       "caption": "From natural interaction to sensing that moves with the body."
     },
     "projects": [
-      {
-        "year": "2020",
-        "title": "3D Upper Body Reconstruction with Sparse Soft Sensors",
-        "venue": "Soft Robotics 2020",
-        "href": "https://doi.org/10.1089/soro.2019.0187",
-        "links": [
-          {
-            "label": "paper",
-            "href": "https://doi.org/10.1089/soro.2019.0187"
-          }
-        ],
-        "image": "images/research/clothing-20261012/upper-body.jpeg",
-        "role": "MILESTONE"
-      },
       {
         "year": "2023",
         "title": "Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance",
@@ -45,7 +32,7 @@ const PHASES = [
             "href": "https://arxiv.org/abs/2309.10226"
           }
         ],
-        "image": "images/research/clothing-20261012/wiring.png",
+        "image": "media/research-20261013/wiring-right-2023.png",
         "role": "MILESTONE"
       }
     ]
@@ -78,6 +65,7 @@ const PHASES = [
           }
         ],
         "image": "images/research/clothing-20261012/loose-poser.png",
+        "video": "media/research-20261013/lip-2024.mp4",
         "role": "MILESTONE"
       },
       {
@@ -92,6 +80,7 @@ const PHASES = [
           }
         ],
         "image": "images/research/clothing-20261012/tic.png",
+        "video": "media/research-20261013/tic-2025.mp4",
         "role": "MILESTONE"
       },
       {
@@ -106,6 +95,7 @@ const PHASES = [
           }
         ],
         "image": "images/research/clothing-20261012/fip.jpeg",
+        "video": "media/research-20261013/fip-2025.mp4",
         "role": "MILESTONE"
       }
     ]
@@ -121,7 +111,7 @@ const PHASES = [
       "Interaction"
     ],
     "visual": {
-      "primary": "images/research/clothing-20261012/clotho.png",
+      "primary": "media/research-20261013/clotho-left-2026.png",
       "secondary": "images/research/clothing-20261012/label-smoothing.png",
       "caption": "From accurate capture to learnable behavior."
     },
@@ -138,6 +128,7 @@ const PHASES = [
           }
         ],
         "image": "images/research/clothing-20261012/clotho.png",
+        "video": "media/research-20261013/clotho-2026.mp4",
         "role": "MILESTONE"
       },
       {
@@ -152,6 +143,7 @@ const PHASES = [
           }
         ],
         "image": "images/research/clothing-20261012/label-smoothing.png",
+        "video": "media/research-20261013/label-smoothing-2026.mp4",
         "role": "MILESTONE"
       }
     ]
@@ -170,7 +162,9 @@ function ProjectRow({ project, projectRef, stackIndex }) {
       style={{ '--stack-index': stackIndex, '--last-stack-index': Math.max(stackIndex - 1, 0) }}
     >
       <span className={`about-timeline-project-media ${project.image ? 'has-image' : ''}`} aria-hidden="true">
-        {project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <span>IMAGE</span>}
+        {project.video
+          ? <DeferredVideo src={project.video} poster={project.image} autoPlay muted loop disablePictureInPicture />
+          : project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <span>IMAGE</span>}
       </span>
       <span className="about-timeline-project-copy">
         <strong>{project.title}</strong>
@@ -189,13 +183,14 @@ function ProjectRow({ project, projectRef, stackIndex }) {
   )
 }
 
-export default function AboutTimelineSection() {
+export default function AboutTimelineSection({ showTimeline = true }) {
   const projectNodes = useRef([])
-  const activeYearRef = useRef('2020')
-  const [activeYear, setActiveYear] = useState('2020')
+  const activeYearRef = useRef('2023')
+  const [activeYear, setActiveYear] = useState('2023')
   const [timelineStarted, setTimelineStarted] = useState(false)
 
   useEffect(() => {
+    if (!showTimeline) return
     let frame = 0
     const updateYear = () => {
       frame = 0
@@ -341,7 +336,7 @@ export default function AboutTimelineSection() {
       window.removeEventListener('resize', requestUpdate)
       if (frame) window.cancelAnimationFrame(frame)
     }
-  }, [])
+  }, [showTimeline])
 
   let projectIndex = 0
 
@@ -375,7 +370,7 @@ export default function AboutTimelineSection() {
         <p className="about-timeline-video-caption">Life becomes the data source.</p>
       </ScrollExpand>
 
-      <div className="about-timeline-phases">
+      {showTimeline && <div className="about-timeline-phases">
         <div className="about-timeline-centerline" aria-hidden="true" />
         <div className="about-timeline-rail" aria-hidden="true">
           <div className={`about-timeline-active-year ${timelineStarted ? 'is-visible' : ''}`}>
@@ -433,7 +428,7 @@ export default function AboutTimelineSection() {
             </div>
           </article>
         ))}
-      </div>
+      </div>}
 
     </section>
   )

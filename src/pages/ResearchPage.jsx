@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import ParticleLogo from '../components/ui/ParticleLogo'
 import AboutTimelineSection from '../components/sections/AboutTimelineSection'
+import PublicationsSection from '../components/sections/PublicationsSection'
+import ResearchEditorialSection from '../components/sections/ResearchEditorialSection'
+import useAboutMotion from '../hooks/useAboutMotion'
 import '../styles/research-dark.css'
 
 const COMPANY_INTRO = [
@@ -12,6 +15,8 @@ const COMPANY_INTRO = [
 export default function ResearchPage() {
   const [aboutIntroComplete, setAboutIntroComplete] = useState(false)
   const researchSection = useRef(null)
+  const pageRef = useRef(null)
+  useAboutMotion(pageRef)
 
   useEffect(() => {
     document.documentElement.classList.add('research-snap-active')
@@ -47,7 +52,7 @@ export default function ResearchPage() {
   }, [])
 
   return (
-    <div className="company-research-page">
+    <div className="company-research-page" ref={pageRef}>
       <section className="company-about-panel relative overflow-hidden px-6 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
         <div className="company-about-glow" aria-hidden="true" />
         <ParticleLogo onReveal={() => setAboutIntroComplete(true)} />
@@ -68,7 +73,9 @@ export default function ResearchPage() {
         </div>
       </section>
       <div ref={researchSection} className="research-light-surface">
-        <AboutTimelineSection />
+        <AboutTimelineSection showTimeline={false} />
+        <ResearchEditorialSection />
+        <PublicationsSection />
       </div>
     </div>
   )

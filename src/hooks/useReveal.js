@@ -33,7 +33,7 @@ export default function useReveal() {
           observer.unobserve(entry.target)
         }
       },
-      { threshold: 0.15 }
+      { threshold: window.location.hash.startsWith('#/dataset') ? 0.15 : 0.3 }
     )
     observer.observe(el)
     return () => observer.disconnect()
