@@ -32,14 +32,14 @@ const paperDetails = {
 const groups = [
   {
     title: 'Sensing Human Movement',
-    image: `${mediaRoot}wiring-left-2023.webp`,
+    image: `${mediaRoot}mannequin-left-1.webp`,
     papers: [
-      { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-2023.webp` },
+      { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-color-fixed.webp` },
     ],
   },
   {
     title: 'Soft Sensing for Smart Clothing',
-    image: 'images/research/clothing-20261012/loose-poser.webp',
+    image: `${mediaRoot}mannequin-left-2.webp`,
     papers: [
       { match: 'Loose Inertial Poser:', video: `${mediaRoot}lip-2024.mp4`, image: 'images/research/clothing-20261012/loose-poser.png' },
       { match: 'Transformer IMU Calibrator:', video: `${mediaRoot}tic-2025.mp4`, image: 'images/research/clothing-20261012/tic.png' },
@@ -48,7 +48,7 @@ const groups = [
   },
   {
     title: 'Human Data for Robot Learning',
-    image: `${mediaRoot}smart-clothing-left.webp`,
+    image: `${mediaRoot}mannequin-left-3.webp`,
     papers: [
       { match: 'CLOTHO:', video: `${mediaRoot}clotho-2026.mp4`, image: 'images/research/clothing-20261012/clotho.png' },
       { match: 'Improving Sparse IMU-based', video: `${mediaRoot}label-smoothing-2026.mp4`, image: 'images/research/clothing-20261012/label-smoothing.png' },
