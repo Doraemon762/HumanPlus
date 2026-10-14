@@ -122,7 +122,7 @@ export default function ContactPage() {
       {/* ── Tell Us What You Need (form) ── */}
       <section
         id="contact-form"
-        className="relative flex h-screen flex-col overflow-y-auto bg-paper scroll-mt-24"
+        className="relative flex min-h-screen flex-col bg-paper scroll-mt-24"
       >
         <div className="m-auto w-full max-w-3xl px-6 pb-16 pt-24 lg:px-10">
           <Reveal

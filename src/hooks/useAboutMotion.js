@@ -10,6 +10,18 @@ export default function useAboutMotion(pageRef) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return
+        if (entry.target.classList.contains('research-publications-columns')) {
+          // Follow visual rows across columns, not DOM column order.
+          const papers = [...entry.target.querySelectorAll('li')]
+            .map((node) => ({ node, top: node.getBoundingClientRect().top }))
+            .sort((a, b) => a.top - b.top)
+          let rowTop = -Infinity
+          let row = -1
+          papers.forEach(({ node, top }) => {
+            if (top - rowTop > 24) { row += 1; rowTop = top }
+            node.style.setProperty('--publication-delay', `${row * 90}ms`)
+          })
+        }
         if (entry.target.classList.contains('research-editorial-left') && entry.intersectionRatio < 0.85) return
         if (!entry.target.classList.contains('research-publications-columns') && entry.intersectionRatio < 0.3) return
         const revealed = entry.target.classList.contains('research-editorial-left')

@@ -97,12 +97,6 @@
   },
   {
     "year": 2023,
-    "title": "Motion-R3: Fast and Accurate Motion Annotation via Representation-based Representativeness Ranking",
-    "venue": "arXiv 2023",
-    "href": "https://arxiv.org/abs/2304.01672"
-  },
-  {
-    "year": 2023,
     "title": "Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance",
     "venue": "SIGGRAPH Asia 2023 (ACM TOG)",
     "href": "https://arxiv.org/abs/2309.10226"
@@ -120,28 +114,10 @@
     "href": "https://dl.acm.org/doi/10.1145/3569461"
   },
   {
-    "year": 2022,
-    "title": "Analyzing Human Muscle State with Flexible Sensors",
-    "venue": "Journal of Sensors 2022",
-    "href": "https://www.hindawi.com/journals/js/2022/5227955/"
-  },
-  {
-    "year": 2022,
-    "title": "Quantitative and Qualitative Exploration of Electronic Device Position on User Experience of Smart Clothes",
-    "venue": "CSASE 2022",
-    "href": "https://www.semanticscholar.org/paper/afa8a286ffa9cd07c1a4ccafe70bd3684c89d01c"
-  },
-  {
     "year": 2021,
     "title": "Robust Elbow Angle Prediction With Aging Soft Sensors via Output-Level Domain Adaptation",
     "venue": "IEEE Sensors Journal 2021",
     "href": "https://doi.org/10.1109/JSEN.2021.3091004"
-  },
-  {
-    "year": 2021,
-    "title": "Human posture tracking with flexible sensors for motion recognition",
-    "venue": "Computer Animation and Virtual Worlds 2021",
-    "href": "https://orca.cardiff.ac.uk/140342/1/CAVW_Human_Posture_Tracking.pdf"
   },
   {
     "year": 2020,
@@ -166,12 +142,6 @@
     "title": "Accurate and Fast Classification of Foot Gestures for Virtual Locomotion",
     "venue": "ISMAR 2019",
     "href": "https://ieeexplore.ieee.org/document/8943618"
-  },
-  {
-    "year": 2018,
-    "title": "Optimizing Neural Network as Locomotion Controller With Motion Data",
-    "venue": "IEEE Access 2018",
-    "href": "https://doi.org/10.1109/ACCESS.2018.2834380"
   },
   {
     "year": 2017,

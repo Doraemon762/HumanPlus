@@ -32,14 +32,14 @@ const paperDetails = {
 const groups = [
   {
     title: 'Sensing Human Movement',
-    image: `${mediaRoot}wiring-left-2023.png`,
+    image: `${mediaRoot}wiring-left-2023.webp`,
     papers: [
-      { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-2023.png` },
+      { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-2023.webp` },
     ],
   },
   {
     title: 'Soft Sensing for Smart Clothing',
-    image: 'images/research/clothing-20261012/loose-poser.png',
+    image: 'images/research/clothing-20261012/loose-poser.webp',
     papers: [
       { match: 'Loose Inertial Poser:', video: `${mediaRoot}lip-2024.mp4`, image: 'images/research/clothing-20261012/loose-poser.png' },
       { match: 'Transformer IMU Calibrator:', video: `${mediaRoot}tic-2025.mp4`, image: 'images/research/clothing-20261012/tic.png' },
@@ -48,7 +48,7 @@ const groups = [
   },
   {
     title: 'Human Data for Robot Learning',
-    image: `${mediaRoot}smart-clothing-left.png`,
+    image: `${mediaRoot}smart-clothing-left.webp`,
     papers: [
       { match: 'CLOTHO:', video: `${mediaRoot}clotho-2026.mp4`, image: 'images/research/clothing-20261012/clotho.png' },
       { match: 'Improving Sparse IMU-based', video: `${mediaRoot}label-smoothing-2026.mp4`, image: 'images/research/clothing-20261012/label-smoothing.png' },
@@ -116,7 +116,7 @@ export default function ResearchEditorialSection() {
                       : <img src={media.image} alt="" loading="lazy" decoding="async" />}
                   </div>
                   <div className="research-editorial-copy">
-                    <p className="research-editorial-year"><span>{paper.year}</span><span>{details.venue}</span><span className="research-editorial-level">CCF-A</span></p>
+                    <p className="research-editorial-year"><span>{paper.year}</span><span>{details.venue}</span></p>
                     <h3>{media.match === 'Computational Design of Wiring'
                       ? <><span className="research-editorial-title-line">Computational Design of Wiring Layout</span><span className="research-editorial-title-line">on Tight Suits with Minimal Motion Resistance</span></>
                       : paper.title}</h3>

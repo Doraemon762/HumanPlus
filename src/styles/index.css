@@ -446,7 +446,8 @@
   }
 }
 /* Footer links underline without moving the text. */
-.footer-text-link { position: relative; display: inline-block; }
+.footer-text-link { position: relative; display: inline-block; color: rgb(255 255 255 / 0.7); }
+.footer-text-link:hover, .footer-text-link:focus-visible { color: #fff; }
 .footer-text-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -5px; height: 1px; background: #fff; transform: scaleX(0); transform-origin: left center; transition: transform 200ms ease; }
 .footer-text-link:hover::after, .footer-text-link:focus-visible::after { transform: scaleX(1); }
 html.site-smooth-motion { scroll-behavior: auto !important; scroll-snap-type: none !important; }
