@@ -4,6 +4,18 @@ import './ResearchEditorialSection.css'
 
 const mediaRoot = 'media/research-20261013/'
 const paperDetails = {
+  'SuDA:': {
+    venue: 'ICML',
+    abstract: 'We propose SuDA, a support-based domain adaptation method for flexible-sensor motion capture, achieving labeled-data-free Sim2Real transfer with accuracy comparable to supervised learning.',
+  },
+  'Self-Adaptive Motion': {
+    venue: 'NeurIPS',
+    abstract: 'We propose a self-adaptive motion tracking network, achieving robust tracking against unknown on-body displacements of flexible sensors via a learnable affine transformation layer.',
+  },
+  'DisPad:': {
+    venue: 'IMWUT',
+    abstract: 'We propose DisPad, an elbow-pad prototype with sparse soft sensors for joint-motion tracking, achieving robust tracking across device displacements with a 9.82-degree average error.',
+  },
   'Computational Design of Wiring': {
     venue: 'SIGGRAPH Asia (ACM TOG)',
     abstract: 'We formulate smart-clothing wiring layout design as a deformation-weighted Steiner tree problem, achieving a 77% reduction in wire strain energy over baseline designs.',
@@ -32,15 +44,18 @@ const paperDetails = {
 const groups = [
   {
     title: 'Sensing Human Movement',
-    image: `${mediaRoot}mannequin-left-1.webp`,
+    image: `${mediaRoot}mannequin-local-sensing.webp`,
     papers: [
       { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-color-fixed.webp` },
+      { match: 'DisPad:', image: `${mediaRoot}dispad-local-new.webp` },
+      { match: 'Self-Adaptive Motion', image: `${mediaRoot}self-adaptive-2023.webp` },
     ],
   },
   {
     title: 'Soft Sensing for Smart Clothing',
-    image: `${mediaRoot}mannequin-left-2.webp`,
+    image: `${mediaRoot}mannequin-local-trio.webp`,
     papers: [
+      { match: 'SuDA:', image: `${mediaRoot}suda-2024-updated.webp` },
       { match: 'Loose Inertial Poser:', video: `${mediaRoot}lip-2024.mp4`, image: 'images/research/clothing-20261012/loose-poser.png' },
       { match: 'Transformer IMU Calibrator:', video: `${mediaRoot}tic-2025.mp4`, image: 'images/research/clothing-20261012/tic.png' },
       { match: 'FIP:', video: `${mediaRoot}fip-2025.mp4`, image: 'images/research/clothing-20261012/fip.jpeg' },
@@ -48,10 +63,10 @@ const groups = [
   },
   {
     title: 'Human Data for Robot Learning',
-    image: `${mediaRoot}mannequin-left-3.webp`,
+    image: `${mediaRoot}mannequin-local-robot.webp`,
     papers: [
       { match: 'CLOTHO:', video: `${mediaRoot}clotho-2026.mp4`, image: 'images/research/clothing-20261012/clotho.png' },
-      { match: 'Improving Sparse IMU-based', video: `${mediaRoot}label-smoothing-2026.mp4`, image: 'images/research/clothing-20261012/label-smoothing.png' },
+      { match: 'robot-box-2026', video: `${mediaRoot}robot-box-2026.mp4`, pending: true },
     ],
   },
 ]
@@ -98,10 +113,25 @@ function EditorialVideo({ src, poster }) {
 export default function ResearchEditorialSection() {
   return (
     <section className="research-editorial" aria-label="Research in focus">
+      <div className="research-editorial-group research-editorial-origin" id="research-2019">
+        <aside className="research-editorial-left">
+          <img src={`${mediaRoot}mannequin-2019-glow.webp`} alt="Original smart clothing prototype" loading="lazy" decoding="async" />
+          <h2>2019</h2>
+        </aside>
+        <div className="research-editorial-papers">
+          <div className="research-editorial-paper research-editorial-detail">
+            <div className="research-editorial-media">
+              <img src={`${mediaRoot}origin-combined-2019-v2.webp`} alt="Original clothing exposed wiring and circuit board details" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
       {groups.map((group) => (
         <div className="research-editorial-group" key={group.title}>
           <aside className="research-editorial-left">
-            <img src={group.image} alt={group.title} loading="lazy" decoding="async" />
+            {group.additionalImages
+              ? <div className="research-editorial-mannequins">{[group.image, ...group.additionalImages].map((src) => <img key={src} src={src} alt={group.title} loading="lazy" decoding="async" />)}</div>
+              : <img src={group.image} alt={group.title} loading="lazy" decoding="async" />}
             <h2>{group.title}</h2>
           </aside>
           <div className="research-editorial-papers">
@@ -109,20 +139,20 @@ export default function ResearchEditorialSection() {
               const paper = publications.find((item) => item.title.startsWith(media.match))
               const details = paperDetails[media.match]
               return (
-                <article className="research-editorial-paper" key={paper.title}>
+                <article className="research-editorial-paper" key={media.match}>
                   <div className="research-editorial-media">
                     {media.video
                       ? <EditorialVideo src={media.video.replace('.mp4', '.web.mp4')} poster={media.video.replace('.mp4', '.poster.webp')} />
                       : <img src={media.image} alt="" loading="lazy" decoding="async" />}
                   </div>
-                  <div className="research-editorial-copy">
+                  {!media.pending && <div className="research-editorial-copy">
                     <p className="research-editorial-year"><span>{paper.year}</span><span>{details.venue}</span></p>
                     <h3>{media.match === 'Computational Design of Wiring'
-                      ? <><span className="research-editorial-title-line">Computational Design of Wiring Layout</span><span className="research-editorial-title-line">on Tight Suits with Minimal Motion Resistance</span></>
+                      ? 'Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance'
                       : paper.title}</h3>
                     <p className="research-editorial-abstract">{details.abstract}</p>
                     <a href={paper.href} target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
-                  </div>
+                  </div>}
                 </article>
               )
             })}

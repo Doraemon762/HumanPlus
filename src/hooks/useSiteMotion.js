@@ -7,42 +7,51 @@ export default function useSiteMotion(path) {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
     let scroll
     let entryTimer = 0
-    let previousY = window.scrollY
     let direction = 0
     let aligningEntry = false
+    const getStops = () => {
+      const header = document.querySelector('.site-nav')?.getBoundingClientRect().bottom || 72
+      return [...document.querySelectorAll('.research-editorial-paper')].map((paper) => {
+        const media = paper.querySelector('.research-editorial-media img, .research-editorial-media video')
+        const copy = paper.querySelector('.research-editorial-copy')
+        const top = (media || paper).getBoundingClientRect().top + window.scrollY
+        const bottom = (copy || media || paper).getBoundingClientRect().bottom + window.scrollY
+        const space = Math.max(24, (innerHeight - header - (bottom - top)) / 2)
+        return Math.max(0, top - header - space)
+      })
+    }
     const finishEntry = () => {
-      if (path !== '/research' || !scroll || aligningEntry || direction <= 0 || innerWidth < 768) return
-      const first = document.querySelector('.research-editorial-paper')
-      if (!first) return
-      const target = first.getBoundingClientRect().top + window.scrollY - 72
-      const remaining = target - window.scrollY
-      // Only complete an almost-finished forward entry. Never reverse-scroll
-      // or drag someone back from the next section.
-      if (remaining < 3 || remaining > 120) return
-      aligningEntry = true
-      scroll.scrollTo(target, { duration: 1.1, easing: (t) => t * t * (3 - 2 * t), onComplete: () => { aligningEntry = false } })
-    }
-    const onScroll = () => {
-      const y = window.scrollY
-      if (Math.abs(y - previousY) > 0.2) direction = Math.sign(y - previousY)
-      previousY = y
-      clearTimeout(entryTimer)
-      if (!aligningEntry) entryTimer = window.setTimeout(finishEntry, 250)
-    }
-    const onInput = () => { clearTimeout(entryTimer); aligningEntry = false }
-    const gentleResistance = (input) => {
-      if (path !== '/research' || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || input.deltaY <= 0 || Math.abs(input.deltaX) > input.deltaY) return true
-      const papers = [...document.querySelectorAll('.research-editorial-paper')]
-      if (!papers.length) return true
-      const y = window.scrollY
-      const stops = papers.map((paper) => paper.getBoundingClientRect().top + y - 72)
+      if (path !== '/research' || !scroll || aligningEntry || !direction || innerWidth < 768) return
       const position = scroll.targetScroll
-      if (position < stops[0] - 160 || position > stops.at(-1) + 160) return true
-      const distance = Math.min(...stops.map((stop) => Math.abs(stop - position)))
-      // A continuous friction band, not a snap or an input gate. Always
-      // advance in the user's direction, including while crossing the stop.
-      const weight = Math.exp(-Math.pow(distance / 120, 2))
-      input.deltaY *= 1 - 0.3 * weight
+      // Settle only ahead of the input direction: never pull back after overshoot.
+      const target = getStops().filter((stop) => (stop - position) * direction >= -1)
+        .sort((a, b) => Math.abs(a - position) - Math.abs(b - position))[0]
+      if (target === undefined || Math.abs(target - position) > 100) return
+      aligningEntry = true
+      scroll.scrollTo(target, { duration: 0.85, onComplete: () => { aligningEntry = false } })
+    }
+    const onInput = () => {
+      clearTimeout(entryTimer)
+      if (aligningEntry && scroll) scroll.scrollTo(scroll.animatedScroll, { immediate: true })
+      aligningEntry = false
+    }
+    const gentleResistance = (input) => {
+      if (path !== '/research' || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || !input.deltaY || Math.abs(input.deltaX) > Math.abs(input.deltaY)) return true
+      onInput()
+      direction = Math.sign(input.deltaY)
+      const stops = getStops()
+      const position = scroll.targetScroll
+      const ahead = stops.filter((stop) => (stop - position) * direction > 1)
+        .sort((a, b) => Math.abs(a - position) - Math.abs(b - position))[0]
+      if (ahead !== undefined) {
+        const distance = Math.abs(ahead - position)
+        const weight = Math.exp(-Math.pow(distance / 180, 2))
+        input.deltaY *= 1 - 0.5 * weight
+        // Catch a crossing in the same Lenis animation; the next wheel input
+        // can continue freely, with no lock, timeout gate or reverse motion.
+        if (Math.abs(input.deltaY) >= distance) input.deltaY = ahead - position
+      }
+      entryTimer = window.setTimeout(finishEntry, 180)
       return true
     }
     const configure = () => {
@@ -61,14 +70,16 @@ export default function useSiteMotion(path) {
     }
     document.documentElement.classList.add('site-smooth-motion')
     configure()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('wheel', onInput, { passive: true })
+    window.addEventListener('touchstart', onInput, { passive: true })
+    window.addEventListener('pointerdown', onInput, { passive: true })
+    window.addEventListener('keydown', onInput)
     reduced.addEventListener('change', configure)
     return () => {
       reduced.removeEventListener('change', configure)
       clearTimeout(entryTimer)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('wheel', onInput)
+      window.removeEventListener('touchstart', onInput)
+      window.removeEventListener('pointerdown', onInput)
+      window.removeEventListener('keydown', onInput)
       scroll?.destroy()
       document.documentElement.classList.remove('site-smooth-motion')
     }
