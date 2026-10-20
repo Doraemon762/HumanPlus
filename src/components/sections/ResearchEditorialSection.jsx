@@ -44,7 +44,7 @@ const paperDetails = {
 const groups = [
   {
     title: 'Sensing Human Movement',
-    image: `${mediaRoot}mannequin-local-sensing.webp`,
+    image: `${mediaRoot}mannequin-sensing-proportion-fixed.webp`,
     papers: [
       { match: 'Computational Design of Wiring', image: `${mediaRoot}wiring-right-color-fixed.webp` },
       { match: 'DisPad:', image: `${mediaRoot}dispad-local-new.webp` },
