@@ -10,7 +10,7 @@ const easeInOutCubic = (t) => (
   t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
 )
 
-export default function ParticleLogo({ onReveal }) {
+export default function ParticleLogo({ onReveal, lightSurface = false }) {
   const canvasRef = useRef(null)
   const playedRef = useRef(false)
   const revealedRef = useRef(false)
@@ -64,10 +64,12 @@ export default function ParticleLogo({ onReveal }) {
       const travel = easeInOutCubic(Math.max(0, Math.min((progress - 0.49) / 0.35, 1)))
       const { width, height } = size
       const largeWidth = Math.min(width * 0.42, height * 0.62)
-      const finalWidth = Math.min(width * 0.42, height * 0.59)
+      const finalWidth = lightSurface ? Math.min(width * 0.3, height * 0.54) : Math.min(width * 0.42, height * 0.59)
       const logoRatio = 1281 / 1109
       const largeCenter = { x: width * 0.5, y: height * 0.51 }
-      const finalCenter = { x: width * 0.81, y: height * 0.64 }
+      const finalCenter = lightSurface && width < 768
+        ? { x: width * 0.72, y: height - logoRatio * finalWidth * 0.5 - 24 }
+        : { x: width * 0.79, y: height * (lightSurface ? 0.54 : 0.64) }
       const centerX = largeCenter.x + (finalCenter.x - largeCenter.x) * travel
       const centerY = largeCenter.y + (finalCenter.y - largeCenter.y) * travel
       const logoWidth = largeWidth + (finalWidth - largeWidth) * travel
@@ -80,7 +82,7 @@ export default function ParticleLogo({ onReveal }) {
       const pitchSin = Math.sin(pitch)
 
       context.clearRect(0, 0, width, height)
-      context.globalCompositeOperation = 'lighter'
+      context.globalCompositeOperation = lightSurface ? 'source-over' : 'lighter'
 
       particles.forEach((particle) => {
         const targetX = centerX + particle.nx * logoWidth
@@ -116,11 +118,11 @@ export default function ParticleLogo({ onReveal }) {
         const depthSize = perspective + (1 - perspective) * gather
         const radius = particle.radius * (0.58 + gather * 0.42) * depthSize
 
-        if (hover > 0.015) {
+        if (hover > 0.015 && !lightSurface) {
           const glowRadius = radius * (4.8 + hover * 2.8)
           const glow = context.createRadialGradient(x, y, 0, x, y, glowRadius)
-          glow.addColorStop(0, `rgba(242, 249, 255, ${0.42 * hover})`)
-          glow.addColorStop(0.28, `rgba(216, 237, 255, ${0.24 * hover})`)
+          glow.addColorStop(0, lightSurface ? `rgba(200, 228, 255, ${0.6 * hover})` : `rgba(242, 249, 255, ${0.42 * hover})`)
+          glow.addColorStop(0.28, lightSurface ? `rgba(90, 156, 252, ${0.2 * hover})` : `rgba(216, 237, 255, ${0.24 * hover})`)
           glow.addColorStop(1, 'rgba(175, 218, 255, 0)')
           context.beginPath()
           context.globalAlpha = 1
@@ -130,8 +132,10 @@ export default function ParticleLogo({ onReveal }) {
         }
 
         context.beginPath()
-        context.fillStyle = hover > 0.015 ? '#f4f9ff' : particle.color
-        context.globalAlpha = Math.min(1, opacity + hover * 0.38)
+        context.fillStyle = lightSurface
+          ? `rgb(${Math.round(155 - 65 * hover)}, ${Math.round(174 + 15 * hover)}, ${Math.round(196 + 59 * hover)})`
+          : (hover > 0.015 ? '#f4f9ff' : particle.color)
+        context.globalAlpha = lightSurface ? introOpacity : Math.min(1, opacity + hover * 0.38)
         context.arc(x, y, radius * (1 + hover * 0.06), 0, Math.PI * 2)
         context.fill()
       })
@@ -257,7 +261,7 @@ export default function ParticleLogo({ onReveal }) {
       host.removeEventListener('pointermove', onPointerMove)
       host.removeEventListener('pointerleave', onPointerLeave)
     }
-  }, [])
+  }, [lightSurface])
 
   return <canvas ref={canvasRef} className="company-particle-logo" aria-hidden="true" />
 }

@@ -1,0 +1,44 @@
+.weave-page { background: #fafafa; color: #202124; padding-top: 72px; }
+.weave-screen { width: 100%; min-height: calc(100svh - 72px); padding: 48px 8vw; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; scroll-margin-top: 72px; overflow: hidden; }
+.weave-screen h1 { font-size: clamp(66px, 8vw, 130px); line-height: 1; letter-spacing: -.06em; font-weight: 650; margin: 0 0 24px; }
+.weave-screen h2 { font-size: clamp(32px, 4vw, 64px); line-height: 1.12; letter-spacing: -.045em; font-weight: 600; margin: 0; }
+.weave-screen p { font-size: clamp(16px, 1.4vw, 20px); line-height: 1.75; max-width: 500px; margin: 24px 0 0; color: #76797e; }
+.weave-screen a { display: inline-block; margin-top: 30px; padding: 13px 24px; border-radius: 99px; background: #202124; color: #fff; font-size: 14px; }
+.weave-art { display: grid; place-items: center; height: min(68svh, 650px); min-width: 0; }
+.weave-art img { width: 100%; height: 100%; object-fit: contain; }
+.weave-launch { background: radial-gradient(ellipse at 75% 60%, #dfe2e6, transparent 60%), linear-gradient(135deg,#fff,#f3f4f5); }
+.weave-teleoperation { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 5vw; background: #fff; }
+.weave-film { width: 100%; min-width: 0; margin: 0; overflow: hidden; border-radius: 18px; background: transparent; }
+.weave-film video { display: block; width: 100%; height:auto; object-fit: contain; }
+.weave-sensors { background: #fff; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.weave-sensors .weave-art { height: min(72svh, calc(100svh - 180px), 720px); min-height: 0; }
+.weave-sensors .weave-art img { display: block; width: 100%; height: 100%; max-height: min(72svh, calc(100svh - 180px), 720px); min-height: 0; object-fit: contain; }
+.weave-battery { background: #f1f2f4; color: #202124; }
+.weave-battery p { color: #76797e; }
+.weave-battery .weave-art img { max-height: 55svh; }
+.weave-number { display: block; font-size: clamp(74px, 10vw, 150px); font-weight: 600; line-height: 1.05; letter-spacing: -.06em; margin-bottom: 24px; }
+.weave-number small { font-size: .3em; letter-spacing: -.02em; }
+.weave-accuracy { background: #fff; }
+.weave-pair { min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
+.weave-pair img { width: 100%; max-height: 58svh; object-fit: contain; border-radius: 12px; }
+.weave-care { background: #fff; }
+.weave-care .weave-art img { max-height: min(68svh,650px); }
+.weave-wash { background: #f1f2f4; }
+.weave-wash .weave-pair img { border-radius: 18px; }
+.weave-capabilities { grid-template-columns: 1fr; align-content: center; gap: 54px; background: #eceef0; }
+.weave-capabilities-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.weave-capabilities-grid svg { width: 36px; height: 36px; color: #9299a1; stroke-width: 1.5; margin-bottom: 22px; }
+.weave-capabilities-grid h3 { font-size: clamp(20px, 2vw, 27px); line-height: 1.3; font-weight: 600; letter-spacing: -.025em; margin: 0; }
+.weave-capabilities-grid p { font-size: 16px; margin-top: 18px; }
+.weave-capabilities-grid > div { display: grid; grid-template-rows: 42px minmax(2.6em, auto) auto; align-content: start; row-gap: 22px; }
+.weave-capability-marker { display: flex; align-items: center; gap: 18px; height: 42px; color: #9299a1; }
+.weave-capabilities-grid .weave-capability-marker svg { width: 36px; height: 36px; margin: 0; flex-shrink: 0; color: #bdcbdc; }
+.weave-capability-marker span { font-size: 36px; line-height: 1; font-weight: 600; letter-spacing: -.04em; }
+.weave-capabilities-grid h3 { min-height: 2.6em; }
+.weave-capabilities-grid p { margin-top: 0; }
+@media(max-width:767px) { .weave-capabilities-grid > div { grid-template-rows: 42px auto auto; row-gap: 16px; }.weave-capabilities-grid h3 { min-height: 0; } }
+@media(max-width:767px) { .weave-capabilities-grid { grid-template-columns: 1fr; gap: 30px; }.weave-capabilities-grid svg { margin-bottom: 12px; } }
+.weave-page .mzpt-section,.weave-page .mzs-section { min-height: calc(100svh - 72px); scroll-margin-top: 72px; }
+@media(max-width:767px) { .weave-screen { grid-template-columns: 1fr; padding: 42px 7vw; gap: 32px; }.weave-art { height: 42svh; }.weave-number { font-size: 88px; }.weave-battery .weave-art { order: 2; }.weave-care .weave-pair { order: 2; }.weave-film { width: 100%; } }
+.weave-teleoperation { background: #fff; }
+@media(max-width:767px) { .weave-sensors { grid-template-columns: minmax(0, 1fr); }.weave-sensors .weave-art { height: 48svh; }.weave-sensors .weave-art img { height: 100%; max-height: 48svh; } }

@@ -14,6 +14,8 @@ const RecruitmentPage = lazy(() => import('./pages/RecruitmentPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 const ApplicationPage = lazy(() => import('./pages/ApplicationPage'))
 const DatasetPage = lazy(() => import('./pages/DatasetPage'))
+const GlovePage = lazy(() => import('./pages/GlovePage'))
+const CapPage = lazy(() => import('./pages/CapPage'))
 
 /* ── Route table ──────────────────────────────────────────────────
    /                      home overview
@@ -26,6 +28,8 @@ const DatasetPage = lazy(() => import('./pages/DatasetPage'))
 function renderRoute(path) {
   if (path === '/') return <HomePage />
   if (path === '/hardware') return <ProductsPage />
+  if (path === '/hardware/glove') return <GlovePage />
+  if (path === '/hardware/cap') return <CapPage />
   if (path.startsWith('/hardware/')) return <ProductDetailPage id={path.slice('/hardware/'.length)} />
   if (path === '/application') return <ApplicationPage />
   if (path === '/dataset') return <DatasetPage />
@@ -63,8 +67,9 @@ export default function App() {
       </main>
       {/* Application is a self-contained full-page snap scroller (its own
           100vh viewport), so the global Footer is omitted there to keep the
-          two screens edge-to-edge. Every other route keeps the Footer. */}
-      {path !== '/application' && path !== '/dataset' && <Footer />}
+          two screens edge-to-edge. Dataset is a native showcase and keeps
+          the same global footer as the other company pages. */}
+      {path !== '/application' && <Footer />}
     </>
   )
 }

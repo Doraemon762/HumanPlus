@@ -1,0 +1,65 @@
+.home-paper-section { --paper-inset: max(6vw, calc((100vw - 1440px) / 2)); background: #f5f5f7; color: #1d1d1f; padding: 30px 0 24px; overflow: hidden; scroll-margin-top: 72px; }
+.home-paper-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 0 var(--paper-inset); margin-bottom: 18px; }
+.home-paper-heading h2 { font-size: 48px; font-weight: 600; line-height: 1.1; letter-spacing: 0; }
+.home-paper-heading > a { display: inline-flex; align-items: center; gap: 4px; color: #397edb; font-size: 17px; flex-shrink: 0; }
+.home-paper-track { display: flex; gap: 24px; padding: 12px var(--paper-inset) 20px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: var(--paper-inset); scrollbar-width: none; }
+.home-paper-track::-webkit-scrollbar { display: none; }
+.paper-card { position: relative; display: flex; flex-direction: column; flex: 0 0 400px; min-width: 0; height: clamp(380px, calc(100svh - 285px), 510px); background: #fff; border-radius: 28px; overflow: hidden; scroll-snap-align: start; transition: transform .3s cubic-bezier(0, 0, .5, 1); }
+.paper-card-copy { padding: 24px 26px 0; }
+.paper-card-venue { font-size: 15px; font-weight: 600; line-height: 1.4; margin: 0 0 16px; }
+.paper-card h3 { font-size: clamp(25px, 2.1vw, 30px); font-weight: 600; line-height: 1.15; letter-spacing: 0; margin: 0; text-wrap: balance; }
+.paper-card-description { font-size: 16px; line-height: 1.45; margin: 16px 0 0; }
+.paper-card-image { display: flex; align-items: center; justify-content: center; width: 100%; height: 230px; min-height: 160px; padding: 12px 14px 24px; margin: auto 0 0; }
+.paper-card-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.paper-round-button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; padding: 0; border: 0; border-radius: 50%; background: #e8e8ed; color: #636366; transition: background 100ms linear, color 100ms linear, opacity 100ms linear; }
+.paper-card-open { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; cursor: pointer; border-radius: inherit; }
+.paper-card-open .paper-round-button { position: absolute; right: 24px; bottom: 24px; width: 36px; height: 36px; color: #fff; background: #1d1d1f; }
+.paper-card-open:hover .paper-round-button, .paper-dialog-close:hover { background: #333336; }
+.home-paper-navigation { display: flex; justify-content: flex-end; gap: 16px; padding: 8px var(--paper-inset) 0; }
+.home-paper-navigation button:not(:disabled):hover { background: #dfdfe4; color: #1d1d1f; }
+.home-paper-navigation button:disabled { opacity: .35; cursor: default; }
+.home-paper-section button:focus-visible, .home-paper-track:focus-visible, .paper-dialog button:focus-visible, .paper-dialog a:focus-visible { outline: 2px solid #5a9cfc; outline-offset: 4px; }
+.paper-card-open:focus-visible { outline-offset: -5px !important; }
+.paper-dialog { position: fixed; inset: 0; margin: auto; width: min(1120px, calc(100% - 80px)); max-width: none; max-height: calc(100svh - 64px); padding: 0; border: 0; border-radius: 36px; background: #fff; color: #1d1d1f; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.paper-dialog::-webkit-scrollbar { display: none; }
+.paper-venue-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 30px; }
+.paper-venue-line img { width: auto; height: 30px; max-width: 100px; object-fit: contain; flex-shrink: 0; }
+.paper-card-venue .paper-venue-line { font-size: 13px; }
+.paper-dialog[open] { animation: paper-dialog-in 350ms cubic-bezier(.16, 1, .3, 1); }
+.paper-dialog::backdrop { background: rgb(0 0 0 / .46); backdrop-filter: blur(8px); }
+.paper-dialog-toolbar { display: flex; justify-content: flex-end; position: sticky; top: 0; height: 0; z-index: 2; }
+.paper-dialog-close { margin: 22px 22px 0 0; background: #1d1d1f; color: #fff; cursor: pointer; }
+.paper-dialog-content { padding: 90px 9% 72px; }
+.paper-dialog-venue { margin: 0 0 24px; font-size: 20px; font-weight: 600; }
+.paper-dialog h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 600; line-height: 1.16; letter-spacing: -.02em; text-wrap: balance; }
+.paper-dialog-award { margin-top: 24px; font-size: 17px; font-weight: 600; }
+.paper-dialog-description { margin-top: 32px; font-size: 20px; line-height: 1.6; color: #515154; }
+.paper-dialog-links { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 28px 0 48px; }
+.paper-dialog-links a { position: relative; display: inline-flex; align-items: center; gap: 6px; padding-bottom: 7px; font-size: 17px; color: #397edb; text-decoration: none; }
+.paper-dialog-links a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 250ms ease; }
+.paper-dialog-links a:hover::after, .paper-dialog-links a:focus-visible::after { transform: scaleX(1); }
+.home-paper-heading > a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.paper-dialog-image { margin: 0; }
+.paper-dialog-image img { display: block; width: 100%; height: auto; }
+@keyframes paper-dialog-in { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (hover: hover) and (pointer: fine) { .paper-card:hover { transform: scale(1.015); } }
+@media (max-width: 767px) {
+  .home-paper-section { --paper-inset: 24px; padding: 28px 0 24px; }
+  .home-paper-heading { flex-direction: column; gap: 18px; margin-bottom: 24px; }
+  .home-paper-heading h2 { font-size: 32px; }
+  .home-paper-track { gap: 20px; }
+  .paper-card { flex-basis: min(360px, calc(100vw - 72px)); height: clamp(365px, calc(100svh - 285px), 480px); border-radius: 24px; }
+  .paper-card-copy { padding: 28px 26px 0; }
+  .paper-card h3 { font-size: 25px; }
+  .paper-card-venue { font-size: 13px; }
+  .paper-card-description { font-size: 16px; }
+  .paper-card-image { height: 210px; padding-inline: 12px; }
+  .paper-dialog { width: calc(100% - 24px); max-height: calc(100svh - 24px); border-radius: 24px; }
+  .paper-dialog-content { padding: 82px 26px 36px; }
+  .paper-dialog h2 { font-size: 30px; }
+  .paper-dialog-venue { font-size: 16px; }
+  .paper-dialog-description { font-size: 17px; }
+  .paper-dialog-links { margin-bottom: 32px; }
+  .paper-dialog-close { margin: 16px 16px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) { .paper-card { transition: none; } .paper-dialog[open] { animation: none; } }

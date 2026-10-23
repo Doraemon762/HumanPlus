@@ -1,0 +1,18 @@
+.hardware-overview { padding-top: 72px; background: #fff; color: #202124; }
+.hardware-heading { padding: 22px 5vw 18px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.hardware-heading h1 { font-size: clamp(30px, 3vw, 44px); font-weight: 600; letter-spacing: -.04em; margin: 0; }
+.hardware-heading p { font-size: 16px; color: #777; margin: 0; }
+.hardware-overview .home-products { padding: 0 18px 18px; }
+.hardware-overview .home-products-grid { gap: 12px; }
+.hardware-overview .home-product { min-height: 230px; height: calc((100svh - 218px) / 2); }
+.hardware-overview .home-product-copy { padding: 18px 20px 4px; }
+.hardware-overview .home-product-copy h2 { font-size: clamp(28px, 2.8vw, 42px); }
+.hardware-overview .home-product-description { font-size: 15px; margin: 7px 0 10px; }
+.hardware-overview .home-product-link { font-size: 13px; }
+.hardware-overview .home-product-visual { padding: 8px 10% 18px; }
+.hardware-overview .home-product--weave { background: radial-gradient(ellipse at 65% 40%, #fff, #f0f2f4 75%); }
+.hardware-overview .home-product--pulse { background: radial-gradient(ellipse at 60% 65%, #e1e6e9, transparent 65%), linear-gradient(135deg,#fff,#f0f2f4); }
+.hardware-overview .home-product--cap { background: radial-gradient(ellipse at 50% 80%,#dfe3e8,transparent 65%),linear-gradient(145deg,#f7f8fa,#edf0f3); }
+.hardware-overview .home-product--glove { background: radial-gradient(ellipse at 60% 40%,#fff,#f0f1f3 80%); }
+.hardware-overview .mzpt-section { min-height: calc(100svh - 72px); scroll-margin-top: 72px; }
+@media(max-width:767px) { .hardware-heading { align-items: flex-start; flex-direction: column; gap: 8px; }.hardware-overview .home-product { height: 430px; }.hardware-overview .home-product-visual { flex: 1; min-height: 0; height: auto; } }

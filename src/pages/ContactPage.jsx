@@ -2,6 +2,7 @@ import Reveal from '../components/ui/Reveal'
 import ContactForm from '../components/contact/ContactForm'
 import BlinkingSquares from '../components/ui/BlinkingSquares'
 import useContactSnap from '../hooks/useContactSnap'
+import './InquiryPages.css'
 
 /* ── Static copy for the "How Can We Help?" band ───────────────────
    Pure orientation copy — no links, no navigation, no child pages. */
@@ -25,7 +26,7 @@ const HELP = [
 
 /* Full-screen section sequence for the snap hand-off. Module-level
    constant so the hook does not re-run on every render. */
-const CONTACT_IDS = ['contact-hero', 'contact-help', 'contact-form']
+const CONTACT_IDS = ['contact-hero', 'contact-form']
 
 /* Smooth-scroll to the inquiry form. Uses an element id (not a hash
    route) so it never fights the hash router, and the global
@@ -59,7 +60,7 @@ export default function ContactPage() {
   useContactSnap({ duration: 1000, ids: CONTACT_IDS, topOffset: 0 })
 
   return (
-    <>
+    <div className="contact-editorial">
       {/* ── Hero ── */}
       <section
         id="contact-hero"
@@ -67,7 +68,8 @@ export default function ContactPage() {
       >
         <BlinkingSquares
           className="contact-blinking-squares"
-          squareColor="#2aa3ff"
+          squareColor="#a4a4a4"
+          accentColor="#888888"
         />
         <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
           <Reveal
@@ -75,7 +77,7 @@ export default function ContactPage() {
             delay={1}
             className="font-black leading-[1.04] tracking-tight text-ink text-[clamp(2.75rem,7vw,5.5rem)]"
           >
-            Let’s Talk.
+            Let’s talk
           </Reveal>
           <Reveal delay={2} className="mt-7 max-w-2xl">
             <p className="text-[clamp(1.05rem,1.6vw,1.35rem)] leading-relaxed text-ink/70">
@@ -89,19 +91,17 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── How Can We Help? ── */}
-      <section
-        id="contact-help"
-        className="relative flex h-screen flex-col overflow-hidden border-t border-line bg-paper2"
-      >
-        <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
+      {/* Inquiry guidance and form share the second screen. */}
+      <section id="contact-form" className="contact-inquiry-section relative scroll-mt-24">
+        <div className="contact-inquiry-layout">
+        <div id="contact-help" className="contact-help-inline">
           <Reveal
             as="h2"
             className="font-black tracking-tight text-ink text-[clamp(1.75rem,4vw,3rem)]"
           >
             How Can We Help?
           </Reveal>
-          <div className="mt-12 divide-y divide-line">
+          <div className="contact-help-grid">
             {HELP.map((item, i) => (
               <Reveal key={item.id} delay={i} className="group">
                 <div className="flex flex-col gap-2 py-9 transition-colors md:flex-row md:items-baseline md:gap-12">
@@ -117,14 +117,7 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ── Tell Us What You Need (form) ── */}
-      <section
-        id="contact-form"
-        className="relative flex min-h-screen flex-col bg-paper scroll-mt-24"
-      >
-        <div className="m-auto w-full max-w-3xl px-6 pb-16 pt-24 lg:px-10">
+        <div className="contact-form-column">
           <Reveal
             as="h2"
             className="font-black tracking-tight text-ink text-[clamp(1.75rem,4vw,3rem)]"
@@ -135,7 +128,8 @@ export default function ContactPage() {
             <ContactForm />
           </Reveal>
         </div>
+        </div>
       </section>
-    </>
+    </div>
   )
 }

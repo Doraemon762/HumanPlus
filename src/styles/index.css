@@ -185,7 +185,7 @@
 
     .site-nav--home.site-nav--home-past-intro {
       border-color: rgb(17 21 27 / 0.08) !important;
-      background: rgb(255 255 255 / 0.8) !important;
+      background: rgb(255 255 255 / 0.96) !important;
       box-shadow: 0 10px 34px rgb(32 47 66 / 0.06) !important;
       backdrop-filter: blur(18px) saturate(1.12) !important;
       -webkit-backdrop-filter: blur(18px) saturate(1.12) !important;

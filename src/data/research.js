@@ -26,7 +26,10 @@ export const research = [
       'We introduce CLOTHO, an IMU canonicalization framework for garment-based inertial motion capture, achieving state-of-the-art accuracy, zero-shot generalization to unseen garments, and robust long-term tracking.',
     image: 'images/research/research-clotho.png',
     href: '#research',
-    links: [{ label: 'Project', href: 'https://clotho-mocap.github.io/' }],
+    links: [
+      { label: 'Paper', href: 'https://arxiv.org/abs/2601.01360' },
+      { label: 'Project', href: 'https://clotho-mocap.github.io/' },
+    ],
     highlight: null,
     logo: 'images/logo/19.PNG',
     logoH: 38,

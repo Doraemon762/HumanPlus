@@ -344,6 +344,7 @@ export default function AboutTimelineSection({ showTimeline = true }) {
     <section className="about-timeline" aria-labelledby="about-timeline-title">
       <ScrollExpand
         className="about-timeline-intro"
+        stackOnNarrow
         src="videos/research/kitchen-vlog.mp4"
         poster="images/motion-0/kitchen-wide.jpg"
         startWidth={39}

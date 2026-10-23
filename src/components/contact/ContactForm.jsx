@@ -247,7 +247,7 @@ export default function ContactForm() {
       </div>
 
       {/* ── Inquiry ── */}
-      <div className="border-b border-line py-8">
+      <div className="py-8">
         <h3 className="text-base font-semibold tracking-tight text-ink/85">Inquiry details</h3>
         <div className="mt-6 space-y-6">
           <SelectField

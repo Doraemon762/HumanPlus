@@ -119,9 +119,14 @@ export default function ResearchEditorialSection() {
           <h2>2019</h2>
         </aside>
         <div className="research-editorial-papers">
-          <div className="research-editorial-paper research-editorial-detail">
+          <div className="research-editorial-paper">
             <div className="research-editorial-media">
               <img src={`${mediaRoot}origin-combined-2019-v2.webp`} alt="Original clothing exposed wiring and circuit board details" loading="lazy" decoding="async" />
+            </div>
+            <div className="research-editorial-copy">
+              <p className="research-editorial-year"><span>2019</span><span>Early Prototype</span></p>
+              <h3>Mocap Suit Hand-made by Computer Scientist</h3>
+              <p className="research-editorial-abstract">With flexible fabric sensors and wiring, this earliest prototype marked the first milestone on the long journey toward unobtrusive motion capture.</p>
             </div>
           </div>
         </div>
@@ -145,7 +150,11 @@ export default function ResearchEditorialSection() {
                       ? <EditorialVideo src={media.video.replace('.mp4', '.web.mp4')} poster={media.video.replace('.mp4', '.poster.webp')} />
                       : <img src={media.image} alt="" loading="lazy" decoding="async" />}
                   </div>
-                  {!media.pending && <div className="research-editorial-copy">
+                  {media.pending ? <div className="research-editorial-copy">
+                    <p className="research-editorial-year"><span>2026</span><span>Teleoperation Demo</span></p>
+                    <h3>Robot Object Manipulation through Garment-Based IMU Teleoperation</h3>
+                    <p className="research-editorial-abstract">We present a framework that translates garment-based inertial motion capture into robot teleoperation, achieving dexterous object manipulation with natural hand-object interaction, seamless generalization across garments, and reliable long-term control.</p>
+                  </div> : <div className="research-editorial-copy">
                     <p className="research-editorial-year"><span>{paper.year}</span><span>{details.venue}</span></p>
                     <h3>{media.match === 'Computational Design of Wiring'
                       ? 'Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance'

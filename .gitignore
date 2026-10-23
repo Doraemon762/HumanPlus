@@ -57,3 +57,6 @@ public/media/research-20261013/tic-2025.mp4
 public/media/research-20261013/fip-2025.mp4
 public/media/research-20261013/clotho-2026.mp4
 public/media/research-20261013/label-smoothing-2026.mp4
+
+# Customer catalogue local access secret
+.catalog-local.json

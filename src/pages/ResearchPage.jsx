@@ -30,7 +30,7 @@ export default function ResearchPage() {
       if (section) section.style.setProperty('--research-light-progress', lightProgress.toFixed(4))
       document.documentElement.classList.toggle(
         'research-light-nav',
-        lightProgress >= 0.58,
+        true,
       )
     }
 
@@ -54,13 +54,12 @@ export default function ResearchPage() {
   return (
     <div className="company-research-page" ref={pageRef}>
       <section className="company-about-panel relative overflow-hidden px-6 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
-        <div className="company-about-glow" aria-hidden="true" />
-        <ParticleLogo onReveal={() => setAboutIntroComplete(true)} />
+        <ParticleLogo lightSurface onReveal={() => setAboutIntroComplete(true)} />
         <div className={`company-about-content relative z-10 mx-auto max-w-7xl ${aboutIntroComplete ? 'is-visible' : ''}`}>
           <Reveal>
             <h1 className="research-about-title mt-5 max-w-7xl">
               <span className="research-about-label">About</span>{' '}
-              <span className="research-about-stroke-word">HUMANPLUS</span>
+              <span className="research-about-stroke-word">HumanPlus</span>
             </h1>
           </Reveal>
           <div className="company-about-copy mt-12 space-y-7 md:mt-20 md:space-y-8">

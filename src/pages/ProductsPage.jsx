@@ -1,29 +1,13 @@
-import PageHeader from '../components/layout/PageHeader'
-import Reveal from '../components/ui/Reveal'
-import ProductCard from '../components/products/ProductCard'
-import CtaLink from '../components/ui/CtaLink'
-import { products } from '../data/products'
+import ProductsSection from '../components/sections/ProductsSection'
+import { toHref } from '../hooks/useHashRoute'
+import './ProductsPage.css'
+import MotionZeroPerformanceTest from '../components/sections/CapturePerformanceScroll'
 
 export default function ProductsPage() {
-  return (
-    <>
-      <PageHeader label="Hardware" title="Hardware" description="Hardware product line overview goes here." />
-
-      <section className="py-[85px] md:py-[107px]">
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product, i) => (
-              <Reveal key={product.id} delay={i % 3}>
-                <ProductCard product={product} />
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={3} className="mt-16 md:mt-20">
-            <CtaLink to="/contact">Contact Us</CtaLink>
-          </Reveal>
-        </div>
-      </section>
-    </>
-  )
+  return <div className="hardware-overview">
+    <header className="hardware-heading"><h1>Hardware</h1></header>
+    <ProductsSection includeAccessories showCategories={false} />
+    <MotionZeroPerformanceTest />
+    <div style={{ textAlign: 'center', padding: '50px 24px 80px' }}><a href={toHref('/contact')} style={{ display: 'inline-flex', gap: 12, borderRadius: 99, padding: '14px 28px', background: '#171717', color: '#fff', fontWeight: 600 }}>Contact Us <span aria-hidden="true">→</span></a></div>
+  </div>
 }

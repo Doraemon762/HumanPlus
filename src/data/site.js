@@ -24,6 +24,8 @@ export const nav = [
     children: [
       { label: 'Weave', href: '/hardware/motion-0' },
       { label: 'Pulse', href: '/hardware/motion-strap' },
+      { label: 'Glove', href: '/hardware/glove' },
+      { label: 'CAP', href: '/hardware/cap' },
       { label: 'Application', href: '/application' },
     ],
   },

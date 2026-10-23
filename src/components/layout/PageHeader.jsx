@@ -9,7 +9,7 @@ export default function PageHeader({ label, title, description }) {
   return (
     <header className="relative border-b border-black/5 bg-paper2 pt-16">
       <div className="mx-auto w-full max-w-7xl px-6 pb-14 pt-14 md:pb-20 md:pt-20 lg:px-10">
-        <Reveal className="text-xs font-mono uppercase tracking-[0.3em] text-mute">{label}</Reveal>
+        {label && <Reveal className="text-xs font-mono uppercase tracking-[0.3em] text-mute">{label}</Reveal>}
         <Reveal
           as="h1"
           delay={1}

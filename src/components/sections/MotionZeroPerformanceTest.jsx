@@ -163,7 +163,7 @@ export default function MotionZeroPerformanceTest() {
             <DeferredVideo
               ref={videoRef}
               className="mzpt-video"
-              src="videos/motion-0/performance-test.mp4"
+              src="videos/motion-0/stability-test-20261022.mp4"
               autoPlay
               muted
               playsInline

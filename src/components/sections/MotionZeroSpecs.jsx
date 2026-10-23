@@ -11,7 +11,7 @@ const SPECS = [
   { key: 'Data Output', value: '3-Axis Acceleration, Quaternion' },
   { key: 'Communication & Synchronization', value: '2.4 GHz Wi-Fi / UDP; NTP ≤ 20 ms' },
   { key: 'Effective Range', value: 'Up to 20 m (Indoor)' },
-  { key: 'Battery Life', value: 'Up to 10 h' },
+  { key: 'Battery Life', value: 'Up to 8 h' },
 ]
 
 export default function MotionZeroSpecs() {

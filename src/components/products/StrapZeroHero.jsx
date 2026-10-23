@@ -1,64 +1,37 @@
-import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
+import DeferredVideo from '../ui/DeferredVideo'
+import { toHref } from '../../hooks/useHashRoute'
+import './StrapZeroHero.css'
+import PulseExploded from './PulseExploded'
 
-/* Pulse strap product photo — studio shot on its own light backdrop,
-   relative path so GitHub Pages sub-path deploys resolve. */
-const HERO_IMAGE = 'images/products/pulse-strap.jpg'
+const image = 'images/products/pulse-strap-new.png'
+const specs = [
+  ['Sensors', '17 × 9-axis IMUs'], ['Default sampling rate', '60 Hz'], ['Output', 'Real-time BVH stream'],
+  ['Sensor dimensions', '38 × 28 × 17 mm'], ['Connectivity', '2.4 GHz Wi-Fi / UDP'],
+  ['Synchronization', 'LAN time synchronization; UTC timestamp output'], ['Indoor operating distance', '6 m'],
+  ['Battery life', '8 h'], ['Charging port', 'USB Type-C'], ['Accelerometer range', '±8 g'], ['Gyroscope range', '±2000°/s'],
+]
 
-/* ── Pulse hero ──────────────────────────────────────────────────────
-   First screen of /hardware/motion-strap. Mirrors MotionZeroHero's
-   layout logic — 45% product information left, 55% product visual
-   right, min-h first screen, both columns vertically centered — on a
-   light surface (bg-paper2) so the strap's studio backdrop blends in
-   without a card container. No CTA, no extra copy: only the text the
-   shared PageHeader used to show (kicker / name / description). */
-export default function StrapZeroHero({ product }) {
-  return (
-    <section
-      id="s0-hero"
-      className="relative isolate overflow-hidden border-b border-black/5 bg-paper2 pt-16 font-sans"
-    >
-      <div className="relative z-[1] mx-auto grid min-h-[calc(100vh-4rem)] w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-10 md:pb-24 lg:grid-cols-[45fr_55fr] lg:gap-8 lg:px-10">
-        {/* ── Left: kicker → product name → intro copy ── */}
-        <div className="relative z-[1] -translate-y-4 lg:-translate-y-6">
-          <Reveal className="text-xs font-mono uppercase tracking-[0.3em] text-mute">
-            Hardware
-          </Reveal>
-
-          <Reveal
-            as="h1"
-            delay={1}
-            className="mt-4 font-bold leading-[1.05] tracking-tight text-ink text-[clamp(2.5rem,5vw,4.25rem)]"
-          >
-            {product.name}
-          </Reveal>
-
-          <Reveal delay={2} className="mt-7 space-y-1">
-            {product.description.split('\n').map((line, i) => (
-              <p
-                key={i}
-                className="text-sm leading-[1.9] text-ink/60 md:whitespace-nowrap md:text-[0.95rem]"
-              >
-                {line}
-              </p>
-            ))}
-          </Reveal>
-        </div>
-
-        {/* ── Right: the strap itself — large, uncropped, no card ── */}
-        <div className="relative z-[1] flex items-center justify-center lg:justify-end">
-          <Reveal delay={2} className="relative w-full max-w-[440px] lg:max-w-[540px]">
-            <OptimizedImage
-              loading="eager"
-              fetchPriority="high"
-              sizes="(max-width: 1023px) 100vw, 55vw"
-              src={HERO_IMAGE}
-              alt={`${product.name} 穿戴式动捕绑带`}
-              className="h-auto w-full select-none object-contain"
-            />
-          </Reveal>
-        </div>
-      </div>
+export default function StrapZeroHero() {
+  return <div className="pulse-page">
+    <section className="pulse-hero">
+      <Reveal><h1>Pulse</h1><p className="pulse-lead">Move naturally.<br />Capture completely.</p><p className="pulse-sub">17 synchronized IMUs. Real-time human motion.</p><a className="pulse-contact" href={toHref('/contact')}>Contact Us ↗</a></Reveal>
+      <img src={image} alt="Pulse IMU sensor on its wearable strap" fetchPriority="high" />
     </section>
-  )
+    <PulseExploded />
+    <section className="pulse-feature pulse-feature--endurance">
+      <div className="pulse-dial"><svg viewBox="0 0 500 500" aria-hidden="true">{Array.from({length: 41}, (_, i) => { const angle = (-150 + i * 7.5) * Math.PI / 180; const r = i % 5 === 0 ? 212 : 225; return <line key={i} x1={250 + r * Math.sin(angle)} y1={250 - r * Math.cos(angle)} x2={250 + 240 * Math.sin(angle)} y2={250 - 240 * Math.cos(angle)} /> })}</svg><span className="pulse-dial-number">8<span className="pulse-dial-unit">h</span></span><img src={image} alt="Pulse wearable sensor with eight-hour battery life" loading="lazy" /></div>
+      <Reveal><h2>8-hour battery life<br /><span className="pulse-feature-line">Keep the motion going</span></h2><p>Eight hours of battery life for extended capture sessions. Recharge through USB Type-C and return to recording with a lightweight, wearable setup.</p></Reveal>
+    </section>
+    <section className="pulse-feature pulse-feature--battery pulse-feature--body">
+      <Reveal><h2><em>17<span> IMUs</span></em><br /><span className="pulse-feature-line">One connected body</span></h2><p>Capture whole-body movement with 17 nine-axis inertial sensors. Time synchronization keeps the sensors aligned, turning natural movement into a continuous motion stream.</p></Reveal><div className="pulse-body-art"><img src="images/products/pulse-body-front-back.png" alt="Front and rear views of the Pulse full-body IMU strap configuration" loading="lazy" /></div>
+    </section>
+    <section className="pulse-data"><Reveal><h2>Live motion<br />Straight to your workflow</h2></Reveal><div className="pulse-data-grid">{[
+      ['Real-time BVH', 'Stream motion data through UDP in a standardized BVH workflow.'],
+      ['Wi-Fi, simplified', 'Connect through a standard 2.4 GHz Wi-Fi router. No dedicated receiver is required.'],
+      ['Multi-user capture', 'Record multiple users on the same local network, with synchronized sensing for each wearer.'],
+    ].map(([title, copy], index) => <Reveal key={title}><div className="pulse-feature-icon-row"><img className="pulse-feature-icon" src={`images/icons/manual/${['hard-drive-upload', 'wifi', 'users'][index]}.svg`} alt="" aria-hidden="true" /><span>0{index + 1}</span></div><h3>{title}</h3><p>{copy}</p></Reveal>)}</div></section>
+    <section className="pulse-demo-space"><Reveal><h2>Pulse in motion</h2></Reveal><div className="pulse-demo-video"><DeferredVideo src="images/products/pulse-demo.mp4" poster="images/products/pulse-demo.jpg" autoPlay muted loop playsInline controls aria-label="Pulse motion capture demonstration" /></div></section>
+    <section className="pulse-specs pulse-specs--with-art"><Reveal as="h2">Technical specifications</Reveal><div className="pulse-specs-layout"><div><dl>{specs.map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><a className="pulse-contact" href={toHref('/contact')}>Request a Quote ↗</a></div><figure className="pulse-specs-art"><img src={image} alt="Pulse IMU sensor and wearable strap" loading="lazy" /></figure></div></section>
+  </div>
 }

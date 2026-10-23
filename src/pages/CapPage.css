@@ -1,0 +1,14 @@
+.cap-page.pulse-page { padding: 72px 0 0; background: #fafafa; color: #202124; }
+.cap-page .cap-hero > img { width: 115%; transform: translateX(-3%); }
+.cap-vision-art { display: grid; place-items: center; color: #7a818a; }
+.cap-vision-art svg { width: 100%; max-height: 55svh; }
+.cap-vision-art > span { font-size: 12px; letter-spacing: .18em; color: #91979e; margin-top: -15px; }
+.cap-inline-metrics { display: flex; gap: 44px; margin-top: 32px; }
+.cap-inline-metrics strong { display: block; font-size: clamp(30px, 3.5vw, 48px); font-weight: 650; line-height: 1.2; letter-spacing: -.045em; }
+.cap-inline-metrics small { font-size: .45em; }
+.cap-inline-metrics span { display: block; font-size: 13px; color: #7a7e84; margin-top: 8px; line-height: 1.5; }
+.cap-feature-art { display: grid; place-items: center; min-width: 0; }
+.cap-feature-art img { width: 100%; max-height: 66svh; object-fit: contain; filter: drop-shadow(0 24px 25px #28334112); }
+.cap-page .cap-specifications { width: 100%; min-height: calc(100svh - 72px); }
+.cap-page .cap-specifications dl { max-width: 100%; }
+@media(max-width:767px) { .cap-page .cap-hero > img { width: 100%; transform: none; }.cap-vision-art svg { max-height: 36svh; }.cap-inline-metrics { gap: 28px; }.cap-page .cap-inertial .pulse-feature-line { white-space: normal; }.cap-feature-art img { max-height: 42svh; } }

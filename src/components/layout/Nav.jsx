@@ -67,8 +67,8 @@ export default function Nav({ path }) {
     let frame = 0
     const update = () => {
       frame = 0
-      const products = document.getElementById('products')
-      setHomePastIntro(Boolean(products && products.getBoundingClientRect().top <= 72))
+      // Frost the header as soon as the home hero starts leaving the viewport.
+      setHomePastIntro(window.scrollY > 8)
     }
     const requestUpdate = () => {
       if (!frame) frame = window.requestAnimationFrame(update)
@@ -209,19 +209,27 @@ export default function Nav({ path }) {
             {nav.map((item) =>
               item.children ? (
                 <li key={item.label}>
+                  <div className="flex items-center justify-between">
+                  {item.href === '/hardware' && (
+                    <a href={toHref(item.href)} onClick={() => setMobileOpen(false)} className={`flex-1 py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}>
+                      {item.label}
+                    </a>
+                  )}
                   <button
                     type="button"
+                    aria-label={item.href === '/hardware' ? 'Toggle Hardware submenu' : undefined}
                     aria-expanded={mobileSub === item.label}
                     onClick={() => setMobileSub(mobileSub === item.label ? null : item.label)}
-                    className={`flex w-full items-center justify-between py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}
+                    className={`flex ${item.href === '/hardware' ? 'h-11 w-11 justify-center' : 'w-full justify-between py-3'} items-center text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}
                   >
-                    {item.label}
+                    {item.href !== '/hardware' && item.label}
                     <Chevron open={mobileSub === item.label} />
                   </button>
+                  </div>
                   <div className={`accordion-body ${mobileSub === item.label ? 'open' : ''}`}>
                     <div>
                       <ul className="pb-2">
-                        {!hasParentSelfLink(item) && (
+                        {item.href !== '/hardware' && !hasParentSelfLink(item) && (
                           <li>
                             <a
                               {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}

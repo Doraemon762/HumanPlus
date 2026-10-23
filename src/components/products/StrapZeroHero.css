@@ -1,0 +1,79 @@
+.pulse-page { background: #fafafa; color: #202124; padding-top: 72px; }
+.pulse-page .reveal { opacity: 1; transform: none; transition: none; }
+.pulse-page .reveal > * { opacity: 0; transform: translateY(26px); transition: opacity 1.5s cubic-bezier(.16,1,.3,1), transform 1.5s cubic-bezier(.16,1,.3,1); }
+.pulse-page .reveal.in > * { opacity: 1; transform: translateY(0); }
+.pulse-page .reveal > :nth-child(2) { transition-delay: 100ms; }
+.pulse-page .reveal > :nth-child(3) { transition-delay: 200ms; }
+.pulse-page .reveal > :nth-child(4) { transition-delay: 300ms; }
+.pulse-page .reveal > :nth-child(5) { transition-delay: 400ms; }
+.pulse-page h2.reveal { opacity: 0; transform: translateY(26px); transition: opacity 1.5s cubic-bezier(.16,1,.3,1), transform 1.5s cubic-bezier(.16,1,.3,1); }
+.pulse-page h2.reveal.in { opacity: 1; transform: none; }
+@media(prefers-reduced-motion: reduce) { .pulse-page .reveal > *, .pulse-page h2.reveal { opacity: 1; transform: none; transition: none; } }
+.pulse-page h1,.pulse-page h2,.pulse-page h3,.pulse-page p { margin: 0; }
+.pulse-hero { min-height: calc(100svh - 72px); padding: 70px 8vw; display: grid; grid-template-columns: 1fr 1.25fr; align-items: center; gap: 20px; background: radial-gradient(ellipse at 72% 50%, #e2e7ea, transparent 60%), linear-gradient(135deg,#fff,#f0f2f4); overflow: hidden; }
+.pulse-eyebrow { color: #7c838b; font-size: 13px; letter-spacing: .1em; margin-bottom: 24px !important; }
+.pulse-hero h1 { font-size: clamp(64px, 9vw, 150px); font-weight: 750; letter-spacing: -.065em; line-height: 1; }
+.pulse-hero .pulse-lead { font-size: clamp(26px,3vw,46px); line-height: 1.15; margin-top: 24px; letter-spacing: -.04em; font-weight: 550; }
+.pulse-sub { color: #777; font-size: 17px; line-height: 1.6; margin-top: 24px !important; }
+.pulse-contact { display: inline-block; padding: 14px 26px; border-radius: 99px; color: #fff; background: #171717; margin-top: 30px; font-size: 15px; font-weight: 600; }
+.pulse-hero img { width: 120%; max-width: none; transform: translateX(-5%); filter: drop-shadow(0 35px 30px #28334120); }
+.pulse-highlights { max-width: 1200px; margin: 0 auto; padding: 80px 5vw; display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; text-align: center; }
+.pulse-highlights strong { font-size: clamp(44px,6vw,88px); letter-spacing: -.05em; font-weight: 750; }
+.pulse-highlights strong span { font-size: 22px; margin-left: 10px; letter-spacing: -.02em; }
+.pulse-highlights p { margin-top: 14px; color: #777; font-size: 15px; }
+.pulse-exploded-scroll { height: 230svh; position: relative; }
+.pulse-exploded-stage { position: sticky; top: 72px; height: calc(100svh - 72px); min-height: 530px; padding: 0; overflow: hidden; isolation: isolate; }
+.pulse-exploded-stage h2 { font-size: clamp(25px, 2.7vw, 38px); font-weight: 650; letter-spacing: -.04em; }
+.pulse-exploded-media { position: absolute; inset: 0; background: #666; overflow: hidden; }
+.pulse-exploded-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pulse-exploded-stage::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, #0006); pointer-events: none; }
+.pulse-exploded-stage .pulse-highlights { position: absolute; z-index: 1; bottom: clamp(28px, 6svh, 72px); left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; padding: 0; margin: 0; gap: 22px; color: #fff; text-shadow: 0 2px 14px #0005; }
+.pulse-exploded-stage .pulse-highlights strong { font-size: clamp(36px, 4.5vw, 62px); line-height: 1; }
+.pulse-exploded-stage .pulse-highlights p { color: #fff; font-size: 13px; margin-top: 10px; }
+@media(max-width:767px) { .pulse-exploded-scroll { height: 190svh; }.pulse-exploded-stage { min-height: 480px; }.pulse-exploded-stage .pulse-highlights { gap: 12px; }.pulse-exploded-stage .pulse-highlights strong { font-size: 36px; }.pulse-exploded-stage .pulse-highlights p { font-size: 11px; line-height: 1.5; } }
+@media(prefers-reduced-motion:reduce) { .pulse-exploded-scroll { height: auto; }.pulse-exploded-stage { position: relative; top: 0; } }
+.pulse-feature { min-height: calc(100svh - 72px); padding: 48px 8vw; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; }
+.pulse-feature h2,.pulse-data h2,.pulse-demo-space h2 { font-size: clamp(34px,4.5vw,68px); line-height: 1.08; letter-spacing: -.045em; font-weight: 700; }
+.pulse-feature p:not(.pulse-eyebrow) { color: #74787e; font-size: 18px; line-height: 1.8; margin-top: 28px; max-width: 560px; }
+.pulse-dial { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+.pulse-dial svg { position: absolute; inset: 0; width: 100%; height: 100%; stroke: #d0d5da; stroke-width: 3; }
+.pulse-dial-number { position: absolute; top: 16%; font-size: clamp(80px,12vw,180px); color: #d1d5d9; line-height: 1; font-weight: 750; }
+.pulse-dial-unit { font-size: .55em; margin-left: .03em; }
+.pulse-body-art img { width: 100%; height: auto; max-height: 70svh; object-fit: contain; }
+.pulse-feature--body em span { font-size: .22em; letter-spacing: -.03em; }
+.pulse-dial img { position: relative; width: 110%; margin-top: 20%; filter: drop-shadow(0 25px 20px #1f293715); }
+.pulse-feature--battery { background: #eef0f2; }
+.pulse-feature em { font-style: normal; font-size: clamp(100px,14vw,210px); line-height: 1; }
+.pulse-feature em span { font-size: .4em; }
+.pulse-feature .pulse-feature-line { display: inline-block; white-space: nowrap; font-size: clamp(22px, 2.9vw, 44px); letter-spacing: -.04em; }
+.pulse-battery-art { position: relative; }
+.pulse-battery-art > span { font-size: clamp(100px,16vw,240px); color: #dde1e5; font-weight: 750; display: block; text-align: center; }
+.pulse-battery-art img { position: relative; width: 120%; max-width: none; margin: -20% -10% 0; }
+.pulse-data,.pulse-demo-space,.pulse-specs { padding: 100px 8vw; max-width: 1500px; margin: 0 auto; }
+.pulse-page .pulse-data { width: 100%; max-width: none; min-height: calc(100svh - 72px); padding: clamp(36px, 7svh, 90px) 8vw; margin: 0; background: #fafafa; display: flex; flex-direction: column; justify-content: center; scroll-margin-top: 72px; }
+.pulse-data > .reveal,.pulse-data > .pulse-data-grid { width: 100%; max-width: 1260px; margin-left: auto; margin-right: auto; }
+.pulse-data-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; margin-top: 70px; }
+.pulse-feature-icon-row { display: flex; align-items: center; gap: 16px; }
+.pulse-data-grid .pulse-feature-icon-row span { font-size: clamp(24px, 2.5vw, 36px); font-weight: 550; letter-spacing: -.03em; line-height: 1; color: #888f98; }
+.pulse-feature-icon { width: 38px; height: 38px; opacity: .48; }
+.pulse-data-grid span { color: #8b96a0; font-size: 13px; }.pulse-data-grid h3 { margin-top: 18px; font-size: 24px; letter-spacing: -.03em; }.pulse-data-grid p { color: #777; font-size: 16px; line-height: 1.8; margin-top: 18px; }
+.pulse-media-placeholder { margin-top: 45px; aspect-ratio: 16/7; background: linear-gradient(135deg,#e9edf0,#f2f4f5); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; border-radius: 20px; color: #8a9199; }.pulse-media-placeholder small { color: #a1a7ad; }
+.pulse-demo-space { padding-top: 40px; padding-bottom: 40px; scroll-margin-top: 72px; }
+.pulse-demo-space .pulse-eyebrow { margin-bottom: 14px !important; }
+.pulse-demo-space h2 { font-size: clamp(28px, 3.2vw, 48px); }
+.pulse-demo-video { width: min(100%, 1000px, calc((100svh - 290px) * 16 / 9)); margin: 26px auto 0; overflow: hidden; border-radius: 20px; background: #eee; }
+.pulse-demo-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
+@media(max-width:767px) { .pulse-demo-space.pulse-demo-space { padding-top: 32px; padding-bottom: 32px; } .pulse-demo-video { width: 100%; margin-top: 22px; } }
+.pulse-specs h2 { font-size: 36px; font-weight: 650; margin-bottom: 40px; }.pulse-specs dl { max-width: 950px; }.pulse-specs dl>div { display: grid; grid-template-columns: 1fr 1.4fr; padding: 18px 0; border-bottom: 1px solid #ddd; gap: 30px; }.pulse-specs dt { color: #7a7e83; }.pulse-specs dd { margin: 0; }.pulse-spec-note { max-width: 800px; color: #888; font-size: 13px; line-height: 1.7; margin-top: 24px !important; }
+.pulse-specs--with-art { width: 100%; max-width: none; background: #fff; padding: 64px 10vw; }
+.pulse-specs--with-art h2 { font-size: clamp(14px, 1.5vw, 17px); line-height: 1.2; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 28px; }
+.pulse-specs-layout { display: grid; grid-template-columns: minmax(0, 1.42fr) minmax(0, .78fr); gap: 6vw; align-items: start; }
+.pulse-specs--with-art dl { margin: 0; border-top: 1px solid #ededed; }
+.pulse-specs--with-art dl > div { grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr); padding: 11px 0; gap: 24px; border-color: #ededed; font-size: 14px; line-height: 1.5; }
+.pulse-specs--with-art dt { color: #3a3a3a; font-weight: 500; }
+.pulse-specs--with-art dd { color: #000; font-weight: 650; overflow-wrap: anywhere; }
+.pulse-specs-layout > div { min-width: 0; }
+.pulse-specs-art { margin: 0; min-width: 0; align-self: start; position: sticky; top: 120px; display: grid; place-items: center; min-height: 320px; }
+.pulse-specs-art img { display: block; width: 100%; height: auto; max-height: 62svh; object-fit: contain; filter: drop-shadow(0 24px 24px #28334115); }
+@media(max-width:767px) { .pulse-specs-layout { grid-template-columns: 1fr; gap: 36px; }.pulse-specs-art { order: -1; position: static; margin: 0; }.pulse-specs-art img { max-height: 35svh; } }
+@media(max-width:767px) { .pulse-hero,.pulse-feature { grid-template-columns: 1fr; padding: 60px 7vw; }.pulse-hero img { width: 110%; }.pulse-highlights { gap: 16px; padding: 50px 6vw; }.pulse-highlights strong { font-size: 40px; }.pulse-highlights strong span { display: block; margin: 5px 0; font-size: 16px; }.pulse-highlights p { font-size: 12px; }.pulse-data-grid { grid-template-columns: 1fr; gap: 35px; }.pulse-data,.pulse-demo-space,.pulse-specs { padding: 65px 7vw; }.pulse-feature p:not(.pulse-eyebrow) { font-size: 16px; }.pulse-specs dl>div { font-size: 14px; gap: 16px; } }

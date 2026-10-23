@@ -1,62 +1,32 @@
-import Reveal from '../ui/Reveal'
-import CtaLink from '../ui/CtaLink'
-import FeaturedProductCard from '../products/FeaturedProductCard'
-import ProductTrapezoidGrid from '../products/ProductTrapezoidGrid'
-import { featuredProducts, trapezoidProducts } from '../../data/products'
+import OptimizedImage from '../ui/OptimizedImage'
+import { toHref } from '../../hooks/useHashRoute'
+import './ProductsSection.css'
 
-/* ── Home "Our Products" ──────────────────────────────────────────
-   Original module layout kept: one full-width featured banner
-   (Motion-0) plus the trapezoid pair (Glove-0 / Vision-0), then a
-   CTA into the dedicated Products page.
+const showcase = [
+  { id: 'weave', name: 'Weave', category: 'Garment-based Motion Capture', description: 'Capture motion. Wear naturally.', href: '/hardware/motion-0', image: 'images/motion-0/weave-garment-set.png', alt: 'Weave motion capture jacket and trousers' },
+  { id: 'pulse', name: 'Pulse', category: 'Strap-based Motion Capture', description: 'Precision in every movement.', href: '/hardware/motion-strap', image: 'images/products/pulse-strap-new.png', alt: 'Pulse wearable motion capture sensor and strap' },
+]
 
-   The heading block ("Products" / "Our Products" / "Product line
-   overview goes here.") stays dropped. Each plate now carries a real
-   product image — Glove-0 / Vision-0 are keyed-out (transparent PNG)
-   and sit on the right, with the product name enlarged on the left
-   in brand blue.
+const accessories = [
+  { id: 'cap', name: 'CAP', description: 'Head-worn stereo vision and inertial sensing.', href: '/hardware/cap', image: 'images/products/cap.png', alt: 'HumanPlus CAP with integrated stereo cameras' },
+  { id: 'glove', name: 'Glove', description: 'Glove and Glove Pro for hand motion capture.', href: '/hardware/glove', image: 'images/products/glove-pro.png', alt: 'HumanPlus Glove Pro with 11 IMUs' },
+]
 
-   Compact vertical rhythm so the whole module fits one viewport:
-   reduced section padding, tighter plate gap and a flatter banner
-   aspect. Full-screen section preserved for the About ⇄ Products
-   snap hand-off (useSectionSnap). */
-
-const SHOWCASE = {
-  'motion-0': {
-    images: [
-      'images/products/motion-0-1.webp',
-      'images/products/motion-0-2.webp',
-      'images/products/motion-0-3.webp',
-    ],
-    tag: 'Full-Body Motion Capture',
-  },
-  'glove-0': { image: 'images/products/glove-0-showcase.png', tag: 'Hand Motion Capture' },
-  'vision-0': { image: 'images/products/vision-0-showcase.png', tag: 'Egocentric Video Capture' },
-}
-const withImage = (p) => ({ ...p, ...(SHOWCASE[p.id] || {}) })
-
-export default function ProductsSection() {
-  return (
-    <section
-      id="products"
-      className="relative min-h-screen bg-gradient-to-b from-white to-[#E5E5E5] py-[48px] md:flex md:items-center md:py-[56px]"
-    >
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-10">
-        <div className="space-y-5 md:space-y-6">
-          {featuredProducts.map((product) => (
-            <Reveal key={product.id}>
-              <FeaturedProductCard product={withImage(product)} />
-            </Reveal>
-          ))}
-
-          <Reveal delay={1}>
-            <ProductTrapezoidGrid products={trapezoidProducts.map(withImage)} />
-          </Reveal>
+export default function ProductsSection({ includeAccessories = false, showCategories = true }) {
+  const products = includeAccessories ? [...showcase, ...accessories] : showcase
+  return <section id="products" className="home-products" aria-label="Our hardware">
+    <div className="home-products-grid">
+      {products.map((product) => <article className={`home-product home-product--${product.id}`} key={product.id}>
+        <div className="home-product-copy">
+          {showCategories && product.category && <p className="home-product-category">{product.category}</p>}
+          <h2>{product.name}</h2>
+          <p className="home-product-description">{product.description}</p>
+          <a href={toHref(product.href)} className="home-product-link">Learn more <span aria-hidden="true">›</span></a>
         </div>
-
-        <Reveal delay={2} className="mt-8 flex justify-center md:mt-10">
-          <CtaLink to="/hardware">Explore Hardware</CtaLink>
-        </Reveal>
-      </div>
-    </section>
-  )
+        <a href={toHref(product.href)} className="home-product-visual" aria-label={`Explore ${product.name}`}>
+          <OptimizedImage src={product.image} alt={product.alt} loading="lazy" decoding="async" />
+        </a>
+      </article>)}
+    </div>
+  </section>
 }

@@ -1,0 +1,51 @@
+.glove-page{--glove-gap:clamp(28px,6vw,90px);--glove-inset:7%;padding:130px 5vw 90px;background:#f5f5f7;color:#202122}
+.glove-heading{max-width:1300px;margin:0 auto 60px}.glove-heading>p{font-size:13px;color:#777;letter-spacing:.12em}.glove-heading h1{font-size:clamp(60px,9vw,120px);font-weight:750!important;letter-spacing:-.06em;line-height:1.1;margin:16px 0}.glove-heading h2{font-size:clamp(28px,4vw,54px);line-height:1.12;letter-spacing:-.04em}.glove-heading>a{display:inline-block;margin-top:28px;color:#555}
+.glove-comparison{max-width:1300px;margin:auto;scroll-margin-top:90px}.glove-models{display:grid;grid-template-columns:1fr 1fr;gap:50px;background:white;border-radius:36px;padding:50px 7%}.glove-model{text-align:center}.glove-model-image{height:330px;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:28px}.glove-model-image img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}.glove-model-image small{position:absolute;bottom:0;color:#999;font-size:10px}.glove-config-label{font-size:12px;color:#777}.glove-model h2{font-size:38px;font-weight:700;margin:12px 0;letter-spacing:-.04em}.glove-model>p:not(.glove-config-label){font-size:15px;line-height:1.6;color:#777;max-width:300px;margin:auto;min-height:50px}.glove-order{display:inline-block;border-radius:30px;background:#202122;color:white;padding:12px 20px;font-size:14px;margin-top:26px}.glove-feature-comparison{padding:65px 7% 10px}.glove-feature-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-bottom:60px}.glove-feature-row svg{width:36px;height:36px;color:#888;display:block;margin-bottom:20px}.glove-feature-row small{font-size:13px;color:#777;display:block;margin-bottom:8px}.glove-feature-row h3{font-weight:650;font-size:32px;letter-spacing:-.03em}.glove-feature-row p{font-size:15px;margin-top:8px;color:#777}
+.glove-specifications{max-width:1300px;margin:40px auto 0}.glove-specifications h2{font-size:40px;font-weight:650;letter-spacing:-.04em;margin-bottom:30px}.glove-spec-scroll{overflow-x:auto}.glove-specifications table{width:100%;border-collapse:collapse;min-width:650px;font-size:14px;text-align:left}.glove-specifications caption{text-align:left;color:#777;padding-bottom:20px}.glove-specifications th,.glove-specifications td{padding:20px 18px;border-bottom:1px solid #ddd;vertical-align:top;line-height:1.6}.glove-specifications th{font-weight:600}.glove-specifications td{color:#666;width:35%}
+@media(max-width:650px){.glove-page{padding:110px 20px 50px}.glove-models{gap:20px;padding:25px 16px;border-radius:24px}.glove-model-image{height:170px}.glove-model h2{font-size:26px}.glove-model>p:not(.glove-config-label){font-size:12px;min-height:80px}.glove-order{font-size:11px;padding:10px}.glove-feature-comparison{padding:40px 10px}.glove-feature-row{gap:24px;margin-bottom:40px}.glove-feature-row h3{font-size:26px}.glove-feature-row p{font-size:12px}}
+
+/* Product images and specifications share one surface and aligned columns. */
+.glove-page{padding:72px 0 80px}
+.glove-heading{max-width:none;margin:0;min-height:calc(100svh - 72px);padding:48px 8vw;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:7vw;align-items:center;text-align:left;background:radial-gradient(ellipse at 75% 60%,#e2e5e8,transparent 60%),linear-gradient(135deg,#fff,#f3f4f5)}
+.glove-heading .glove-hero-art{height:min(65svh,650px);min-width:0;display:grid;place-items:center}
+.glove-hero-art img{display:block;width:100%;height:100%;max-height:65svh;object-fit:contain}
+.glove-heading .glove-order{color:#fff}
+.glove-page .glove-accuracy{max-width:none;min-height:calc(100svh - 72px);margin:0;padding:60px 8vw;border-radius:0;display:flex;flex-direction:column;justify-content:center;scroll-margin-top:72px}
+.glove-page .glove-comparison{margin-top:64px}
+.glove-heading h1{font-size:clamp(60px,7vw,98px)}
+.glove-heading h2{font-size:clamp(24px,3vw,40px);font-weight:600;line-height:1.2;letter-spacing:-.035em}
+.glove-heading .glove-intro-line{font-size:14px;color:#707075;line-height:1.7;margin:22px auto 0;letter-spacing:normal}
+.glove-heading .glove-intro{max-width:820px;font-size:16px;color:#707075;line-height:1.8;margin:20px auto 0;letter-spacing:normal}
+.glove-heading .glove-intro{max-width:500px;margin-left:0}
+.glove-comparison{max-width:1200px;background:#fff;border-radius:32px;overflow:hidden;padding-bottom:60px}
+.glove-models,.glove-feature-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--glove-gap)}
+.glove-models{padding:40px var(--glove-inset);border-radius:0;background:transparent}
+.glove-model{min-width:0}
+.glove-model-image{height:340px}
+.glove-model-image img{mix-blend-mode:normal}
+.glove-model h2{font-size:34px;margin:12px 0 8px}
+.glove-config-label{font-size:16px;color:#707075;line-height:1.5}
+.glove-feature-comparison{padding:24px var(--glove-inset) 0}
+.glove-feature-row{margin-bottom:0;padding:22px 0;border-top:1px solid #ededed}
+.glove-feature-row:last-child{margin-bottom:0}
+.glove-spec-item{text-align:center;min-width:0}
+.glove-page svg{width:34px;height:34px;color:#8b8d90;display:block;margin:0 auto 18px}
+.glove-feature-row .glove-spec-label{font-size:13px;color:#707075;margin:0 0 12px}
+.glove-spec-item h3{font-size:20px;font-weight:600;letter-spacing:0;line-height:1.3;margin:0 0 6px;text-wrap:balance;overflow-wrap:break-word}
+.glove-feature-row .glove-spec-detail{font-size:13px;line-height:1.5;color:#707075;margin:0 auto;max-width:340px;text-wrap:pretty}
+.glove-feature-row .glove-spec-item svg{width:25px;height:25px;margin:0 auto 10px}
+.glove-capabilities,.glove-accuracy{max-width:1200px;margin:85px auto 0}
+.glove-capabilities>h2,.glove-accuracy>h2{font-size:clamp(25px,3vw,38px);font-weight:650;letter-spacing:-.035em;text-align:center;margin-bottom:42px}
+.glove-capabilities-grid,.glove-accuracy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.glove-capabilities-grid>div{position:relative;text-align:center}
+.glove-capability-number{display:block;color:#999;font-size:12px;margin-bottom:14px}
+.glove-capabilities-grid h3,.glove-accuracy-grid h3{font-size:18px;font-weight:600;line-height:1.4;margin-bottom:14px}
+.glove-capabilities-grid p,.glove-accuracy-grid p{font-size:14px;color:#707075;line-height:1.8}
+.glove-accuracy{padding:52px 5%;background:white;border-radius:28px}
+.glove-accuracy-grid{text-align:center}
+.glove-accuracy-grid strong{display:block;font-size:36px;font-weight:650;letter-spacing:-.04em;margin:10px 0 14px}
+.glove-accuracy-grid h3{font-size:15px}
+@media(max-width:650px){.glove-comparison{border-radius:22px;padding-bottom:36px}.glove-comparison .glove-models{border-radius:0}.glove-spec-item h3{font-size:20px;line-height:1.3}.glove-feature-row .glove-spec-detail{font-size:12px}.glove-feature-row:last-child{margin-bottom:0}}
+@media(max-width:650px){.glove-page{padding:105px 18px 50px;--glove-inset:12px;--glove-gap:20px}.glove-heading{margin-bottom:35px}.glove-heading .glove-intro-line{font-size:12px}.glove-heading .glove-intro{font-size:14px;text-align:left}.glove-models{padding:24px var(--glove-inset) 28px;border-radius:22px}.glove-model-image{height:210px;margin-bottom:15px}.glove-model h2{font-size:26px}.glove-config-label{font-size:12px}.glove-order{font-size:11px;padding:10px 12px}.glove-feature-comparison{padding:38px var(--glove-inset) 0}.glove-feature-row{margin-bottom:42px}.glove-feature-row .glove-spec-detail,.glove-feature-row .glove-spec-label{font-size:12px}.glove-page svg{width:30px;height:30px}.glove-capabilities-grid,.glove-accuracy-grid{grid-template-columns:1fr;gap:32px}.glove-capabilities,.glove-accuracy{margin-top:55px}.glove-accuracy{padding:35px 22px}.glove-capabilities-grid p{max-width:420px;margin:auto}}
+@media(max-width:650px){.glove-page{padding:72px 0 50px}.glove-heading{grid-template-columns:1fr;margin:0;padding:40px 7vw;gap:28px}.glove-heading .glove-hero-art{height:40svh}.glove-hero-art img{max-height:40svh}.glove-page .glove-accuracy{padding:48px 7vw}.glove-comparison,.glove-capabilities{width:90%}}
+@media(max-width:650px){.glove-feature-row{padding:18px 0;margin-bottom:0}.glove-spec-item h3{font-size:17px}.glove-feature-row .glove-spec-detail{font-size:12px}.glove-feature-comparison{padding-top:18px}}

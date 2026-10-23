@@ -28,7 +28,7 @@ function Icon({ name, className }) {
 /* Social entries. WeChat removed per request; Hugging Face added.
    `href: null` => no navigation (unused now, kept for safety). */
 const SOCIALS = [
-  { key: 'xiaohongshu', label: '小红书', name: 'xiaohongshu', href: 'https://xhslink.cn/o/3z7NSJ5ZllV' },
+  { key: 'xiaohongshu', label: 'RedNote', name: 'xiaohongshu', href: 'https://xhslink.cn/o/3z7NSJ5ZllV' },
   { key: 'x', label: 'X', name: 'x', href: 'https://x.com/humanplus_team?s=11' },
   { key: 'youtube', label: 'YouTube', name: 'youtube', href: 'https://youtube.com/@humanplus-xyz?si=mUIXmAHwiIOa3t8V' },
   { key: 'huggingface', label: 'Hugging Face', name: 'huggingface', href: 'https://huggingface.co/humanplus-ai' },

@@ -18,7 +18,7 @@ import '../../styles/v0-g0-panels.css'
    set large in the sans face with a hairline underscore, per the brief. */
 
 /* ── Section 1 · Hardware & Communication ──────────────────────────── */
-const SPEC_ROWS = [
+export const SPEC_ROWS = [
   ['Sensors', '6 × 9-axis IMUs', '11 × 9-axis IMUs'],
   ['Sampling Rate', '45 Hz default, adjustable', '30 Hz default, adjustable'],
   ['Output', '3-axis acceleration, quaternion', '3-axis acceleration, quaternion'],

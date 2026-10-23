@@ -3,7 +3,6 @@ import Lenis from 'lenis'
 
 export default function useSiteMotion(path) {
   useEffect(() => {
-    if (path === '/dataset') return
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
     let scroll
     let entryTimer = 0
@@ -11,6 +10,55 @@ export default function useSiteMotion(path) {
     let aligningEntry = false
     const getStops = () => {
       const header = document.querySelector('.site-nav')?.getBoundingClientRect().bottom || 72
+      if (path === '/') {
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - innerHeight)
+        const topOf = node => node.getBoundingClientRect().top + window.scrollY - header
+        const products = [...document.querySelectorAll('.home-product')]
+        const nodes = [
+          document.querySelector('#robotics'),
+          ...(innerWidth >= 768 ? [document.querySelector('#products')] : products),
+          document.querySelector('#research'),
+          document.querySelector('#news'),
+          document.querySelector('#news .news-story-grid'),
+        ].filter(Boolean)
+        const stops = [0, ...nodes.map(topOf)]
+        const last = document.querySelector('#news')
+        if (last) stops.push(topOf(last) + last.offsetHeight - (innerHeight - header))
+        stops.push(maxScroll)
+        return [...new Set(stops.map(stop => Math.round(Math.max(0, Math.min(maxScroll, stop)))))].sort((a, b) => a - b)
+      }
+      if (path === '/hardware/motion-strap' || path === '/hardware/motion-0' || path === '/hardware/cap') {
+        const maxScroll = document.documentElement.scrollHeight - innerHeight
+        return [...document.querySelectorAll(path === '/hardware/motion-0' ? '.weave-page > section' : path === '/hardware/cap' ? '.cap-page > section' : '.pulse-page > section')].flatMap((section) => {
+          const top = section.getBoundingClientRect().top + window.scrollY
+          const available = innerHeight - header
+          const center = top - header - Math.max(0, (available - section.offsetHeight) / 2)
+          const stops = section.offsetHeight > available + 80
+            ? [top - header, top + section.offsetHeight - innerHeight]
+            : [center]
+          return stops.map((stop) => Math.max(0, Math.min(maxScroll, stop)))
+        })
+      }
+      if (path === '/dataset') {
+        const topOf = (node) => node.getBoundingClientRect().top + window.scrollY
+        const hero = document.querySelector('.dataset-hero-scroll')
+        const track = document.querySelector('.dataset-life-intro .scroll-expand__track')
+        const preview = document.querySelector('.life-preview')
+        const gallery = document.querySelector('.dataset-gallery')
+        const resources = document.querySelector('.dataset-resources-screen')
+        const stops = [0]
+        if (hero) stops.push(topOf(hero) + hero.offsetHeight - innerHeight)
+        if (track) stops.push(topOf(track) - header, topOf(track) + Math.max(480, innerHeight - 72) * .9)
+        if (preview) stops.push(topOf(preview) - header, topOf(preview) - header + innerHeight * .7)
+        if (gallery) {
+          // Align the white section boundary, not the shorter carousel center:
+          // centering the carousel exposed the preceding black video above it.
+          const section = gallery.closest('.dataset-preview-section') || gallery
+          stops.push(topOf(section) - header)
+        }
+        if (resources) stops.push(topOf(resources) - header)
+        return stops.map((value) => Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight, value)))
+      }
       return [...document.querySelectorAll('.research-editorial-paper')].map((paper) => {
         const media = paper.querySelector('.research-editorial-media img, .research-editorial-media video')
         const copy = paper.querySelector('.research-editorial-copy')
@@ -21,12 +69,13 @@ export default function useSiteMotion(path) {
       })
     }
     const finishEntry = () => {
-      if (path !== '/research' || !scroll || aligningEntry || !direction || innerWidth < 768) return
+      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap'].includes(path) || !scroll || aligningEntry || !direction || innerWidth < 768) return
       const position = scroll.targetScroll
-      // Settle only ahead of the input direction: never pull back after overshoot.
-      const target = getStops().filter((stop) => (stop - position) * direction >= -1)
+      // Home panels settle to the nearest boundary, including a small overshoot.
+      // Direction-only settling could skip the screen the user just reached.
+      const target = getStops().filter((stop) => path === '/' || (stop - position) * direction >= -1)
         .sort((a, b) => Math.abs(a - position) - Math.abs(b - position))[0]
-      if (target === undefined || Math.abs(target - position) > 100) return
+      if (target === undefined || Math.abs(target - position) > (path === '/' ? Math.min(360, (innerHeight - 72) * .48) : 100)) return
       aligningEntry = true
       scroll.scrollTo(target, { duration: 0.85, onComplete: () => { aligningEntry = false } })
     }
@@ -36,7 +85,7 @@ export default function useSiteMotion(path) {
       aligningEntry = false
     }
     const gentleResistance = (input) => {
-      if (path !== '/research' || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || !input.deltaY || Math.abs(input.deltaX) > Math.abs(input.deltaY)) return true
+      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap'].includes(path) || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || !input.deltaY || Math.abs(input.deltaX) > Math.abs(input.deltaY)) return true
       onInput()
       direction = Math.sign(input.deltaY)
       const stops = getStops()

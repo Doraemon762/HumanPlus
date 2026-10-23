@@ -62,6 +62,9 @@ export default defineConfig(({ command }) => ({
   base: './',
   server: {
     port: 5174,
+    fs: { deny: ['.env', '.env.*', '*.{crt,pem}', '**/.git/**', '**/private/**', '**/.catalog-local.json'] },
+    proxy: { '/api/catalog': { target: 'http://127.0.0.1:4199' } },
     host: true,
   },
 }))
+

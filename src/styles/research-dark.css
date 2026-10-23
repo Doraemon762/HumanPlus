@@ -47,15 +47,15 @@ body .research-light-surface::before {
   left: 0;
   height: calc(100svh - 72px);
   pointer-events: none;
-  background: #080b11;
-  opacity: calc(1 - var(--research-light-progress));
+  background: #f5f5f7;
+  opacity: 0;
   transition: opacity 120ms linear;
 }
 
 html.research-light-nav .site-nav {
   border-color: rgb(17 21 27 / 0.1) !important;
   background: rgb(255 255 255 / 0.72) !important;
-  box-shadow: 0 10px 34px rgb(32 47 66 / 0.08);
+  box-shadow: none;
   color: #11151b;
   backdrop-filter: blur(22px) saturate(1.25);
   transition: background-color 900ms ease, border-color 900ms ease, box-shadow 900ms ease;
@@ -82,17 +82,17 @@ html.research-light-nav .site-nav-mobile-panel {
 
 html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b; }
 
-.company-research-page { background: #07090d; color: #f5f7fb; }
+.company-research-page { background: #f5f5f7; color: #1d1d1f; }
 
 .company-about-panel {
   min-height: 100svh;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  background:
-    radial-gradient(70vw 52vh at 10% 100%, rgb(90 156 252 / 0.2), transparent 72%),
-    radial-gradient(44vw 42vh at 92% 8%, rgb(255 255 255 / 0.045), transparent 72%),
-    linear-gradient(180deg, #090c12 0%, #05070a 72%, #080b11 100%);
+  background: radial-gradient(ellipse at 82% 54%, #edf1f5 0%, #fafafa 48%, #fff 82%);
+  display: flex;
+  align-items: center;
 }
+
 
 .company-about-glow {
   position: absolute;
@@ -129,27 +129,34 @@ html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b;
   display: flex;
   align-items: baseline;
   gap: 0.18em;
-  color: #fff;
-  font-size: clamp(3rem, 8vw, 7.5rem);
-  font-weight: 650;
+  color: #1d1d1f;
+  font-size: 80px;
+  font-weight: 600;
   line-height: 0.94;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
-.research-about-label { flex: 0 0 auto; color: #fff; font-weight: 560; }
+.research-about-label { flex: 0 0 auto; color: #1d1d1f; font-weight: 600; }
 .research-about-stroke-word {
   flex: 1 1 auto;
   min-width: 0;
-  color: transparent;
+  color: #1d1d1f;
   font-size: 1em;
-  font-weight: 650;
-  letter-spacing: -0.055em;
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 0.94;
   white-space: nowrap;
-  -webkit-text-stroke: 1.35px #5a9cfc;
+  -webkit-text-stroke: 0;
   transform: none;
 }
 .company-about-copy { width: calc(100% - clamp(16rem, 25vw, 24rem)); max-width: 68rem; }
-.company-about-copy p { color: rgb(245 247 251 / 0.68); font-size: 1.125rem; line-height: 1.85; }
+.company-about-copy p { color: #666; font-size: 1.125rem; line-height: 1.85; }
+.company-about-panel .company-about-content { width: 100%; }
+.company-about-panel .research-about-title { display: flex; flex-wrap:wrap; max-width: 100%; font-size: clamp(38px,5.6vw,80px); line-height: 1.08; letter-spacing: -.04em; margin-top: 0; }
+.company-about-panel .research-about-label { display: inline; font-size: inherit; letter-spacing: inherit; text-transform: none; margin-bottom: 0; color: inherit; }
+.company-about-panel .research-about-stroke-word { flex:0 1 auto; font-weight: 600; white-space: normal; line-height: inherit; }
+.company-about-panel .company-about-copy { width: 65%; max-width: 870px; margin-top: 64px; }
+.company-about-panel .company-about-copy p { font-size: 18px; line-height: 1.85; color: #686d73; }
+@media(max-width:767px) { .company-about-panel { min-height: 105svh; align-items: flex-start; }.company-about-panel .research-about-title { max-width:100%; }.company-about-panel .company-about-copy { width:100%;max-width:none;padding-bottom:220px; }.company-about-panel .company-about-copy p { font-size:14px; } }
 
 .research-blue-white-fill {
   color: transparent;
@@ -253,7 +260,8 @@ html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b;
 .research-link-arrow { color: #91bff8; font-size: 1.35rem; font-weight: 900; line-height: 1; }
 
 @media (max-width: 767px) {
-  .company-about-panel { min-height: auto; }
+  .research-about-title { font-size: 42px; }
+  .company-about-panel { min-height: auto; padding-bottom: 240px; }
   .company-about-copy { width: 100%; }
   .company-about-copy p { font-size: 1rem; }
   .research-about-title { flex-wrap: wrap; gap: 0.06em 0; }
@@ -263,6 +271,9 @@ html.research-light-nav .site-nav-mobile-toggle span span { background: #11151b;
   .research-timeline-item { padding-top: 46px; padding-left: 30px; }
   .research-timeline-card { grid-template-columns: 1fr; border-radius: 22px; }
   .research-timeline-media { min-height: 220px; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .research-about-title { font-size: 60px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

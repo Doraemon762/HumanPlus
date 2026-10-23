@@ -1,0 +1,15 @@
+.capture-performance-scroll { position:relative; height:300svh; background:#fff; --capture-film-opacity:0;--capture-words-opacity:1;--capture-copy-opacity:0;scroll-margin-top:72px; }
+.capture-performance-stage { position:sticky;top:72px;height:calc(100svh - 72px);overflow:hidden;display:grid;place-items:center;isolation:isolate; }
+.capture-performance-words { position:absolute;z-index:2;text-align:center;opacity:var(--capture-words-opacity);pointer-events:none;margin:0;font-size:clamp(42px,6vw,88px);line-height:1.15;letter-spacing:-.045em;font-weight:600; }
+.capture-performance-words span { display:block; }
+.capture-performance-film { position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--capture-width,58vw);height:var(--capture-height,32.625vw);border-radius:var(--capture-radius,28px);overflow:hidden;opacity:var(--capture-film-opacity); }
+.capture-performance-film video { display:block;width:100%;height:100%;object-fit:contain; }
+.capture-performance-shade { display:none; }
+.capture-performance-copy { position:absolute;right:6vw;top:50%;transform:translateY(-50%);width:32%;max-width:440px;padding:28px;border-radius:16px;background:rgba(0,0,0,.66);color:white;opacity:var(--capture-copy-opacity);pointer-events:none; }
+.capture-performance-controls { position:absolute;left:50%;top:calc(50% + var(--capture-height,32.625vw)/2 + 14px);transform:translateX(-50%);width:var(--capture-width,58vw);display:flex;align-items:center;gap:14px;opacity:var(--capture-film-opacity); }
+.capture-performance-controls input { flex:1;min-width:0;accent-color:#202124;cursor:pointer; }
+.capture-performance-controls button { width:32px;height:32px;border:0;border-radius:50%;background:#f1f1f1;color:#202124;cursor:pointer; }
+.capture-performance-copy h2 { font-size:clamp(32px,4.3vw,66px);font-weight:600;line-height:1.08;letter-spacing:-.04em;margin:0; }
+.capture-performance-copy p { font-size:clamp(15px,1.5vw,20px);line-height:1.65;margin-top:24px;max-width:400px;color:#fff; }
+@media(max-width:767px) { .capture-performance-copy { top:auto;bottom:8%;right:4%;transform:none;width:92%;padding:20px; }.capture-performance-copy h2 { font-size:28px; }.capture-performance-copy p { font-size:14px;margin-top:12px; }.capture-performance-words { font-size:clamp(38px,10vw,64px); } }
+@media(prefers-reduced-motion:reduce) { .capture-performance-scroll { height:calc(100svh - 72px); } }

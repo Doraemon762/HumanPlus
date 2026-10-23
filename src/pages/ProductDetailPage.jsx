@@ -1,7 +1,5 @@
 import PageHeader from '../components/layout/PageHeader'
-import MotionZeroHero from '../components/products/MotionZeroHero'
-import MotionZeroFeatures from '../components/products/MotionZeroFeatures'
-import MotionZeroPerformanceTest from '../components/sections/MotionZeroPerformanceTest'
+import WeavePresentation from '../components/products/WeavePresentation'
 import MotionZeroSpecs from '../components/sections/MotionZeroSpecs'
 import GloveZeroHero from '../components/products/GloveZeroHero'
 import VisionZeroHero from '../components/products/VisionZeroHero'
@@ -57,12 +55,10 @@ export default function ProductDetailPage({ id }) {
   return (
     <>
       {isMotionZero ? (
-        <>
-          <MotionZeroHero />
-          <MotionZeroFeatures />
-          <MotionZeroPerformanceTest />
+        <div className="weave-page">
+          <WeavePresentation />
           <MotionZeroSpecs />
-        </>
+        </div>
       ) : isGloveZero ? (
         <GloveZeroHero product={product} />
       ) : isVisionZero ? (

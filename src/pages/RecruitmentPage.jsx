@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
+import './InquiryPages.css'
 
 const EMAIL = 'info@humanplus.xyz'
 
@@ -33,8 +34,8 @@ export default function RecruitmentPage() {
   }
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center bg-paper px-6 pt-24 pb-16 lg:px-10">
-      <div className="w-full max-w-[720px] text-center">
+    <section className="careers-editorial flex min-h-screen flex-col items-center justify-center bg-paper px-6 pt-24 pb-16 lg:px-10">
+      <div className="careers-editorial-inner w-full max-w-[720px] text-center">
         {/* Title — large, bold, plain (no stroke / shadow / effect). */}
         <Reveal
           as="h1"

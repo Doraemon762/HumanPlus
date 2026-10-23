@@ -97,7 +97,7 @@ export default function MotionZeroHero() {
               fetchPriority="high"
               sizes="(max-width: 1023px) 100vw, 55vw"
               src={HERO_IMAGE}
-              alt="Weave 人体运动感知设备"
+              alt="Weave human motion capture system"
               className="m0-product h-auto w-full select-none object-contain"
             />
           </Reveal>

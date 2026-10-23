@@ -26,6 +26,7 @@ export default function ScrollExpand({
   startBottom = 0,
   startShiftX = 0,
   topOffset = 0,
+  stackOnNarrow = false,
   className = '',
 }) {
   const rootRef = useRef(null)
@@ -45,13 +46,14 @@ export default function ScrollExpand({
     if (!frame || !media) return
 
     const eased = smoothstep(0, 1, progress)
-    const width = startWidth + (100 - startWidth) * eased
-    const height = startHeight + (100 - startHeight) * eased
+    const stacked = stackOnNarrow && window.innerWidth <= 900
+    const width = (stacked ? 90 : startWidth) + (100 - (stacked ? 90 : startWidth)) * eased
+    const height = (stacked ? 44 : startHeight) + (100 - (stacked ? 44 : startHeight)) * eased
     const sideSpace = Math.max(0, 100 - width)
     const verticalSpace = Math.max(0, 100 - height)
-    const bottomSpace = verticalAlign === 'bottom' ? startBottom * (1 - eased) : verticalSpace / 2
-    const topSpace = verticalAlign === 'bottom' ? Math.max(0, verticalSpace - bottomSpace) : verticalSpace / 2
-    const rightSpace = align === 'right' ? startRight * (1 - eased) : sideSpace / 2
+    const bottomSpace = stacked ? 4 * (1 - eased) : verticalAlign === 'bottom' ? startBottom * (1 - eased) : verticalSpace / 2
+    const topSpace = stacked || verticalAlign === 'bottom' ? Math.max(0, verticalSpace - bottomSpace) : verticalSpace / 2
+    const rightSpace = stacked ? sideSpace / 2 : align === 'right' ? startRight * (1 - eased) : sideSpace / 2
     const leftSpace = align === 'right' ? Math.max(0, sideSpace - rightSpace) : sideSpace / 2
     const radius = startRadius * (1 - eased)
 
@@ -61,7 +63,7 @@ export default function ScrollExpand({
 
     if (scrimRef.current) scrimRef.current.style.opacity = `${0.38 * smoothstep(0.55, 1, progress)}`
     if (titleRef.current) {
-      const exit = smoothstep(0.24, 0.74, progress)
+      const exit = stackOnNarrow ? smoothstep(0, 0.3, progress) : smoothstep(0.24, 0.74, progress)
       titleRef.current.style.opacity = `${1 - exit}`
       titleRef.current.style.transform = `translate3d(0, ${-24 * exit}px, 0)`
     }
@@ -70,7 +72,7 @@ export default function ScrollExpand({
       overlayRef.current.style.opacity = `${enter}`
       overlayRef.current.style.transform = `translate3d(0, ${18 * (1 - enter)}px, 0)`
     }
-  }, [align, mediaZoom, startBottom, startHeight, startRadius, startRight, startShiftX, startWidth, verticalAlign])
+  }, [align, mediaZoom, startBottom, startHeight, startRadius, startRight, startShiftX, startWidth, verticalAlign, stackOnNarrow])
 
   useEffect(() => {
     const root = rootRef.current
