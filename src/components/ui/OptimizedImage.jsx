@@ -11,18 +11,19 @@ export function imageSource(src, targetWidth = 1280) {
   return variants?.find(item => item.width >= targetWidth)?.src || variants?.at(-1)?.src || src
 }
 
-export default function OptimizedImage({ src, alt = '', loading = 'lazy', decoding = 'async', sizes = '100vw', width, height, ...props }) {
+export default function OptimizedImage({ src, alt = '', loading, decoding = 'async', sizes = '100vw', width, height, fetchPriority, ...props }) {
   const image = manifest.images[mediaKey(src)]
   return (
     <img
       {...props}
+      fetchpriority={fetchPriority}
       src={image?.variants.at(-1)?.src || src}
       srcSet={image?.variants.map(item => `${item.src} ${item.width}w`).join(', ')}
       sizes={image ? sizes : undefined}
       width={width || image?.width}
       height={height || image?.height}
       alt={alt}
-      loading={loading}
+      loading={loading || (fetchPriority === 'high' ? 'eager' : 'lazy')}
       decoding={decoding}
     />
   )

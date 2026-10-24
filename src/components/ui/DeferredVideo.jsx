@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import manifest from '../../data/media-manifest.json'
 import { imageSource, mediaKey } from './OptimizedImage'
+import videoSource from './videoSource'
 
 const DeferredVideo = forwardRef(function DeferredVideo({ src, poster, priority = false, enabled = true, autoPlay = false, preload: _preload, muted = false, ...props }, forwardedRef) {
   const videoRef = useRef(null)
@@ -22,8 +23,7 @@ const DeferredVideo = forwardRef(function DeferredVideo({ src, poster, priority 
     let visible = priority
     let resume = autoPlay
     let loaded = false
-    const media = manifest.videos[mediaKey(src)]
-    const selected = media?.[window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop']?.src || src
+    const selected = videoSource(src)
     const play = () => {
       if (visible && !document.hidden && autoPlay && resume) video.play()?.catch(() => {})
     }
@@ -56,6 +56,12 @@ const DeferredVideo = forwardRef(function DeferredVideo({ src, poster, priority 
     video.addEventListener('error', onError)
     document.addEventListener('visibilitychange', onVisibility)
     if (priority) { load(); play() }
+    // Prepare the poster and first bytes shortly before entering the viewport.
+    // Keep playback tied to actual visibility, not the prefetch margin.
+    const prefetch = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { load(); prefetch.unobserve(video) }
+    }, { rootMargin: '300px' }) : null
+    prefetch?.observe(video)
     const observer = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting && entry.intersectionRatio > 0
       if (visible) { load(); play() }
@@ -65,6 +71,7 @@ const DeferredVideo = forwardRef(function DeferredVideo({ src, poster, priority 
     else { visible = true; load(); play() }
     return () => {
       observer?.disconnect()
+      prefetch?.disconnect()
       video.removeEventListener('loadeddata', play)
       video.removeEventListener('error', onError)
       document.removeEventListener('visibilitychange', onVisibility)

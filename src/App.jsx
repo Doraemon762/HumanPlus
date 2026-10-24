@@ -3,7 +3,7 @@ import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import useHashRoute from './hooks/useHashRoute'
 import useSiteMotion from './hooks/useSiteMotion'
-import HomePage from './pages/HomePage'
+const HomePage = lazy(() => import('./pages/HomePage'))
 const ProductsPage = lazy(() => import('./pages/ProductsPage'))
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
 const ResearchPage = lazy(() => import('./pages/ResearchPage'))
@@ -59,7 +59,7 @@ export default function App() {
     <>
       <Nav path={path} />
       <main>
-        <Suspense fallback={<div className="min-h-screen bg-white" role="status" aria-label="Loading" />}>
+        <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center text-gray-500" role="status">Loading…</div>}>
           {renderRoute(path)}
         </Suspense>
       </main>

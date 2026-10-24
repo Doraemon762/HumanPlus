@@ -1,9 +1,10 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import { news } from '../../data/news'
 import './NewsShowcase.css'
 
 function Story({ item, featured = false }) {
   return <article className={`news-story ${featured ? 'news-story--featured' : ''}`}><div className="news-story-content">
-    <div className="news-story-image"><img src={item.image} alt={item.title} loading="lazy" /></div>
+    <div className="news-story-image"><OptimizedImage src={item.image} alt={item.title} loading="lazy" /></div>
     <div className="news-story-copy"><p className="news-story-category">{item.category}</p><h3>{item.title}</h3><p className="news-story-source">{item.publisher}</p><time dateTime={item.date}>{item.date}</time><a className="news-story-more" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`Read more: ${item.title}`}>Read more <span aria-hidden="true">↗</span></a></div>
   </div></article>
 }

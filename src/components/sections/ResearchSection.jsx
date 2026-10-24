@@ -12,7 +12,7 @@ const summaries = {
 }
 
 function Venue({ paper }) {
-  return <div className="paper-venue-line"><span>{paper.highlight || paper.venue}</span>{paper.logo && <img src={paper.logo} alt={`${paper.venue} conference logo`} />}</div>
+  return <div className="paper-venue-line"><span>{paper.highlight || paper.venue}</span>{paper.logo && <OptimizedImage src={paper.logo} alt={`${paper.venue} conference logo`} />}</div>
 }
 
 function PaperDialog({ paper, onClose }) {

@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/ui/OptimizedImage'
 import Reveal from '../components/ui/Reveal'
 import './GlovePage.css'
 
@@ -35,7 +36,7 @@ function Icon({ type }) {
 }
 export default function GlovePage() {
   return <div className="glove-page">
-    <header className="glove-heading"><Reveal><h1>Glove</h1><h2>Hand motion<br />In every detail</h2><p className="glove-intro">Glove with 6 IMUs and Glove Pro with 11 IMUs. Capture hand movement in real time over Wi-Fi.</p><a className="glove-order" href="#/contact">Request a Quote ↗</a></Reveal><div className="glove-hero-art"><img src="images/products/glove-pro.png" alt="Glove Pro with 11 inertial sensors" fetchPriority="high" /></div></header>
+    <header className="glove-heading"><Reveal><h1>Glove</h1><h2>Hand motion<br />In every detail</h2><p className="glove-intro">Glove with 6 IMUs and Glove Pro with 11 IMUs. Capture hand movement in real time over Wi-Fi.</p><a className="glove-order" href="#/contact">Request a Quote ↗</a></Reveal><div className="glove-hero-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/glove-pro.png" alt="Glove Pro with 11 inertial sensors" fetchPriority="high" /></div></header>
     <section className="glove-accuracy" aria-labelledby="glove-accuracy-title"><h2 id="glove-accuracy-title">6-IMU hand pose reconstruction accuracy</h2><div className="glove-accuracy-grid">{[
       ['4.8°', 'Mean rotation error', 'Mean geodesic SO(3) error across 16 hand joints.', 'rotation'],
       ['3.26 mm', 'MPJPE', '21-joint error computed with MANO forward kinematics after fixing the root.', 'size'],
@@ -43,7 +44,7 @@ export default function GlovePage() {
     ].map(([value, label, detail, icon]) => <div key={label}><Icon type={icon}/><strong>{value}</strong><h3>{label}</h3><p>{detail}</p></div>)}</div></section>
     <section id="glove-compare" className="glove-comparison" aria-label="Compare Glove configurations">
       <div className="glove-models">{versions.map(count => <Reveal key={count} className="glove-model">
-        <div className="glove-model-image"><img src={count === 11 ? 'images/products/glove-pro.png' : 'images/products/glove-6imu.png'} alt={`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`} /></div>
+        <div className="glove-model-image"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={count === 11 ? 'images/products/glove-pro.png' : 'images/products/glove-6imu.png'} alt={`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`} /></div>
         <h2>{count === 11 ? 'Glove Pro' : 'Glove'}</h2><p className="glove-config-label">{count}-IMU configuration</p><a className="glove-order" href="#/contact">Request a Quote ↗</a>
       </Reveal>)}</div>
       <div className="glove-feature-comparison">{specifications.map(([label, icon, ...values]) => <div className="glove-feature-row" key={label}>{values.map(([value, ...details], index) => <div className="glove-spec-item" key={index} aria-label={`${versions[index]}-IMU ${label}`}><Icon type={icon}/><h3>{value}</h3><p className="glove-spec-detail">{details.join(' · ')}</p></div>)}</div>)}</div>

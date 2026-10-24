@@ -1622,6 +1622,501 @@
           "bytes": 97278
         }
       ]
+    },
+    "images/logo/chi-2025.png": {
+      "width": 2203,
+      "height": 600,
+      "variants": [
+        {
+          "src": "media/images/logo/chi-2025.png.480.webp",
+          "width": 480,
+          "bytes": 15262
+        },
+        {
+          "src": "media/images/logo/chi-2025.png.960.webp",
+          "width": 960,
+          "bytes": 33934
+        },
+        {
+          "src": "media/images/logo/chi-2025.png.1600.webp",
+          "width": 1600,
+          "bytes": 60402
+        }
+      ]
+    },
+    "images/logo/icml-2024.png": {
+      "width": 592,
+      "height": 248,
+      "variants": [
+        {
+          "src": "media/images/logo/icml-2024.png.480.webp",
+          "width": 480,
+          "bytes": 42824
+        },
+        {
+          "src": "media/images/logo/icml-2024.png.592.webp",
+          "width": 592,
+          "bytes": 37560
+        }
+      ]
+    },
+    "images/logo/neurips-2023.png": {
+      "width": 1000,
+      "height": 448,
+      "variants": [
+        {
+          "src": "media/images/logo/neurips-2023.png.480.webp",
+          "width": 480,
+          "bytes": 30004
+        },
+        {
+          "src": "media/images/logo/neurips-2023.png.960.webp",
+          "width": 960,
+          "bytes": 62764
+        },
+        {
+          "src": "media/images/logo/neurips-2023.png.1000.webp",
+          "width": 1000,
+          "bytes": 28386
+        }
+      ]
+    },
+    "images/logo/siggraph-asia-2023.png": {
+      "width": 481,
+      "height": 181,
+      "variants": [
+        {
+          "src": "media/images/logo/siggraph-asia-2023.png.480.webp",
+          "width": 480,
+          "bytes": 32268
+        },
+        {
+          "src": "media/images/logo/siggraph-asia-2023.png.481.webp",
+          "width": 481,
+          "bytes": 13450
+        }
+      ]
+    },
+    "images/logo/ubicomp-iswc-2023.png": {
+      "width": 499,
+      "height": 499,
+      "variants": [
+        {
+          "src": "media/images/logo/ubicomp-iswc-2023.png.480.webp",
+          "width": 480,
+          "bytes": 44000
+        },
+        {
+          "src": "media/images/logo/ubicomp-iswc-2023.png.499.webp",
+          "width": 499,
+          "bytes": 47922
+        }
+      ]
+    },
+    "images/motion-0/weave-mannequin-front.png": {
+      "width": 1024,
+      "height": 1536,
+      "variants": [
+        {
+          "src": "media/images/motion-0/weave-mannequin-front.png.480.webp",
+          "width": 480,
+          "bytes": 28720
+        },
+        {
+          "src": "media/images/motion-0/weave-mannequin-front.png.960.webp",
+          "width": 960,
+          "bytes": 65056
+        },
+        {
+          "src": "media/images/motion-0/weave-mannequin-front.png.1024.webp",
+          "width": 1024,
+          "bytes": 57430
+        }
+      ]
+    },
+    "images/news/clotho-20261019.jpg": {
+      "width": 1280,
+      "height": 545,
+      "variants": [
+        {
+          "src": "media/images/news/clotho-20261019.jpg.480.webp",
+          "width": 480,
+          "bytes": 15068
+        },
+        {
+          "src": "media/images/news/clotho-20261019.jpg.960.webp",
+          "width": 960,
+          "bytes": 35458
+        },
+        {
+          "src": "media/images/news/clotho-20261019.jpg.1280.webp",
+          "width": 1280,
+          "bytes": 52802
+        }
+      ]
+    },
+    "images/news/humanplus-1000-20260914.jpg": {
+      "width": 2560,
+      "height": 1440,
+      "variants": [
+        {
+          "src": "media/images/news/humanplus-1000-20260914.jpg.480.webp",
+          "width": 480,
+          "bytes": 24706
+        },
+        {
+          "src": "media/images/news/humanplus-1000-20260914.jpg.960.webp",
+          "width": 960,
+          "bytes": 60572
+        },
+        {
+          "src": "media/images/news/humanplus-1000-20260914.jpg.1600.webp",
+          "width": 1600,
+          "bytes": 113070
+        }
+      ]
+    },
+    "images/news/siggraph-award-20250618.jpg": {
+      "width": 896,
+      "height": 381,
+      "variants": [
+        {
+          "src": "media/images/news/siggraph-award-20250618.jpg.480.webp",
+          "width": 480,
+          "bytes": 8978
+        },
+        {
+          "src": "media/images/news/siggraph-award-20250618.jpg.896.webp",
+          "width": 896,
+          "bytes": 23806
+        }
+      ]
+    },
+    "images/news/siggraph-best-paper-plaque.jpg": {
+      "width": 4080,
+      "height": 3060,
+      "variants": [
+        {
+          "src": "media/images/news/siggraph-best-paper-plaque.jpg.480.webp",
+          "width": 480,
+          "bytes": 41324
+        },
+        {
+          "src": "media/images/news/siggraph-best-paper-plaque.jpg.960.webp",
+          "width": 960,
+          "bytes": 138050
+        },
+        {
+          "src": "media/images/news/siggraph-best-paper-plaque.jpg.1600.webp",
+          "width": 1600,
+          "bytes": 342866
+        }
+      ]
+    },
+    "images/news/siggraph-plaque-wide.png": {
+      "width": 1536,
+      "height": 1024,
+      "variants": [
+        {
+          "src": "media/images/news/siggraph-plaque-wide.png.480.webp",
+          "width": 480,
+          "bytes": 35178
+        },
+        {
+          "src": "media/images/news/siggraph-plaque-wide.png.960.webp",
+          "width": 960,
+          "bytes": 113714
+        },
+        {
+          "src": "media/images/news/siggraph-plaque-wide.png.1536.webp",
+          "width": 1536,
+          "bytes": 241404
+        }
+      ]
+    },
+    "images/products/cap.png": {
+      "width": 1280,
+      "height": 853,
+      "variants": [
+        {
+          "src": "media/images/products/cap.png.480.webp",
+          "width": 480,
+          "bytes": 24548
+        },
+        {
+          "src": "media/images/products/cap.png.960.webp",
+          "width": 960,
+          "bytes": 79022
+        },
+        {
+          "src": "media/images/products/cap.png.1280.webp",
+          "width": 1280,
+          "bytes": 144454
+        }
+      ]
+    },
+    "images/products/glove-11imu.png": {
+      "width": 1070,
+      "height": 1470,
+      "variants": [
+        {
+          "src": "media/images/products/glove-11imu.png.480.webp",
+          "width": 480,
+          "bytes": 33466
+        },
+        {
+          "src": "media/images/products/glove-11imu.png.960.webp",
+          "width": 960,
+          "bytes": 112586
+        },
+        {
+          "src": "media/images/products/glove-11imu.png.1070.webp",
+          "width": 1070,
+          "bytes": 135280
+        }
+      ]
+    },
+    "images/products/glove-6imu.png": {
+      "width": 1086,
+      "height": 1448,
+      "variants": [
+        {
+          "src": "media/images/products/glove-6imu.png.480.webp",
+          "width": 480,
+          "bytes": 34592
+        },
+        {
+          "src": "media/images/products/glove-6imu.png.960.webp",
+          "width": 960,
+          "bytes": 144098
+        },
+        {
+          "src": "media/images/products/glove-6imu.png.1086.webp",
+          "width": 1086,
+          "bytes": 184678
+        }
+      ]
+    },
+    "images/products/glove-pro.png": {
+      "width": 1086,
+      "height": 1448,
+      "variants": [
+        {
+          "src": "media/images/products/glove-pro.png.480.webp",
+          "width": 480,
+          "bytes": 36802
+        },
+        {
+          "src": "media/images/products/glove-pro.png.960.webp",
+          "width": 960,
+          "bytes": 140634
+        },
+        {
+          "src": "media/images/products/glove-pro.png.1086.webp",
+          "width": 1086,
+          "bytes": 190074
+        }
+      ]
+    },
+    "images/products/pulse-body-front-back.png": {
+      "width": 1448,
+      "height": 1086,
+      "variants": [
+        {
+          "src": "media/images/products/pulse-body-front-back.png.480.webp",
+          "width": 480,
+          "bytes": 32990
+        },
+        {
+          "src": "media/images/products/pulse-body-front-back.png.960.webp",
+          "width": 960,
+          "bytes": 81808
+        },
+        {
+          "src": "media/images/products/pulse-body-front-back.png.1448.webp",
+          "width": 1448,
+          "bytes": 146746
+        }
+      ]
+    },
+    "images/products/pulse-demo.jpg": {
+      "width": 1280,
+      "height": 720,
+      "variants": [
+        {
+          "src": "media/images/products/pulse-demo.jpg.480.webp",
+          "width": 480,
+          "bytes": 7868
+        },
+        {
+          "src": "media/images/products/pulse-demo.jpg.960.webp",
+          "width": 960,
+          "bytes": 19454
+        },
+        {
+          "src": "media/images/products/pulse-demo.jpg.1280.webp",
+          "width": 1280,
+          "bytes": 26572
+        }
+      ]
+    },
+    "images/products/pulse-strap-new.png": {
+      "width": 1774,
+      "height": 887,
+      "variants": [
+        {
+          "src": "media/images/products/pulse-strap-new.png.480.webp",
+          "width": 480,
+          "bytes": 17460
+        },
+        {
+          "src": "media/images/products/pulse-strap-new.png.960.webp",
+          "width": 960,
+          "bytes": 56004
+        },
+        {
+          "src": "media/images/products/pulse-strap-new.png.1600.webp",
+          "width": 1600,
+          "bytes": 122646
+        }
+      ]
+    },
+    "images/research/clothing-20261012/clotho.png": {
+      "width": 1568,
+      "height": 882,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/clotho.png.480.webp",
+          "width": 480,
+          "bytes": 24142
+        },
+        {
+          "src": "media/images/research/clothing-20261012/clotho.png.960.webp",
+          "width": 960,
+          "bytes": 57378
+        },
+        {
+          "src": "media/images/research/clothing-20261012/clotho.png.1568.webp",
+          "width": 1568,
+          "bytes": 98916
+        }
+      ]
+    },
+    "images/research/clothing-20261012/fip.jpeg": {
+      "width": 5976,
+      "height": 1299,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/fip.jpeg.480.webp",
+          "width": 480,
+          "bytes": 4768
+        },
+        {
+          "src": "media/images/research/clothing-20261012/fip.jpeg.960.webp",
+          "width": 960,
+          "bytes": 11590
+        },
+        {
+          "src": "media/images/research/clothing-20261012/fip.jpeg.1600.webp",
+          "width": 1600,
+          "bytes": 23550
+        }
+      ]
+    },
+    "images/research/clothing-20261012/label-smoothing.png": {
+      "width": 945,
+      "height": 1418,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/label-smoothing.png.480.webp",
+          "width": 480,
+          "bytes": 31026
+        },
+        {
+          "src": "media/images/research/clothing-20261012/label-smoothing.png.945.webp",
+          "width": 945,
+          "bytes": 77842
+        }
+      ]
+    },
+    "images/research/clothing-20261012/loose-poser.png": {
+      "width": 2400,
+      "height": 1070,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/loose-poser.png.480.webp",
+          "width": 480,
+          "bytes": 16186
+        },
+        {
+          "src": "media/images/research/clothing-20261012/loose-poser.png.960.webp",
+          "width": 960,
+          "bytes": 44884
+        },
+        {
+          "src": "media/images/research/clothing-20261012/loose-poser.png.1600.webp",
+          "width": 1600,
+          "bytes": 100580
+        }
+      ]
+    },
+    "images/research/clothing-20261012/tic.png": {
+      "width": 852,
+      "height": 834,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/tic.png.480.webp",
+          "width": 480,
+          "bytes": 30544
+        },
+        {
+          "src": "media/images/research/clothing-20261012/tic.png.852.webp",
+          "width": 852,
+          "bytes": 64560
+        }
+      ]
+    },
+    "images/research/clothing-20261012/upper-body.jpeg": {
+      "width": 1592,
+      "height": 1025,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/upper-body.jpeg.480.webp",
+          "width": 480,
+          "bytes": 9062
+        },
+        {
+          "src": "media/images/research/clothing-20261012/upper-body.jpeg.960.webp",
+          "width": 960,
+          "bytes": 22534
+        },
+        {
+          "src": "media/images/research/clothing-20261012/upper-body.jpeg.1592.webp",
+          "width": 1592,
+          "bytes": 41956
+        }
+      ]
+    },
+    "images/research/clothing-20261012/wiring.png": {
+      "width": 6394,
+      "height": 2085,
+      "variants": [
+        {
+          "src": "media/images/research/clothing-20261012/wiring.png.480.webp",
+          "width": 480,
+          "bytes": 12812
+        },
+        {
+          "src": "media/images/research/clothing-20261012/wiring.png.960.webp",
+          "width": 960,
+          "bytes": 31634
+        },
+        {
+          "src": "media/images/research/clothing-20261012/wiring.png.1600.webp",
+          "width": 1600,
+          "bytes": 61352
+        }
+      ]
     }
   },
   "videos": {
@@ -1634,7 +2129,11 @@
         "src": "media/videos/demo/human-demo-1-1080.mobile-hq.mp4",
         "bytes": 10269805
       },
-      "poster": "media/videos/demo/human-demo-1-1080.poster.webp"
+      "poster": "media/videos/demo/human-demo-1-1080.poster.webp",
+      "slow": {
+        "src": "media/optimized-current/human-demo-1-1080.slow.mp4",
+        "bytes": 5771545
+      }
     },
     "videos/demo/human-manipulation.mp4": {
       "desktop": {
@@ -1700,7 +2199,11 @@
         "src": "media/videos/home/hero-laundry.mobile-hq.mp4",
         "bytes": 7389955
       },
-      "poster": "media/videos/home/hero-laundry.poster.webp"
+      "poster": "media/videos/home/hero-laundry.poster.webp",
+      "slow": {
+        "src": "media/optimized-current/hero-laundry.slow.mp4",
+        "bytes": 1925323
+      }
     },
     "videos/motion-0/digital-motion.mp4": {
       "desktop": {
@@ -1799,7 +2302,11 @@
         "src": "media/videos/robotics/robotics-laundry.mobile-hq.mp4",
         "bytes": 3385563
       },
-      "poster": "media/videos/robotics/robotics-laundry.poster.webp"
+      "poster": "media/videos/robotics/robotics-laundry.poster.webp",
+      "slow": {
+        "src": "media/optimized-current/robotics-laundry.slow.mp4",
+        "bytes": 1859680
+      }
     },
     "videos/motion-0/stability-test-20261022.mp4": {
       "desktop": {

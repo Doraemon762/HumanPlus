@@ -1,3 +1,4 @@
+import OptimizedImage from '../ui/OptimizedImage'
 import publications from '../../data/publications.json'
 import { useEffect, useRef } from 'react'
 import './ResearchEditorialSection.css'
@@ -115,13 +116,13 @@ export default function ResearchEditorialSection() {
     <section className="research-editorial" aria-label="Research in focus">
       <div className="research-editorial-group research-editorial-origin" id="research-2019">
         <aside className="research-editorial-left">
-          <img src={`${mediaRoot}mannequin-2019-glow.webp`} alt="Original smart clothing prototype" loading="lazy" decoding="async" />
+          <OptimizedImage src={`${mediaRoot}mannequin-2019-glow.webp`} alt="Original smart clothing prototype" loading="lazy" decoding="async" />
           <h2>2019</h2>
         </aside>
         <div className="research-editorial-papers">
           <div className="research-editorial-paper">
             <div className="research-editorial-media">
-              <img src={`${mediaRoot}origin-combined-2019-v2.webp`} alt="Original clothing exposed wiring and circuit board details" loading="lazy" decoding="async" />
+              <OptimizedImage src={`${mediaRoot}origin-combined-2019-v2.webp`} alt="Original clothing exposed wiring and circuit board details" loading="lazy" decoding="async" />
             </div>
             <div className="research-editorial-copy">
               <p className="research-editorial-year"><span>2019</span><span>Early Prototype</span></p>
@@ -135,8 +136,8 @@ export default function ResearchEditorialSection() {
         <div className="research-editorial-group" key={group.title}>
           <aside className="research-editorial-left">
             {group.additionalImages
-              ? <div className="research-editorial-mannequins">{[group.image, ...group.additionalImages].map((src) => <img key={src} src={src} alt={group.title} loading="lazy" decoding="async" />)}</div>
-              : <img src={group.image} alt={group.title} loading="lazy" decoding="async" />}
+              ? <div className="research-editorial-mannequins">{[group.image, ...group.additionalImages].map((src) => <OptimizedImage key={src} src={src} alt={group.title} loading="lazy" decoding="async" />)}</div>
+              : <OptimizedImage src={group.image} alt={group.title} loading="lazy" decoding="async" />}
             <h2>{group.title}</h2>
           </aside>
           <div className="research-editorial-papers">
@@ -148,7 +149,7 @@ export default function ResearchEditorialSection() {
                   <div className="research-editorial-media">
                     {media.video
                       ? <EditorialVideo src={media.video.replace('.mp4', '.web.mp4')} poster={media.video.replace('.mp4', '.poster.webp')} />
-                      : <img src={media.image} alt="" loading="lazy" decoding="async" />}
+                      : <OptimizedImage src={media.image} alt="" loading="lazy" decoding="async" />}
                   </div>
                   {media.pending ? <div className="research-editorial-copy">
                     <p className="research-editorial-year"><span>2026</span><span>Teleoperation Demo</span></p>
