@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './LifeCapturePreview.css'
+import DeferredVideo from './DeferredVideo'
 
 export default function LifeCapturePreview() {
   const [progress, setProgress] = useState(0)
@@ -41,7 +42,7 @@ export default function LifeCapturePreview() {
     <div className="life-preview-stage">
       <header className="life-preview-copy"><h2>Life capture</h2><p>Experience how human motion and real-world interaction data can empower embodied intelligence and robot learning.</p></header>
       <div className={`life-preview-media ${progress > .95 ? 'is-entered' : ''}`}>
-        <video ref={video} src="media/dataset-showcase/life-capture-compatible.mp4" poster="media/dataset-showcase/life-capture.webp" muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} preload="metadata" aria-label="Life capture dataset video" />
+        <DeferredVideo ref={video} src="media/dataset-showcase/life-capture-compatible.mp4" poster="media/dataset-showcase/life-capture.webp" muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} aria-label="Life capture dataset video" />
       </div>
     </div>
   </section>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './DatasetPage.css'
 import ScrollExpand from '../components/ui/ScrollExpand'
 import LifeCapturePreview from '../components/ui/LifeCapturePreview'
+import videoSource from '../components/ui/videoSource'
 
 const DATASET_URL = 'https://humanplus-ai.github.io/HumanPlus1000.github.io/'
 const mediaRoot = 'media/dataset-showcase/'
@@ -35,6 +36,7 @@ function Metrics({ active }) {
 
 function Sample({ name, label, active = true, poster = name }) {
   const videoName = name === 'life-capture' ? 'life-capture-compatible' : name
+  const source = videoSource(`${mediaRoot}${videoName}.mp4`)
   const ref = useRef(null)
   const [playing, setPlaying] = useState(false)
   const [failed, setFailed] = useState(false)
@@ -51,14 +53,14 @@ function Sample({ name, label, active = true, poster = name }) {
   }, [active, loaded])
   const play = () => {
     const video = ref.current
-    if (!video.getAttribute('src')) video.src = `${mediaRoot}${videoName}.mp4`
+    if (!video.getAttribute('src')) video.src = source
     setFailed(false)
     video.play().catch(() => setFailed(true))
   }
   const pause = () => { ref.current.pause(); setPlaying(false) }
   return (
     <figure className="dataset-sample">
-      <video ref={ref} src={loaded ? `${mediaRoot}${videoName}.mp4` : undefined} poster={`${mediaRoot}${poster}.webp`} muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} preload="metadata" role="button" tabIndex={active ? 0 : -1} aria-label={`${playing ? 'Pause' : 'Play'} ${label}`} aria-pressed={playing} onClick={() => playing ? pause() : play()} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); playing ? pause() : play() } }} onPlay={() => { setPlaying(true); setFailed(false) }} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
+      <video ref={ref} src={loaded ? source : undefined} poster={`${mediaRoot}${poster}.webp`} muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} preload="none" role="button" tabIndex={active ? 0 : -1} aria-label={`${playing ? 'Pause' : 'Play'} ${label}`} aria-pressed={playing} onClick={() => playing ? pause() : play()} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); playing ? pause() : play() } }} onPlay={() => { setPlaying(true); setFailed(false) }} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
       <figcaption>{label}</figcaption>
       {failed && <p className="dataset-video-error" role="status">Unable to play this video. Please refresh to try again.</p>}
     </figure>

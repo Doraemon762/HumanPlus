@@ -23,7 +23,7 @@ export const products = [
     name: 'Weave',
     subtitle: '11-IMU',
     layout: 'featured',
-    href: '/hardware/motion-0',
+    href: '/hardware/weave',
     // Placeholder copy — real descriptions come later.
     description: 'Product description goes here.',
     image: null, // future asset; #252525 plate renders until then
@@ -33,7 +33,7 @@ export const products = [
     name: 'Pulse',
     subtitle: '17-IMU',
     layout: null, // placeholder product — no specs / images invented yet
-    href: '/hardware/motion-strap',
+    href: '/hardware/pulse',
     description: 'Form-fitting motion capture system for precise, natural movement.\nPowered by advanced algorithms for high-quality motion data.',
     image: null,
   },
@@ -45,5 +45,6 @@ export const featuredProducts = products.filter((p) => p.layout === 'featured')
 export const trapezoidProducts = products.filter((p) => p.layout === 'trapezoid')
 
 export function findProduct(id) {
+  id = ({ weave: 'motion-0', pulse: 'motion-strap' })[id] || id
   return products.find((p) => p.id === id)
 }

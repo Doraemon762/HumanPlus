@@ -22,11 +22,10 @@ export const nav = [
     label: 'Hardware',
     href: '/hardware',
     children: [
-      { label: 'Weave', href: '/hardware/motion-0' },
-      { label: 'Pulse', href: '/hardware/motion-strap' },
+      { label: 'Weave', href: '/hardware/weave' },
+      { label: 'Pulse', href: '/hardware/pulse' },
       { label: 'Glove', href: '/hardware/glove' },
       { label: 'CAP', href: '/hardware/cap' },
-      { label: 'Application', href: '/application' },
     ],
   },
   {

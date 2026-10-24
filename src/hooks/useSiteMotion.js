@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 
 export default function useSiteMotion(path) {
+  path = ({ '/hardware/weave': '/hardware/motion-0', '/hardware/pulse': '/hardware/motion-strap' })[path] || path
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
     let scroll

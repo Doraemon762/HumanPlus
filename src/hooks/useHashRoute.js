@@ -15,7 +15,8 @@ import { useEffect, useState } from 'react'
 export function normalizeHash(hash) {
   const raw = String(hash || '').replace(/^#/, '')
   if (!raw || raw === '/') return '/'
-  return '/' + raw.replace(/^\/+/, '').replace(/\/+$/, '')
+  const path = '/' + raw.replace(/^\/+/, '').replace(/\/+$/, '')
+  return ({ '/hardware/motion-0': '/hardware/weave', '/hardware/motion-strap': '/hardware/pulse', '/products/motion-0': '/hardware/weave', '/products/motion-strap': '/hardware/pulse', '/application': '/hardware' })[path] || path
 }
 
 /* Route path → real href. Keeps a single place that knows about '#'. */
@@ -31,7 +32,12 @@ export default function useHashRoute() {
   const [path, setPath] = useState(() => normalizeHash(window.location.hash))
 
   useEffect(() => {
-    const onChange = () => setPath(normalizeHash(window.location.hash))
+    const onChange = () => {
+      const canonical = normalizeHash(window.location.hash)
+      if (window.location.hash && window.location.hash !== `#${canonical}`) window.history.replaceState(null, '', `#${canonical}`)
+      setPath(canonical)
+    }
+    onChange()
     window.addEventListener('hashchange', onChange)
     return () => window.removeEventListener('hashchange', onChange)
   }, [])

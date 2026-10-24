@@ -17,7 +17,13 @@ const PUBLIC_DIR = path.resolve(__dirname, 'public')
 // Reserved素材 (public/videos/motion-0/*) are kept in the build for now because
 // the MotionZero Story page is written but not yet wired — revisit if you want a
 // slimmer prod bundle.
-const EXCLUDE = new Set(['videos/robotics/robotics-laundry.mp4.bak'])
+const EXCLUDE = new Set(['videos/robotics/robotics-laundry.mp4.bak',
+  'media/research-20261013/lip-2024.mp4',
+  'media/research-20261013/tic-2025.mp4',
+  'media/research-20261013/fip-2025.mp4',
+  'media/research-20261013/clotho-2026.mp4',
+  'media/research-20261013/label-smoothing-2026.mp4',
+])
 
 function copyPublicExcept(outDir) {
   if (!fs.existsSync(PUBLIC_DIR)) return

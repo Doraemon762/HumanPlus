@@ -49,9 +49,8 @@ const FOOTER_GROUPS = [
   {
     title: 'Hardware',
     links: [
-      { label: 'WEAVE', href: '#/hardware/motion-0' },
-      { label: 'PULSE', href: '#/hardware/motion-strap' },
-      { label: 'Application', href: '#/application' },
+      { label: 'WEAVE', href: '#/hardware/weave' },
+      { label: 'PULSE', href: '#/hardware/pulse' },
     ],
   },
   {

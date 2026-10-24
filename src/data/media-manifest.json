@@ -1800,6 +1800,182 @@
         "bytes": 3385563
       },
       "poster": "media/videos/robotics/robotics-laundry.poster.webp"
+    },
+    "videos/motion-0/stability-test-20261022.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/stability-test-20261022.desktop.mp4",
+        "bytes": 4613237
+      },
+      "mobile": {
+        "src": "media/optimized-current/stability-test-20261022.mobile.mp4",
+        "bytes": 2374961
+      },
+      "poster": "media/optimized-current/stability-test-20261022.jpg"
+    },
+    "images/products/pulse-demo.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/pulse-demo.desktop.mp4",
+        "bytes": 7246469
+      },
+      "mobile": {
+        "src": "media/optimized-current/pulse-demo.mobile.mp4",
+        "bytes": 3536912
+      },
+      "poster": "media/optimized-current/pulse-demo.jpg"
+    },
+    "media/dataset-showcase/gallery-02.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-02.desktop.mp4",
+        "bytes": 2671153
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-02.mobile.mp4",
+        "bytes": 1114323
+      },
+      "poster": "media/optimized-current/gallery-02.jpg"
+    },
+    "media/dataset-showcase/gallery-03.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-03.desktop.mp4",
+        "bytes": 2171977
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-03.mobile.mp4",
+        "bytes": 1026554
+      },
+      "poster": "media/optimized-current/gallery-03.jpg"
+    },
+    "media/dataset-showcase/gallery-04.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-04.desktop.mp4",
+        "bytes": 2222668
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-04.mobile.mp4",
+        "bytes": 1031092
+      },
+      "poster": "media/optimized-current/gallery-04.jpg"
+    },
+    "media/dataset-showcase/gallery-05.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-05.desktop.mp4",
+        "bytes": 1777654
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-05.mobile.mp4",
+        "bytes": 847824
+      },
+      "poster": "media/optimized-current/gallery-05.jpg"
+    },
+    "media/dataset-showcase/gallery-06.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-06.desktop.mp4",
+        "bytes": 2379927
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-06.mobile.mp4",
+        "bytes": 1029934
+      },
+      "poster": "media/optimized-current/gallery-06.jpg"
+    },
+    "media/dataset-showcase/gallery-07.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-07.desktop.mp4",
+        "bytes": 2267951
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-07.mobile.mp4",
+        "bytes": 965588
+      },
+      "poster": "media/optimized-current/gallery-07.jpg"
+    },
+    "media/dataset-showcase/gallery-08.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-08.desktop.mp4",
+        "bytes": 1981109
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-08.mobile.mp4",
+        "bytes": 901695
+      },
+      "poster": "media/optimized-current/gallery-08.jpg"
+    },
+    "media/dataset-showcase/gallery-09.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/gallery-09.desktop.mp4",
+        "bytes": 2645552
+      },
+      "mobile": {
+        "src": "media/optimized-current/gallery-09.mobile.mp4",
+        "bytes": 1138303
+      },
+      "poster": "media/optimized-current/gallery-09.jpg"
+    },
+    "media/dataset-showcase/hero-motion.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/hero-motion.desktop.mp4",
+        "bytes": 199828
+      },
+      "mobile": {
+        "src": "media/optimized-current/hero-motion.mobile.mp4",
+        "bytes": 150315
+      },
+      "poster": "media/optimized-current/hero-motion.jpg"
+    },
+    "media/dataset-showcase/life-capture-compatible.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/life-capture-compatible.desktop.mp4",
+        "bytes": 6077363
+      },
+      "mobile": {
+        "src": "media/optimized-current/life-capture-compatible.mobile.mp4",
+        "bytes": 3086982
+      },
+      "poster": "media/optimized-current/life-capture-compatible.jpg"
+    },
+    "media/dataset-showcase/life-capture.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/life-capture.desktop.mp4",
+        "bytes": 6022536
+      },
+      "mobile": {
+        "src": "media/optimized-current/life-capture.mobile.mp4",
+        "bytes": 3074132
+      },
+      "poster": "media/optimized-current/life-capture.jpg"
+    },
+    "media/dataset-showcase/motion.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/motion.desktop.mp4",
+        "bytes": 2018036
+      },
+      "mobile": {
+        "src": "media/optimized-current/motion.mobile.mp4",
+        "bytes": 991365
+      },
+      "poster": "media/optimized-current/motion.jpg"
+    },
+    "media/dataset-showcase/synchronized.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/synchronized.desktop.mp4",
+        "bytes": 1231884
+      },
+      "mobile": {
+        "src": "media/optimized-current/synchronized.mobile.mp4",
+        "bytes": 569758
+      },
+      "poster": "media/optimized-current/synchronized.jpg"
+    },
+    "media/dataset-showcase/vision.mp4": {
+      "desktop": {
+        "src": "media/optimized-current/vision.desktop.mp4",
+        "bytes": 2047778
+      },
+      "mobile": {
+        "src": "media/optimized-current/vision.mobile.mp4",
+        "bytes": 1054683
+      },
+      "poster": "media/optimized-current/vision.jpg"
     }
   }
 }

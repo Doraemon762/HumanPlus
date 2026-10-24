@@ -12,7 +12,6 @@ const NewsPage = lazy(() => import('./pages/NewsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const RecruitmentPage = lazy(() => import('./pages/RecruitmentPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
-const ApplicationPage = lazy(() => import('./pages/ApplicationPage'))
 const DatasetPage = lazy(() => import('./pages/DatasetPage'))
 const GlovePage = lazy(() => import('./pages/GlovePage'))
 const CapPage = lazy(() => import('./pages/CapPage'))
@@ -31,7 +30,6 @@ function renderRoute(path) {
   if (path === '/hardware/glove') return <GlovePage />
   if (path === '/hardware/cap') return <CapPage />
   if (path.startsWith('/hardware/')) return <ProductDetailPage id={path.slice('/hardware/'.length)} />
-  if (path === '/application') return <ApplicationPage />
   if (path === '/dataset') return <DatasetPage />
   // Legacy /products routes kept for backward-compatible deep links.
   if (path === '/products') return <ProductsPage />

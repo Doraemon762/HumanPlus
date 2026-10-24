@@ -15,11 +15,11 @@ export default function WeavePresentation() {
       <Reveal><h1>Weave</h1><h2>Capture motion<br />Wear naturally</h2><p>Garment-based full-body motion capture for human data and robot learning.</p><a href="#/contact">Request a Quote ↗</a></Reveal>
       <div className="weave-art"><Picture src="images/motion-0/weave-garment-set.png" alt="Weave capture jacket and trousers" /></div>
     </section>
+    <CapturePerformanceScroll />
     <section id="m0-features" className="weave-screen weave-sensors">
       <div className="weave-art"><Picture src="images/motion-0/weave-mannequin-front.png" alt="Mannequin wearing the Weave 11-IMU jacket and trousers" /></div>
       <Reveal><span className="weave-number">11 <small>IMUs</small></span><h2>Full-body sensing</h2><p>11 nine-axis inertial sensors capture whole-body movement.</p></Reveal>
     </section>
-    <CapturePerformanceScroll />
     <section className="weave-screen weave-accuracy">
       <Reveal><span className="weave-number">&lt; 2 <small>cm</small></span><h2>Pose accuracy</h2><p>Less than 2 cm pose error for high-accuracy motion reconstruction.</p></Reveal>
       <div className="weave-pair"><Picture src={root + 'tracking-person.jpg'} alt="Human motion capture" /><Picture src={root + 'tracking-robot.jpg'} alt="Robot reproducing captured movement" /></div>

@@ -107,7 +107,7 @@ function EditorialVideo({ src, poster }) {
       document.removeEventListener('visibilitychange', onVisibility)
     }
   }, [src])
-  return <video ref={ref} poster={poster} autoPlay muted playsInline loop preload="auto" disablePictureInPicture />
+  return <video ref={ref} poster={poster} autoPlay muted playsInline loop preload="metadata" disablePictureInPicture />
 }
 
 export default function ResearchEditorialSection() {
