@@ -11,7 +11,7 @@ export default function CatalogReader(){
   if(new URLSearchParams(location.hash.slice(1)).has('access'))history.replaceState(null,'',location.pathname)
   ;(async()=>{try{const r=await fetch('/media/catalog/manifest.json',{cache:'no-cache'});if(!r.ok)throw Error('暂时无法打开画册，请稍后重试。');setManifest(await r.json())}catch(e){setError(e.message||'暂时无法打开画册，请稍后重试。')}})()
  },[])
- useEffect(()=>{if(!manifest||!book.current)return;const f=new PageFlip(book.current,{width:555,height:780,size:'stretch',minWidth:240,maxWidth:1600,minHeight:337,maxHeight:2249,showCover:true,usePortrait:true,autoSize:true,drawShadow:true,maxShadowOpacity:.16,flippingTime:750,mobileScrollSupport:false,showPageCorners:true,useMouseEvents:true,swipeDistance:25,clickEventForward:true});flip.current=f;f.loadFromHTML(book.current.querySelectorAll('.catalog-leaf'));f.on('flip',e=>setPage(e.data));const key=e=>{if(e.target.closest('input,button,a,select'))return;if(e.key==='ArrowRight')f.flipNext();if(e.key==='ArrowLeft')f.flipPrev();if(e.key==='Escape')setZoom(false)};window.addEventListener('keydown',key);return()=>{window.removeEventListener('keydown',key);f.destroy();flip.current=null}},[manifest])
+ useEffect(()=>{if(!manifest||!book.current)return;const f=new PageFlip(book.current,{width:555,height:780,size:'stretch',minWidth:80,maxWidth:1600,minHeight:112,maxHeight:2249,showCover:true,usePortrait:true,autoSize:true,drawShadow:true,maxShadowOpacity:.16,flippingTime:750,mobileScrollSupport:false,showPageCorners:true,useMouseEvents:true,swipeDistance:25,clickEventForward:true});flip.current=f;f.loadFromHTML(book.current.querySelectorAll('.catalog-leaf'));const fit=()=>{const min=innerWidth<=700?240:80;f.getSettings().minWidth=min;book.current.style.minWidth=min+'px';f.update()};fit();window.addEventListener('resize',fit);f.on('flip',e=>setPage(e.data));const key=e=>{if(e.target.closest('input,button,a,select'))return;if(e.key==='ArrowRight')f.flipNext();if(e.key==='ArrowLeft')f.flipPrev();if(e.key==='Escape')setZoom(false)};window.addEventListener('keydown',key);return()=>{window.removeEventListener('keydown',key);window.removeEventListener('resize',fit);f.destroy();flip.current=null}},[manifest])
  // showCover keeps the single-cover spread, but its default hard density
  // is independent of that layout. Use flexible sheets for every page.
  useEffect(()=>{
@@ -62,13 +62,24 @@ export default function CatalogReader(){
   const reveal=()=>{
    el.classList.remove('catalog-ui-hidden')
    clearTimeout(timer)
-   timer=setTimeout(()=>{if(!el.querySelector('.catalog-header:hover,.catalog-footer:hover,.catalog-header:focus-within,.catalog-footer:focus-within'))el.classList.add('catalog-ui-hidden')},2200)
+   timer=setTimeout(()=>{if(!el.querySelector('.catalog-header:hover,.catalog-footer:hover,.catalog-header :focus-visible,.catalog-footer :focus-visible'))el.classList.add('catalog-ui-hidden')},1800)
   }
-  el.addEventListener('pointermove',reveal)
-  el.addEventListener('pointerdown',reveal)
-  el.addEventListener('keydown',reveal)
+  const move=e=>{
+   const box=el.getBoundingClientRect()
+   const top=el.querySelector('.catalog-header').offsetHeight+8
+   const bottom=el.querySelector('.catalog-footer').offsetHeight+8
+   if(e.clientY-box.top<=top||box.bottom-e.clientY<=bottom){reveal();return}
+   clearTimeout(timer)
+   timer=setTimeout(()=>el.classList.add('catalog-ui-hidden'),180)
+  }
+  const leave=()=>{clearTimeout(timer);el.classList.add('catalog-ui-hidden')}
+  const key=e=>{if(e.key==='Tab')reveal()}
+  el.addEventListener('pointermove',move)
+  el.addEventListener('pointerdown',move)
+  el.addEventListener('pointerleave',leave)
+  el.addEventListener('keydown',key)
   reveal()
-  return()=>{clearTimeout(timer);el.removeEventListener('pointermove',reveal);el.removeEventListener('pointerdown',reveal);el.removeEventListener('keydown',reveal)}
+  return()=>{clearTimeout(timer);el.removeEventListener('pointermove',move);el.removeEventListener('pointerdown',move);el.removeEventListener('pointerleave',leave);el.removeEventListener('keydown',key)}
  },[manifest])
  async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await shell.current.requestFullscreen()}catch{setError('当前浏览器不支持全屏，可使用放大阅读。')}}
  if(!manifest)return <div className="catalog-gate"><span className="catalog-brand"><img src={`/${site.logo}`} alt="HumanPlus"/></span><h1>客户产品画册</h1><p>{error||'正在打开画册…'}</p>{error&&<button onClick={()=>location.reload()}><RefreshCw size={16}/>重新打开</button>}</div>
