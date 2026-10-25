@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { PageFlip } from 'page-flip'
-import { ArrowLeft, ArrowRight, Maximize2, Minimize2, ZoomIn, X, RefreshCw, LockKeyhole } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Maximize2, Minimize2, ZoomIn, X, RefreshCw } from 'lucide-react'
 import './catalog.css'
 import { site } from '../data/site'
 export default function CatalogReader(){
@@ -8,8 +8,8 @@ export default function CatalogReader(){
  const book=useRef(null),flip=useRef(null),shell=useRef(null),started=useRef(false)
  useEffect(()=>{document.title='HumanPlus · 客户产品画册';const meta=document.createElement('meta');meta.name='robots';meta.content='noindex,nofollow,noarchive';document.head.append(meta)
   if(started.current)return;started.current=true
-  const key=new URLSearchParams(location.hash.slice(1)).get('access');if(key)history.replaceState(null,'',location.pathname)
-  ;(async()=>{try{if(key){const r=await fetch('/api/catalog',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key})});if(!r.ok)throw Error((await r.json()).error)}const r=await fetch('/api/catalog',{cache:'no-store'});if(!r.ok)throw Error((await r.json()).error);setManifest(await r.json())}catch(e){setError(e.message||'暂时无法打开画册，请稍后重试。')}})()
+  if(new URLSearchParams(location.hash.slice(1)).has('access'))history.replaceState(null,'',location.pathname)
+  ;(async()=>{try{const r=await fetch('/api/catalog',{cache:'no-store'});if(!r.ok)throw Error((await r.json()).error);setManifest(await r.json())}catch(e){setError(e.message||'暂时无法打开画册，请稍后重试。')}})()
  },[])
  useEffect(()=>{if(!manifest||!book.current)return;const f=new PageFlip(book.current,{width:555,height:780,size:'stretch',minWidth:240,maxWidth:1600,minHeight:337,maxHeight:2249,showCover:true,usePortrait:true,autoSize:true,drawShadow:true,maxShadowOpacity:.16,flippingTime:750,mobileScrollSupport:false,showPageCorners:true,useMouseEvents:true,swipeDistance:25,clickEventForward:true});flip.current=f;f.loadFromHTML(book.current.querySelectorAll('.catalog-leaf'));f.on('flip',e=>setPage(e.data));const key=e=>{if(e.target.closest('input,button,a,select'))return;if(e.key==='ArrowRight')f.flipNext();if(e.key==='ArrowLeft')f.flipPrev();if(e.key==='Escape')setZoom(false)};window.addEventListener('keydown',key);return()=>{window.removeEventListener('keydown',key);f.destroy();flip.current=null}},[manifest])
  // showCover keeps the single-cover spread, but its default hard density
@@ -71,7 +71,7 @@ export default function CatalogReader(){
   return()=>{clearTimeout(timer);el.removeEventListener('pointermove',reveal);el.removeEventListener('pointerdown',reveal);el.removeEventListener('keydown',reveal)}
  },[manifest])
  async function fullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await shell.current.requestFullscreen()}catch{setError('当前浏览器不支持全屏，可使用放大阅读。')}}
- if(!manifest)return <div className="catalog-gate"><span className="catalog-brand"><img src={`/${site.logo}`} alt="HumanPlus"/></span><LockKeyhole size={28}/><h1>客户产品画册</h1><p>{error||'正在验证访问链接…'}</p>{error&&<button onClick={()=>location.reload()}><RefreshCw size={16}/>重新打开</button>}</div>
+ if(!manifest)return <div className="catalog-gate"><span className="catalog-brand"><img src={`/${site.logo}`} alt="HumanPlus"/></span><h1>客户产品画册</h1><p>{error||'正在打开画册…'}</p>{error&&<button onClick={()=>location.reload()}><RefreshCw size={16}/>重新打开</button>}</div>
  return <div className="catalog-shell" ref={shell}>
   <header className="catalog-header"><div className="catalog-brand"><img src={`/${site.logo}`} alt="HumanPlus"/></div><div className="catalog-language" aria-label="手册语言"><span aria-current="true">中文</span><button disabled>English</button></div><div className="catalog-actions"><button onClick={()=>setZoom(true)} aria-label="放大当前页" title="放大当前页"><ZoomIn size={19}/></button><button onClick={fullscreen} aria-label={full?'退出全屏':'全屏阅读'} title="全屏阅读">{full?<Minimize2 size={19}/>:<Maximize2 size={19}/>}</button></div></header>
   <main className="catalog-main"><div className="catalog-stage"><div className="catalog-book" ref={book}>{manifest.pages.map((p,i)=><div className="catalog-leaf" key={p.file} data-density="soft"><div className="catalog-paper"><img src={`/api/catalog?asset=${p.file}&v=${manifest.version}`} alt={`产品手册第 ${i+1} 页：${p.title}`} draggable="false" onError={()=>setError('页面加载中断，请刷新重试。')}/>{p.links?.map((l,j)=><a key={j} href={l.url} target="_blank" rel="noreferrer" aria-label="打开页面链接" className="catalog-hotspot" style={{left:l.x+'%',top:l.y+'%',width:l.w+'%',height:l.h+'%'}}/>)}</div></div>)}</div></div>
