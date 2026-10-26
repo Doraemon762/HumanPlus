@@ -5,6 +5,8 @@
 .news-story-content{display:flex;flex-direction:column;height:100%}
 .news-story-grid .news-story-image{height:auto;aspect-ratio:3/2;flex-shrink:0}
 .news-story-grid .news-story-image img{width:100%;height:100%;object-fit:cover;object-position:center;transform:none}
+.news-story-grid .news-story-image{position:relative;aspect-ratio:16/9;min-height:0}
+.news-story-grid .news-story-image img{position:absolute;inset:0;max-width:none}
 .news-story--featured>.news-story-content{display:grid;grid-template-columns:1.15fr 1fr}
 .news-story h3,.news-showcase:not(.news-showcase--page) .news-story h3{font-size:clamp(16px,1.3vw,20px);line-height:1.45}
 .news-showcase-heading h1,.news-showcase-heading h2,.news-showcase:not(.news-showcase--page) .news-showcase-heading h2{font-size:clamp(26px,2.4vw,34px)}

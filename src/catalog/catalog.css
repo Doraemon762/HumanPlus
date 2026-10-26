@@ -13,6 +13,7 @@
 .catalog-ui-hidden .catalog-footer { opacity:0;transform:translateY(100%);pointer-events:none; }
 .catalog-ui-hidden .catalog-header:focus-within,.catalog-ui-hidden .catalog-footer:focus-within { opacity:1;transform:none;pointer-events:auto; }
 .catalog-paper>img { image-rendering:auto; }
+.catalog-language button[aria-pressed="true"]{background:#f4f4f4;font-weight:600}
 .catalog-empty-sheet { background:transparent!important;box-shadow:none!important;pointer-events:none; }
 @media(max-width:700px) { .catalog-main { padding:10px; }.catalog-stage { width:min(calc(100vw - 20px),calc((100dvh - 20px)*.7115)); }.catalog-header { height:56px; }.catalog-footer { min-height:58px; }.catalog-hint { display:none; } }
 @media(prefers-reduced-motion:reduce) { .catalog-header,.catalog-footer { transition:none; } }

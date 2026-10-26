@@ -19,7 +19,7 @@ export default defineConfig(({mode})=>{
       const out = output
       const manifest = JSON.parse(fs.readFileSync(path.join(root, 'public/media/catalog/manifest.json'), 'utf8'))
       const assets = new Set(['media/catalog/manifest.json', 'images/logo/logo-large.png'])
-      for (const page of manifest.pages) for (const field of ['preview', 'full']) assets.add(page[field].replace(/^\//, ''))
+      for (const edition of Object.values(manifest.languages||{zh:manifest})) for (const page of edition.pages) for (const field of ['preview', 'full']) assets.add(page[field].replace(/^\//, ''))
       for (const asset of assets) {
         const target = path.join(out, asset)
         fs.mkdirSync(path.dirname(target), { recursive: true })

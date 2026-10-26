@@ -2,6 +2,15 @@
 
 Canonical customer link: https://humanplusai.cn/catalog/
 
+This URL is permanent across PDF replacements. Chinese and English are selected
+inside the reader, not by sending customers to a new hosting URL.
+Update both editions with:
+`python scripts/update-catalog-bilingual.py "Chinese.pdf" "English.pdf"`.
+This requires pypdfium2, pypdf, Pillow, and sharp (or MEDIA_TOOLS_DIR).
+The public manifest keeps Chinese as its default and `languages.zh/en` for
+switching; each edition has content-hashed images to avoid stale PDF pages.
+Run `node scripts/check-catalog-bilingual.mjs` after converting.
+
 The catalogue is a real static directory in the same GitHub Pages deployment as
 the corporate website. It is not linked from the website navigation, has no
 access key, and has noindex metadata and targeted robots exclusions. Anyone with
