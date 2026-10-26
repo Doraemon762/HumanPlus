@@ -26,7 +26,7 @@ export const news = [
     category: 'Awards',
     publisher: 'HumanPlus Research',
     title: 'SIGGRAPH 2025 Best Paper Award: Transformer IMU Calibrator',
-    image: 'images/news/siggraph-plaque-wide.png',
+    image: 'images/news/siggraph-plaque-20261026.png',
     href: 'https://www.humanplus.xyz/siggraph-2025-zcx',
   },
 ]

@@ -2117,9 +2117,35 @@
           "bytes": 61352
         }
       ]
+    },
+    "images/news/siggraph-plaque-20261026.png": {
+      "width": 1536,
+      "height": 1024,
+      "variants": [
+        {
+          "src": "media/images/news/siggraph-plaque-20261026.png.480.webp",
+          "width": 480,
+          "bytes": 34768
+        },
+        {
+          "src": "media/images/news/siggraph-plaque-20261026.png.960.webp",
+          "width": 960,
+          "bytes": 113452
+        },
+        {
+          "src": "media/images/news/siggraph-plaque-20261026.png.1536.webp",
+          "width": 1536,
+          "bytes": 240380
+        }
+      ]
     }
   },
   "videos": {
+    "media/optimized-current/pulse-demo-20261026.desktop.mp4": {
+      "desktop": { "src": "media/optimized-current/pulse-demo-20261026.desktop.mp4", "bytes": 31625389 },
+      "mobile": { "src": "media/optimized-current/pulse-demo-20261026.mobile.mp4", "bytes": 8425333 },
+      "poster": "media/optimized-current/pulse-demo-20261026.jpg"
+    },
     "videos/demo/human-demo-1-1080.mp4": {
       "desktop": {
         "src": "media/videos/demo/human-demo-1-1080.desktop.mp4",

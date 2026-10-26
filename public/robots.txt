@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /catalog
+Disallow: /media/catalog/
