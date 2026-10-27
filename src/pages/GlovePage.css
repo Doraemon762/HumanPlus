@@ -39,6 +39,7 @@
 .glove-capabilities-grid,.glove-accuracy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
 .glove-capabilities-grid>div{position:relative;text-align:center}
 .glove-capability-number{display:block;color:#999;font-size:12px;margin-bottom:14px}
+.glove-comparison .glove-capabilities{width:auto;max-width:none;margin:0;min-height:calc(100svh - 72px);padding:60px var(--glove-inset);display:flex;flex-direction:column;justify-content:center}
 .glove-capabilities-grid h3,.glove-accuracy-grid h3{font-size:18px;font-weight:600;line-height:1.4;margin-bottom:14px}
 .glove-capabilities-grid p,.glove-accuracy-grid p{font-size:14px;color:#707075;line-height:1.8}
 .glove-accuracy{padding:52px 5%;background:white;border-radius:28px}

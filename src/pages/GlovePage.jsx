@@ -47,8 +47,8 @@ export default function GlovePage() {
         <div className="glove-model-image"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={count === 11 ? 'images/products/glove-pro.png' : 'images/products/glove-6imu.png'} alt={`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`} /></div>
         <h2>{count === 11 ? 'Glove Pro' : 'Glove'}</h2><p className="glove-config-label">{count}-IMU configuration</p><a className="glove-order" href="#/contact">Request a Quote ↗</a>
       </Reveal>)}</div>
+    <section className="glove-capabilities" aria-labelledby="glove-capabilities-title"><h2 id="glove-capabilities-title">Core capabilities</h2><div className="glove-capabilities-grid">{capabilities.map(([title, body, icon], index) => <Reveal key={title}><Icon type={icon}/><span className="glove-capability-number">0{index + 1}</span><h3>{title}</h3><p>{body}</p></Reveal>)}</div></section>
       <div className="glove-feature-comparison">{specifications.map(([label, icon, ...values]) => <div className="glove-feature-row" key={label}>{values.map(([value, ...details], index) => <div className="glove-spec-item" key={index} aria-label={`${versions[index]}-IMU ${label}`}><Icon type={icon}/><h3>{value}</h3><p className="glove-spec-detail">{details.join(' · ')}</p></div>)}</div>)}</div>
     </section>
-    <section className="glove-capabilities" aria-labelledby="glove-capabilities-title"><h2 id="glove-capabilities-title">Core capabilities</h2><div className="glove-capabilities-grid">{capabilities.map(([title, body, icon], index) => <Reveal key={title}><Icon type={icon}/><span className="glove-capability-number">0{index + 1}</span><h3>{title}</h3><p>{body}</p></Reveal>)}</div></section>
   </div>
 }

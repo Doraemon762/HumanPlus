@@ -60,7 +60,7 @@ const DeferredVideo = forwardRef(function DeferredVideo({ src, poster, priority 
     // Keep playback tied to actual visibility, not the prefetch margin.
     const prefetch = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { load(); prefetch.unobserve(video) }
-    }, { rootMargin: '300px' }) : null
+    }, { rootMargin: '800px' }) : null
     prefetch?.observe(video)
     const observer = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting && entry.intersectionRatio > 0

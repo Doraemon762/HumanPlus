@@ -4,12 +4,25 @@ import { ArrowLeft, ArrowRight, Maximize2, Minimize2, ZoomIn, X, RefreshCw } fro
 import './catalog.css'
 import { site } from '../data/site'
 import { fixCoverTransitions } from './coverTransitions'
+import { preloadPage } from './preloadPages'
+import ZoomPage from './ZoomPage'
 export default function CatalogReader(){
  const [catalog,setCatalog]=useState(null),[language,setLanguage]=useState('zh'),[error,setError]=useState(''),[page,setPage]=useState(0),[zoom,setZoom]=useState(false),[zoomPage,setZoomPage]=useState(0),[full,setFull]=useState(false)
  const manifest=catalog?.languages?.[language]||catalog
  const changeLanguage=lang=>{if(lang===language)return;setPage(0);setZoom(false);setError('');setLanguage(lang)}
  const book=useRef(null),flip=useRef(null),shell=useRef(null),started=useRef(false),gesture=useRef(null)
  const [direction,setDirection]=useState('next')
+ useEffect(()=>{
+  if(!manifest||navigator.connection?.saveData)return
+  let cancelled=false,timer
+  const warm=async()=>{
+   // Cache nearby previews first, then the rest, one request at a time.
+   const order=[...manifest.pages.keys()].sort((a,b)=>Math.abs(a-page)-Math.abs(b-page))
+   for(const index of order){if(cancelled)return;await preloadPage(manifest.pages[index].preview)}
+  }
+  timer=setTimeout(warm,700)
+  return()=>{cancelled=true;clearTimeout(timer)}
+ },[manifest,page])
  const turn=(forward)=>{const f=flip.current;if(!f||f.getState()!=='read')return;forward?f.flipNext():f.flipPrev()}
  const point=e=>{const box=e.currentTarget.getBoundingClientRect();setDirection(e.clientX<box.left+box.width/2?'prev':'next')}
  const begin=e=>{if(e.button!==0||e.target.closest('a,button,select'))return;gesture.current={x:e.clientX,y:e.clientY};e.currentTarget.setPointerCapture(e.pointerId)}
@@ -114,6 +127,6 @@ export default function CatalogReader(){
   <main className={`catalog-main catalog-turn-${direction}`} onPointerMove={point} onPointerDown={begin} onPointerUp={finish} onPointerCancel={()=>{gesture.current=null}}><div className="catalog-stage"><div className="catalog-book" ref={book} key={language}>{manifest.pages.map((p,i)=><div className="catalog-leaf" key={p.file} data-density="soft"><div className="catalog-paper"><img src={Math.abs(i-page)<=3 ? p.preview : undefined} decoding="async" fetchpriority={i===page?"high":"low"} alt={`产品手册第 ${i+1} 页：${p.title}`} draggable="false" onError={()=>setError('页面加载中断，请刷新重试。')}/>{p.links?.map((l,j)=><a key={j} href={l.url} target="_blank" rel="noreferrer" aria-label="打开页面链接" className="catalog-hotspot" style={{left:l.x+'%',top:l.y+'%',width:l.w+'%',height:l.h+'%'}}/>)}</div></div>)}</div></div>
    {error&&<p className="catalog-error" role="alert">{error}</p>}
   </main><footer className="catalog-footer"><nav className="catalog-controls" aria-label="画册翻页"><button onClick={()=>flip.current?.flipPrev()} disabled={page===0} aria-label="上一页"><ArrowLeft size={19}/></button><span aria-live="polite">{String(page+1).padStart(2,'0')}<i>/</i>{String(manifest.pages.length).padStart(2,'0')}</span><button onClick={()=>flip.current?.flipNext()} disabled={page>=manifest.pages.length-1} aria-label="下一页"><ArrowRight size={19}/></button></nav><select value={page} onChange={e=>flip.current?.flip(Number(e.target.value))} aria-label="跳转页面">{manifest.pages.map((p,i)=><option key={i} value={i}>{String(i+1).padStart(2,'0')} · {p.title}</option>)}</select></footer>
-  {zoom&&<div className={`catalog-zoom catalog-turn-${direction}`} role="dialog" aria-modal="true" aria-label="放大阅读" onPointerMove={point} onClick={e=>{if(e.target.closest('button,a'))return;const box=e.currentTarget.getBoundingClientRect();const next=zoomPage+(e.clientX<box.left+box.width/2?-1:1);if(next>=0&&next<manifest.pages.length){setZoomPage(next);flip.current?.turnToPage(next)}}}><button className="catalog-close" onClick={()=>setZoom(false)} aria-label="关闭放大"><X/></button><img src={manifest.pages[zoomPage].full} alt={`第${zoomPage+1}页放大`} draggable="false"/></div>}
+  {zoom&&<div className={`catalog-zoom catalog-turn-${direction}`} role="dialog" aria-modal="true" aria-label="放大阅读" onPointerMove={point} onClick={e=>{if(e.target.closest('button,a'))return;const box=e.currentTarget.getBoundingClientRect();const next=zoomPage+(e.clientX<box.left+box.width/2?-1:1);if(next>=0&&next<manifest.pages.length){setZoomPage(next);flip.current?.turnToPage(next)}}}><button className="catalog-close" onClick={()=>setZoom(false)} aria-label="关闭放大"><X/></button><ZoomPage key={language+zoomPage} page={manifest.pages[zoomPage]} index={zoomPage}/></div>}
  </div>
 }

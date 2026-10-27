@@ -3,18 +3,20 @@ import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
 import useHashRoute from './hooks/useHashRoute'
 import useSiteMotion from './hooks/useSiteMotion'
-const HomePage = lazy(() => import('./pages/HomePage'))
-const ProductsPage = lazy(() => import('./pages/ProductsPage'))
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'))
-const ResearchPage = lazy(() => import('./pages/ResearchPage'))
-const RobotPage = lazy(() => import('./pages/RobotPage'))
-const NewsPage = lazy(() => import('./pages/NewsPage'))
-const ContactPage = lazy(() => import('./pages/ContactPage'))
-const RecruitmentPage = lazy(() => import('./pages/RecruitmentPage'))
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
-const DatasetPage = lazy(() => import('./pages/DatasetPage'))
-const GlovePage = lazy(() => import('./pages/GlovePage'))
-const CapPage = lazy(() => import('./pages/CapPage'))
+import useRouteWarmup from './hooks/useRouteWarmup'
+import {routeLoaders} from './routeLoaders'
+const HomePage = lazy(routeLoaders.home)
+const ProductsPage = lazy(routeLoaders.hardware)
+const ProductDetailPage = lazy(routeLoaders.product)
+const ResearchPage = lazy(routeLoaders.research)
+const RobotPage = lazy(routeLoaders.robot)
+const NewsPage = lazy(routeLoaders.news)
+const ContactPage = lazy(routeLoaders.contact)
+const RecruitmentPage = lazy(routeLoaders.careers)
+const NotFoundPage = lazy(routeLoaders.notFound)
+const DatasetPage = lazy(routeLoaders.dataset)
+const GlovePage = lazy(routeLoaders.glove)
+const CapPage = lazy(routeLoaders.cap)
 
 /* ── Route table ──────────────────────────────────────────────────
    /                      home overview
@@ -49,6 +51,7 @@ function renderRoute(path) {
 export default function App() {
   const path = useHashRoute()
   useSiteMotion(path)
+  useRouteWarmup(path)
 
   /* New route = new page: always start at the top. */
   useEffect(() => {
