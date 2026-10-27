@@ -25,17 +25,20 @@
 .weave-care .weave-art img { max-height: min(68svh,650px); }
 .weave-wash { background: #f1f2f4; }
 .weave-wash .weave-pair img { border-radius: 18px; }
-.weave-capabilities { grid-template-columns: 1fr; align-content: center; gap: 54px; background: #eceef0; }
+.weave-capabilities { grid-template-columns: 1fr; align-content: center; gap: 54px; background: #fff; text-align: center; }
 .weave-capabilities-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
 .weave-capabilities-grid svg { width: 36px; height: 36px; color: #9299a1; stroke-width: 1.5; margin-bottom: 22px; }
 .weave-capabilities-grid h3 { font-size: clamp(20px, 2vw, 27px); line-height: 1.3; font-weight: 600; letter-spacing: -.025em; margin: 0; }
 .weave-capabilities-grid p { font-size: 16px; margin-top: 18px; }
 .weave-capabilities-grid > div { display: grid; grid-template-rows: 42px minmax(2.6em, auto) auto; align-content: start; row-gap: 22px; }
-.weave-capability-marker { display: flex; align-items: center; gap: 18px; height: 42px; color: #9299a1; }
-.weave-capabilities-grid .weave-capability-marker svg { width: 36px; height: 36px; margin: 0; flex-shrink: 0; color: #bdcbdc; }
+.weave-capability-marker { display: flex; justify-content: center; align-items: center; height: 42px; color: #9299a1; }
+.weave-capabilities-grid .weave-capability-marker svg { width: 32px; height: 32px; margin: 0; flex-shrink: 0; color: #909295; }
 .weave-capability-marker span { font-size: 36px; line-height: 1; font-weight: 600; letter-spacing: -.04em; }
 .weave-capabilities-grid h3 { min-height: 2.6em; }
 .weave-capabilities-grid p { margin-top: 0; }
+.weave-capabilities > .reveal h2 { font-size: clamp(25px, 3vw, 38px); font-weight: 650; letter-spacing: -.035em; }
+.weave-capabilities-grid h3 { font-size: 22px; }
+.weave-capabilities-grid p { font-size: 14px; line-height: 1.8; color: #707075; }
 @media(max-width:767px) { .weave-capabilities-grid > div { grid-template-rows: 42px auto auto; row-gap: 16px; }.weave-capabilities-grid h3 { min-height: 0; } }
 @media(max-width:767px) { .weave-capabilities-grid { grid-template-columns: 1fr; gap: 30px; }.weave-capabilities-grid svg { margin-bottom: 12px; } }
 .weave-page .mzpt-section,.weave-page .mzs-section { min-height: calc(100svh - 72px); scroll-margin-top: 72px; }

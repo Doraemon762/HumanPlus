@@ -73,7 +73,17 @@
 .pulse-specs--with-art dt { color: #3a3a3a; font-weight: 500; }
 .pulse-specs--with-art dd { color: #000; font-weight: 650; overflow-wrap: anywhere; }
 .pulse-specs-layout > div { min-width: 0; }
-.pulse-specs-art { margin: 0; min-width: 0; align-self: start; position: sticky; top: 120px; display: grid; place-items: center; min-height: 320px; }
+.pulse-specs-art { margin: 0; min-width: 0; align-self: center; position: static; display: grid; place-items: center; min-height: 320px; }
 .pulse-specs-art img { display: block; width: 100%; height: auto; max-height: 62svh; object-fit: contain; filter: drop-shadow(0 24px 24px #28334115); }
 @media(max-width:767px) { .pulse-specs-layout { grid-template-columns: 1fr; gap: 36px; }.pulse-specs-art { order: -1; position: static; margin: 0; }.pulse-specs-art img { max-height: 35svh; } }
 @media(max-width:767px) { .pulse-hero,.pulse-feature { grid-template-columns: 1fr; padding: 60px 7vw; }.pulse-hero img { width: 110%; }.pulse-highlights { gap: 16px; padding: 50px 6vw; }.pulse-highlights strong { font-size: 40px; }.pulse-highlights strong span { display: block; margin: 5px 0; font-size: 16px; }.pulse-highlights p { font-size: 12px; }.pulse-data-grid { grid-template-columns: 1fr; gap: 35px; }.pulse-data,.pulse-demo-space,.pulse-specs { padding: 65px 7vw; }.pulse-feature p:not(.pulse-eyebrow) { font-size: 16px; }.pulse-specs dl>div { font-size: 14px; gap: 16px; } }
+/* Centered capability layout shared with the hand reconstruction metrics. */
+.pulse-page .pulse-data { background: #fff; text-align: center; }
+.pulse-data h2 { font-size: clamp(25px,3vw,38px); line-height: 1.25; font-weight: 650; letter-spacing: -.035em; }
+.pulse-data-grid { margin-top: 54px; }
+.pulse-feature-icon-row { justify-content: center; height: 42px; }
+.pulse-data-grid .pulse-feature-icon { width: 32px; height: 32px; filter: grayscale(1); opacity: .85; }
+.pulse-data-grid h3 { font-size: 22px; font-weight: 600; min-height: 2.8em; margin-top: 22px; }
+.pulse-data-grid p { font-size: 14px; color: #707075; margin-top: 14px; }
+@media(max-width:767px) { .pulse-data-grid h3 { min-height: 0; } }
+.pulse-feature-icon-row svg{width:32px;height:32px;color:#909295;stroke-width:1.5}

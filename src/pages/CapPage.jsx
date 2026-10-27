@@ -37,7 +37,7 @@ export default function CapPage() {
         ['Everyday wear', 'An adjustable ergonomic fit supports comfortable, stable wear during everyday movement.', 'users'],
         ['Rapid deployment', 'A straightforward setup and USB 3.0 interface simplify the capture workflow.', 'hard-drive-upload'],
         ['Real-time recording', 'Record first-person video and head movement in real time, with quaternion and video output.', 'hard-drive-upload'],
-      ].map(([title, detail, icon], index) => <Reveal key={title}><div className="pulse-feature-icon-row"><OptimizedImage className="pulse-feature-icon" src={`images/icons/manual/${icon}.svg`} alt="" aria-hidden="true"/><span>0{index + 1}</span></div><h3>{title}</h3><p>{detail}</p></Reveal>)}</div>
+      ].map(([title, detail, icon], index) => <Reveal key={title}><div className="pulse-feature-icon-row"><OptimizedImage className="pulse-feature-icon" src={`images/icons/manual/${icon}.svg`} alt="" aria-hidden="true"/></div><h3>{title}</h3><p>{detail}</p></Reveal>)}</div>
     </section>
     <section className="pulse-specs cap-specifications"><Reveal as="h2">Technical specifications</Reveal><dl>{specifications.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><a className="pulse-contact" href="#/contact">Request a Quote ↗</a></section>
   </div>

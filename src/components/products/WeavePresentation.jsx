@@ -42,7 +42,7 @@ export default function WeavePresentation() {
         [HardDriveUpload, 'Standardized data output', 'Real-time BVH streaming with visualization support.'],
         [Bluetooth, 'Rapid deployment and synchronization', 'Connect over Bluetooth without a dedicated receiver. The jacket and trousers share a unified time reference.'],
         [Users, 'Multi-user capture', 'Capture multiple users simultaneously in the same space.'],
-      ].map(([Icon, title, description], index) => <Reveal key={title}><div className="weave-capability-marker"><Icon aria-hidden="true"/><span>0{index + 1}</span></div><h3>{title}</h3><p>{description}</p></Reveal>)}</div>
+      ].map(([Icon, title, description], index) => <Reveal key={title}><div className="weave-capability-marker"><Icon aria-hidden="true"/></div><h3>{title}</h3><p>{description}</p></Reveal>)}</div>
     </section>
   </>
 }

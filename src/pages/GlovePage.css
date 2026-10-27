@@ -39,7 +39,7 @@
 .glove-capabilities-grid,.glove-accuracy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
 .glove-capabilities-grid>div{position:relative;text-align:center}
 .glove-capability-number{display:block;color:#999;font-size:12px;margin-bottom:14px}
-.glove-comparison .glove-capabilities{width:auto;max-width:none;margin:0;min-height:calc(100svh - 72px);padding:60px var(--glove-inset);display:flex;flex-direction:column;justify-content:center}
+.glove-page > .glove-capabilities{width:100%;max-width:none;margin:64px 0 0;min-height:calc(100svh - 72px);padding:60px 8vw;background:#fff;display:flex;flex-direction:column;justify-content:center}
 .glove-capabilities-grid h3,.glove-accuracy-grid h3{font-size:18px;font-weight:600;line-height:1.4;margin-bottom:14px}
 .glove-capabilities-grid p,.glove-accuracy-grid p{font-size:14px;color:#707075;line-height:1.8}
 .glove-accuracy{padding:52px 5%;background:white;border-radius:28px}
@@ -50,3 +50,4 @@
 @media(max-width:650px){.glove-page{padding:105px 18px 50px;--glove-inset:12px;--glove-gap:20px}.glove-heading{margin-bottom:35px}.glove-heading .glove-intro-line{font-size:12px}.glove-heading .glove-intro{font-size:14px;text-align:left}.glove-models{padding:24px var(--glove-inset) 28px;border-radius:22px}.glove-model-image{height:210px;margin-bottom:15px}.glove-model h2{font-size:26px}.glove-config-label{font-size:12px}.glove-order{font-size:11px;padding:10px 12px}.glove-feature-comparison{padding:38px var(--glove-inset) 0}.glove-feature-row{margin-bottom:42px}.glove-feature-row .glove-spec-detail,.glove-feature-row .glove-spec-label{font-size:12px}.glove-page svg{width:30px;height:30px}.glove-capabilities-grid,.glove-accuracy-grid{grid-template-columns:1fr;gap:32px}.glove-capabilities,.glove-accuracy{margin-top:55px}.glove-accuracy{padding:35px 22px}.glove-capabilities-grid p{max-width:420px;margin:auto}}
 @media(max-width:650px){.glove-page{padding:72px 0 50px}.glove-heading{grid-template-columns:1fr;margin:0;padding:40px 7vw;gap:28px}.glove-heading .glove-hero-art{height:40svh}.glove-hero-art img{max-height:40svh}.glove-page .glove-accuracy{padding:48px 7vw}.glove-comparison,.glove-capabilities{width:90%}}
 @media(max-width:650px){.glove-feature-row{padding:18px 0;margin-bottom:0}.glove-spec-item h3{font-size:17px}.glove-feature-row .glove-spec-detail{font-size:12px}.glove-feature-comparison{padding-top:18px}}
+.glove-capabilities-grid svg{display:block;margin:0 auto 24px;color:#909295}

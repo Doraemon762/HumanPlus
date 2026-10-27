@@ -1,3 +1,4 @@
+import { HardDriveUpload, Wifi, Users } from 'lucide-react'
 import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 import DeferredVideo from '../ui/DeferredVideo'
@@ -32,7 +33,7 @@ export default function StrapZeroHero() {
       ['Real-time BVH', 'Stream motion data through UDP in a standardized BVH workflow.'],
       ['Wi-Fi, simplified', 'Connect through a standard 2.4 GHz Wi-Fi router. No dedicated receiver is required.'],
       ['Multi-user capture', 'Record multiple users on the same local network, with synchronized sensing for each wearer.'],
-    ].map(([title, copy], index) => <Reveal key={title}><div className="pulse-feature-icon-row"><OptimizedImage className="pulse-feature-icon" src={`images/icons/manual/${['hard-drive-upload', 'wifi', 'users'][index]}.svg`} alt="" aria-hidden="true" /><span>0{index + 1}</span></div><h3>{title}</h3><p>{copy}</p></Reveal>)}</div></section>
+    ].map(([title, copy], index) => <Reveal key={title}><div className="pulse-feature-icon-row">{[<HardDriveUpload key="output"/>, <Wifi key="wifi"/>, <Users key="users"/>][index]}</div><h3>{title}</h3><p>{copy}</p></Reveal>)}</div></section>
     <section className="pulse-specs pulse-specs--with-art"><Reveal as="h2">Technical specifications</Reveal><div className="pulse-specs-layout"><div><dl>{specs.map(([key, value]) => <div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><a className="pulse-contact" href={toHref('/contact')}>Request a Quote ↗</a></div><figure className="pulse-specs-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={image} alt="Pulse IMU sensor and wearable strap" loading="lazy" /></figure></div></section>
   </div>
 }

@@ -155,7 +155,10 @@
     color: #ffffff;
   }
 
-  /* Light scrollbar — flipped from the dark theme's track/thumb */
+  /* Neutral scrollbars across pages and scrollable panels. */
+  * {
+    scrollbar-color: #b8b8b8 #f5f5f5;
+  }
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -163,11 +166,11 @@
     background: #f5f5f5;
   }
   ::-webkit-scrollbar-thumb {
-    background: #d0d0d0;
+    background: #b8b8b8;
     border-radius: 8px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #5a9cfc;
+    background: #969696;
   }
 }
 
