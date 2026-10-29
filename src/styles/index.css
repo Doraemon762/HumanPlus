@@ -467,3 +467,59 @@ html.site-smooth-motion body { scroll-behavior: auto !important; }
 html.site-smooth-motion .reveal { transition-duration: 1.5s; transition-timing-function: cubic-bezier(.16, 1, .3, 1); }
 html.site-smooth-motion .reveal:not(.in) { transform: translateY(28px); }
 @media (prefers-reduced-motion: reduce) { html.site-smooth-motion .reveal { transition: none; } }
+
+/* Chinese web copy: lighter density, without changing English typography. */
+html:lang(zh-CN) :is(.weave-screen h2,.glove-heading h2) { font-size:clamp(28px,3.6vw,56px); line-height:1.35; letter-spacing:-.025em; }
+html:lang(zh-CN) .pulse-hero .pulse-lead { font-size:clamp(24px,2.7vw,42px); line-height:1.4; letter-spacing:-.02em; }
+html:lang(zh-CN) .capture-performance-words { font-size:clamp(38px,5.4vw,78px); line-height:1.4; letter-spacing:-.025em; }
+html:lang(zh-CN) .capture-performance-copy h2 { font-size:clamp(26px,3.1vw,46px); line-height:1.35; }
+html:lang(zh-CN) :is(.weave-screen p,.pulse-sub,.pulse-feature p,.glove-intro,.capture-performance-copy p) { font-size:clamp(14px,1.25vw,18px); line-height:1.95; }
+html:lang(zh-CN) :is(.weave-capabilities-grid p,.pulse-data-grid p,.glove-capabilities-grid p,.glove-accuracy-grid p) { font-size:14px; line-height:1.95; }
+
+/* Prevent grid intrinsic widths and oversized media from intruding on copy. */
+:is(.weave-screen,.pulse-hero,.pulse-feature,.pulse-specs-layout,.mzs-content,.glove-heading) > * { min-width:0; }
+:is(.weave-screen,.pulse-page,.glove-page,.mzs-section) :is(h1,h2,h3,p,dt,dd) { overflow-wrap:break-word; }
+.pulse-hero > img { width:100%; max-width:100%; transform:none; }
+@media (min-width:768px) and (max-width:1023px) {
+  .weave-page .weave-screen,.pulse-page .pulse-hero,.pulse-page .pulse-feature,.glove-page .glove-heading,.pulse-page .pulse-specs-layout,.weave-page .mzs-content { grid-template-columns:minmax(0,1fr); gap:36px; }
+  .weave-screen,.pulse-hero,.pulse-feature,.glove-heading { min-height:auto; padding-top:56px; padding-bottom:56px; }
+  .weave-art,.glove-hero-art { height:clamp(280px,48svh,520px); }
+  .pulse-hero > img { max-height:48svh; object-fit:contain; }
+  .pulse-specs-art { position:static; }
+  .weave-capabilities-grid,.pulse-data-grid,.glove-capabilities-grid,.glove-accuracy-grid { grid-template-columns:minmax(0,1fr); gap:36px; }
+}
+@media (max-width:767px) {
+  .pulse-hero > img { width:100%; max-width:100%; transform:none; }
+  .glove-spec-item h3 { overflow-wrap:anywhere; }
+}
+
+/* All top-level navigation items share one text box and baseline. */
+.site-nav > div > ul > li { display:flex; align-items:center; }
+.site-nav > div > ul > li > a {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:36px;
+  padding-top:0;
+  padding-bottom:0;
+  font-family:Inter,'Helvetica Neue',Arial,sans-serif !important;
+  font-size:12px;
+  font-weight:500 !important;
+  line-height:20px;
+  letter-spacing:.14em;
+  white-space:nowrap;
+}
+.site-nav > div > ul > li > a > svg { display:block; flex:none; align-self:center; }
+html:lang(zh-CN) .site-nav > div > ul > li > a {
+  font-family:'Source Han Sans SC',Inter,sans-serif !important;
+  font-size:12px;
+  line-height:20px;
+  letter-spacing:.1em;
+}
+
+/* Chinese navigation has its own optical sizing instead of matching Latin metrics. */
+html:lang(zh-CN) .site-nav > div > ul > li > a {
+  font-size:14px;
+  line-height:22px;
+  letter-spacing:.14em;
+}

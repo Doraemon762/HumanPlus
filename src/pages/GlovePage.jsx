@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../i18n'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import Reveal from '../components/ui/Reveal'
 import './GlovePage.css'
@@ -19,6 +20,7 @@ const capabilities = [
   ['Bimanual & multi-user capture', 'Capture both hands and multiple users simultaneously on one local network, with straightforward integration into data collection, algorithm training and application systems.', 'users'],
 ]
 function Icon({ type }) {
+  useSiteLanguage()
   const paths = {
     cpu: <><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/></>,
     clock: <><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></>,
@@ -32,24 +34,25 @@ function Icon({ type }) {
     rotation: <><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="m18 8 4 4-4 2"/></>,
     vertices: <><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/><circle cx="12" cy="12" r="2"/></>,
   }
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[type]}</svg>
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{translate(paths[type])}</svg>
 }
 export default function GlovePage() {
+  useSiteLanguage()
   return <div className="glove-page">
-    <header className="glove-heading"><Reveal><h1>Glove</h1><h2>Hand motion<br />In every detail</h2><p className="glove-intro">Glove with 6 IMUs and Glove Pro with 11 IMUs. Capture hand movement in real time over Wi-Fi.</p><a className="glove-order" href="#/contact">Request a Quote ↗</a></Reveal><div className="glove-hero-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/glove-pro.png" alt="Glove Pro with 11 inertial sensors" fetchPriority="high" /></div></header>
-    <section className="glove-accuracy" aria-labelledby="glove-accuracy-title"><h2 id="glove-accuracy-title">6-IMU hand pose reconstruction accuracy</h2><div className="glove-accuracy-grid">{[
+    <header className="glove-heading"><Reveal><h1>{translate("Glove")}</h1><h2>{translate("Hand motion")}<br />{translate("In every detail")}</h2><p className="glove-intro">{translate("Glove with 6 IMUs and Glove Pro with 11 IMUs. Capture hand movement in real time over Wi-Fi.")}</p><a className="glove-order" href="#/contact">{translate("Contact Us ↗")}</a></Reveal><div className="glove-hero-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/glove-pro-updated.png" alt={translate("Glove Pro with 11 inertial sensors")} fetchPriority="high" /></div></header>
+    <section className="glove-accuracy" aria-labelledby="glove-accuracy-title"><h2 id="glove-accuracy-title">{translate("6-IMU hand pose reconstruction accuracy")}</h2><div className="glove-accuracy-grid">{[
       ['4.8°', 'Mean rotation error', 'Mean geodesic SO(3) error across 16 hand joints.', 'rotation'],
       ['3.26 mm', 'MPJPE', '21-joint error computed with MANO forward kinematics after fixing the root.', 'size'],
       ['3.15 mm', 'MPVPE', '778-vertex error computed with MANO forward kinematics after fixing the root.', 'vertices'],
-    ].map(([value, label, detail, icon]) => <div key={label}><Icon type={icon}/><strong>{value}</strong><h3>{label}</h3><p>{detail}</p></div>)}</div></section>
-    <section id="glove-compare" className="glove-comparison" aria-label="Compare Glove configurations">
+    ].map(([value, label, detail, icon]) => <div key={label}><Icon type={icon}/><strong>{translate(value)}</strong><h3>{translate(label)}</h3><p>{translate(detail)}</p></div>)}</div></section>
+    <section id="glove-compare" className="glove-comparison" aria-label={translate("Compare Glove configurations")}>
       <div className="glove-models">{versions.map(count => <Reveal key={count} className="glove-model">
-        <div className="glove-model-image"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={count === 11 ? 'images/products/glove-pro.png' : 'images/products/glove-6imu.png'} alt={`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`} /></div>
-        <h2>{count === 11 ? 'Glove Pro' : 'Glove'}</h2><p className="glove-config-label">{count}-IMU configuration</p><a className="glove-order" href="#/contact">Request a Quote ↗</a>
+        <div className="glove-model-image"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={count === 11 ? 'images/products/glove-pro-updated.png' : 'images/products/glove-6imu.png'} alt={translate(`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`)} /></div>
+        <h2>{translate(count === 11 ? 'Glove Pro' : 'Glove')}</h2><p className="glove-config-label">{translate(count)}{translate("-IMU configuration")}</p><a className="glove-order" href="#/contact">{translate("Contact Us ↗")}</a>
       </Reveal>)}</div>
 
-      <div className="glove-feature-comparison">{specifications.map(([label, icon, ...values]) => <div className="glove-feature-row" key={label}>{values.map(([value, ...details], index) => <div className="glove-spec-item" key={index} aria-label={`${versions[index]}-IMU ${label}`}><Icon type={icon}/><h3>{value}</h3><p className="glove-spec-detail">{details.join(' · ')}</p></div>)}</div>)}</div>
+      <div className="glove-feature-comparison">{specifications.map(([label, icon, ...values]) => <div className="glove-feature-row" key={label}>{values.map(([value, ...details], index) => <div className="glove-spec-item" key={index} aria-label={translate(`${versions[index]}-IMU ${label}`)}><Icon type={icon}/><h3>{translate(value)}</h3><p className="glove-spec-detail">{translate(details.join(' · '))}</p></div>)}</div>)}</div>
     </section>
-    <section className="glove-capabilities" aria-labelledby="glove-capabilities-title"><h2 id="glove-capabilities-title">Core capabilities</h2><div className="glove-capabilities-grid">{capabilities.map(([title, body, icon], index) => <Reveal key={title}><Icon type={icon}/><h3>{title}</h3><p>{body}</p></Reveal>)}</div></section>
+    <section className="glove-capabilities" aria-labelledby="glove-capabilities-title"><h2 id="glove-capabilities-title">{translate("Core capabilities")}</h2><div className="glove-capabilities-grid">{capabilities.map(([title, body, icon], index) => <Reveal key={title}><Icon type={icon}/><h3>{translate(title)}</h3><p>{translate(body)}</p></Reveal>)}</div></section>
   </div>
 }

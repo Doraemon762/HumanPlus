@@ -1,6 +1,8 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useEffect, useRef } from 'react'
 
 export default function PulseExploded() {
+  useSiteLanguage()
   const track = useRef(null)
   const video = useRef(null)
   useEffect(() => {
@@ -36,9 +38,9 @@ export default function PulseExploded() {
     update()
     return () => { observer.disconnect(); cancelAnimationFrame(frame); media.removeEventListener('loadeddata', schedule); media.removeEventListener('seeked', schedule); removeEventListener('scroll', update); removeEventListener('resize', update); reduced.removeEventListener('change', update) }
   }, [])
-  return <section ref={track} className="pulse-exploded-scroll" aria-label="Inside Pulse: scroll to explore the sensor assembly">
+  return <section ref={track} className="pulse-exploded-scroll" aria-label={translate("Inside Pulse: scroll to explore the sensor assembly")}>
     <div className="pulse-exploded-stage">
-      <div className="pulse-exploded-media"><video ref={video} poster="media/pulse-exploded/poster.jpg" muted playsInline preload="auto" controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={event => event.preventDefault()} aria-label="Exploded view of the Pulse IMU sensor, controlled by scrolling" /></div>
+      <div className="pulse-exploded-media"><video ref={video} poster="media/pulse-exploded/poster.jpg" muted playsInline preload="auto" controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={event => event.preventDefault()} aria-label={translate("Exploded view of the Pulse IMU sensor, controlled by scrolling")} /></div>
     </div>
   </section>
 }

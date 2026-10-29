@@ -137,3 +137,6 @@
  .about-timeline-phase:first-of-type .about-timeline-sticky { top: auto; }
  .about-timeline-project.is-covered { clip-path: none; pointer-events: auto; }
 }
+
+/* Chinese caption uses natural character spacing; English stays tightly set. */
+html:lang(zh-CN) .about-timeline-video-caption { letter-spacing:normal; }

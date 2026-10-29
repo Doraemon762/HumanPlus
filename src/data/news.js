@@ -1,4 +1,6 @@
-// Dates, publishers and article links supplied by the user; headlines translated into English.
+// English editorial headlines remain unchanged. Chinese originals in i18n/zh.json:
+// WeChat headlines confirmed verbatim by the user on 2026-10-29; award title
+// checked against the linked paper page heading (not its generic document title).
 export const news = [
   {
     id: 'clotho-2026',
@@ -27,6 +29,6 @@ export const news = [
     publisher: 'HumanPlus Research',
     title: 'SIGGRAPH 2025 Best Paper Award: Transformer IMU Calibrator',
     image: 'images/news/siggraph-plaque-20261026.png',
-    href: 'https://www.humanplus.xyz/siggraph-2025-zcx',
+    href: 'https://mp.weixin.qq.com/s/Ui-4y6i0mhQTys5uRffEFg',
   },
 ]

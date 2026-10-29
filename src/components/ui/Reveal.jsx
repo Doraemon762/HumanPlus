@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import useReveal from '../../hooks/useReveal'
 
 /**
@@ -5,6 +6,7 @@ import useReveal from '../../hooks/useReveal'
  * (0.1s each), matching the HumanPlus-1000 reveal system.
  */
 export default function Reveal({ as: Tag = 'div', delay = 0, className = '', children, ...rest }) {
+  useSiteLanguage()
   const [ref, inView] = useReveal()
   const classes = ['reveal', delay > 0 ? `reveal-delay-${delay}` : '', inView ? 'in' : '', className]
     .filter(Boolean)
@@ -12,7 +14,7 @@ export default function Reveal({ as: Tag = 'div', delay = 0, className = '', chi
 
   return (
     <Tag ref={ref} className={classes} {...rest}>
-      {children}
+      {translate(children)}
     </Tag>
   )
 }

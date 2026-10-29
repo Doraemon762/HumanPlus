@@ -51,3 +51,13 @@
 @media(max-width:650px){.glove-page{padding:72px 0 50px}.glove-heading{grid-template-columns:1fr;margin:0;padding:40px 7vw;gap:28px}.glove-heading .glove-hero-art{height:40svh}.glove-hero-art img{max-height:40svh}.glove-page .glove-accuracy{padding:48px 7vw}.glove-comparison,.glove-capabilities{width:90%}}
 @media(max-width:650px){.glove-feature-row{padding:18px 0;margin-bottom:0}.glove-spec-item h3{font-size:17px}.glove-feature-row .glove-spec-detail{font-size:12px}.glove-feature-comparison{padding-top:18px}}
 .glove-capabilities-grid svg{display:block;margin:0 auto 24px;color:#909295}
+
+/* Extend the final white stage through the page edge and footer boundary. */
+.glove-page { padding-bottom:0; background:#fff; }
+.glove-page > .glove-capabilities {
+  width:100%;
+  max-width:none;
+  min-height:calc(100svh - 72px);
+  margin-bottom:0;
+  box-sizing:border-box;
+}

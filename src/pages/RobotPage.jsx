@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../i18n'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import DeferredVideo from '../components/ui/DeferredVideo'
 import { useEffect, useRef, useState } from 'react'
@@ -28,6 +29,7 @@ const easeInOutCubic = (t) =>
  *   3. (future content) — room left below for additional sections.
  */
 export default function RobotPage() {
+  useSiteLanguage()
   const heroImg = import.meta.env.BASE_URL + 'images/robot/robot.png'
   const humanVideo = import.meta.env.BASE_URL + 'videos/robot/human-soccer.mp4'
   const robotVideo = import.meta.env.BASE_URL + 'videos/robot/robot-soccer.mp4'
@@ -147,15 +149,13 @@ export default function RobotPage() {
             as="p"
             delay={1}
             className="max-w-full font-display font-normal leading-[1.12] tracking-[0.06em] text-[#333333] whitespace-nowrap text-[clamp(1.5rem,4.6vw,3rem)]"
-          >
-            Capturing Humans, Empowering Robots
-          </Reveal>
+          >{translate("Capturing Humans, Empowering Robots")}</Reveal>
 
           {/* Core visual — centred, original ratio, never cropped / stretched / distorted */}
           <Reveal delay={2} className="mt-8 flex w-full justify-center md:mt-12">
             <OptimizedImage
               src={heroImg}
-              alt="A robot and a human reach toward each other — the human wears HumanPlus smart apparel and gloves, symbolising the link between human motion capture and robotic intelligence."
+              alt={translate("A robot and a human reach toward each other — the human wears HumanPlus smart apparel and gloves, symbolising the link between human motion capture and robotic intelligence.")}
               className="h-auto w-auto max-w-full object-contain drop-shadow-[0_24px_60px_rgba(17,17,17,0.10)]"
               style={{ maxHeight: 'min(52vh, 560px)' }}
             />
@@ -167,7 +167,7 @@ export default function RobotPage() {
       <section
         id={VIDEO_ID}
         className="relative w-full bg-white"
-        aria-label="Human behavior to robotic action"
+        aria-label={translate("Human behavior to robotic action")}
       >
         {/* Pinned full-bleed stage — both videos share the exact same frame. */}
         <div className="relative h-[100svh] w-full overflow-hidden bg-white md:h-screen">
@@ -204,9 +204,7 @@ export default function RobotPage() {
 
       {/* ── 3. Future Robot content (placeholder) ── */}
       <section className="flex min-h-screen w-full items-center justify-center bg-white px-6 text-center">
-        <p className="max-w-md text-sm leading-relaxed text-ink/35">
-          More Robot capabilities — data capture, learning, and deployment — coming soon.
-        </p>
+        <p className="max-w-md text-sm leading-relaxed text-ink/35">{translate("More Robot capabilities — data capture, learning, and deployment — coming soon.")}</p>
       </section>
     </>
   )

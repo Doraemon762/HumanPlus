@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import Reveal from '../ui/Reveal'
 import '../../styles/v0-g0-panels.css'
 
@@ -32,21 +33,20 @@ const ROWS = [
 ]
 
 export default function VisionZeroSpecs() {
+  useSiteLanguage()
   return (
     /* ── full-viewport panel: owns 100vh × 100vw, NOT the table ── */
     <section
       id="v0-spec"
       className="v0-panel relative flex min-h-[100dvh] w-full items-center bg-[#F1F1F1] px-6 py-20 font-sans md:py-24"
-      aria-label="Vision-0 specification"
+      aria-label={translate("Vision-0 specification")}
     >
       {/* ── centred rounded spec card ── */}
       <Reveal className="mx-auto w-[min(100%,1180px)]">
         <div className="overflow-hidden rounded-[22px] border border-black/[0.08] bg-[#EDEDED] shadow-[0_1px_2px_rgba(17,17,17,0.03),0_18px_50px_-28px_rgba(17,17,17,0.16)]">
           {/* ── top row: SPECIFICATION wordmark ── */}
           <div className="flex items-baseline justify-between gap-6 bg-[#E4E4E4] px-6 py-5 md:px-10">
-            <div className="font-mono text-[12px] font-medium uppercase tracking-[0.3em] text-ink/70 md:text-[13px]">
-              Specification
-            </div>
+            <div className="font-mono text-[12px] font-medium uppercase tracking-[0.3em] text-ink/70 md:text-[13px]">{translate("Specification")}</div>
           </div>
 
           {/* ── data rows (hairline separators, no per-cell radius) ── */}
@@ -60,10 +60,10 @@ export default function VisionZeroSpecs() {
                 }
               >
                 <div className="text-[13px] leading-relaxed text-ink/70 md:text-[15px]">
-                  {label}
+                  {translate(label)}
                 </div>
                 <div className="font-mono text-[13px] leading-relaxed text-ink md:text-[15px]">
-                  {value}
+                  {translate(value)}
                 </div>
               </div>
             ))}

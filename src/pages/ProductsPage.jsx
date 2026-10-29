@@ -1,11 +1,13 @@
+import {translate, useSiteLanguage} from '../i18n'
 import ProductsSection from '../components/sections/ProductsSection'
 import { toHref } from '../hooks/useHashRoute'
 import './ProductsPage.css'
 
 export default function ProductsPage() {
+  useSiteLanguage()
   return <div className="hardware-overview">
-    <header className="hardware-heading"><h1>Hardware</h1></header>
+    <header className="hardware-heading"><h1>{translate("Hardware")}</h1></header>
     <ProductsSection includeAccessories showCategories={false} />
-    <div style={{ textAlign: 'center', padding: '50px 24px 80px' }}><a href={toHref('/contact')} style={{ display: 'inline-flex', gap: 12, borderRadius: 99, padding: '14px 28px', background: '#171717', color: '#fff', fontWeight: 600 }}>Contact Us <span aria-hidden="true">→</span></a></div>
+    <div style={{ textAlign: 'center', padding: '50px 24px 80px' }}><a href={toHref('/contact')} style={{ display: 'inline-flex', gap: 12, borderRadius: 99, padding: '14px 28px', background: '#171717', color: '#fff', fontWeight: 600 }}>{translate("Contact Us ")}<span aria-hidden="true">{translate("→")}</span></a></div>
   </div>
 }

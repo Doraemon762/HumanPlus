@@ -1,6 +1,7 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import OptimizedImage from '../ui/OptimizedImage'
 import { useState } from 'react'
-import { site } from '../../data/site'
+import { nav, site } from '../../data/site'
 
 /* Brand icons — single-color simple-icons paths, forced white via
    `fill="currentColor"` + `text-white`. No platform brand colors. */
@@ -18,6 +19,7 @@ const ICONS = {
 
 /* Solid icons (no `children`) — render the path directly. */
 function Icon({ name, className }) {
+  useSiteLanguage()
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
       <path d={ICONS[name]} />
@@ -36,30 +38,24 @@ const SOCIALS = [
 
 const ICON_SIZE = 'h-[21px] w-[21px]'
 
+const footerLink = (item) => ({
+  label: item.label,
+  href: item.external || `#${item.href}`,
+  external: Boolean(item.external),
+})
+
+// Keep footer names and destinations in sync with the header navigation.
 const FOOTER_GROUPS = [
-  {
-    title: 'Navigation',
-    links: [
-      { label: 'Home', href: '#/' },
-      { label: 'About', href: '#/research' },
-      { label: 'Contact', href: '#/contact' },
-      { label: 'Careers', href: '#/contact/joinus' },
-    ],
-  },
-  {
-    title: 'Hardware',
-    links: [
-      { label: 'WEAVE', href: '#/hardware/weave' },
-      { label: 'PULSE', href: '#/hardware/pulse' },
-    ],
-  },
-  {
-    title: 'Dataset',
-    links: [{ label: 'HUMANPLUS1000', href: '#/dataset' }],
-  },
+  { title: 'Navigation', links: nav.filter(item => !item.children).map(footerLink) },
+  ...nav.filter(item => item.children).map(item => ({
+    title: item.label,
+    href: footerLink(item).href,
+    links: item.children.map(footerLink),
+  })),
 ]
 
 export default function Footer() {
+  useSiteLanguage()
   const [emailCopied, setEmailCopied] = useState(false)
 
   const copyEmail = async () => {
@@ -77,13 +73,11 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-[96rem] px-6 py-10 sm:px-10 lg:px-12 lg:py-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(20rem,1.75fr)_repeat(3,minmax(8rem,0.65fr))] lg:gap-10">
           <div className="max-w-[32rem]">
-            <OptimizedImage src={site.logo} alt="HumanPlus" className="h-[32px] w-auto brightness-0 invert" />
-            <p className="mt-4 text-[16px] leading-relaxed text-white/70 sm:text-[17px]">
-              Capturing Human Life for Embodied Intelligence
-            </p>
+            <OptimizedImage src={site.logo} alt={translate("HumanPlus")} className="h-[32px] w-auto brightness-0 invert" />
+            <p className="mt-4 text-[16px] leading-relaxed text-white/70 sm:text-[17px]">{translate("Capturing Human Life for Embodied Intelligence")}</p>
 
             <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-4">
-              <button type="button" onClick={copyEmail} title="Copy" aria-label="Copy email address" className="inline-flex cursor-pointer items-center gap-3 text-[16px] leading-none text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:text-[17px]">
+              <button type="button" onClick={copyEmail} title={translate("Copy")} aria-label={translate("Copy email address")} className="inline-flex cursor-pointer items-center gap-3 text-[16px] leading-none text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:text-[17px]">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -97,10 +91,8 @@ export default function Footer() {
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
               <path d="M3 7l9 6l9 -6" />
-            </svg>
-            info@humanplus.xyz
-              </button>
-              <span role="status" aria-live="polite" className="inline-flex h-[26px] items-center text-xs leading-none text-white/70">{emailCopied ? 'Copied' : ''}</span>
+            </svg>{translate("info@humanplus.xyz")}</button>
+              <span role="status" aria-live="polite" className="inline-flex h-[26px] items-center text-xs leading-none text-white/70">{translate(emailCopied ? 'Copied' : '')}</span>
             </div>
 
             <div className="mt-8 flex items-center gap-5">
@@ -113,12 +105,12 @@ export default function Footer() {
                 <a
                   key={s.key}
                   href={s.href}
-                  aria-label={s.label}
-                  title={s.label}
+                  aria-label={translate(s.label)}
+                  title={translate(s.label)}
                   className={cls}
                   {...(isMail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
                 >
-                  {inner}
+                  {translate(inner)}
                 </a>
               )
             })}
@@ -126,8 +118,8 @@ export default function Footer() {
           </div>
 
           {FOOTER_GROUPS.map((group) => (
-            <nav key={group.title} aria-label={`${group.title} footer links`}>
-              <h4 className="text-[20px] font-bold tracking-[-0.015em] text-white">{group.title}</h4>
+            <nav key={group.title} aria-label={translate(`${group.title} footer links`)}>
+              <h4 className="text-[20px] font-bold tracking-[-0.015em] text-white">{group.href ? <a href={group.href} className="footer-text-link text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{translate(group.title)}</a> : translate(group.title)}</h4>
               <div className="mt-5 flex flex-col items-start gap-4">
                 {group.links.map((link) => (
                   <a
@@ -135,7 +127,7 @@ export default function Footer() {
                     href={link.href}
                     className="footer-text-link text-[16px] font-normal leading-tight text-white/70 no-underline transition-colors duration-200 hover:text-white focus-visible:text-white focus-visible:outline-none"
                   >
-                    {link.label}
+                    {translate(link.label)}
                   </a>
                 ))}
               </div>
@@ -144,9 +136,7 @@ export default function Footer() {
           </div>
 
         <div className="mt-12 border-t border-white/20 pt-7">
-          <p className="text-xs tracking-wide text-white/48 sm:text-sm">
-          © 2026 {site.nameEn}. All rights reserved.
-        </p>
+          <p className="text-xs tracking-wide text-white/48 sm:text-sm">{translate("© 2026 ")}{translate(site.nameEn)}{translate(". All rights reserved.")}</p>
         </div>
       </div>
     </footer>

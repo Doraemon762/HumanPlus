@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../i18n'
 import { useEffect, useRef, useState } from 'react'
 import Reveal from '../components/ui/Reveal'
 import ParticleLogo from '../components/ui/ParticleLogo'
@@ -13,6 +14,7 @@ const COMPANY_INTRO = [
 ]
 
 export default function ResearchPage() {
+  const language = useSiteLanguage()
   const [aboutIntroComplete, setAboutIntroComplete] = useState(false)
   const researchSection = useRef(null)
   const pageRef = useRef(null)
@@ -58,14 +60,14 @@ export default function ResearchPage() {
         <div className={`company-about-content relative z-10 mx-auto max-w-7xl ${aboutIntroComplete ? 'is-visible' : ''}`}>
           <Reveal>
             <h1 className="research-about-title mt-5 max-w-7xl">
-              <span className="research-about-label">About</span>{' '}
-              <span className="research-about-stroke-word">HumanPlus</span>
+              <span className="research-about-label">{language === 'zh' ? '关于' : 'About'}</span>{translate(' ')}
+              <span className="research-about-stroke-word">{translate("HumanPlus")}</span>
             </h1>
           </Reveal>
           <div className="company-about-copy mt-12 space-y-7 md:mt-20 md:space-y-8">
             {COMPANY_INTRO.map((paragraph, index) => (
               <Reveal key={paragraph} delay={index + 1}>
-                <p className="w-full text-base leading-[1.85] text-ink/68 md:text-lg">{paragraph}</p>
+                <p className="w-full text-base leading-[1.85] text-ink/68 md:text-lg">{translate(paragraph)}</p>
               </Reveal>
             ))}
           </div>

@@ -130,3 +130,11 @@
 .dataset-resources .dataset-resource-copy small { font-size: 13px; color: #777; margin-top: 7px; line-height: 1.5; }
 @media(max-width: 600px) { .dataset-resources-screen { padding: 46px 20px; min-height: auto; }.dataset-resources-screen .dataset-resources { gap: 12px; }.dataset-resources .dataset-resource-card { min-height: 170px; padding: 20px 16px; border-radius: 18px; }.dataset-resources .dataset-resource-copy strong { font-size: 17px; }.dataset-resources .dataset-resource-copy small { font-size: 11px; }.dataset-resources-heading p { font-size: 13px; } }
 @media(prefers-reduced-motion: reduce) { .dataset-resources .dataset-resource-card:hover { transform: none; } }
+
+/* Give the Chinese opening copy natural spacing, retaining English styling. */
+html:lang(zh-CN) .dataset-intro h2 { letter-spacing:.02em; line-height:1.5; }
+html:lang(zh-CN) .dataset-description { letter-spacing:.025em; line-height:1.85; }
+
+/* Readable captions below the dataset statistics. */
+.dataset-metrics dt { font-size:12px; line-height:1.5; }
+@media(max-width:600px) { .dataset-metrics dt { font-size:11px; } }

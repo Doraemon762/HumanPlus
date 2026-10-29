@@ -1,0 +1,11 @@
+.contact-digit-logo { position:absolute; right:3vw; top:50%; transform:translateY(-43%); width:44%; height:65%; pointer-events:none; }
+.contact-editorial #contact-hero > .contact-hero-copy { padding-right:48%; }
+@media(max-width:1000px) {
+  .contact-digit-logo { right:1vw; width:40%; height:52%; opacity:.75; }
+  .contact-editorial #contact-hero > .contact-hero-copy { padding-right:43%; }
+}
+@media(max-width:767px) {
+  .contact-editorial #contact-hero { height:auto; min-height:100svh; }
+  .contact-editorial #contact-hero > .contact-hero-copy { margin:0; padding:120px 7vw 24px; }
+  .contact-digit-logo { position:relative; top:auto; right:auto; transform:none; width:min(80%,430px); height:auto; aspect-ratio:1.16; margin:0 auto 32px; opacity:1; order:2; }
+}

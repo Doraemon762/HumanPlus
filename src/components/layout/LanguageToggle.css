@@ -1,0 +1,5 @@
+.site-language-toggle { position:relative; display:inline-flex; flex-shrink:0; align-items:center; width:68px; height:38px; padding:4px; border:1px solid rgb(0 0 0 / .15); border-radius:999px; background:rgb(0 0 0 / .035); }
+.site-language-thumb { position:absolute; left:4px; top:4px; width:28px; height:28px; border-radius:50%; background:white; box-shadow:0 1px 3px rgb(0 0 0 / .1); transition:transform 300ms cubic-bezier(.22,.68,0,1); pointer-events:none; }
+.site-language-label { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; width:30px; height:28px; font-size:12px; font-weight:500; color:rgb(32 33 36 / .6); transition:color 250ms ease; pointer-events:none; }
+.site-language-label.is-current { color:#202124; }
+@media(prefers-reduced-motion:reduce) { .site-language-thumb,.site-language-label { transition:none; } }

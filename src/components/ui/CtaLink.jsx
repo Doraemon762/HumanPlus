@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { toHref } from '../../hooks/useHashRoute'
 
 const VARIANTS = {
@@ -15,17 +16,16 @@ const VARIANTS = {
  * §4: Button Style). `to` is a ROUTE path, not an anchor.
  */
 export default function CtaLink({ to, children, variant = 'primary', withArrow = true, className = '' }) {
+  useSiteLanguage()
   const padded = variant === 'text' ? '' : 'px-6 py-2.5'
   return (
     <a
       href={toHref(to)}
       className={`group inline-flex items-center gap-2 rounded-full text-sm font-semibold transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-brandLine ${padded} ${VARIANTS[variant]} ${className}`}
     >
-      {children}
+      {translate(children)}
       {withArrow && (
-        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-[3px]">
-          →
-        </span>
+        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-[3px]">{translate("→")}</span>
       )}
     </a>
   )

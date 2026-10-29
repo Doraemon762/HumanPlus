@@ -33,3 +33,7 @@
 .careers-editorial-inner .careers-kicker { font-size: 12px; }
 .careers-editorial-inner > button { min-width: 19.5rem; margin-top: 48px; font-size: 16px; padding: 16px 32px; }
 @media(max-width:767px) { .careers-editorial-inner { grid-template-columns: 1fr; max-width: 560px; }.careers-editorial h1 { grid-row: auto; }.careers-editorial-inner > div,.careers-editorial-inner > button { grid-column: 1; }.careers-editorial-inner > div { margin-top: 30px; }.careers-kicker { margin-bottom: 24px; } }
+
+/* The form owns the full content width after removing the guidance column. */
+.contact-inquiry-layout { display:block; max-width:1280px; width:100%; }
+.contact-form-column { width:100%; }

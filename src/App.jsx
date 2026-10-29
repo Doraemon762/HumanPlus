@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from './i18n'
 import { lazy, Suspense, useEffect } from 'react'
 import Nav from './components/layout/Nav'
 import Footer from './components/layout/Footer'
@@ -49,6 +50,7 @@ function renderRoute(path) {
 }
 
 export default function App() {
+  useSiteLanguage()
   const path = useHashRoute()
   useSiteMotion(path)
   useRouteWarmup(path)
@@ -62,8 +64,8 @@ export default function App() {
     <>
       <Nav path={path} />
       <main>
-        <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center text-gray-500" role="status">Loading…</div>}>
-          {renderRoute(path)}
+        <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center text-gray-500" role="status">{translate("Loading…")}</div>}>
+          {translate(renderRoute(path))}
         </Suspense>
       </main>
       {/* Application is a self-contained full-page snap scroller (its own

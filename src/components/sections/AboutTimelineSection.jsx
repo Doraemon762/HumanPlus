@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useEffect, useRef, useState } from 'react'
 import './AboutTimelineSection.css'
 import ScrollExpand from '../ui/ScrollExpand'
@@ -151,6 +152,7 @@ const PHASES = [
 ]
 
 function ProjectRow({ project, projectRef, stackIndex }) {
+  useSiteLanguage()
   const links = project.links || (project.href ? [{ label: project.href.includes('doi.org') || project.href.includes('openaccess.') || project.href.includes('dl.acm.org') ? 'paper' : 'project', href: project.href }] : [])
 
   return (
@@ -162,20 +164,20 @@ function ProjectRow({ project, projectRef, stackIndex }) {
       style={{ '--stack-index': stackIndex, '--last-stack-index': Math.max(stackIndex - 1, 0) }}
     >
       <span className={`about-timeline-project-media ${project.image ? 'has-image' : ''}`} aria-hidden="true">
-        {project.video
+        {translate(project.video
           ? <DeferredVideo src={project.video} poster={project.image} autoPlay muted loop disablePictureInPicture />
-          : project.image ? <img src={project.image} alt="" loading="lazy" decoding="async" /> : <span>IMAGE</span>}
+          : project.image ? <img src={project.image} alt={translate("")} loading="lazy" decoding="async" /> : <span>{translate("IMAGE")}</span>)}
       </span>
       <span className="about-timeline-project-copy">
-        <strong>{project.title}</strong>
+        <strong>{translate(project.title)}</strong>
         <span className="about-timeline-project-meta">
-          <b>{project.year} · {project.venue.replace(new RegExp(`\\s*${project.year}`, 'g'), '').trim()}</b>
+          <b>{translate(project.year)}{translate(" · ")}{translate(project.venue.replace(new RegExp(`\\s*${project.year}`, 'g'), '').trim())}</b>
         </span>
       </span>
       <span className="about-timeline-project-links">
         {links.map((link) => (
           <a className="about-timeline-project-link" href={link.href} target="_blank" rel="noreferrer" key={`${link.label}-${link.href}`}>
-            {link.label.toLowerCase()} <span aria-hidden="true">↗</span>
+            {translate(link.label.toLowerCase())} <span aria-hidden="true">{translate("↗")}</span>
           </a>
         ))}
       </span>
@@ -184,6 +186,7 @@ function ProjectRow({ project, projectRef, stackIndex }) {
 }
 
 export default function AboutTimelineSection({ showTimeline = true }) {
+  useSiteLanguage()
   const projectNodes = useRef([])
   const activeYearRef = useRef('2023')
   const [activeYear, setActiveYear] = useState('2023')
@@ -361,21 +364,21 @@ export default function AboutTimelineSection({ showTimeline = true }) {
         title={(
           <div className="about-timeline-intro-copy">
             <h2 id="about-timeline-title">
-              <span>From Motion Capture</span>
-              <span>to Life Capture</span>
+              <span>{translate("From Motion Capture")}</span>
+              <span>{translate("to Life Capture")}</span>
             </h2>
-            <p>A decade of research has brought human sensing beyond the lab, from natural interaction and wearable motion capture to real-world human data.</p>
+            <p>{translate("A decade of research has brought human sensing beyond the lab, from natural interaction and wearable motion capture to real-world human data.")}</p>
           </div>
         )}
       >
-        <p className="about-timeline-video-caption">Life becomes the data source.</p>
+        <p className="about-timeline-video-caption">{translate("Life becomes the data source.")}</p>
       </ScrollExpand>
 
       {showTimeline && <div className="about-timeline-phases">
         <div className="about-timeline-centerline" aria-hidden="true" />
         <div className="about-timeline-rail" aria-hidden="true">
           <div className={`about-timeline-active-year ${timelineStarted ? 'is-visible' : ''}`}>
-            <span>{activeYear}</span>
+            <span>{translate(activeYear)}</span>
             <i />
           </div>
         </div>
@@ -383,7 +386,7 @@ export default function AboutTimelineSection({ showTimeline = true }) {
           <article className="about-timeline-phase" key={phase.years}>
             <div className="about-timeline-sticky">
               <StrokeText
-                text="Research"
+                text={translate("Research")}
                 strokeColor="#5a9cfc"
                 fillColor="#5a9cfc"
                 strokeWidth={1.4}
@@ -398,19 +401,19 @@ export default function AboutTimelineSection({ showTimeline = true }) {
                 animated={false}
                 className="about-timeline-research"
               />
-              <strong className="about-timeline-years">{phase.years}</strong>
+              <strong className="about-timeline-years">{translate(phase.years)}</strong>
               <div className={`about-timeline-phase-media ${phase.visual.fit === 'cover' ? 'is-cover' : ''}`} aria-hidden="true">
-                <img src={phase.visual.primary} alt="" loading="eager" decoding="async" />
+                <img src={phase.visual.primary} alt={translate("")} loading="eager" decoding="async" />
               </div>
-              <p className="about-timeline-visual-caption">{phase.visual.caption}</p>
+              <p className="about-timeline-visual-caption">{translate(phase.visual.caption)}</p>
               <div className="about-timeline-system">
-                {phase.system.map((label, index) => <span key={label} style={{ '--system-index': index }}>{label}</span>)}
+                {phase.system.map((label, index) => <span key={label} style={{ '--system-index': index }}>{translate(label)}</span>)}
               </div>
             </div>
 
             <div className="about-timeline-content">
               <div className="about-timeline-content-header">
-                <h3>{phase.question}</h3>
+                <h3>{translate(phase.question)}</h3>
               </div>
               <div className="about-timeline-projects">
                 {phase.projects.map((project, phaseProjectIndex) => {

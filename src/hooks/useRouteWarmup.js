@@ -3,7 +3,7 @@ import {routeLoaders,routeName} from '../routeLoaders'
 import {imageSource} from '../components/ui/OptimizedImage'
 import media from '../data/media-manifest.json'
 
-const images={hardware:['images/motion-0/weave-garment-set.png','images/products/pulse-strap-new.png','images/products/glove-pro.png','images/products/cap.png'],product:['images/motion-0/weave-mannequin-front.png','images/products/pulse-body-front-back.png'],glove:['images/products/glove-pro.png'],cap:['images/products/cap.png']}
+const images={hardware:['images/motion-0/weave-garment-set.png','images/products/pulse-strap-new.png','images/products/glove-pro-updated.png','images/products/cap.png'],product:['images/motion-0/weave-mannequin-front.png','images/products/pulse-body-front-back.png'],glove:['images/products/glove-pro-updated.png'],cap:['images/products/cap.png']}
 const fetched=new Map()
 function warmImage(src){
  const url=imageSource(src,960)

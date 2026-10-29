@@ -1,28 +1,9 @@
+import {translate, useSiteLanguage} from '../i18n'
 import Reveal from '../components/ui/Reveal'
 import ContactForm from '../components/contact/ContactForm'
-import BlinkingSquares from '../components/ui/BlinkingSquares'
+import DigitLogo from '../components/contact/DigitLogo'
 import useContactSnap from '../hooks/useContactSnap'
 import './InquiryPages.css'
-
-/* ── Static copy for the "How Can We Help?" band ───────────────────
-   Pure orientation copy — no links, no navigation, no child pages. */
-const HELP = [
-  {
-    id: '01',
-    title: 'Product & Purchase',
-    desc: 'Product inquiries, purchasing, specifications, and deployment needs.',
-  },
-  {
-    id: '02',
-    title: 'Research Collaboration',
-    desc: 'Academic research, embodied intelligence, and collaborative research projects.',
-  },
-  {
-    id: '03',
-    title: 'Data Collection',
-    desc: 'Human data collection, multimodal data, and project-based collaboration.',
-  },
-]
 
 /* Full-screen section sequence for the snap hand-off. Module-level
    constant so the hook does not re-run on every render. */
@@ -40,21 +21,23 @@ function scrollToForm() {
    in-page scroll instead of a route change. Kept here (not in the
    shared ui/ set) so only Contact is touched. */
 function ScrollButton({ arrow = '→', children, className = '' }) {
+  useSiteLanguage()
   return (
     <button
       type="button"
       onClick={scrollToForm}
       className={`group inline-flex items-center gap-2 rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brandDeep focus-visible:ring-1 focus-visible:ring-brandLine ${className}`}
     >
-      {children}
+      {translate(children)}
       <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-[3px]">
-        {arrow}
+        {translate(arrow)}
       </span>
     </button>
   )
 }
 
 export default function ContactPage() {
+  useSiteLanguage()
   // One screen per module — same full-page hand-off feel as Home /
   // Motion-0, but section-inner-scroll aware so the form stays usable.
   useContactSnap({ duration: 1000, ids: CONTACT_IDS, topOffset: 0 })
@@ -66,64 +49,30 @@ export default function ContactPage() {
         id="contact-hero"
         className="contact-hero relative flex h-screen flex-col overflow-hidden bg-white"
       >
-        <BlinkingSquares
-          className="contact-blinking-squares"
-          squareColor="#a4a4a4"
-          accentColor="#888888"
-        />
-        <div className="relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
+        <DigitLogo />
+        <div className="contact-hero-copy relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
           <Reveal
             as="h1"
             delay={1}
             className="font-black leading-[1.04] tracking-tight text-ink text-[clamp(2.75rem,7vw,5.5rem)]"
-          >
-            Let’s talk
-          </Reveal>
+          >{translate("Let’s talk")}</Reveal>
           <Reveal delay={2} className="mt-7 max-w-2xl">
-            <p className="text-[clamp(1.05rem,1.6vw,1.35rem)] leading-relaxed text-ink/70">
-              Whether you're exploring our products, building a data collection project, or looking
-              for a research collaboration, we'd love to hear from you.
-            </p>
+            <p className="text-[clamp(1.05rem,1.6vw,1.35rem)] leading-relaxed text-ink/70">{translate("Whether you're exploring our products, building a data collection project, or looking for a research collaboration, we'd love to hear from you.")}</p>
           </Reveal>
           <Reveal delay={3} className="mt-10">
-            <ScrollButton arrow="↓">Get in Touch</ScrollButton>
+            <ScrollButton arrow="↓">{translate("Get in Touch")}</ScrollButton>
           </Reveal>
         </div>
       </section>
 
-      {/* Inquiry guidance and form share the second screen. */}
+      {/* Full-width inquiry form. */}
       <section id="contact-form" className="contact-inquiry-section relative scroll-mt-24">
         <div className="contact-inquiry-layout">
-        <div id="contact-help" className="contact-help-inline">
-          <Reveal
-            as="h2"
-            className="font-black tracking-tight text-ink text-[clamp(1.75rem,4vw,3rem)]"
-          >
-            How Can We Help?
-          </Reveal>
-          <div className="contact-help-grid">
-            {HELP.map((item, i) => (
-              <Reveal key={item.id} delay={i} className="group">
-                <div className="flex flex-col gap-2 py-9 transition-colors md:flex-row md:items-baseline md:gap-12">
-                  <span className="w-10 font-mono text-sm text-mute transition-colors group-hover:text-brand">
-                    {item.id}
-                  </span>
-                  <h3 className="w-full font-semibold tracking-tight text-ink text-lg transition-colors group-hover:text-brand md:w-72 md:flex-none md:text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="max-w-xl leading-relaxed text-ink/70">{item.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
         <div className="contact-form-column">
           <Reveal
             as="h2"
             className="font-black tracking-tight text-ink text-[clamp(1.75rem,4vw,3rem)]"
-          >
-            Tell Us What You Need
-          </Reveal>
+          >{translate("Tell Us What You Need")}</Reveal>
           <Reveal delay={1} className="mt-12">
             <ContactForm />
           </Reveal>

@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import OptimizedImage from '../ui/OptimizedImage'
 import Reveal from '../ui/Reveal'
 import CtaLink from '../ui/CtaLink'
@@ -11,6 +12,7 @@ import '../../styles/v0-g0-panels.css'
    deep-grey copy, single brand-blue CTA — same design language as the
    rest of the site but kept light (no black launch surface like Motion-0). */
 export default function GloveZeroHero({ product }) {
+  useSiteLanguage()
   const image = product.image || 'images/products/glove-0-showcase.png'
 
   return (
@@ -22,28 +24,24 @@ export default function GloveZeroHero({ product }) {
           <Reveal
             as="p"
             className="text-xs font-mono uppercase tracking-[0.3em] text-mute"
-          >
-            Hardware
-          </Reveal>
+          >{translate("Hardware")}</Reveal>
 
           <Reveal
             as="h1"
             delay={1}
             className="mt-5 font-black leading-[1.05] tracking-tight text-ink text-[clamp(2.5rem,5vw,4.25rem)]"
           >
-            {product.name}
+            {translate(product.name)}
           </Reveal>
 
           <Reveal delay={2} className="mt-6 max-w-md">
             <p className="text-[clamp(1rem,1.4vw,1.25rem)] leading-relaxed text-ink/70">
-              {product.description}
+              {translate(product.description)}
             </p>
           </Reveal>
 
           <Reveal delay={3} className="mt-10">
-            <CtaLink to="/contact" variant="primary">
-              Explore Glove-0
-            </CtaLink>
+            <CtaLink to="/contact" variant="primary">{translate("Explore Glove-0")}</CtaLink>
           </Reveal>
         </div>
 
@@ -56,7 +54,7 @@ export default function GloveZeroHero({ product }) {
                 fetchPriority="high"
                 sizes="(max-width: 1023px) 100vw, 55vw"
                 src={image}
-                alt={`${product.name} wearable sensing glove`}
+                alt={translate(`${product.name} wearable sensing glove`)}
                 className="h-auto w-full select-none object-contain"
               />
             </div>

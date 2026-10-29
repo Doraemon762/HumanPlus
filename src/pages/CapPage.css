@@ -1,7 +1,7 @@
 .cap-page.pulse-page { padding: 72px 0 0; background: #fafafa; color: #202124; }
 /* The first screen is content, not a scroll reveal: never hide it while media buffers. */
 .cap-page .cap-hero .reveal > * { opacity: 1; transform: none; transition: none; }
-.cap-page .cap-hero > img { width: 115%; transform: translateX(-3%); }
+.cap-page .cap-hero > img { width: 100%; max-width:100%; transform: none; }
 .cap-vision-art { display: grid; place-items: center; color: #7a818a; }
 .cap-vision-art svg { width: 100%; max-height: 55svh; }
 .cap-vision-art > span { font-size: 12px; letter-spacing: .18em; color: #91979e; margin-top: -15px; }

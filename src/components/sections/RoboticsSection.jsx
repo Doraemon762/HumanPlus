@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import DeferredVideo from '../ui/DeferredVideo'
 
 /* ── Robotics ────────────────────────────────────────────────────
@@ -21,10 +22,12 @@ const VIDEO_SRC = 'videos/robotics/kitchen-v3.mp4'
  *    blank gap while the clip buffers.
  */
 function BackgroundVideo({ src, poster }) {
+  useSiteLanguage()
   return <DeferredVideo src={src} poster={poster} autoPlay muted loop tabIndex={-1} aria-hidden="true" className="absolute inset-0 h-full w-full bg-white object-cover select-none outline-none focus:outline-none" />
 }
 
 export default function RoboticsSection() {
+  useSiteLanguage()
   return (
     <section
       id="robotics"
@@ -56,10 +59,8 @@ export default function RoboticsSection() {
               inter-line gap reuses Hero's exact leading via the shared
               line-height + the same mt clamp. Pure white only: no stroke,
               shadow, gradient, glow or blue. */}
-          <span className="block md:whitespace-nowrap">Capture Life.</span>
-          <span className="mt-[clamp(0.1rem,0.7vh,0.5rem)] block md:whitespace-nowrap">
-            Empower Intelligence.
-          </span>
+          <span className="block md:whitespace-nowrap">{translate("Capture Life.")}</span>
+          <span className="mt-[clamp(0.1rem,0.7vh,0.5rem)] block md:whitespace-nowrap">{translate("Empower Intelligence.")}</span>
         </h2>
       </div>
     </section>

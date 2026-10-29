@@ -19,7 +19,7 @@
 .research-publications-year h3 span { font-weight: 400; }
 .research-publications-year ul { list-style: none; margin: 0; padding: 0; }
 .research-publications-year li { margin: 0 0 1.25rem; }
-.research-publications-year a { display: inline; color: #242424; font-size: 0.8125rem; font-weight: 450; line-height: 1.5; text-decoration: none; text-underline-offset: 3px; overflow-wrap: anywhere; transition: color 180ms ease; }
+.research-publications-year a { display: inline; color: #242424; font-size: 0.8125rem; font-weight: 450; line-height: 1.5; text-decoration: none; text-underline-offset: 2px; text-decoration-thickness: 1px; overflow-wrap: anywhere; transition: color 180ms ease; }
 .research-publications-year a:hover, .research-publications-year a:focus-visible { color: #2466b5; text-decoration: underline; }
 .research-publications-year a:focus-visible { outline: 2px solid #2466b5; outline-offset: 4px; }
 .research-publications-year p { margin: 0.25rem 0 0; color: #666; font-size: 0.6875rem; line-height: 1.5; }

@@ -1,9 +1,12 @@
+import './LanguageToggle.css'
+import {translate, useSiteLanguage, setSiteLanguage} from '../../i18n'
 import OptimizedImage from '../ui/OptimizedImage'
 import { useEffect, useRef, useState } from 'react'
 import { nav, site } from '../../data/site'
 import { toHref } from '../../hooks/useHashRoute'
 
 function Chevron({ open }) {
+  useSiteLanguage()
   return (
     <svg viewBox="0 0 12 12" className={`h-3 w-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} aria-hidden="true">
       <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -32,6 +35,7 @@ const hasParentSelfLink = (item) =>
   Array.isArray(item.children) && item.children.some((c) => c.href === item.href)
 
 export default function Nav({ path }) {
+  const language = useSiteLanguage()
   /* Desktop: which dropdown is open (keyed by nav label). Hover-driven
      on the whole li wrapper, so moving the cursor across the small gap
      between trigger and panel never closes it. */
@@ -97,8 +101,14 @@ export default function Nav({ path }) {
     <nav className={`site-nav fixed top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md ${path === '/' ? 'site-nav--home' : ''} ${homePastIntro ? 'site-nav--home-past-intro' : ''}`}>
       <div className="relative mx-auto flex h-[72px] w-full items-center px-6 lg:px-12">
         {/* Brand: complete HumanPlus wordmark logo (no separate icon / wordmark). */}
-        <a href={toHref('/')} className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <OptimizedImage src={site.logo} alt="HumanPlus" loading="eager" sizes="120px" className="h-[28.8px] w-auto" />
+        <a href={toHref('/')} className="flex items-center" onClick={(event) => {
+          setMobileOpen(false)
+          if (path === '/' && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && event.button === 0) {
+            event.preventDefault()
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+          }
+        }}>
+          <OptimizedImage src={site.logo} alt={translate("HumanPlus")} loading="eager" sizes="120px" className="h-[28.8px] w-auto" />
         </a>
 
         {/* ── Desktop nav ── */}
@@ -114,7 +124,7 @@ export default function Nav({ path }) {
                 }}
                 onMouseLeave={scheduleClose}
               >
-                {item.external ? (
+                {translate(item.external ? (
                   /* Parent with an external target AND a dropdown: the
                      label itself is the external link; hover still opens
                      the panel for Dataset / Application. */
@@ -124,7 +134,7 @@ export default function Nav({ path }) {
                       openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
-                    {item.label}
+                    {translate(item.label)}
                     <Chevron open={openMenu === item.label} />
                   </a>
                 ) : (
@@ -137,10 +147,10 @@ export default function Nav({ path }) {
                       openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
-                    {item.label}
+                    {translate(item.label)}
                     <Chevron open={openMenu === item.label} />
                   </a>
-                )}
+                ))}
 
                 <div className={`dropdown-panel absolute top-full z-50 pt-3 ${i === nav.length - 1 ? 'right-0' : 'left-1/2 -translate-x-1/2'} ${openMenu === item.label ? 'open' : ''}`}>
                   <div className="site-nav-dropdown min-w-[240px] py-2">
@@ -151,7 +161,7 @@ export default function Nav({ path }) {
                           {...externalProps(child.external)}
                           className="site-nav-dropdown-link block px-5 py-2.5 text-xs font-medium uppercase tracking-[0.1em] text-ink/70"
                         >
-                          <span>{child.label}</span>
+                          <span>{translate(child.label)}</span>
                         </a>
                       ) : (
                         <a
@@ -161,7 +171,7 @@ export default function Nav({ path }) {
                             isActive(path, child.href) ? 'is-active text-brand' : 'text-ink/70'
                           }`}
                         >
-                          <span>{child.label}</span>
+                          <span>{translate(child.label)}</span>
                         </a>
                       )
                     )}
@@ -170,28 +180,44 @@ export default function Nav({ path }) {
               </li>
             ) : (
               <li key={item.label}>
-                {item.external ? (
+                {translate(item.external ? (
                   <a
                     {...externalProps(item.external)}
                     className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}
                   >
-                    {item.label}
+                    {translate(item.label)}
                   </a>
                 ) : (
                   <a href={toHref(item.href)} className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}>
-                    {item.label}
+                    {translate(item.label)}
                   </a>
-                )}
+                ))}
               </li>
             )
           )}
         </ul>
 
+        <button
+          type="button"
+          className="site-language-toggle ml-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+          onClick={() => setSiteLanguage(language === 'en' ? 'zh' : 'en')}
+          aria-label={language === 'en' ? '切换为中文' : 'Switch to English'}
+        >
+          <span className="site-language-thumb" aria-hidden="true" style={{ transform: language === 'en' ? 'translateX(30px)' : 'translateX(0)' }} />
+          {[['zh', '中'], ['en', 'En']].map(([value, label]) => (
+            <span
+              key={value}
+              className={`site-language-label ${language === value ? 'is-current' : ''}`}
+              lang={value === 'zh' ? 'zh-CN' : 'en'}
+              aria-hidden="true"
+            >{label}</span>
+          ))}
+        </button>
         {/* ── Mobile hamburger ── */}
         <button
           type="button"
-          className="site-nav-mobile-toggle ml-auto flex h-10 w-10 items-center justify-center lg:hidden"
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          className="site-nav-mobile-toggle ml-2 flex h-10 w-10 items-center justify-center lg:hidden"
+          aria-label={translate(mobileOpen ? 'Close menu' : 'Open menu')}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
@@ -211,18 +237,18 @@ export default function Nav({ path }) {
                 <li key={item.label}>
                   <div className="flex items-center justify-between">
                   {item.href === '/hardware' && (
-                    <a href={toHref(item.href)} onClick={() => setMobileOpen(false)} className={`flex-1 py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}>
-                      {item.label}
+                    <a href={toHref(item.href)} onClick={() => setMobileOpen(false)} className={`flex-1 py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}>
+                      {translate(item.label)}
                     </a>
                   )}
                   <button
                     type="button"
-                    aria-label={item.href === '/hardware' ? 'Toggle Hardware submenu' : undefined}
+                    aria-label={translate(item.href === '/hardware' ? 'Toggle Hardware submenu' : undefined)}
                     aria-expanded={mobileSub === item.label}
                     onClick={() => setMobileSub(mobileSub === item.label ? null : item.label)}
-                    className={`flex ${item.href === '/hardware' ? 'h-11 w-11 justify-center' : 'w-full justify-between py-3'} items-center text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink'}`}
+                    className={`flex ${item.href === '/hardware' ? 'h-11 w-11 justify-center' : 'w-full justify-between py-3'} items-center text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                   >
-                    {item.href !== '/hardware' && item.label}
+                    {translate(item.href !== '/hardware' && item.label)}
                     <Chevron open={mobileSub === item.label} />
                   </button>
                   </div>
@@ -233,9 +259,8 @@ export default function Nav({ path }) {
                           <li>
                             <a
                               {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}
-                              className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/60'}`}
-                            >
-                              All {item.label}
+                              className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
+                            >{translate("All ")}{translate(item.label)}
                             </a>
                           </li>
                         )}
@@ -244,9 +269,9 @@ export default function Nav({ path }) {
                             <li key={child.label}>
                               <a
                                 {...externalProps(child.external)}
-                                className="block border-l border-black/10 py-2.5 pl-4 text-sm text-ink/60"
+                                className="block border-l border-black/10 py-2.5 pl-4 text-sm text-ink/70 hover:text-brand"
                               >
-                                {child.label}
+                                {translate(child.label)}
                               </a>
                             </li>
                           ) : (
@@ -254,10 +279,10 @@ export default function Nav({ path }) {
                               <a
                                 href={toHref(child.href)}
                                 className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${
-                                  isActive(path, child.href) ? 'text-brand' : 'text-ink/60'
+                                  isActive(path, child.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                                 }`}
                               >
-                                {child.label}
+                                {translate(child.label)}
                               </a>
                             </li>
                           )
@@ -268,21 +293,21 @@ export default function Nav({ path }) {
                 </li>
               ) : (
                 <li key={item.label}>
-                  {item.external ? (
+                  {translate(item.external ? (
                     <a
                       {...externalProps(item.external)}
                       className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
-                      {item.label}
+                      {translate(item.label)}
                     </a>
                   ) : (
                     <a
                       href={toHref(item.href)}
                       className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
-                      {item.label}
+                      {translate(item.label)}
                     </a>
-                  )}
+                  ))}
                 </li>
               )
             )}

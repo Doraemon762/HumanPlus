@@ -193,3 +193,15 @@
     letter-spacing: 0.1em;
   }
 }
+
+/* Clear title hierarchy and a consistent Chinese/Latin specification face. */
+.mzs-title { font-size:clamp(24px,2.3vw,32px); line-height:1.35; letter-spacing:-.025em; text-transform:none; }
+.mzs-rowhead,.mzs-row { grid-template-columns:minmax(0, .85fr) minmax(0, 1.35fr); }
+.mzs-rowhead span { font-weight:400; letter-spacing:0; text-transform:none; }
+.mzs-key { font-weight:400; color:#63666b; }
+.mzs-val { font-weight:500; color:#33363a; }
+html:lang(zh-CN) .mzs-section :is(h2,span) { font-family:'Source Han Sans SC',Inter,sans-serif !important; }
+html:lang(zh-CN) .mzs-rowhead span { font-size:14px; }
+html:lang(zh-CN) :is(.mzs-key,.mzs-val) { font-size:clamp(14px,1.1vw,16px); line-height:1.8; }
+html:lang(zh-CN) .weave-number small { font-family:'Source Han Sans SC',Inter,sans-serif !important; font-weight:500; font-size:.3em; }
+@media(max-width:640px) { .mzs-rowhead,.mzs-row { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); } }

@@ -10,7 +10,20 @@
 .news-story--featured>.news-story-content{display:grid;grid-template-columns:1.15fr 1fr}
 .news-story h3,.news-showcase:not(.news-showcase--page) .news-story h3{font-size:clamp(16px,1.3vw,20px);line-height:1.45}
 .news-showcase-heading h1,.news-showcase-heading h2,.news-showcase:not(.news-showcase--page) .news-showcase-heading h2{font-size:clamp(26px,2.4vw,34px)}
-.news-story-more{display:inline-flex;align-items:center;padding:8px 0;text-decoration:none}
-.news-story-more:hover{text-decoration:underline;text-underline-offset:4px}
+.news-story-more{position:relative;display:inline-flex;align-items:center;padding:8px 0;text-decoration:none}
+.news-story-more::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:currentColor;opacity:0;pointer-events:none}
+.news-story-more:hover,.news-story-more:focus-visible{text-decoration:none}
+.news-story-more:hover::after,.news-story-more:focus-visible::after{opacity:1}
 @media(max-width:767px){.news-story--featured>.news-story-content{display:flex}.news-story h3{font-size:18px}}
 @media(prefers-reduced-motion:reduce){.news-story-image img{transition:none}.news-story>a:hover .news-story-image img{transform:none}}
+
+/* Featured story: the image sets the proportions, without letterboxing. */
+.news-story--featured > .news-story-content{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:0}
+.news-story--featured .news-story-image{min-width:0;width:100%;min-height:0;height:100%;aspect-ratio:1280/545;background:#fff}
+.news-story--featured .news-story-image img{width:100%;height:100%;object-fit:cover;background:#fff}
+.news-story--featured .news-story-copy{min-width:0;padding:10px 24px;justify-content:center}
+.news-story--featured .news-story-category{margin-bottom:6px}
+.news-story--featured h3{margin-bottom:12px}
+.news-story--featured .news-story-source{margin-top:0;margin-bottom:4px}
+.news-story--featured .news-story-more{margin-top:12px;padding:4px 0}
+@media(max-width:767px){.news-story--featured .news-story-image{height:auto;aspect-ratio:1280/545}.news-story--featured .news-story-copy{padding:25px}}

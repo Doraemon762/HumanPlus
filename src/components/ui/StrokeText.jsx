@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -24,6 +25,7 @@ export default function StrokeText({
   animated = true,
   className = '',
 }) {
+  useSiteLanguage()
   const rootRef = useRef(null)
   const strokeTextRef = useRef(null)
   const wipeRectRef = useRef(null)
@@ -178,7 +180,7 @@ export default function StrokeText({
       className={`stroke-text ${animated && trigger === 'hover' ? 'stroke-text--hover' : ''} ${className}`.trim()}
       style={{ '--stroke-text-height': `${Math.round(fontSize * 1.3)}px` }}
       role="img"
-      aria-label={String(text ?? '')}
+      aria-label={translate(String(text ?? ''))}
     >
       <svg className="stroke-text__svg" viewBox={viewBox} preserveAspectRatio="xMinYMid meet" aria-hidden="true">
         {fillMode === 'wipe' && box && (
@@ -201,7 +203,7 @@ export default function StrokeText({
           style={fontStyle}
         >
           {characters.map((character, index) => (
-            <tspan data-stroke-char key={`s-${index}`}>{character}</tspan>
+            <tspan data-stroke-char key={`s-${index}`}>{translate(character)}</tspan>
           ))}
         </text>
         <text
@@ -214,7 +216,7 @@ export default function StrokeText({
           clipPath={fillMode === 'wipe' && box ? `url(#${wipeId})` : undefined}
         >
           {characters.map((character, index) => (
-            <tspan data-fill-char key={`f-${index}`}>{character}</tspan>
+            <tspan data-fill-char key={`f-${index}`}>{translate(character)}</tspan>
           ))}
         </text>
       </svg>

@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import manifest from '../../data/media-manifest.json'
 
 export function mediaKey(src) {
@@ -12,6 +13,7 @@ export function imageSource(src, targetWidth = 1280) {
 }
 
 export default function OptimizedImage({ src, alt = '', loading, decoding = 'async', sizes = '100vw', width, height, fetchPriority, ...props }) {
+  useSiteLanguage()
   const image = manifest.images[mediaKey(src)]
   return (
     <img
@@ -22,7 +24,7 @@ export default function OptimizedImage({ src, alt = '', loading, decoding = 'asy
       sizes={image ? sizes : undefined}
       width={width || image?.width}
       height={height || image?.height}
-      alt={alt}
+      alt={translate(alt)}
       loading={loading || (fetchPriority === 'high' ? 'eager' : 'lazy')}
       decoding={decoding}
     />

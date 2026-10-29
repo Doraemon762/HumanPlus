@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import Reveal from '../ui/Reveal'
 
 /* Glove-0 capability showcase — a NEW section below the existing
@@ -21,6 +22,7 @@ import Reveal from '../ui/Reveal'
 
 /* ── Line icons: 24×24 grid, stroke-based, currentColor ───────────── */
 function IconPacket({ className = '' }) {
+  useSiteLanguage()
   return (
     <svg className={'h-11 w-11 md:h-12 md:w-12 ' + className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {/* data packet: a stack of frames with a streaming node chain */}
@@ -35,6 +37,7 @@ function IconPacket({ className = '' }) {
 }
 
 function IconSync({ className = '' }) {
+  useSiteLanguage()
   return (
     <svg className={'h-11 w-11 md:h-12 md:w-12 ' + className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {/* wifi arcs over a clock: wireless + one shared time reference */}
@@ -47,6 +50,7 @@ function IconSync({ className = '' }) {
 }
 
 function IconBimanual({ className = '' }) {
+  useSiteLanguage()
   return (
     <svg className={'h-11 w-11 md:h-12 md:w-12 ' + className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {/* two hand-nodes joined on one local network */}
@@ -98,8 +102,9 @@ const TONES = [
 ]
 
 export default function GloveZeroFeatures() {
+  useSiteLanguage()
   return (
-    <section id="g0-features" className="g0-panel relative flex min-h-[100dvh] w-full items-center bg-[#F5F5F5] font-sans" aria-label="Glove-0 capabilities">
+    <section id="g0-features" className="g0-panel relative flex min-h-[100dvh] w-full items-center bg-[#F5F5F5] font-sans" aria-label={translate("Glove-0 capabilities")}>
       <div className="g0-panel-inner mx-auto w-full max-w-7xl px-6 py-20 lg:px-10">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {TONES.map(({ id, Icon, title, body, card, numeral, icon, hairline, kicker }, i) => (
@@ -119,7 +124,7 @@ export default function GloveZeroFeatures() {
                     numeral
                   }
                 >
-                  {id}
+                  {translate(id)}
                 </span>
 
                 {/* icon + hairline */}
@@ -130,10 +135,10 @@ export default function GloveZeroFeatures() {
 
                 {/* copy */}
                 <h3 className="relative mt-6 text-[19px] font-semibold leading-[1.25] tracking-tight md:text-[21px]">
-                  {title}
+                  {translate(title)}
                 </h3>
                 <p className={'relative mt-4 text-[13px] leading-[1.75] md:text-sm ' + kicker}>
-                  {body}
+                  {translate(body)}
                 </p>
               </article>
             </Reveal>

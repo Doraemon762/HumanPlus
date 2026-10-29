@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import OptimizedImage from '../ui/OptimizedImage'
 import publications from '../../data/publications.json'
 import { useEffect, useRef } from 'react'
@@ -73,6 +74,7 @@ const groups = [
 ]
 
 function EditorialVideo({ src, poster }) {
+  useSiteLanguage()
   const ref = useRef(null)
   useEffect(() => {
     const video = ref.current
@@ -112,22 +114,23 @@ function EditorialVideo({ src, poster }) {
 }
 
 export default function ResearchEditorialSection() {
+  useSiteLanguage()
   return (
-    <section className="research-editorial" aria-label="Research in focus">
+    <section className="research-editorial" aria-label={translate("Research in focus")}>
       <div className="research-editorial-group research-editorial-origin" id="research-2019">
         <aside className="research-editorial-left">
-          <OptimizedImage src={`${mediaRoot}mannequin-2019-glow.webp`} alt="Original smart clothing prototype" loading="lazy" decoding="async" />
-          <h2>2019</h2>
+          <OptimizedImage src={`${mediaRoot}mannequin-2019-glow.webp`} alt={translate("Original smart clothing prototype")} loading="lazy" decoding="async" />
+          <h2>{translate("2019")}</h2>
         </aside>
         <div className="research-editorial-papers">
           <div className="research-editorial-paper">
             <div className="research-editorial-media">
-              <OptimizedImage src={`${mediaRoot}origin-combined-2019-v2.webp`} alt="Original clothing exposed wiring and circuit board details" loading="lazy" decoding="async" />
+              <OptimizedImage src={`${mediaRoot}origin-combined-2019-v2.webp`} alt={translate("Original clothing exposed wiring and circuit board details")} loading="lazy" decoding="async" />
             </div>
             <div className="research-editorial-copy">
-              <p className="research-editorial-year"><span>2019</span><span>Early Prototype</span></p>
-              <h3>Mocap Suit Hand-made by Computer Scientist</h3>
-              <p className="research-editorial-abstract">With flexible fabric sensors and wiring, this earliest prototype marked the first milestone on the long journey toward unobtrusive motion capture.</p>
+              <p className="research-editorial-year"><span>{translate("2019")}</span><span>{translate("Early Prototype")}</span></p>
+              <h3>{translate("Mocap Suit Hand-made by Computer Scientist")}</h3>
+              <p className="research-editorial-abstract">{translate("With flexible fabric sensors and wiring, this earliest prototype marked the first milestone on the long journey toward unobtrusive motion capture.")}</p>
             </div>
           </div>
         </div>
@@ -135,10 +138,10 @@ export default function ResearchEditorialSection() {
       {groups.map((group) => (
         <div className="research-editorial-group" key={group.title}>
           <aside className="research-editorial-left">
-            {group.additionalImages
-              ? <div className="research-editorial-mannequins">{[group.image, ...group.additionalImages].map((src) => <OptimizedImage key={src} src={src} alt={group.title} loading="lazy" decoding="async" />)}</div>
-              : <OptimizedImage src={group.image} alt={group.title} loading="lazy" decoding="async" />}
-            <h2>{group.title}</h2>
+            {translate(group.additionalImages
+              ? <div className="research-editorial-mannequins">{[group.image, ...group.additionalImages].map((src) => <OptimizedImage key={src} src={src} alt={translate(group.title)} loading="lazy" decoding="async" />)}</div>
+              : <OptimizedImage src={group.image} alt={translate(group.title)} loading="lazy" decoding="async" />)}
+            <h2>{translate(group.title)}</h2>
           </aside>
           <div className="research-editorial-papers">
             {group.papers.map((media) => {
@@ -147,22 +150,20 @@ export default function ResearchEditorialSection() {
               return (
                 <article className="research-editorial-paper" key={media.match}>
                   <div className="research-editorial-media">
-                    {media.video
+                    {translate(media.video
                       ? <EditorialVideo src={media.video.replace('.mp4', '.web.mp4')} poster={media.video.replace('.mp4', '.poster.webp')} />
-                      : <OptimizedImage src={media.image} alt="" loading="lazy" decoding="async" />}
+                      : <OptimizedImage src={media.image} alt={translate("")} loading="lazy" decoding="async" />)}
                   </div>
-                  {media.pending ? <div className="research-editorial-copy">
-                    <p className="research-editorial-year"><span>2026</span><span>Teleoperation Demo</span></p>
-                    <h3>Robot Object Manipulation through Garment-Based IMU Teleoperation</h3>
-                    <p className="research-editorial-abstract">We present a framework that translates garment-based inertial motion capture into robot teleoperation, achieving dexterous object manipulation with natural hand-object interaction, seamless generalization across garments, and reliable long-term control.</p>
+                  {translate(media.pending ? <div className="research-editorial-copy">
+                    <p className="research-editorial-year"><span>{translate("2026")}</span><span>{translate("Teleoperation Demo")}</span></p>
+                    <h3>{translate("Robot Object Manipulation through Garment-Based IMU Teleoperation")}</h3>
+                    <p className="research-editorial-abstract">{translate("We present a framework that translates garment-based inertial motion capture into robot teleoperation, achieving dexterous object manipulation with natural hand-object interaction, seamless generalization across garments, and reliable long-term control.")}</p>
                   </div> : <div className="research-editorial-copy">
-                    <p className="research-editorial-year"><span>{paper.year}</span><span>{details.venue}</span></p>
-                    <h3>{media.match === 'Computational Design of Wiring'
-                      ? 'Computational Design of Wiring Layout on Tight Suits with Minimal Motion Resistance'
-                      : paper.title}</h3>
-                    <p className="research-editorial-abstract">{details.abstract}</p>
-                    <a href={paper.href} target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">↗</span></a>
-                  </div>}
+                    <p className="research-editorial-year"><span>{translate(paper.year)}</span><span>{translate(details.venue)}</span></p>
+                    <h3>{translate(paper.title)}</h3>
+                    <p className="research-editorial-abstract">{translate(details.abstract)}</p>
+                    <a href={paper.href} target="_blank" rel="noopener noreferrer">{translate("Paper ")}<span aria-hidden="true">{translate("↗")}</span></a>
+                  </div>)}
                 </article>
               )
             })}

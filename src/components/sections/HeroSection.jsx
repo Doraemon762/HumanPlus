@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import DeferredVideo from '../ui/DeferredVideo'
 /* ── Hero ─────────────────────────────────────────────────────────
    Full-screen video first screen.
@@ -11,6 +12,7 @@ import DeferredVideo from '../ui/DeferredVideo'
      (no opaque card, no full-screen overlay). */
 
 export default function HeroSection() {
+  useSiteLanguage()
   return (
     <section id="hero" className="relative h-[100svh] w-full overflow-hidden bg-black md:h-[100vh]">
       <DeferredVideo
@@ -45,20 +47,20 @@ export default function HeroSection() {
               not accidental, so the two-line rhythm stays identical at
               every width. */}
           <span className="block md:whitespace-nowrap">
-            
+
           </span>
 
           {/* Line 2 — copy + CTA on one baseline, centred on each other.
               flex-wrap lets the capsule drop to its own line on narrow
               screens instead of forcing horizontal overflow. */}
           <span className="mt-[clamp(0.1rem,0.7vh,0.5rem)] flex flex-wrap items-center gap-x-[clamp(0.9rem,1.8vw,1.75rem)] gap-y-4">
-            <span>The Future of Intelligence Begins With What We Wear.</span>
+            <span>{translate("The Future of Intelligence Begins With What We Wear.")}</span>
 
-            
+
             <a
-            
+
             >
-             
+
             </a>
           </span>
         </h1>

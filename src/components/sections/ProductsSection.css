@@ -7,8 +7,9 @@
 .home-product-copy h2 { margin: 0; font-size: clamp(44px, 4.6vw, 76px); line-height: 1.1; font-weight: 550; letter-spacing: -.045em; }
 .home-product-description { margin: 15px 0 25px; font-size: clamp(17px, 1.55vw, 24px); line-height: 1.4; letter-spacing: -.025em; }
 .home-product-link { display: inline-flex; gap: 9px; align-items: center; font-size: 16px; color: #262626; }
-.home-product-link span { font-size: 24px; line-height: 1; transition: transform 200ms; }
-.home-product-link:hover span { transform: translateX(4px); }
+.home-product-link-label { line-height: 1.4; }
+.home-product-link-arrow { display:block; width:1em; height:1em; flex:none; transition:transform 200ms; }
+.home-product-link:hover .home-product-link-arrow { transform: translateX(4px); }
 .home-product-visual { display: flex; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 16px 7% 38px; }
 .home-product-visual img { width: 100%; height: 100%; object-fit: contain; transition: transform 650ms cubic-bezier(.2,.65,.3,1); }
 .home-product-visual:hover img { transform: scale(1.025); }
@@ -20,7 +21,7 @@
 .home-product a:focus-visible { outline: 2px solid #5a9cfc; outline-offset: -4px; }
 @media (min-width: 1800px) { .home-product-copy { padding-top: 64px; } }
 @media (max-width: 767px) { .home-products { padding: 10px; } .home-products-grid { grid-template-columns: 1fr; gap: 10px; } .home-product { height: auto; min-height: 630px; } .home-product-copy { padding: 35px 20px 12px; } .home-product-visual { height: 360px; flex: none; padding: 18px 10% 30px; } .home-product-copy h2 { font-size: 48px; } .home-product-description { font-size: 18px; margin-bottom: 20px; } .home-product--pulse .home-product-visual { padding: 0; } }
-@media (prefers-reduced-motion: reduce) { .home-product-visual img, .home-product-link span { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .home-product-visual img, .home-product-link-arrow { transition: none; } }
 @media (min-width: 768px) {
   :is(.home-page, .hardware-overview) .home-products .home-product {
     display: grid;

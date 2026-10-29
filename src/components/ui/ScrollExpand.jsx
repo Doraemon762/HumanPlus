@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import DeferredVideo from './DeferredVideo'
 import { useCallback, useEffect, useRef } from 'react'
 import './ScrollExpand.css'
@@ -29,6 +30,7 @@ export default function ScrollExpand({
   stackOnNarrow = false,
   className = '',
 }) {
+  useSiteLanguage()
   const rootRef = useRef(null)
   const trackRef = useRef(null)
   const stageRef = useRef(null)
@@ -151,9 +153,9 @@ export default function ScrollExpand({
               preload="metadata"
             />
             <div ref={scrimRef} className="scroll-expand__scrim" />
-            {children && <div ref={overlayRef} className="scroll-expand__overlay">{children}</div>}
+            {children && <div ref={overlayRef} className="scroll-expand__overlay">{translate(children)}</div>}
           </div>
-          {title && <div ref={titleRef} className="scroll-expand__title">{title}</div>}
+          {title && <div ref={titleRef} className="scroll-expand__title">{translate(title)}</div>}
         </div>
       </div>
     </section>

@@ -1,8 +1,10 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useEffect, useRef, useState } from 'react'
 import './LifeCapturePreview.css'
 import DeferredVideo from './DeferredVideo'
 
 export default function LifeCapturePreview() {
+  useSiteLanguage()
   const [progress, setProgress] = useState(0)
   const track = useRef(null)
   const video = useRef(null)
@@ -38,11 +40,11 @@ export default function LifeCapturePreview() {
     return () => { clearTimeout(timer); clearTimeout(playbackTimer); removeEventListener('scroll', onScroll); removeEventListener('resize', onScroll); cancelAnimationFrame(frame) }
   }, [])
   const eased = 1 - Math.pow(1 - progress, 3)
-  return <section ref={track} className="life-preview life-preview--float" style={{ '--entrance': eased }} aria-label="Life capture">
+  return <section ref={track} className="life-preview life-preview--float" style={{ '--entrance': eased }} aria-label={translate("Life capture")}>
     <div className="life-preview-stage">
-      <header className="life-preview-copy"><h2>Life capture</h2><p>Experience how human motion and real-world interaction data can empower embodied intelligence and robot learning.</p></header>
+      <header className="life-preview-copy"><h2>{translate("Life capture")}</h2><p>{translate("Experience how human motion and real-world interaction data can empower embodied intelligence and robot learning.")}</p></header>
       <div className={`life-preview-media ${progress > .95 ? 'is-entered' : ''}`}>
-        <DeferredVideo ref={video} src="media/dataset-showcase/life-capture-compatible.mp4" poster="media/dataset-showcase/life-capture.webp" muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} aria-label="Life capture dataset video" />
+        <DeferredVideo ref={video} src="media/dataset-showcase/life-capture-compatible.mp4" poster="media/dataset-showcase/life-capture.webp" muted loop playsInline controls={false} controlsList="nodownload noremoteplayback" disablePictureInPicture disableRemotePlayback onContextMenu={(event) => event.preventDefault()} aria-label={translate("Life capture dataset video")} />
       </div>
     </div>
   </section>

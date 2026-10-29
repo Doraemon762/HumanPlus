@@ -1,4 +1,6 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useState } from 'react'
+import { nav } from '../../data/site'
 
 /* Web3Forms key — pulled from a Vite env var so the real key is never
    hard-coded in source or committed. See .env.example for setup. */
@@ -12,26 +14,23 @@ const INQUIRY_OPTIONS = [
   'Data Collection',
   'Other',
 ]
-const PRODUCT_INTEREST_OPTIONS = [
-  'Weave',
-  'Pulse',
-  'Glove-0',
-  'Vision-0',
-  'Not sure yet',
-]
+const PRODUCT_INTEREST_OPTIONS = nav
+  .filter(item => item.label === 'Hardware' || item.label === 'Dataset')
+  .flatMap(item => item.children.map(product => product.label))
 const QUANTITY_OPTIONS = ['1–10', '10–50', '50–100', '100+', 'Not sure yet']
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 function Field({ label, required, error, children }) {
+  useSiteLanguage()
   return (
     <label className="block">
       <span className="mb-2 block text-sm font-medium tracking-normal text-ink/80">
-        {label}
-        {required && <span className="ml-1 text-brand">*</span>}
+        {translate(label)}
+        {required && <span className="ml-1 text-brand">{translate("*")}</span>}
       </span>
-      {children}
-      {error && <span className="mt-1.5 block text-xs text-[#b42318]">{error}</span>}
+      {translate(children)}
+      {error && <span className="mt-1.5 block text-xs text-[#b42318]">{translate(error)}</span>}
     </label>
   )
 }
@@ -40,8 +39,9 @@ const inputCls =
   'w-full rounded-xl border border-line bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink/55 outline-none transition-colors duration-200 focus:border-brandLine focus:bg-white'
 
 function SelectField({ label, required, error, placeholder, options, value, onChange }) {
+  useSiteLanguage()
   return (
-    <Field label={label} required={required} error={error}>
+    <Field label={translate(label)} required={required} error={error}>
       <div className="relative">
         <select
           value={value}
@@ -49,26 +49,25 @@ function SelectField({ label, required, error, placeholder, options, value, onCh
           className={`${inputCls} appearance-none pr-10 ${value ? 'text-ink' : 'text-ink/55'}`}
         >
           <option value="" disabled>
-            {placeholder}
+            {translate(placeholder)}
           </option>
           {options.map((o) => (
             <option key={o} value={o} className="text-ink">
-              {o}
+              {translate(o)}
             </option>
           ))}
         </select>
         <span
           aria-hidden="true"
           className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink/55"
-        >
-          ▾
-        </span>
+        >{translate("▾")}</span>
       </div>
     </Field>
   )
 }
 
 export default function ContactForm() {
+  useSiteLanguage()
   const [form, setForm] = useState({
     fullName: '',
     workEmail: '',
@@ -164,21 +163,13 @@ export default function ContactForm() {
             <path d="M20 6 9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="mt-5 font-black tracking-tight text-ink text-2xl">
-          Thank you for reaching out.
-        </h3>
-        <p className="mt-3 leading-relaxed text-ink/70">
-          Your message has been sent successfully.
-          <br />
-          We'll get back to you soon.
-        </p>
+        <h3 className="mt-5 font-black tracking-tight text-ink text-2xl">{translate("Thank you for reaching out.")}</h3>
+        <p className="mt-3 leading-relaxed text-ink/70">{translate("Your message has been sent successfully.")}<br />{translate("We'll get back to you soon.")}</p>
         <button
           type="button"
           onClick={reset}
           className="mt-7 text-sm font-semibold text-brand transition-colors hover:text-brandDeep"
-        >
-          Send another inquiry
-        </button>
+        >{translate("Send another inquiry")}</button>
       </div>
     )
   }
@@ -193,54 +184,48 @@ export default function ContactForm() {
       className="rounded-[24px] border border-line bg-white p-8 shadow-[0_30px_80px_-40px_rgba(17,17,17,0.18)] md:p-10"
     >
       {status === 'error' && (
-        <div className="mb-8 rounded-xl border border-[#b42318]/30 bg-[#b42318]/5 px-4 py-3 text-sm text-[#b42318]">
-          Something went wrong. Please try again.
-        </div>
+        <div className="mb-8 rounded-xl border border-[#b42318]/30 bg-[#b42318]/5 px-4 py-3 text-sm text-[#b42318]">{translate("Something went wrong. Please try again.")}</div>
       )}
       {!IS_CONFIGURED && (
-        <div className="mb-8 rounded-xl border border-brandLine/40 bg-brandSoft px-4 py-3 text-sm text-ink/70">
-          Demo mode: add your Web3Forms access key in{' '}
-          <code className="font-mono text-brand">.env</code> (
-          <code className="font-mono text-brand">VITE_WEB3FORMS_ACCESS_KEY</code>) to enable live
-          email delivery.
-        </div>
+        <div className="mb-8 rounded-xl border border-brandLine/40 bg-brandSoft px-4 py-3 text-sm text-ink/70">{translate("Demo mode: add your Web3Forms access key in")}{translate(' ')}
+          <code className="font-mono text-brand">{translate(".env")}</code>{translate(" (")}<code className="font-mono text-brand">{translate("VITE_WEB3FORMS_ACCESS_KEY")}</code>{translate(") to enable live email delivery.")}</div>
       )}
 
       {/* ── Contact Details ── */}
       <div className="border-b border-line pb-8">
-        <h3 className="text-base font-semibold tracking-tight text-ink/85">Contact details</h3>
+        <h3 className="text-base font-semibold tracking-tight text-ink/85">{translate("Contact details")}</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <Field label="Full Name" required error={errors.fullName}>
+          <Field label={translate("Full Name")} required error={errors.fullName}>
             <input
               className={inputCls}
               value={form.fullName}
               onChange={update('fullName')}
-              placeholder="Your name"
+              placeholder={translate("Your name")}
             />
           </Field>
-          <Field label="Work Email" required error={errors.workEmail}>
+          <Field label={translate("Work Email")} required error={errors.workEmail}>
             <input
               type="email"
               className={inputCls}
               value={form.workEmail}
               onChange={update('workEmail')}
-              placeholder="name@company.com"
+              placeholder={translate("name@company.com")}
             />
           </Field>
-          <Field label="Company / Institution" error={errors.company}>
+          <Field label={translate("Company / Institution")} error={errors.company}>
             <input
               className={inputCls}
               value={form.company}
               onChange={update('company')}
-              placeholder="Company or institution name"
+              placeholder={translate("Company or institution name")}
             />
           </Field>
-          <Field label="Country / Region" error={errors.country}>
+          <Field label={translate("Country / Region")} error={errors.country}>
             <input
               className={inputCls}
               value={form.country}
               onChange={update('country')}
-              placeholder="Country or region"
+              placeholder={translate("Country or region")}
             />
           </Field>
         </div>
@@ -248,22 +233,22 @@ export default function ContactForm() {
 
       {/* ── Inquiry ── */}
       <div className="py-8">
-        <h3 className="text-base font-semibold tracking-tight text-ink/85">Inquiry details</h3>
+        <h3 className="text-base font-semibold tracking-tight text-ink/85">{translate("Inquiry details")}</h3>
         <div className="mt-6 space-y-6">
           <SelectField
-            label="What are you interested in?"
+            label={translate("What are you interested in?")}
             required
             error={errors.interestedIn}
-            placeholder="Choose a product or area"
+            placeholder={translate("Choose a product or area")}
             options={PRODUCT_INTEREST_OPTIONS}
             value={form.interestedIn}
             onChange={update('interestedIn')}
           />
           <SelectField
-            label="What can we help you with?"
+            label={translate("What can we help you with?")}
             required
             error={errors.inquiry}
-            placeholder="Choose how we can help"
+            placeholder={translate("Choose how we can help")}
             options={INQUIRY_OPTIONS}
             value={form.inquiry}
             onChange={update('inquiry')}
@@ -273,8 +258,8 @@ export default function ContactForm() {
             <div>
               <div className="pt-6">
                 <SelectField
-                  label="Estimated Quantity"
-                  placeholder="Choose an estimated quantity"
+                  label={translate("Estimated Quantity")}
+                  placeholder={translate("Choose an estimated quantity")}
                   options={QUANTITY_OPTIONS}
                   value={form.estimatedQuantity}
                   onChange={update('estimatedQuantity')}
@@ -287,13 +272,13 @@ export default function ContactForm() {
 
       {/* ── Project Details ── */}
       <div className="pt-8">
-        <Field label="Project Details" required error={errors.projectDetails}>
+        <Field label={translate("Project Details")} required error={errors.projectDetails}>
           <textarea
             rows={6}
             className={`${inputCls} resize-y leading-relaxed`}
             value={form.projectDetails}
             onChange={update('projectDetails')}
-            placeholder="Share your use case, timeline, and expected scale."
+            placeholder={translate("Share your use case, timeline, and expected scale.")}
           />
         </Field>
       </div>
@@ -305,14 +290,12 @@ export default function ContactForm() {
           disabled={sending}
           className="group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand disabled:cursor-not-allowed disabled:opacity-60 focus-visible:ring-1 focus-visible:ring-brandLine"
         >
-          {sending ? 'Sending…' : 'Submit Inquiry'}
+          {translate(sending ? 'Sending…' : 'Submit Inquiry')}
           {!sending && (
             <span
               aria-hidden="true"
               className="transition-transform duration-300 group-hover:translate-x-[3px]"
-            >
-              →
-            </span>
+            >{translate("→")}</span>
           )}
         </button>
       </div>

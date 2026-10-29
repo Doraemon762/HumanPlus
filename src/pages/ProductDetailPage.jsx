@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../i18n'
 import PageHeader from '../components/layout/PageHeader'
 import WeavePresentation from '../components/products/WeavePresentation'
 import MotionZeroSpecs from '../components/sections/MotionZeroSpecs'
@@ -28,11 +29,12 @@ const GLOVE_ZERO_IDS = ['g0-hero', 'g0-features', 'g0-specs', 'g0-accuracy']
    other product keeps the shared header. Content below is still
    placeholder: no specs or parameters invented. */
 export default function ProductDetailPage({ id }) {
+  useSiteLanguage()
   const product = findProduct(id)
 
   if (!product) {
     return (
-      <PageHeader label="Hardware" title="Product not found" description="This product page does not exist yet." />
+      <PageHeader label={translate("Hardware")} title={translate("Product not found")} description={translate("This product page does not exist yet.")} />
     )
   }
 
@@ -54,7 +56,7 @@ export default function ProductDetailPage({ id }) {
 
   return (
     <>
-      {isMotionZero ? (
+      {translate(isMotionZero ? (
         <div className="weave-page">
           <WeavePresentation />
           <MotionZeroSpecs />
@@ -66,8 +68,8 @@ export default function ProductDetailPage({ id }) {
       ) : isStrapZero ? (
         <StrapZeroHero product={product} />
       ) : (
-        <PageHeader label="Hardware" title={product.name} description={product.description} />
-      )}
+        <PageHeader label={translate("Hardware")} title={translate(product.name)} description={translate(product.description)} />
+      ))}
     </>
   )
 }

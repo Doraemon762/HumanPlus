@@ -2138,12 +2138,39 @@
           "bytes": 240380
         }
       ]
+    },
+    "images/products/glove-pro-updated.png": {
+      "width": 961,
+      "height": 1280,
+      "variants": [
+        {
+          "src": "media/images/products/glove-pro-updated.png.480.webp",
+          "width": 480,
+          "bytes": 42302
+        },
+        {
+          "src": "media/images/products/glove-pro-updated.png.960.webp",
+          "width": 960,
+          "bytes": 151232
+        },
+        {
+          "src": "media/images/products/glove-pro-updated.png.961.webp",
+          "width": 961,
+          "bytes": 158054
+        }
+      ]
     }
   },
   "videos": {
     "media/optimized-current/pulse-demo-20261026.desktop.mp4": {
-      "desktop": { "src": "media/optimized-current/pulse-demo-20261026.desktop.mp4", "bytes": 31625389 },
-      "mobile": { "src": "media/optimized-current/pulse-demo-20261026.mobile.mp4", "bytes": 8425333 },
+      "desktop": {
+        "src": "media/optimized-current/pulse-demo-20261026.desktop.mp4",
+        "bytes": 31625389
+      },
+      "mobile": {
+        "src": "media/optimized-current/pulse-demo-20261026.mobile.mp4",
+        "bytes": 8425333
+      },
       "poster": "media/optimized-current/pulse-demo-20261026.jpg"
     },
     "videos/demo/human-demo-1-1080.mp4": {

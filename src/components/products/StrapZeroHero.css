@@ -10,13 +10,13 @@
 .pulse-page h2.reveal.in { opacity: 1; transform: none; }
 @media(prefers-reduced-motion: reduce) { .pulse-page .reveal > *, .pulse-page h2.reveal { opacity: 1; transform: none; transition: none; } }
 .pulse-page h1,.pulse-page h2,.pulse-page h3,.pulse-page p { margin: 0; }
-.pulse-hero { min-height: calc(100svh - 72px); padding: 70px 8vw; display: grid; grid-template-columns: 1fr 1.25fr; align-items: center; gap: 20px; background: radial-gradient(ellipse at 72% 50%, #e2e7ea, transparent 60%), linear-gradient(135deg,#fff,#f0f2f4); overflow: hidden; }
+.pulse-hero { min-height: calc(100svh - 72px); padding: 70px 8vw; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); align-items: center; gap: 20px; background: radial-gradient(ellipse at 72% 50%, #e2e7ea, transparent 60%), linear-gradient(135deg,#fff,#f0f2f4); overflow: hidden; }
 .pulse-eyebrow { color: #7c838b; font-size: 13px; letter-spacing: .1em; margin-bottom: 24px !important; }
 .pulse-hero h1 { font-size: clamp(64px, 9vw, 150px); font-weight: 750; letter-spacing: -.065em; line-height: 1; }
 .pulse-hero .pulse-lead { font-size: clamp(26px,3vw,46px); line-height: 1.15; margin-top: 24px; letter-spacing: -.04em; font-weight: 550; }
 .pulse-sub { color: #777; font-size: 17px; line-height: 1.6; margin-top: 24px !important; }
 .pulse-contact { display: inline-block; padding: 14px 26px; border-radius: 99px; color: #fff; background: #171717; margin-top: 30px; font-size: 15px; font-weight: 600; }
-.pulse-hero img { width: 120%; max-width: none; transform: translateX(-5%); filter: drop-shadow(0 35px 30px #28334120); }
+.pulse-hero img { width: 100%; max-width: 100%; transform: none; filter: drop-shadow(0 35px 30px #28334120); }
 .pulse-highlights { max-width: 1200px; margin: 0 auto; padding: 80px 5vw; display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; text-align: center; }
 .pulse-highlights strong { font-size: clamp(44px,6vw,88px); letter-spacing: -.05em; font-weight: 750; }
 .pulse-highlights strong span { font-size: 22px; margin-left: 10px; letter-spacing: -.02em; }
@@ -76,7 +76,7 @@
 .pulse-specs-art { margin: 0; min-width: 0; align-self: center; position: static; display: grid; place-items: center; min-height: 320px; }
 .pulse-specs-art img { display: block; width: 100%; height: auto; max-height: 62svh; object-fit: contain; filter: drop-shadow(0 24px 24px #28334115); }
 @media(max-width:767px) { .pulse-specs-layout { grid-template-columns: 1fr; gap: 36px; }.pulse-specs-art { order: -1; position: static; margin: 0; }.pulse-specs-art img { max-height: 35svh; } }
-@media(max-width:767px) { .pulse-hero,.pulse-feature { grid-template-columns: 1fr; padding: 60px 7vw; }.pulse-hero img { width: 110%; }.pulse-highlights { gap: 16px; padding: 50px 6vw; }.pulse-highlights strong { font-size: 40px; }.pulse-highlights strong span { display: block; margin: 5px 0; font-size: 16px; }.pulse-highlights p { font-size: 12px; }.pulse-data-grid { grid-template-columns: 1fr; gap: 35px; }.pulse-data,.pulse-demo-space,.pulse-specs { padding: 65px 7vw; }.pulse-feature p:not(.pulse-eyebrow) { font-size: 16px; }.pulse-specs dl>div { font-size: 14px; gap: 16px; } }
+@media(max-width:767px) { .pulse-hero,.pulse-feature { grid-template-columns: 1fr; padding: 60px 7vw; }.pulse-hero img { width: 100%; }.pulse-highlights { gap: 16px; padding: 50px 6vw; }.pulse-highlights strong { font-size: 40px; }.pulse-highlights strong span { display: block; margin: 5px 0; font-size: 16px; }.pulse-highlights p { font-size: 12px; }.pulse-data-grid { grid-template-columns: 1fr; gap: 35px; }.pulse-data,.pulse-demo-space,.pulse-specs { padding: 65px 7vw; }.pulse-feature p:not(.pulse-eyebrow) { font-size: 16px; }.pulse-specs dl>div { font-size: 14px; gap: 16px; } }
 /* Centered capability layout shared with the hand reconstruction metrics. */
 .pulse-page .pulse-data { background: #fff; text-align: center; }
 .pulse-data h2 { font-size: clamp(25px,3vw,38px); line-height: 1.25; font-weight: 650; letter-spacing: -.035em; }

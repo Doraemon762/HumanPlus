@@ -1,3 +1,4 @@
+import {translate, useSiteLanguage} from '../../i18n'
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { ArrowUpRight, ChevronLeft, ChevronRight, Plus, X } from 'lucide-react'
@@ -12,10 +13,12 @@ const summaries = {
 }
 
 function Venue({ paper }) {
-  return <div className="paper-venue-line"><span>{paper.highlight || paper.venue}</span>{paper.logo && <OptimizedImage src={paper.logo} alt={`${paper.venue} conference logo`} />}</div>
+  useSiteLanguage()
+  return <div className="paper-venue-line"><span>{translate(paper.highlight || paper.venue)}</span>{paper.logo && <OptimizedImage src={paper.logo} alt={translate(`${paper.venue} conference logo`)} />}</div>
 }
 
 function PaperDialog({ paper, onClose }) {
+  useSiteLanguage()
   const dialogRef = useRef(null)
 
   useEffect(() => {
@@ -37,19 +40,20 @@ function PaperDialog({ paper, onClose }) {
       const bounds = event.currentTarget.getBoundingClientRect()
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) onClose()
     }}>
-      <div className="paper-dialog-toolbar"><button className="paper-round-button paper-dialog-close" onClick={onClose} aria-label="Close paper details" title="Close"><X size={23} strokeWidth={3} /></button></div>
+      <div className="paper-dialog-toolbar"><button className="paper-round-button paper-dialog-close" onClick={onClose} aria-label={translate("Close paper details")} title={translate("Close")}><X size={23} strokeWidth={3} /></button></div>
       <div className="paper-dialog-content">
         <div className="paper-dialog-venue"><Venue paper={paper} /></div>
-        <h2 id="paper-dialog-title">{paper.title}</h2>
-        {paper.description && <p className="paper-dialog-description">{paper.description}</p>}
-        <div className="paper-dialog-links">{paper.links.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{link.label === 'Paper' ? 'Read full paper' : link.label}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
-        {paper.image && <figure className="paper-dialog-image"><OptimizedImage src={paper.image} sizes="(max-width: 767px) 90vw, 1000px" alt={`${summaries[paper.id]?.[0] || paper.title} research overview`} /></figure>}
+        <h2 id="paper-dialog-title">{translate(paper.title)}</h2>
+        {paper.description && <p className="paper-dialog-description">{translate(paper.description)}</p>}
+        <div className="paper-dialog-links">{paper.links.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{translate(link.label === 'Paper' ? 'Read full paper' : link.label)}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
+        {paper.image && <figure className="paper-dialog-image"><OptimizedImage src={paper.image} sizes="(max-width: 767px) 90vw, 1000px" alt={translate(`${summaries[paper.id]?.[0] || paper.title} research overview`)} /></figure>}
       </div>
     </dialog>, document.body,
   )
 }
 
 export default function ResearchSection() {
+  useSiteLanguage()
   const [selectedPaper, setSelectedPaper] = useState(null)
   const [navigation, setNavigation] = useState({ previous: false, next: false })
   const trackRef = useRef(null)
@@ -76,21 +80,21 @@ export default function ResearchSection() {
   }
 
   return <section id="research" className="home-paper-section" aria-labelledby="home-paper-title">
-    <header className="home-paper-heading"><h2 id="home-paper-title">Research</h2><a href="#/research">Explore our research <ChevronRight size={18} aria-hidden="true" /></a></header>
-    <div className="home-paper-track" ref={trackRef} aria-label="Featured research papers" tabIndex={0} onKeyDown={(event) => {
+    <header className="home-paper-heading"><h2 id="home-paper-title">{translate("Research")}</h2><a href="#/research">{translate("Explore our research ")}<ChevronRight size={18} aria-hidden="true" /></a></header>
+    <div className="home-paper-track" ref={trackRef} aria-label={translate("Featured research papers")} tabIndex={0} onKeyDown={(event) => {
       if (event.target !== event.currentTarget || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return
       event.preventDefault()
       move(event.key === 'ArrowRight' ? 1 : -1)
     }}>
       {papers.map(paper => <article className="paper-card" key={paper.id}>
-        <div className="paper-card-copy"><div className="paper-card-venue"><Venue paper={paper} /></div><h3>{summaries[paper.id]?.[1] || paper.title}</h3>{summaries[paper.id] && <p className="paper-card-description">{summaries[paper.id][2]}</p>}</div>
-        <figure className="paper-card-image">{paper.image
-          ? <OptimizedImage src={paper.image} sizes="(max-width: 767px) 85vw, 330px" alt={`${summaries[paper.id]?.[0] || paper.title} research overview`} />
-          : <div className="paper-text-cover" aria-label="Publication reference"><span>{paper.venue}</span><strong>{paper.year}</strong><span>HumanPlus Research</span></div>}</figure>
-        <button className="paper-card-open" onClick={() => setSelectedPaper(paper)} aria-label={`Read more about ${summaries[paper.id]?.[0] || paper.title}`} aria-haspopup="dialog"><span className="paper-round-button" title="Read more"><Plus size={23} strokeWidth={3} aria-hidden="true" /></span></button>
+        <div className="paper-card-copy"><div className="paper-card-venue"><Venue paper={paper} /></div><h3>{translate(paper.title)}</h3>{summaries[paper.id] && <p className="paper-card-description">{translate(summaries[paper.id][2])}</p>}</div>
+        <figure className="paper-card-image">{translate(paper.image
+          ? <OptimizedImage src={paper.image} sizes="(max-width: 767px) 85vw, 330px" alt={translate(`${summaries[paper.id]?.[0] || paper.title} research overview`)} />
+          : <div className="paper-text-cover" aria-label={translate("Publication reference")}><span>{translate(paper.venue)}</span><strong>{translate(paper.year)}</strong><span>{translate("HumanPlus Research")}</span></div>)}</figure>
+        <button className="paper-card-open" onClick={() => setSelectedPaper(paper)} aria-label={translate(`Read more about ${summaries[paper.id]?.[0] || paper.title}`)} aria-haspopup="dialog"><span className="paper-round-button" title={translate("Read more")}><Plus size={23} strokeWidth={3} aria-hidden="true" /></span></button>
       </article>)}
     </div>
-    <div className="home-paper-navigation"><button className="paper-round-button" aria-label="Previous research paper" title="Previous paper" disabled={!navigation.previous} onClick={() => move(-1)}><ChevronLeft size={26} strokeWidth={3} /></button><button className="paper-round-button" aria-label="Next research paper" title="Next paper" disabled={!navigation.next} onClick={() => move(1)}><ChevronRight size={26} strokeWidth={3} /></button></div>
+    <div className="home-paper-navigation"><button className="paper-round-button" aria-label={translate("Previous research paper")} title={translate("Previous paper")} disabled={!navigation.previous} onClick={() => move(-1)}><ChevronLeft size={26} strokeWidth={3} /></button><button className="paper-round-button" aria-label={translate("Next research paper")} title={translate("Next paper")} disabled={!navigation.next} onClick={() => move(1)}><ChevronRight size={26} strokeWidth={3} /></button></div>
     {selectedPaper && <PaperDialog paper={selectedPaper} onClose={() => setSelectedPaper(null)} />}
   </section>
 }
