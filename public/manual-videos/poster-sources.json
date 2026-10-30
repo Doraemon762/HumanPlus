@@ -1,0 +1,173 @@
+[
+  {
+    "product": "weave",
+    "title": "八小时稳定性测试",
+    "en": "Eight-hour stability test",
+    "video": "/media/optimized-current/stability-test-20261022.desktop.mp4",
+    "video_sha256": "76271e6669b076b6a5a3e2e4fa44b3c11160fae5713abab4b50b150db1d7cf42",
+    "poster": "/media/manual-videos/posters/weave-stability-test-20261022-76271e6669.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "weave",
+    "title": "真实场景采集",
+    "en": "Real-world capture",
+    "video": "/media/videos/motion-0/kitchen-real.desktop.mp4",
+    "video_sha256": "581edca0dc4b4070a8b1d6501806b26d9e06726bca7f7c2e7753d1ed0e6686bf",
+    "poster": "/media/manual-videos/posters/weave-kitchen-real-581edca0dc.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "weave",
+    "title": "可用于遥操作",
+    "en": "Ready for teleoperation",
+    "video": "/media/videos/motion-0/wear-to-capture.desktop.mp4",
+    "video_sha256": "c0d34f115cc81a08baafbb4af7d304eeb9d34dc8d14501ce2bbfa365a7314dd7",
+    "poster": "/media/manual-videos/posters/weave-wear-to-capture-c0d34f115c.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "weave",
+    "title": "数字动作演示",
+    "en": "Digital motion demonstration",
+    "video": "/media/videos/motion-0/digital-motion.desktop.mp4",
+    "video_sha256": "d86d34cc590e2f68cbcae2f0fc2d7f1f19eaecc5a4eef12a2727050eb347ba68",
+    "poster": "/media/manual-videos/posters/weave-digital-motion-d86d34cc59.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "pulse",
+    "title": "Pulse 动作采集演示",
+    "en": "Pulse motion capture demonstration",
+    "video": "/media/optimized-current/pulse-demo-20261026.desktop.mp4",
+    "video_sha256": "a2325771c624f95f36bdf2bbef6505df4e32e30d566e8d656b6be3a9be39520e",
+    "poster": "/media/manual-videos/posters/pulse-pulse-demo-20261026-a2325771c6.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "pulse",
+    "title": "IMU结构爆炸图",
+    "en": "IMU exploded view",
+    "video": "/media/pulse-exploded/imu-exploded.mp4",
+    "video_sha256": "e735efcd8d1f3ecd6872415254621235d685bd68d7eadf0a2c2ff81908baaa30",
+    "poster": "/media/manual-videos/posters/pulse-imu-exploded-e735efcd8d.jpg",
+    "frame_seconds": 9.9
+  },
+  {
+    "product": "glove",
+    "title": "仿真手与机械手演示",
+    "en": "Simulated and robotic hand demonstration",
+    "video": "/media/manual-videos/glove-simulation-robot.desktop.mp4",
+    "video_sha256": "d1a25068b0e601b536e7515c3338b40da8a451189b81e86c8eef8d526e7eaf9e",
+    "poster": "/media/manual-videos/posters/glove-glove-simulation-robot-d1a25068b0.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "生活场景采集",
+    "en": "Life capture",
+    "video": "/media/optimized-current/life-capture-compatible.desktop.mp4",
+    "video_sha256": "3dfbe3a63e59f7fa07cba1c3a88fc27f8c7a70b636e9eb83302ab1209c61f5e3",
+    "poster": "/media/manual-videos/posters/datasets-life-capture-compatible-3dfbe3a63e.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "多模态同步可视化",
+    "en": "Synchronized multimodal visualization",
+    "video": "/media/optimized-current/synchronized.desktop.mp4",
+    "video_sha256": "a6e1c0ff204367dd1e6a4d7aa0cfdae46266e84136fd07c67c54747a3aa49400",
+    "poster": "/media/manual-videos/posters/datasets-synchronized-a6e1c0ff20.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "人体动作可视化",
+    "en": "Human motion visualization",
+    "video": "/media/optimized-current/motion.desktop.mp4",
+    "video_sha256": "f338eee50c3784aa16f8851e76ec4e64ca109b12414c1ca792056b651b5cfdec",
+    "poster": "/media/manual-videos/posters/datasets-motion-f338eee50c.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "视觉数据可视化",
+    "en": "Visual data visualization",
+    "video": "/media/optimized-current/vision.desktop.mp4",
+    "video_sha256": "8a7f9ad552d070fc62656bb15f8abf33ceeb0506e8b5ac9594f5b185f50f3a4b",
+    "poster": "/media/manual-videos/posters/datasets-vision-8a7f9ad552.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 01",
+    "en": "Scene data visualization 01",
+    "video": "/media/optimized-current/gallery-02.desktop.mp4",
+    "video_sha256": "13e9b4e327b4d25595069fb0d2f87b30fc17e3884006b75e40f8af6c5135a516",
+    "poster": "/media/manual-videos/posters/datasets-gallery-02-13e9b4e327.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 02",
+    "en": "Scene data visualization 02",
+    "video": "/media/optimized-current/gallery-03.desktop.mp4",
+    "video_sha256": "3839fb6d2c9b7e9b975b7f2a210fd840189aa33b13d670306ffa6afaba3ee4c4",
+    "poster": "/media/manual-videos/posters/datasets-gallery-03-3839fb6d2c.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 03",
+    "en": "Scene data visualization 03",
+    "video": "/media/optimized-current/gallery-04.desktop.mp4",
+    "video_sha256": "581797bc2f028e996ab8a36f802cad036a8ba17cf965e3c5d3dce5a2b1d90431",
+    "poster": "/media/manual-videos/posters/datasets-gallery-04-581797bc2f.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 04",
+    "en": "Scene data visualization 04",
+    "video": "/media/optimized-current/gallery-05.desktop.mp4",
+    "video_sha256": "ee108ef65ef4afb6d728a6055f72613135ae6432b8f0440dabfe21fd69f6f025",
+    "poster": "/media/manual-videos/posters/datasets-gallery-05-ee108ef65e.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 05",
+    "en": "Scene data visualization 05",
+    "video": "/media/optimized-current/gallery-06.desktop.mp4",
+    "video_sha256": "27fc43ca76b6b84770af02e524b5bf8eeae2f4cc39015b62d0314a6a8aa298cd",
+    "poster": "/media/manual-videos/posters/datasets-gallery-06-27fc43ca76.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 06",
+    "en": "Scene data visualization 06",
+    "video": "/media/optimized-current/gallery-07.desktop.mp4",
+    "video_sha256": "0a545acd7e18f17ed7e2d09bae37658678ca5ac62fb6e6e6e62e5cf202d052a5",
+    "poster": "/media/manual-videos/posters/datasets-gallery-07-0a545acd7e.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 07",
+    "en": "Scene data visualization 07",
+    "video": "/media/optimized-current/gallery-08.desktop.mp4",
+    "video_sha256": "ab8c7e164253631651ee47de9d9ae7b161e703147163438fa335c2bb5ffac1a0",
+    "poster": "/media/manual-videos/posters/datasets-gallery-08-ab8c7e1642.jpg",
+    "frame_seconds": 0.2
+  },
+  {
+    "product": "datasets",
+    "title": "场景数据可视化 · 08",
+    "en": "Scene data visualization 08",
+    "video": "/media/optimized-current/gallery-09.desktop.mp4",
+    "video_sha256": "8ee2bd3fe239736a3399dde98f9c25bb377bfb14457c21984fb656fba775e22f",
+    "poster": "/media/manual-videos/posters/datasets-gallery-09-8ee2bd3fe2.jpg",
+    "frame_seconds": 0.2
+  }
+]
