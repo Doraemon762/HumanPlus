@@ -18,7 +18,7 @@ for lang, filename in zip(('zh', 'en'), sys.argv[1:]):
     folder.mkdir(parents=True, exist_ok=True)
     doc, reader = pdf.PdfDocument(str(source)), PdfReader(source)
     if len(doc) != len(names[lang]):
-        raise SystemExit(f'{lang}: expected {len(names[lang])} V6 pages, got {len(doc)}')
+        raise SystemExit(f'{lang}: expected {len(names[lang])} V7 pages, got {len(doc)}')
     pages = []
     for i, page in enumerate(doc):
         name = f'page-{i+1:02}.webp'
@@ -36,7 +36,7 @@ for lang, filename in zip(('zh', 'en'), sys.argv[1:]):
                 x1, y1, x2, y2 = map(float, a['/Rect'])
                 links.append(dict(url=url, x=x1/w*100, y=(h-y2)/h*100, w=(x2-x1)/w*100, h=(y2-y1)/h*100))
         pages.append(dict(file=name, title=names[lang][i] if i<len(names[lang]) else f'Page {i+1}', links=links))
-    languages[lang] = dict(title='HumanPlus Product Catalogue', edition='V6', version=version, sourceDir=f'{lang}/{version}', pages=pages)
+    languages[lang] = dict(title='HumanPlus Product Catalogue', edition='V7', version=version, sourceDir=f'{lang}/{version}', pages=pages)
     print(f'{lang}: {len(pages)} pages, version {version}', flush=True)
 if len(languages) != 2:
     raise SystemExit('Supply Chinese PDF and English PDF, in that order')
