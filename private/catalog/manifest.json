@@ -1,8 +1,8 @@
 {
   "title": "HumanPlus Product Catalogue",
-  "edition": "V3",
-  "version": "08a6af6f735d",
-  "sourceDir": "zh/08a6af6f735d",
+  "edition": "V6",
+  "version": "05c43a503647",
+  "sourceDir": "zh/05c43a503647",
   "pages": [
     {
       "file": "page-01.webp",
@@ -31,11 +31,16 @@
     },
     {
       "file": "page-06.webp",
-      "title": "CAP",
+      "title": "PULSE Pro",
       "links": []
     },
     {
       "file": "page-07.webp",
+      "title": "CAP",
+      "links": []
+    },
+    {
+      "file": "page-08.webp",
       "title": "HumanPlus-1000",
       "links": [
         {
@@ -62,7 +67,7 @@
       ]
     },
     {
-      "file": "page-08.webp",
+      "file": "page-09.webp",
       "title": "联系信息",
       "links": []
     }
@@ -70,9 +75,9 @@
   "languages": {
     "zh": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "08a6af6f735d",
-      "sourceDir": "zh/08a6af6f735d",
+      "edition": "V6",
+      "version": "05c43a503647",
+      "sourceDir": "zh/05c43a503647",
       "pages": [
         {
           "file": "page-01.webp",
@@ -101,11 +106,16 @@
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
+          "title": "PULSE Pro",
           "links": []
         },
         {
           "file": "page-07.webp",
+          "title": "CAP",
+          "links": []
+        },
+        {
+          "file": "page-08.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
@@ -132,7 +142,7 @@
           ]
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "联系信息",
           "links": []
         }
@@ -140,9 +150,9 @@
     },
     "en": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "255e91f4d704",
-      "sourceDir": "en/255e91f4d704",
+      "edition": "V6",
+      "version": "f1a1f26458bf",
+      "sourceDir": "en/f1a1f26458bf",
       "pages": [
         {
           "file": "page-01.webp",
@@ -171,11 +181,16 @@
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
+          "title": "PULSE Pro",
           "links": []
         },
         {
           "file": "page-07.webp",
+          "title": "CAP",
+          "links": []
+        },
+        {
+          "file": "page-08.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
@@ -202,7 +217,7 @@
           ]
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "Contact",
           "links": []
         }

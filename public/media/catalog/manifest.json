@@ -1,53 +1,60 @@
 {
   "title": "HumanPlus Product Catalogue",
-  "edition": "V3",
-  "version": "08a6af6f735d",
-  "sourceDir": "zh/08a6af6f735d",
+  "edition": "V6",
+  "version": "05c43a503647",
+  "sourceDir": "zh/05c43a503647",
   "pages": [
     {
       "file": "page-01.webp",
       "title": "封面",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-01.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-01.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-01.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-01.webp"
     },
     {
       "file": "page-02.webp",
       "title": "四款穿戴",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-02.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-02.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-02.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-02.webp"
     },
     {
       "file": "page-03.webp",
       "title": "WEAVE",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-03.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-03.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-03.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-03.webp"
     },
     {
       "file": "page-04.webp",
       "title": "GLOVE",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-04.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-04.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-04.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-04.webp"
     },
     {
       "file": "page-05.webp",
       "title": "PULSE",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-05.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-05.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-05.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-05.webp"
     },
     {
       "file": "page-06.webp",
-      "title": "CAP",
+      "title": "PULSE Pro",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-06.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-06.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-06.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-06.webp"
     },
     {
       "file": "page-07.webp",
+      "title": "CAP",
+      "links": [],
+      "preview": "/media/catalog/05c43a503647-read-v2/page-07.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-07.webp"
+    },
+    {
+      "file": "page-08.webp",
       "title": "HumanPlus-1000",
       "links": [
         {
@@ -72,68 +79,75 @@
           "h": -0.7191238086967848
         }
       ],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-07.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-07.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-08.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-08.webp"
     },
     {
-      "file": "page-08.webp",
+      "file": "page-09.webp",
       "title": "联系信息",
       "links": [],
-      "preview": "/media/catalog/08a6af6f735d-read-v2/page-08.webp",
-      "full": "/media/catalog/08a6af6f735d-read-v1/full-page-08.webp"
+      "preview": "/media/catalog/05c43a503647-read-v2/page-09.webp",
+      "full": "/media/catalog/05c43a503647-read-v1/full-page-09.webp"
     }
   ],
   "languages": {
     "zh": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "08a6af6f735d",
-      "sourceDir": "zh/08a6af6f735d",
+      "edition": "V6",
+      "version": "05c43a503647",
+      "sourceDir": "zh/05c43a503647",
       "pages": [
         {
           "file": "page-01.webp",
           "title": "封面",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-01.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-01.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-01.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-01.webp"
         },
         {
           "file": "page-02.webp",
           "title": "四款穿戴",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-02.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-02.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-02.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-02.webp"
         },
         {
           "file": "page-03.webp",
           "title": "WEAVE",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-03.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-03.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-03.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-03.webp"
         },
         {
           "file": "page-04.webp",
           "title": "GLOVE",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-04.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-04.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-04.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-04.webp"
         },
         {
           "file": "page-05.webp",
           "title": "PULSE",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-05.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-05.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-05.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-05.webp"
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
+          "title": "PULSE Pro",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-06.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-06.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-06.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-06.webp"
         },
         {
           "file": "page-07.webp",
+          "title": "CAP",
+          "links": [],
+          "preview": "/media/catalog/05c43a503647-read-v2/page-07.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-07.webp"
+        },
+        {
+          "file": "page-08.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
@@ -158,68 +172,75 @@
               "h": -0.7191238086967848
             }
           ],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-07.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-07.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-08.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-08.webp"
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "联系信息",
           "links": [],
-          "preview": "/media/catalog/08a6af6f735d-read-v2/page-08.webp",
-          "full": "/media/catalog/08a6af6f735d-read-v1/full-page-08.webp"
+          "preview": "/media/catalog/05c43a503647-read-v2/page-09.webp",
+          "full": "/media/catalog/05c43a503647-read-v1/full-page-09.webp"
         }
       ]
     },
     "en": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "255e91f4d704",
-      "sourceDir": "en/255e91f4d704",
+      "edition": "V6",
+      "version": "f1a1f26458bf",
+      "sourceDir": "en/f1a1f26458bf",
       "pages": [
         {
           "file": "page-01.webp",
           "title": "Cover",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-01.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-01.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-01.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-01.webp"
         },
         {
           "file": "page-02.webp",
           "title": "Four wearables",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-02.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-02.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-02.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-02.webp"
         },
         {
           "file": "page-03.webp",
           "title": "WEAVE",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-03.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-03.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-03.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-03.webp"
         },
         {
           "file": "page-04.webp",
           "title": "GLOVE",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-04.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-04.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-04.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-04.webp"
         },
         {
           "file": "page-05.webp",
           "title": "PULSE",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-05.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-05.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-05.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-05.webp"
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
+          "title": "PULSE Pro",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-06.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-06.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-06.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-06.webp"
         },
         {
           "file": "page-07.webp",
+          "title": "CAP",
+          "links": [],
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-07.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-07.webp"
+        },
+        {
+          "file": "page-08.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
@@ -244,15 +265,15 @@
               "h": -0.7191238086967848
             }
           ],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-07.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-07.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-08.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-08.webp"
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "Contact",
           "links": [],
-          "preview": "/media/catalog/255e91f4d704-read-v2/page-08.webp",
-          "full": "/media/catalog/255e91f4d704-read-v1/full-page-08.webp"
+          "preview": "/media/catalog/f1a1f26458bf-read-v2/page-09.webp",
+          "full": "/media/catalog/f1a1f26458bf-read-v1/full-page-09.webp"
         }
       ]
     }
