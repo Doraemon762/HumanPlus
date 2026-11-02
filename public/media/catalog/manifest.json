@@ -1,420 +1,441 @@
 {
   "title": "HumanPlus Product Catalogue",
-  "edition": "V7",
-  "version": "8baeef6d5199",
-  "sourceDir": "zh/8baeef6d5199",
+  "edition": "V8",
+  "version": "c4a9e09ec0b5",
+  "sourceDir": "zh/c4a9e09ec0b5",
   "pages": [
     {
       "file": "page-01.webp",
       "title": "封面",
       "links": [],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-01.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-01.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-01.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-01.webp"
     },
     {
       "file": "page-02.webp",
-      "title": "四款穿戴",
+      "title": "关于 HumanPlus",
       "links": [],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-02.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-02.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-02.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-02.webp"
     },
     {
       "file": "page-03.webp",
+      "title": "四款穿戴",
+      "links": [],
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-03.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-03.webp"
+    },
+    {
+      "file": "page-04.webp",
       "title": "WEAVE",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=weave",
-          "x": 40.294312263900885,
-          "y": 18.732903849076262,
-          "w": 12.114208566214538,
-          "h": -8.61958079152464
+          "x": 41.48346042878745,
+          "y": 10.786314395501826,
+          "w": 10.006121176410018,
+          "h": 7.465861971647511
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-03.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-03.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-04.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-04.webp"
     },
     {
-      "file": "page-04.webp",
+      "file": "page-05.webp",
       "title": "GLOVE",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=glove",
-          "x": 38.26726848700155,
-          "y": 18.82910361895665,
-          "w": 12.114208566214538,
-          "h": -8.619716475262143
+          "x": 39.45641665188813,
+          "y": 11.4594414171895,
+          "w": 10.006121176410018,
+          "h": 7.465726287910039
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-04.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-04.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-05.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-05.webp"
     },
     {
-      "file": "page-05.webp",
+      "file": "page-06.webp",
       "title": "PULSE",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-          "x": 42.59156498076883,
-          "y": 18.444440223172613,
-          "w": 12.114208566214538,
-          "h": -8.61958079152464
+          "x": 43.780903836509296,
+          "y": 11.17097779128585,
+          "w": 10.005930485556117,
+          "h": 7.465726287910039
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-05.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-05.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-06.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-06.webp"
     },
     {
-      "file": "page-06.webp",
+      "file": "page-07.webp",
       "title": "PULSE Pro",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-          "x": 41.37533871462923,
-          "y": 18.732903849076262,
-          "w": 12.114208566214543,
-          "h": -8.61958079152464
+          "x": 42.42947775495844,
+          "y": 11.4594414171895,
+          "w": 10.005930485556123,
+          "h": 7.465726287910039
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-06.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-06.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-07.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-07.webp"
     },
     {
-      "file": "page-07.webp",
+      "file": "page-08.webp",
       "title": "CAP",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=cap",
-          "x": 41.7384141004445,
-          "y": 18.871029893841047,
-          "w": 12.114208566214543,
-          "h": -8.61958079152464
+          "x": 43.06276208074232,
+          "y": 15.15519505894102,
+          "w": 10.006121176410018,
+          "h": 7.465861971647526
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-07.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-07.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-08.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-08.webp"
     },
     {
-      "file": "page-08.webp",
+      "file": "page-09.webp",
       "title": "HumanPlus-1000",
       "links": [
         {
           "url": "https://humanplusai.cn/manual-videos/?product=datasets",
-          "x": 69.77130445892423,
-          "y": 16.37716279877559,
-          "w": 12.114017875360641,
-          "h": -8.619716475262143
+          "x": 70.82525280839955,
+          "y": 9.10370036688883,
+          "w": 10.006121176410018,
+          "h": 7.465726287910039
         },
         {
           "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
           "x": 52.5675570022635,
-          "y": 93.31410242493976,
+          "y": 92.5,
           "w": 37.4751386799235,
-          "h": -0.8141024249397564
+          "h": 0.8141024249397564
         },
         {
           "url": "https://github.com/humanplus-ai/humanplus-1000",
           "x": 52.5675570022635,
-          "y": 95.04487061198792,
+          "y": 94.23076818704817,
           "w": 31.017774294491517,
-          "h": -0.8141024249397564
+          "h": 0.8141024249397564
         },
         {
           "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
           "x": 52.5675570022635,
-          "y": 96.68066018279313,
+          "y": 95.96153637409635,
           "w": 37.00012776287211,
-          "h": -0.7191238086967848
+          "h": 0.7191238086967848
         }
       ],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-08.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-08.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-09.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-09.webp"
     },
     {
-      "file": "page-09.webp",
+      "file": "page-10.webp",
       "title": "联系信息",
       "links": [],
-      "preview": "/media/catalog/8baeef6d5199-read-v2/page-09.webp",
-      "full": "/media/catalog/8baeef6d5199-read-v1/full-page-09.webp"
+      "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-10.webp",
+      "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-10.webp"
     }
   ],
   "languages": {
     "zh": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V7",
-      "version": "8baeef6d5199",
-      "sourceDir": "zh/8baeef6d5199",
+      "edition": "V8",
+      "version": "c4a9e09ec0b5",
+      "sourceDir": "zh/c4a9e09ec0b5",
       "pages": [
         {
           "file": "page-01.webp",
           "title": "封面",
           "links": [],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-01.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-01.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-01.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-01.webp"
         },
         {
           "file": "page-02.webp",
-          "title": "四款穿戴",
+          "title": "关于 HumanPlus",
           "links": [],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-02.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-02.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-02.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-02.webp"
         },
         {
           "file": "page-03.webp",
+          "title": "四款穿戴",
+          "links": [],
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-03.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-03.webp"
+        },
+        {
+          "file": "page-04.webp",
           "title": "WEAVE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=weave",
-              "x": 40.294312263900885,
-              "y": 18.732903849076262,
-              "w": 12.114208566214538,
-              "h": -8.61958079152464
+              "x": 41.48346042878745,
+              "y": 10.786314395501826,
+              "w": 10.006121176410018,
+              "h": 7.465861971647511
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-03.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-03.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-04.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-04.webp"
         },
         {
-          "file": "page-04.webp",
+          "file": "page-05.webp",
           "title": "GLOVE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=glove",
-              "x": 38.26726848700155,
-              "y": 18.82910361895665,
-              "w": 12.114208566214538,
-              "h": -8.619716475262143
+              "x": 39.45641665188813,
+              "y": 11.4594414171895,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-04.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-04.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-05.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-05.webp"
         },
         {
-          "file": "page-05.webp",
+          "file": "page-06.webp",
           "title": "PULSE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-              "x": 42.59156498076883,
-              "y": 18.444440223172613,
-              "w": 12.114208566214538,
-              "h": -8.61958079152464
+              "x": 43.780903836509296,
+              "y": 11.17097779128585,
+              "w": 10.005930485556117,
+              "h": 7.465726287910039
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-05.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-05.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-06.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-06.webp"
         },
         {
-          "file": "page-06.webp",
+          "file": "page-07.webp",
           "title": "PULSE Pro",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-              "x": 41.37533871462923,
-              "y": 18.732903849076262,
-              "w": 12.114208566214543,
-              "h": -8.61958079152464
+              "x": 42.42947775495844,
+              "y": 11.4594414171895,
+              "w": 10.005930485556123,
+              "h": 7.465726287910039
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-06.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-06.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-07.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-07.webp"
         },
         {
-          "file": "page-07.webp",
+          "file": "page-08.webp",
           "title": "CAP",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=cap",
-              "x": 41.7384141004445,
-              "y": 18.871029893841047,
-              "w": 12.114208566214543,
-              "h": -8.61958079152464
+              "x": 43.06276208074232,
+              "y": 15.15519505894102,
+              "w": 10.006121176410018,
+              "h": 7.465861971647526
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-07.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-07.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-08.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-08.webp"
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=datasets",
-              "x": 69.77130445892423,
-              "y": 16.37716279877559,
-              "w": 12.114017875360641,
-              "h": -8.619716475262143
+              "x": 70.82525280839955,
+              "y": 9.10370036688883,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
             },
             {
               "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
               "x": 52.5675570022635,
-              "y": 93.31410242493976,
+              "y": 92.5,
               "w": 37.4751386799235,
-              "h": -0.8141024249397564
+              "h": 0.8141024249397564
             },
             {
               "url": "https://github.com/humanplus-ai/humanplus-1000",
               "x": 52.5675570022635,
-              "y": 95.04487061198792,
+              "y": 94.23076818704817,
               "w": 31.017774294491517,
-              "h": -0.8141024249397564
+              "h": 0.8141024249397564
             },
             {
               "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
               "x": 52.5675570022635,
-              "y": 96.68066018279313,
+              "y": 95.96153637409635,
               "w": 37.00012776287211,
-              "h": -0.7191238086967848
+              "h": 0.7191238086967848
             }
           ],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-08.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-08.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-09.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-09.webp"
         },
         {
-          "file": "page-09.webp",
+          "file": "page-10.webp",
           "title": "联系信息",
           "links": [],
-          "preview": "/media/catalog/8baeef6d5199-read-v2/page-09.webp",
-          "full": "/media/catalog/8baeef6d5199-read-v1/full-page-09.webp"
+          "preview": "/media/catalog/c4a9e09ec0b5-read-v2/page-10.webp",
+          "full": "/media/catalog/c4a9e09ec0b5-read-v1/full-page-10.webp"
         }
       ]
     },
     "en": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V7",
-      "version": "5b3b76cebd03",
-      "sourceDir": "en/5b3b76cebd03",
+      "edition": "V8",
+      "version": "bbef608e200b",
+      "sourceDir": "en/bbef608e200b",
       "pages": [
         {
           "file": "page-01.webp",
           "title": "Cover",
           "links": [],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-01.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-01.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-01.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-01.webp"
         },
         {
           "file": "page-02.webp",
-          "title": "Four wearables",
+          "title": "About HumanPlus",
           "links": [],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-02.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-02.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-02.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-02.webp"
         },
         {
           "file": "page-03.webp",
+          "title": "Four wearables",
+          "links": [],
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-03.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-03.webp"
+        },
+        {
+          "file": "page-04.webp",
           "title": "WEAVE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=weave",
-              "x": 41.59158214294568,
-              "y": 15.3675401081128,
-              "w": 11.330469156707839,
-              "h": -8.177387491044861
+              "x": 42.1321907137368,
+              "y": 8.094077676226037,
+              "w": 10.005930485556117,
+              "h": 7.465726287910039
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-03.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-03.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-04.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-04.webp"
         },
         {
-          "file": "page-04.webp",
+          "file": "page-05.webp",
           "title": "GLOVE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=glove",
-              "x": 47.56459175948544,
-              "y": 15.515435381976861,
-              "w": 11.789843423739867,
-              "h": -8.42731693550138
+              "x": 48.51060908565643,
+              "y": 8.19014176236894,
+              "w": 10.005930485556117,
+              "h": 7.465861971647526
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-04.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-04.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-05.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-05.webp"
         },
         {
-          "file": "page-05.webp",
+          "file": "page-06.webp",
           "title": "PULSE",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-              "x": 43.672782122351066,
-              "y": 15.694402231726112,
-              "w": 12.114017875360641,
-              "h": -8.61958079152464
+              "x": 44.861930287237634,
+              "y": 8.42093979983935,
+              "w": 10.00593048555613,
+              "h": 7.465861971647526
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-05.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-05.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-06.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-06.webp"
         },
         {
-          "file": "page-06.webp",
+          "file": "page-07.webp",
           "title": "PULSE Pro",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=pulse",
-              "x": 47.91603500321314,
-              "y": 15.656003734016466,
-              "w": 10.005930485556117,
-              "h": -7.465861971647526
+              "x": 47.53751365823241,
+              "y": 8.286341532249313,
+              "w": 10.006121176410018,
+              "h": 7.465861971647526
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-06.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-06.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-07.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-07.webp"
         },
         {
-          "file": "page-07.webp",
+          "file": "page-08.webp",
           "title": "CAP",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=cap",
-              "x": 45.42942626842789,
-              "y": 15.3675401081128,
-              "w": 12.114208566214543,
-              "h": -8.619716475262127
+              "x": 46.75377424872571,
+              "y": 7.805614050322387,
+              "w": 10.006121176410012,
+              "h": 7.465726287910039
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-07.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-07.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-08.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-08.webp"
         },
         {
-          "file": "page-08.webp",
+          "file": "page-09.webp",
           "title": "HumanPlus-1000",
           "links": [
             {
               "url": "https://humanplusai.cn/manual-videos/?product=datasets",
-              "x": 69.77130445892423,
-              "y": 16.37716279877559,
-              "w": 12.114017875360641,
-              "h": -8.619716475262143
+              "x": 70.82525280839955,
+              "y": 9.10370036688883,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
             },
             {
               "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
               "x": 52.5675570022635,
-              "y": 93.31410242493976,
+              "y": 92.5,
               "w": 37.4751386799235,
-              "h": -0.8141024249397564
+              "h": 0.8141024249397564
             },
             {
               "url": "https://github.com/humanplus-ai/humanplus-1000",
               "x": 52.5675570022635,
-              "y": 95.04487061198792,
+              "y": 94.23076818704817,
               "w": 31.017774294491517,
-              "h": -0.8141024249397564
+              "h": 0.8141024249397564
             },
             {
               "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
               "x": 52.5675570022635,
-              "y": 96.68066018279313,
+              "y": 95.96153637409635,
               "w": 37.00012776287211,
-              "h": -0.7191238086967848
+              "h": 0.7191238086967848
             }
           ],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-08.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-08.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-09.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-09.webp"
         },
         {
-          "file": "page-09.webp",
+          "file": "page-10.webp",
           "title": "Contact",
           "links": [],
-          "preview": "/media/catalog/5b3b76cebd03-read-v2/page-09.webp",
-          "full": "/media/catalog/5b3b76cebd03-read-v1/full-page-09.webp"
+          "preview": "/media/catalog/bbef608e200b-read-v2/page-10.webp",
+          "full": "/media/catalog/bbef608e200b-read-v1/full-page-10.webp"
         }
       ]
     }
