@@ -18,8 +18,8 @@ const specs = [
 export default function StrapZeroHero() {
   useSiteLanguage()
   return <div className="pulse-page">
-    <section className="pulse-hero">
-      <Reveal><h1>{translate("Pulse")}</h1><p className="pulse-lead">{translate("Move naturally.")}<br />{translate("Capture completely.")}</p><p className="pulse-sub">{translate("17 synchronized IMUs. Real-time human motion.")}</p><a className="pulse-contact" href={toHref('/contact')}>{translate("Contact Us ↗")}</a></Reveal>
+    <section className="pulse-hero pulse-hero--strap">
+      <Reveal><h1>{translate("Pulse")}</h1><p className="pulse-lead">{translate("Capture full-body motion")}<br />{translate("Wear sensors on adjustable straps")}</p><p className="pulse-sub">{translate("17 synchronized IMUs capture full-body motion in real time.")}</p><a className="pulse-contact" href={toHref('/contact')}>{translate("Contact Us ↗")}</a></Reveal>
       <OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={image} alt={translate("Pulse IMU sensor on its wearable strap")} fetchPriority="high" />
     </section>
     <PulseExploded />

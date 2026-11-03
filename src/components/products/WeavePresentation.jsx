@@ -15,7 +15,7 @@ export default function WeavePresentation() {
   useSiteLanguage()
   return <>
     <section id="m0-hero" className="weave-screen weave-launch">
-      <Reveal><h1>{translate("Weave")}</h1><h2>{translate("Capture motion")}<br />{translate("Wear naturally")}</h2><p>{translate("Garment-based full-body motion capture for human data and robot learning.")}</p><a href="#/contact">{translate("Contact Us ↗")}</a></Reveal>
+      <Reveal><h1>{translate("Weave")}</h1><h2>{translate("Capture full-body motion")}<br />{translate("Wear it loose and comfortable")}</h2><p>{translate("Record full-body motion with wearable garments for human data collection and robot learning.")}</p><a href="#/contact">{translate("Contact Us ↗")}</a></Reveal>
       <div className="weave-art"><Picture priority src="images/motion-0/weave-garment-set.png" alt={translate("Weave capture jacket and trousers")} /></div>
     </section>
     <CapturePerformanceScroll />

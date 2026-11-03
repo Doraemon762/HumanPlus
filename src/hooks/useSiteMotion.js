@@ -28,9 +28,9 @@ export default function useSiteMotion(path) {
         stops.push(maxScroll)
         return [...new Set(stops.map(stop => Math.round(Math.max(0, Math.min(maxScroll, stop)))))].sort((a, b) => a - b)
       }
-      if (path === '/hardware/motion-strap' || path === '/hardware/motion-0' || path === '/hardware/cap') {
+      if (path === '/hardware/motion-strap' || path === '/hardware/motion-0' || path === '/hardware/cap' || path === '/hardware/glove') {
         const maxScroll = document.documentElement.scrollHeight - innerHeight
-        return [...document.querySelectorAll(path === '/hardware/motion-0' ? '.weave-page > section' : path === '/hardware/cap' ? '.cap-page > section' : '.pulse-page > section')].flatMap((section) => {
+        return [...document.querySelectorAll(path === '/hardware/motion-0' ? '.weave-page > section' : path === '/hardware/cap' ? '.cap-page > section' : path === '/hardware/glove' ? '.glove-heading, .glove-accuracy, .glove-demo, .glove-comparison-stage, .glove-capabilities' : '.pulse-page > section')].flatMap((section) => {
           const top = section.getBoundingClientRect().top + window.scrollY
           const available = innerHeight - header
           const center = top - header - Math.max(0, (available - section.offsetHeight) / 2)
@@ -70,7 +70,7 @@ export default function useSiteMotion(path) {
       })
     }
     const finishEntry = () => {
-      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap'].includes(path) || !scroll || aligningEntry || !direction || innerWidth < 768) return
+      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap', '/hardware/glove'].includes(path) || !scroll || aligningEntry || !direction || innerWidth < 768) return
       const position = scroll.targetScroll
       // Home panels settle to the nearest boundary, including a small overshoot.
       // Direction-only settling could skip the screen the user just reached.
@@ -86,7 +86,7 @@ export default function useSiteMotion(path) {
       aligningEntry = false
     }
     const gentleResistance = (input) => {
-      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap'].includes(path) || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || !input.deltaY || Math.abs(input.deltaX) > Math.abs(input.deltaY)) return true
+      if (!['/', '/research', '/dataset', '/hardware/motion-strap', '/hardware/motion-0', '/hardware/cap', '/hardware/glove'].includes(path) || !scroll || innerWidth < 768 || input.event.type !== 'wheel' || input.event.ctrlKey || !input.deltaY || Math.abs(input.deltaX) > Math.abs(input.deltaY)) return true
       onInput()
       direction = Math.sign(input.deltaY)
       const stops = getStops()

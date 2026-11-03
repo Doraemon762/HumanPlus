@@ -9,3 +9,12 @@
   .contact-editorial #contact-hero > .contact-hero-copy { margin:0; padding:120px 7vw 24px; }
   .contact-digit-logo { position:relative; top:auto; right:auto; transform:none; width:min(80%,430px); height:auto; aspect-ratio:1.16; margin:0 auto 32px; opacity:1; order:2; }
 }
+
+@media(max-width:767px) {
+  .contact-editorial #contact-hero > .contact-hero-copy { padding-right:7vw; }
+  .contact-editorial #contact-hero > .contact-digit-logo {
+    flex-shrink:0; width:min(86%,380px); max-width:calc(100% - 40px);
+    margin:12px auto 32px; display:block;
+  }
+  .company-about-panel .company-about-copy { padding-bottom:300px; }
+}

@@ -45,7 +45,7 @@ function PaperDialog({ paper, onClose }) {
         <div className="paper-dialog-venue"><Venue paper={paper} /></div>
         <h2 id="paper-dialog-title">{translate(paper.title)}</h2>
         {paper.description && <p className="paper-dialog-description">{translate(paper.description)}</p>}
-        <div className="paper-dialog-links">{paper.links.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{translate(link.label === 'Paper' ? 'Read full paper' : link.label)}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
+        <div className="paper-dialog-links">{paper.links.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer">{translate(link.label)}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</div>
         {paper.image && <figure className="paper-dialog-image"><OptimizedImage src={paper.image} sizes="(max-width: 767px) 90vw, 1000px" alt={translate(`${summaries[paper.id]?.[0] || paper.title} research overview`)} /></figure>}
       </div>
     </dialog>, document.body,
@@ -80,14 +80,14 @@ export default function ResearchSection() {
   }
 
   return <section id="research" className="home-paper-section" aria-labelledby="home-paper-title">
-    <header className="home-paper-heading"><h2 id="home-paper-title">{translate("Research")}</h2><a href="#/research">{translate("Explore our research ")}<ChevronRight size={18} aria-hidden="true" /></a></header>
+    <header className="home-paper-heading"><h2 id="home-paper-title">{translate("Research")}</h2><a href="#/research#research-2019">{translate("Explore our research ")}<ChevronRight size={18} aria-hidden="true" /></a></header>
     <div className="home-paper-track" ref={trackRef} aria-label={translate("Featured research papers")} tabIndex={0} onKeyDown={(event) => {
       if (event.target !== event.currentTarget || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return
       event.preventDefault()
       move(event.key === 'ArrowRight' ? 1 : -1)
     }}>
       {papers.map(paper => <article className="paper-card" key={paper.id}>
-        <div className="paper-card-copy"><div className="paper-card-venue"><Venue paper={paper} /></div><h3>{translate(paper.title)}</h3>{summaries[paper.id] && <p className="paper-card-description">{translate(summaries[paper.id][2])}</p>}</div>
+        <div className="paper-card-copy"><div className="paper-card-venue"><Venue paper={paper} /></div><h3>{translate(paper.title)}</h3>{paper.description && <p className="paper-card-description">{translate(paper.description)}</p>}</div>
         <figure className="paper-card-image">{translate(paper.image
           ? <OptimizedImage src={paper.image} sizes="(max-width: 767px) 85vw, 330px" alt={translate(`${summaries[paper.id]?.[0] || paper.title} research overview`)} />
           : <div className="paper-text-cover" aria-label={translate("Publication reference")}><span>{translate(paper.venue)}</span><strong>{translate(paper.year)}</strong><span>{translate("HumanPlus Research")}</span></div>)}</figure>

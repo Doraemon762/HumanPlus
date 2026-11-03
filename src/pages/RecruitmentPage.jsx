@@ -49,7 +49,7 @@ export default function RecruitmentPage() {
 
         {/* A single concise introduction below the title. */}
         <Reveal delay={1} className="careers-intro mx-auto">
-          <p>{translate("We welcome full-time professionals and interns to join us and explore what’s next in embodied intelligence.")}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{translate("We welcome full-time professionals and interns to join us and explore what’s next in embodied intelligence.")}</p>
         </Reveal>
 
         {/* Email entry — copies the address and confirms success in place. */}

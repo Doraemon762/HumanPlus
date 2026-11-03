@@ -61,3 +61,18 @@
   margin-bottom:0;
   box-sizing:border-box;
 }
+
+.glove-demo { width:100%; min-height:calc(100svh - 72px); padding:56px 8vw; background:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:32px; scroll-margin-top:72px; }
+.glove-demo h2 { margin:0; font-size:clamp(25px,3vw,38px); font-weight:600; line-height:1.35; letter-spacing:-.025em; text-align:center; }
+.glove-demo-film { width:min(100%,1120px,calc((100svh - 240px) * 16 / 9)); overflow:hidden; border-radius:20px; background:#f5f5f7; }
+.glove-demo-film video { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; }
+html:lang(zh-CN) .glove-demo h2 { letter-spacing:normal; }
+@media(max-width:767px) { .glove-demo { min-height:auto; padding:48px 6vw; gap:24px; }.glove-demo-film { width:100%; border-radius:14px; } }
+@media(max-height:600px) { .glove-demo-film { width:min(100%,960px); } }
+
+/* Restore the inset comparison card without recoloring the final white screen. */
+.glove-comparison-stage { width:100%; padding:64px 5vw; background:#f5f5f7; scroll-margin-top:72px; }
+.glove-page .glove-comparison-stage .glove-comparison { margin:0 auto; width:100%; border-radius:32px; background:#fff; }
+.glove-demo { box-sizing:border-box; height:calc(100svh - 72px); min-height:0; padding:32px 6vw; gap:24px; }
+.glove-demo-film { flex:0 1 auto; width:min(100%,1120px,calc((100svh - 208px) * 16 / 9)); min-height:0; }
+@media(max-width:767px) { .glove-comparison-stage { padding:36px 5vw; }.glove-page .glove-comparison-stage .glove-comparison { border-radius:22px; }.glove-demo { height:auto; min-height:calc(100svh - 72px); padding:36px 6vw; }.glove-demo-film { width:100%; } }

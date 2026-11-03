@@ -21,6 +21,31 @@ export default function ResearchPage() {
   useAboutMotion(pageRef)
 
   useEffect(() => {
+    let frame = 0
+    const goToResearch = () => {
+      if (window.location.hash.split('#')[2] !== 'research-2019') return
+      setAboutIntroComplete(true)
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(() => {
+          const target = document.getElementById('research-2019')
+          if (!target) return
+          const nav = document.querySelector('.site-nav')
+          const top = target.getBoundingClientRect().top + window.scrollY - (nav?.getBoundingClientRect().height || 72)
+          window.scrollTo({ top, behavior: 'instant' })
+        })
+      })
+    }
+    goToResearch()
+    window.addEventListener('hashchange', goToResearch)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('hashchange', goToResearch)
+    }
+  }, [])
+
+
+  useEffect(() => {
     document.documentElement.classList.add('research-snap-active')
     let animationFrame = 0
 

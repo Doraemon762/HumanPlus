@@ -192,7 +192,7 @@ export default function ContactForm() {
       )}
 
       {/* ── Contact Details ── */}
-      <div className="border-b border-line pb-8">
+      <div className="contact-details-group">
         <h3 className="text-base font-semibold tracking-tight text-ink/85">{translate("Contact details")}</h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <Field label={translate("Full Name")} required error={errors.fullName}>
@@ -232,7 +232,7 @@ export default function ContactForm() {
       </div>
 
       {/* ── Inquiry ── */}
-      <div className="py-8">
+      <div className="mt-8">
         <h3 className="text-base font-semibold tracking-tight text-ink/85">{translate("Inquiry details")}</h3>
         <div className="mt-6 space-y-6">
           <SelectField
@@ -254,9 +254,9 @@ export default function ContactForm() {
             onChange={update('inquiry')}
           />
           {/* Dynamic purchase fields — smooth expand/collapse via .accordion-body */}
-          <div className={`accordion-body ${showPurchase ? 'open' : ''}`}>
+          <div className={`accordion-body contact-purchase-fields ${showPurchase ? 'open' : ''}`}>
             <div>
-              <div className="pt-6">
+              <div className="pt-0">
                 <SelectField
                   label={translate("Estimated Quantity")}
                   placeholder={translate("Choose an estimated quantity")}
@@ -271,7 +271,7 @@ export default function ContactForm() {
       </div>
 
       {/* ── Project Details ── */}
-      <div className="pt-8">
+      <div className="mt-6">
         <Field label={translate("Project Details")} required error={errors.projectDetails}>
           <textarea
             rows={6}

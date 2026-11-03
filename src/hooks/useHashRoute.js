@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react'
 
 /* '#/products/' → '/products' ; '' or '#' → '/' */
 export function normalizeHash(hash) {
-  const raw = String(hash || '').replace(/^#/, '')
+  const raw = String(hash || '').replace(/^#/, '').split('#')[0]
   if (!raw || raw === '/') return '/'
   const path = '/' + raw.replace(/^\/+/, '').replace(/\/+$/, '')
   return ({ '/hardware/motion-0': '/hardware/weave', '/hardware/motion-strap': '/hardware/pulse', '/products/motion-0': '/hardware/weave', '/products/motion-strap': '/hardware/pulse', '/application': '/hardware' })[path] || path
@@ -34,7 +34,9 @@ export default function useHashRoute() {
   useEffect(() => {
     const onChange = () => {
       const canonical = normalizeHash(window.location.hash)
-      if (window.location.hash && window.location.hash !== `#${canonical}`) window.history.replaceState(null, '', `#${canonical}`)
+      const anchor = window.location.hash.slice(1).split('#')[1]
+      const canonicalHash = `#${canonical}${anchor ? `#${anchor}` : ''}`
+      if (window.location.hash && window.location.hash !== canonicalHash) window.history.replaceState(null, '', canonicalHash)
       setPath(canonical)
     }
     onChange()

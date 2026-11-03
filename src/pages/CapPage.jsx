@@ -22,7 +22,7 @@ export default function CapPage() {
   useSiteLanguage()
   return <div className="cap-page pulse-page">
     <section className="pulse-hero cap-hero">
-      <Reveal><h1>{translate("CAP")}</h1><p className="pulse-lead">{translate("See naturally")}<br />{translate("Capture in sync")}</p><p className="pulse-sub">{translate("Stereo vision and inertial sensing.")}<br />{translate("First-person capture, made wearable.")}</p><a className="pulse-contact" href="#/contact">{translate("Contact Us ↗")}</a></Reveal>
+      <Reveal><h1>{translate("CAP")}</h1><p className="pulse-lead">{translate("Capture a first-person view")}<br />{translate("Record motion in sync")}</p><p className="pulse-sub">{translate("Synchronized stereo cameras and IMUs")}<br />{translate("Record first-person video and head pose")}</p><a className="pulse-contact" href="#/contact">{translate("Contact Us ↗")}</a></Reveal>
       <OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/cap.png" alt={translate("HumanPlus CAP with integrated stereo cameras")} fetchPriority="high" />
     </section>
     <section className="pulse-feature cap-vision">

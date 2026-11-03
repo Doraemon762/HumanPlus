@@ -1,5 +1,6 @@
 import { research } from './research'
 import publications from './publications.json'
+import abstracts from './homeResearchAbstracts.json'
 
 const images = [
   ['FIP:', 'images/research/clothing-20261012/fip.jpeg'],
@@ -30,4 +31,4 @@ export const homeResearch = [
       logo: (() => { const logo = conferenceLogos.find(([prefix]) => paper.title.startsWith(prefix))?.[1]; return logo ? `images/logo/${logo}` : undefined })(),
       links: [{ label: 'Paper', href: paper.href }],
     })),
-].filter(paper => paper.image).slice(0, 8)
+].filter(paper => paper.image).slice(0, 8).map(paper => ({ ...paper, description: abstracts[paper.title] || paper.description }))

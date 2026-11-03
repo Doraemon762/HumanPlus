@@ -49,7 +49,7 @@ export default function ContactPage() {
         id="contact-hero"
         className="contact-hero relative flex h-screen flex-col overflow-hidden bg-white"
       >
-        <DigitLogo />
+        <DigitLogo background />
         <div className="contact-hero-copy relative m-auto w-full max-w-7xl px-6 pb-16 pt-24 lg:px-10">
           <Reveal
             as="h1"

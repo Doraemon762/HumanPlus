@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import DigitLogo from '../contact/DigitLogo'
 
 const LOGO_SOURCE = 'images/logo/logo.png'
 const ORBIT_LEAD_MS = 1000
@@ -12,6 +13,8 @@ const easeInOutCubic = (t) => (
 
 export default function ParticleLogo({ onReveal, lightSurface = false }) {
   const canvasRef = useRef(null)
+  const [digitsReady, setDigitsReady] = useState(false)
+  const [digitBounds, setDigitBounds] = useState(null)
   const playedRef = useRef(false)
   const revealedRef = useRef(false)
   const revealCallbackRef = useRef(onReveal)
@@ -22,6 +25,9 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
     const host = canvas?.parentElement
     if (!canvas || !host) return undefined
 
+    playedRef.current = false
+    revealedRef.current = false
+    setDigitsReady(false)
     const context = canvas.getContext('2d')
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let frame = 0
@@ -50,6 +56,12 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
       canvas.style.width = `${rect.width}px`
       canvas.style.height = `${rect.height}px`
       context.setTransform(dpr, 0, 0, dpr, 0, 0)
+      const finalWidth = lightSurface && rect.width < 768 ? Math.min(rect.width * .68, 300) : lightSurface ? Math.min(rect.width * .3, rect.height * .54) : Math.min(rect.width * .42, rect.height * .59)
+      const centerX = rect.width * (lightSurface && rect.width < 768 ? .5 : .79)
+      const centerY = lightSurface && rect.width < 768
+        ? rect.height - finalWidth * .86 * .5 - 28
+        : rect.height * (lightSurface ? .54 : .64)
+      setDigitBounds({ position: 'absolute', left: centerX - finalWidth / 2, top: centerY - finalWidth * .86 / 2, width: finalWidth, height: finalWidth * .86, right: 'auto', transform: 'none', margin: 0, opacity: 1 })
     }
 
     const draw = (now) => {
@@ -64,11 +76,11 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
       const travel = easeInOutCubic(Math.max(0, Math.min((progress - 0.49) / 0.35, 1)))
       const { width, height } = size
       const largeWidth = Math.min(width * 0.42, height * 0.62)
-      const finalWidth = lightSurface ? Math.min(width * 0.3, height * 0.54) : Math.min(width * 0.42, height * 0.59)
+      const finalWidth = lightSurface && width < 768 ? Math.min(width * .68, 300) : lightSurface ? Math.min(width * 0.3, height * 0.54) : Math.min(width * 0.42, height * 0.59)
       const logoRatio = 1281 / 1109
       const largeCenter = { x: width * 0.5, y: height * 0.51 }
       const finalCenter = lightSurface && width < 768
-        ? { x: width * 0.72, y: height - logoRatio * finalWidth * 0.5 - 24 }
+        ? { x: width * .5, y: height - finalWidth * .86 * .5 - 28 }
         : { x: width * 0.79, y: height * (lightSurface ? 0.54 : 0.64) }
       const centerX = largeCenter.x + (finalCenter.x - largeCenter.x) * travel
       const centerY = largeCenter.y + (finalCenter.y - largeCenter.y) * travel
@@ -146,6 +158,7 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
       // Stop consuming a full animation frame after the intro. Pointer
       // movement requests a single new frame for the interactive glow.
       if (progress < 1) frame = requestAnimationFrame(draw)
+      else setDigitsReady(true)
     }
 
     const buildParticles = (image) => {
@@ -237,6 +250,7 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
         startTime = performance.now()
         frame = requestAnimationFrame(draw)
       }
+      if (visible && playedRef.current && particles.length && !frame) frame = requestAnimationFrame(draw)
       if (!visible && frame) {
         cancelAnimationFrame(frame)
         frame = 0
@@ -263,5 +277,8 @@ export default function ParticleLogo({ onReveal, lightSurface = false }) {
     }
   }, [lightSurface])
 
-  return <canvas ref={canvasRef} className="company-particle-logo" aria-hidden="true" />
+  return <>
+    <canvas ref={canvasRef} className="company-particle-logo" style={{ opacity: digitsReady ? 0 : 1, transition: 'opacity 300ms ease' }} aria-hidden="true" />
+    {digitsReady && digitBounds && <DigitLogo style={digitBounds} />}
+  </>
 }

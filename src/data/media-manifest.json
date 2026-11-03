@@ -2536,6 +2536,17 @@
         "bytes": 1054683
       },
       "poster": "media/optimized-current/vision.jpg"
+    },
+    "media/manual-videos/glove-simulation-robot.desktop.mp4": {
+      "desktop": {
+        "src": "media/manual-videos/glove-simulation-robot.desktop.mp4",
+        "bytes": 13676820
+      },
+      "mobile": {
+        "src": "media/manual-videos/glove-simulation-robot.mobile.mp4",
+        "bytes": 6645368
+      },
+      "poster": "media/manual-videos/glove-simulation-robot.jpg"
     }
   }
 }

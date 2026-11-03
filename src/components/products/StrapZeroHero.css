@@ -87,3 +87,12 @@
 .pulse-data-grid p { font-size: 14px; color: #707075; margin-top: 14px; }
 @media(max-width:767px) { .pulse-data-grid h3 { min-height: 0; } }
 .pulse-feature-icon-row svg{width:32px;height:32px;color:#909295;stroke-width:1.5}
+
+/* Give Pulse's English headline enough room without overlapping its artwork. */
+@media(min-width:1000px) {
+  html:lang(en) .pulse-hero--strap {
+    grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+    gap:28px;
+  }
+  html:lang(en) .pulse-hero--strap .pulse-lead { text-wrap:pretty; }
+}

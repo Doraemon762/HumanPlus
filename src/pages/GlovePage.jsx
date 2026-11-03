@@ -1,6 +1,7 @@
 import {translate, useSiteLanguage} from '../i18n'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import Reveal from '../components/ui/Reveal'
+import DeferredVideo from '../components/ui/DeferredVideo'
 import './GlovePage.css'
 
 const versions = [6, 11]
@@ -39,12 +40,19 @@ function Icon({ type }) {
 export default function GlovePage() {
   useSiteLanguage()
   return <div className="glove-page">
-    <header className="glove-heading"><Reveal><h1>{translate("Glove")}</h1><h2>{translate("Hand motion")}<br />{translate("In every detail")}</h2><p className="glove-intro">{translate("Glove with 6 IMUs and Glove Pro with 11 IMUs. Capture hand movement in real time over Wi-Fi.")}</p><a className="glove-order" href="#/contact">{translate("Contact Us ↗")}</a></Reveal><div className="glove-hero-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/glove-pro-updated.png" alt={translate("Glove Pro with 11 inertial sensors")} fetchPriority="high" /></div></header>
+    <header className="glove-heading"><Reveal><h1>{translate("Glove")}</h1><h2>{translate("Capture hand motion")}<br />{translate("Track hand poses in real time")}</h2><p className="glove-intro">{translate("Glove has 6 IMUs and Glove Pro has 11. Both stream hand motion data over Wi-Fi in real time.")}</p><a className="glove-order" href="#/contact">{translate("Contact Us ↗")}</a></Reveal><div className="glove-hero-art"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src="images/products/glove-pro-updated.png" alt={translate("Glove Pro with 11 inertial sensors")} fetchPriority="high" /></div></header>
     <section className="glove-accuracy" aria-labelledby="glove-accuracy-title"><h2 id="glove-accuracy-title">{translate("6-IMU hand pose reconstruction accuracy")}</h2><div className="glove-accuracy-grid">{[
       ['4.8°', 'Mean rotation error', 'Mean geodesic SO(3) error across 16 hand joints.', 'rotation'],
       ['3.26 mm', 'MPJPE', '21-joint error computed with MANO forward kinematics after fixing the root.', 'size'],
       ['3.15 mm', 'MPVPE', '778-vertex error computed with MANO forward kinematics after fixing the root.', 'vertices'],
     ].map(([value, label, detail, icon]) => <div key={label}><Icon type={icon}/><strong>{translate(value)}</strong><h3>{translate(label)}</h3><p>{translate(detail)}</p></div>)}</div></section>
+    <section className="glove-demo" aria-labelledby="glove-demo-title">
+      <h2 id="glove-demo-title">{translate("Glove in motion")}</h2>
+      <div className="glove-demo-film">
+        <DeferredVideo src="media/manual-videos/glove-simulation-robot.desktop.mp4" poster="media/manual-videos/glove-simulation-robot.jpg" controls playsInline aria-label={translate("Simulated and robotic hand demonstration")} />
+      </div>
+    </section>
+    <div className="glove-comparison-stage">
     <section id="glove-compare" className="glove-comparison" aria-label={translate("Compare Glove configurations")}>
       <div className="glove-models">{versions.map(count => <Reveal key={count} className="glove-model">
         <div className="glove-model-image"><OptimizedImage sizes="(max-width: 767px) 90vw, 55vw" src={count === 11 ? 'images/products/glove-pro-updated.png' : 'images/products/glove-6imu.png'} alt={translate(`${count === 11 ? 'Glove Pro' : 'Glove'} with ${count} inertial sensors`)} /></div>
@@ -53,6 +61,7 @@ export default function GlovePage() {
 
       <div className="glove-feature-comparison">{specifications.map(([label, icon, ...values]) => <div className="glove-feature-row" key={label}>{values.map(([value, ...details], index) => <div className="glove-spec-item" key={index} aria-label={translate(`${versions[index]}-IMU ${label}`)}><Icon type={icon}/><h3>{translate(value)}</h3><p className="glove-spec-detail">{translate(details.join(' · '))}</p></div>)}</div>)}</div>
     </section>
+    </div>
     <section className="glove-capabilities" aria-labelledby="glove-capabilities-title"><h2 id="glove-capabilities-title">{translate("Core capabilities")}</h2><div className="glove-capabilities-grid">{capabilities.map(([title, body, icon], index) => <Reveal key={title}><Icon type={icon}/><h3>{translate(title)}</h3><p>{translate(body)}</p></Reveal>)}</div></section>
   </div>
 }

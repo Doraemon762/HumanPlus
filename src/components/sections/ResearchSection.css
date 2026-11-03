@@ -35,7 +35,7 @@
 .paper-dialog-award { margin-top: 24px; font-size: 17px; font-weight: 600; }
 .paper-dialog-description { margin-top: 32px; font-size: 20px; line-height: 1.6; color: #515154; }
 .paper-dialog-links { display: flex; flex-wrap: wrap; gap: 20px 28px; margin: 28px 0 48px; }
-.paper-dialog-links a { position: relative; display: inline-flex; align-items: center; gap: 6px; padding-bottom: 7px; font-size: 17px; color: #397edb; text-decoration: none; }
+.paper-dialog-links a { position: relative; display: inline-flex; align-items: center; gap: 6px; padding-bottom: 1px; font-size: 17px; color: #397edb; text-decoration: none; }
 .paper-dialog-links a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 250ms ease; }
 .paper-dialog-links a:hover::after, .paper-dialog-links a:focus-visible::after { transform: scaleX(1); }
 .home-paper-heading > a:hover { text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
@@ -71,3 +71,91 @@
 .paper-card-image { flex:none; height:210px; margin:auto 0 54px; }
 html:lang(zh-CN) .paper-card h3 { font-size:22px; line-height:1.5; }
 @media(max-width:767px) { .paper-card { height:auto; min-height:540px; }.paper-card h3 { font-size:21px; }.paper-card-image { height:190px; } }
+
+/* Longer source abstracts stay fully visible, with quieter complete titles. */
+.paper-card h3 { font-size:clamp(18px,1.4vw,20px); line-height:1.4; }
+html:lang(zh-CN) .paper-card h3 { font-size:19px; line-height:1.55; }
+.paper-card-description { color:#72757a; font-size:14px; line-height:1.75; margin:16px 0 28px; }
+html:lang(zh-CN) .paper-card-description { line-height:1.85; }
+
+/* Hide the stray rule along the right edge of the LIP source figure. */
+:is(.paper-card-image,.paper-dialog-image,.research-editorial-media) img:is([src*="research-lip"],[src*="loose-poser"]) { clip-path:inset(0 1.5% 0 0); }
+
+/* Wider, more compact cards leave the carousel controls in view. */
+.paper-card { flex-basis:clamp(420px,32vw,470px); height:auto; min-height:0; padding-bottom:52px; }
+.paper-card-copy { padding:22px 24px 0; }
+.paper-card-venue { margin-bottom:12px; }
+.paper-card-description { margin:12px 0 10px; line-height:1.6; }
+html:lang(zh-CN) .paper-card-description { line-height:1.75; }
+.paper-card-image { height:clamp(125px,20svh,175px); min-height:0; margin:0; padding:0 20px; }
+.home-paper-track { align-items:stretch; padding-top:4px; padding-bottom:12px; }
+.home-paper-navigation { padding-top:0; }
+.paper-card-open .paper-round-button { right:20px; bottom:14px; }
+@media(max-width:767px) {
+  .paper-card { flex-basis:min(88vw,420px); min-height:0; }
+  .paper-card-image { height:150px; }
+  .home-paper-heading h2 { font-size:34px; }
+}
+
+/* Keep the carousel and its navigation together within a desktop screen. */
+.paper-card { flex-basis:clamp(460px,36vw,540px); }
+@media(min-width:768px) {
+  .home-paper-section { padding-top:20px; padding-bottom:16px; }
+  .home-paper-heading { margin-bottom:12px; }
+  .home-paper-heading h2 { font-size:clamp(32px,3.2vw,44px); line-height:1.1; }
+  .paper-card-copy { padding:20px 24px 0; }
+  .paper-card-description { margin-top:10px; margin-bottom:8px; line-height:1.55; }
+  html:lang(zh-CN) .paper-card-description { line-height:1.65; }
+  .paper-card-image { height:clamp(100px,18svh,150px); }
+  .home-paper-navigation .paper-round-button { width:38px; height:38px; }
+}
+@media(max-width:767px) { .paper-card { flex-basis:min(90vw,460px); } }
+
+/* English abstracts need a wider measure to keep the carousel compact. */
+@media(min-width:768px) {
+  html:lang(en) .paper-card { flex-basis:clamp(500px,39vw,590px); padding-bottom:48px; }
+  html:lang(en) .paper-card h3 { font-size:18px; line-height:1.3; }
+  html:lang(en) .paper-card-description { font-size:13px; line-height:1.5; margin:10px 0 6px; }
+  html:lang(en) .paper-card-image { height:clamp(95px,17svh,145px); padding-inline:20px; }
+  html:lang(en) .paper-card-copy { padding-top:18px; }
+  html:lang(en) .paper-card-venue { margin-bottom:10px; }
+}
+
+/* Restore a taller card proportion without pushing controls below short screens. */
+@media(min-width:768px) {
+  .home-paper-section .paper-card { min-height:clamp(440px,64svh,610px); }
+  .home-paper-section .paper-card-copy { padding-top:24px; }
+  .home-paper-section .paper-card-description { margin-bottom:14px; }
+  .home-paper-section .paper-card-image { height:clamp(145px,22svh,210px); margin-top:auto; }
+}
+
+/* Narrow the entire card while preserving a single left-aligned text column. */
+@media(min-width:768px) {
+  .home-paper-section .paper-card,
+  html:lang(en) .home-paper-section .paper-card {
+    flex-basis:clamp(380px,30vw,460px);
+  }
+}
+.home-paper-section .paper-card h3,
+.home-paper-section .paper-card-description {
+  width:auto;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
+}
+
+/* Add a little vertical breathing room to the narrower cards. */
+@media(min-width:768px) {
+  .home-paper-section .paper-card { min-height:clamp(475px,68svh,650px); }
+}
+
+/* Reserve a separate footer for the plus button, clear of every figure. */
+.home-paper-section .paper-card,
+html:lang(en) .home-paper-section .paper-card {
+  padding-bottom:68px;
+}
+.home-paper-section .paper-card-open .paper-round-button { bottom:16px; }
+.home-paper-section .home-paper-navigation { padding-top:10px; }
+@media(min-width:768px) {
+  .home-paper-section .paper-card { min-height:clamp(495px,70svh,675px); }
+}
