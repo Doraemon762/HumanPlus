@@ -1,0 +1,10 @@
+{
+  "base_url": "https://humanplusai.cn/manual-videos/",
+  "entries": [
+    {"product": "weave", "name": "WEAVE", "url": "https://humanplusai.cn/manual-videos/?product=weave"},
+    {"product": "pulse", "name": "PULSE", "url": "https://humanplusai.cn/manual-videos/?product=pulse"},
+    {"product": "glove", "name": "GLOVE", "url": "https://humanplusai.cn/manual-videos/?product=glove"},
+    {"product": "cap", "name": "CAP", "url": "https://humanplusai.cn/manual-videos/?product=cap"},
+    {"product": "datasets", "name": "HumanPlus-1000", "url": "https://humanplusai.cn/manual-videos/?product=datasets"}
+  ]
+}

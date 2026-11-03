@@ -1,8 +1,8 @@
 {
   "title": "HumanPlus Product Catalogue",
-  "edition": "V3",
-  "version": "08a6af6f735d",
-  "sourceDir": "zh/08a6af6f735d",
+  "edition": "V8",
+  "version": "c4a9e09ec0b5",
+  "sourceDir": "zh/c4a9e09ec0b5",
   "pages": [
     {
       "file": "page-01.webp",
@@ -11,58 +11,115 @@
     },
     {
       "file": "page-02.webp",
-      "title": "四款穿戴",
+      "title": "关于 HumanPlus",
       "links": []
     },
     {
       "file": "page-03.webp",
-      "title": "WEAVE",
+      "title": "四款穿戴",
       "links": []
     },
     {
       "file": "page-04.webp",
-      "title": "GLOVE",
-      "links": []
+      "title": "WEAVE",
+      "links": [
+        {
+          "url": "https://humanplusai.cn/manual-videos/?product=weave",
+          "x": 41.48346042878745,
+          "y": 10.786314395501826,
+          "w": 10.006121176410018,
+          "h": 7.465861971647511
+        }
+      ]
     },
     {
       "file": "page-05.webp",
-      "title": "PULSE",
-      "links": []
+      "title": "GLOVE",
+      "links": [
+        {
+          "url": "https://humanplusai.cn/manual-videos/?product=glove",
+          "x": 39.45641665188813,
+          "y": 11.4594414171895,
+          "w": 10.006121176410018,
+          "h": 7.465726287910039
+        }
+      ]
     },
     {
       "file": "page-06.webp",
-      "title": "CAP",
-      "links": []
+      "title": "PULSE",
+      "links": [
+        {
+          "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+          "x": 43.780903836509296,
+          "y": 11.17097779128585,
+          "w": 10.005930485556117,
+          "h": 7.465726287910039
+        }
+      ]
     },
     {
       "file": "page-07.webp",
-      "title": "HumanPlus-1000",
+      "title": "PULSE Pro",
       "links": [
         {
-          "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
-          "x": 52.5675570022635,
-          "y": 93.31410242493976,
-          "w": 37.4751386799235,
-          "h": -0.8141024249397564
-        },
-        {
-          "url": "https://github.com/humanplus-ai/humanplus-1000",
-          "x": 52.5675570022635,
-          "y": 95.04487061198792,
-          "w": 31.017774294491517,
-          "h": -0.8141024249397564
-        },
-        {
-          "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
-          "x": 52.5675570022635,
-          "y": 96.68066018279313,
-          "w": 37.00012776287211,
-          "h": -0.7191238086967848
+          "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+          "x": 42.42947775495844,
+          "y": 11.4594414171895,
+          "w": 10.005930485556123,
+          "h": 7.465726287910039
         }
       ]
     },
     {
       "file": "page-08.webp",
+      "title": "CAP",
+      "links": [
+        {
+          "url": "https://humanplusai.cn/manual-videos/?product=cap",
+          "x": 43.06276208074232,
+          "y": 15.15519505894102,
+          "w": 10.006121176410018,
+          "h": 7.465861971647526
+        }
+      ]
+    },
+    {
+      "file": "page-09.webp",
+      "title": "HumanPlus-1000",
+      "links": [
+        {
+          "url": "https://humanplusai.cn/manual-videos/?product=datasets",
+          "x": 70.82525280839955,
+          "y": 9.10370036688883,
+          "w": 10.006121176410018,
+          "h": 7.465726287910039
+        },
+        {
+          "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
+          "x": 52.5675570022635,
+          "y": 92.5,
+          "w": 37.4751386799235,
+          "h": 0.8141024249397564
+        },
+        {
+          "url": "https://github.com/humanplus-ai/humanplus-1000",
+          "x": 52.5675570022635,
+          "y": 94.23076818704817,
+          "w": 31.017774294491517,
+          "h": 0.8141024249397564
+        },
+        {
+          "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
+          "x": 52.5675570022635,
+          "y": 95.96153637409635,
+          "w": 37.00012776287211,
+          "h": 0.7191238086967848
+        }
+      ]
+    },
+    {
+      "file": "page-10.webp",
       "title": "联系信息",
       "links": []
     }
@@ -70,9 +127,9 @@
   "languages": {
     "zh": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "08a6af6f735d",
-      "sourceDir": "zh/08a6af6f735d",
+      "edition": "V8",
+      "version": "c4a9e09ec0b5",
+      "sourceDir": "zh/c4a9e09ec0b5",
       "pages": [
         {
           "file": "page-01.webp",
@@ -81,58 +138,115 @@
         },
         {
           "file": "page-02.webp",
-          "title": "四款穿戴",
+          "title": "关于 HumanPlus",
           "links": []
         },
         {
           "file": "page-03.webp",
-          "title": "WEAVE",
+          "title": "四款穿戴",
           "links": []
         },
         {
           "file": "page-04.webp",
-          "title": "GLOVE",
-          "links": []
+          "title": "WEAVE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=weave",
+              "x": 41.48346042878745,
+              "y": 10.786314395501826,
+              "w": 10.006121176410018,
+              "h": 7.465861971647511
+            }
+          ]
         },
         {
           "file": "page-05.webp",
-          "title": "PULSE",
-          "links": []
+          "title": "GLOVE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=glove",
+              "x": 39.45641665188813,
+              "y": 11.4594414171895,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
+            }
+          ]
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
-          "links": []
+          "title": "PULSE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+              "x": 43.780903836509296,
+              "y": 11.17097779128585,
+              "w": 10.005930485556117,
+              "h": 7.465726287910039
+            }
+          ]
         },
         {
           "file": "page-07.webp",
-          "title": "HumanPlus-1000",
+          "title": "PULSE Pro",
           "links": [
             {
-              "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
-              "x": 52.5675570022635,
-              "y": 93.31410242493976,
-              "w": 37.4751386799235,
-              "h": -0.8141024249397564
-            },
-            {
-              "url": "https://github.com/humanplus-ai/humanplus-1000",
-              "x": 52.5675570022635,
-              "y": 95.04487061198792,
-              "w": 31.017774294491517,
-              "h": -0.8141024249397564
-            },
-            {
-              "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
-              "x": 52.5675570022635,
-              "y": 96.68066018279313,
-              "w": 37.00012776287211,
-              "h": -0.7191238086967848
+              "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+              "x": 42.42947775495844,
+              "y": 11.4594414171895,
+              "w": 10.005930485556123,
+              "h": 7.465726287910039
             }
           ]
         },
         {
           "file": "page-08.webp",
+          "title": "CAP",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=cap",
+              "x": 43.06276208074232,
+              "y": 15.15519505894102,
+              "w": 10.006121176410018,
+              "h": 7.465861971647526
+            }
+          ]
+        },
+        {
+          "file": "page-09.webp",
+          "title": "HumanPlus-1000",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=datasets",
+              "x": 70.82525280839955,
+              "y": 9.10370036688883,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
+            },
+            {
+              "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
+              "x": 52.5675570022635,
+              "y": 92.5,
+              "w": 37.4751386799235,
+              "h": 0.8141024249397564
+            },
+            {
+              "url": "https://github.com/humanplus-ai/humanplus-1000",
+              "x": 52.5675570022635,
+              "y": 94.23076818704817,
+              "w": 31.017774294491517,
+              "h": 0.8141024249397564
+            },
+            {
+              "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
+              "x": 52.5675570022635,
+              "y": 95.96153637409635,
+              "w": 37.00012776287211,
+              "h": 0.7191238086967848
+            }
+          ]
+        },
+        {
+          "file": "page-10.webp",
           "title": "联系信息",
           "links": []
         }
@@ -140,9 +254,9 @@
     },
     "en": {
       "title": "HumanPlus Product Catalogue",
-      "edition": "V3",
-      "version": "255e91f4d704",
-      "sourceDir": "en/255e91f4d704",
+      "edition": "V8",
+      "version": "bbef608e200b",
+      "sourceDir": "en/bbef608e200b",
       "pages": [
         {
           "file": "page-01.webp",
@@ -151,58 +265,115 @@
         },
         {
           "file": "page-02.webp",
-          "title": "Four wearables",
+          "title": "About HumanPlus",
           "links": []
         },
         {
           "file": "page-03.webp",
-          "title": "WEAVE",
+          "title": "Four wearables",
           "links": []
         },
         {
           "file": "page-04.webp",
-          "title": "GLOVE",
-          "links": []
+          "title": "WEAVE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=weave",
+              "x": 42.1321907137368,
+              "y": 8.094077676226037,
+              "w": 10.005930485556117,
+              "h": 7.465726287910039
+            }
+          ]
         },
         {
           "file": "page-05.webp",
-          "title": "PULSE",
-          "links": []
+          "title": "GLOVE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=glove",
+              "x": 48.51060908565643,
+              "y": 8.19014176236894,
+              "w": 10.005930485556117,
+              "h": 7.465861971647526
+            }
+          ]
         },
         {
           "file": "page-06.webp",
-          "title": "CAP",
-          "links": []
+          "title": "PULSE",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+              "x": 44.861930287237634,
+              "y": 8.42093979983935,
+              "w": 10.00593048555613,
+              "h": 7.465861971647526
+            }
+          ]
         },
         {
           "file": "page-07.webp",
-          "title": "HumanPlus-1000",
+          "title": "PULSE Pro",
           "links": [
             {
-              "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
-              "x": 52.5675570022635,
-              "y": 93.31410242493976,
-              "w": 37.4751386799235,
-              "h": -0.8141024249397564
-            },
-            {
-              "url": "https://github.com/humanplus-ai/humanplus-1000",
-              "x": 52.5675570022635,
-              "y": 95.04487061198792,
-              "w": 31.017774294491517,
-              "h": -0.8141024249397564
-            },
-            {
-              "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
-              "x": 52.5675570022635,
-              "y": 96.68066018279313,
-              "w": 37.00012776287211,
-              "h": -0.7191238086967848
+              "url": "https://humanplusai.cn/manual-videos/?product=pulse",
+              "x": 47.53751365823241,
+              "y": 8.286341532249313,
+              "w": 10.006121176410018,
+              "h": 7.465861971647526
             }
           ]
         },
         {
           "file": "page-08.webp",
+          "title": "CAP",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=cap",
+              "x": 46.75377424872571,
+              "y": 7.805614050322387,
+              "w": 10.006121176410012,
+              "h": 7.465726287910039
+            }
+          ]
+        },
+        {
+          "file": "page-09.webp",
+          "title": "HumanPlus-1000",
+          "links": [
+            {
+              "url": "https://humanplusai.cn/manual-videos/?product=datasets",
+              "x": 70.82525280839955,
+              "y": 9.10370036688883,
+              "w": 10.006121176410018,
+              "h": 7.465726287910039
+            },
+            {
+              "url": "https://humanplus-ai.github.io/HumanPlus1000.github.io/",
+              "x": 52.5675570022635,
+              "y": 92.5,
+              "w": 37.4751386799235,
+              "h": 0.8141024249397564
+            },
+            {
+              "url": "https://github.com/humanplus-ai/humanplus-1000",
+              "x": 52.5675570022635,
+              "y": 94.23076818704817,
+              "w": 31.017774294491517,
+              "h": 0.8141024249397564
+            },
+            {
+              "url": "https://huggingface.co/datasets/humanplus-ai/humanplus-1000",
+              "x": 52.5675570022635,
+              "y": 95.96153637409635,
+              "w": 37.00012776287211,
+              "h": 0.7191238086967848
+            }
+          ]
+        },
+        {
+          "file": "page-10.webp",
           "title": "Contact",
           "links": []
         }

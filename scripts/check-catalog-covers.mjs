@@ -22,10 +22,15 @@ bottom=back;turning=back
 assert.equal(collection.getBottomPage(0),blank)
 assert.equal(right,null,'back cover has no static right sheet')
 orientation='portrait'
-assert.equal(collection.getBottomPage(1),back,'portrait path unchanged')
+left='portrait-left';right='current-page'
+assert.equal(collection.getBottomPage(1),blank,'backward portrait uses an independent bottom sheet')
+assert.equal(left,'portrait-left','portrait turn does not clear static pages')
+assert.equal(right,'current-page','current portrait page remains underneath the turning page')
+bottom=middle;turning=cover
+assert.equal(collection.getBottomPage(0),middle,'forward portrait keeps its real next page')
 settle({data:'read'})
 assert.equal(element.style.display,'none')
 cleanup()
 assert.equal(collection.getBottomPage,original)
 assert.equal(removed,true)
-console.log('Verified cover/back-cover boundaries, normal spreads, portrait, and cleanup.')
+console.log('Verified cover boundaries, mobile backward turns, forward portrait, and cleanup.')

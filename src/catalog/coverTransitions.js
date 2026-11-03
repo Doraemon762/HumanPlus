@@ -1,6 +1,7 @@
-// page-flip 2.0.7 uses the same cover as both the turning and bottom
-// sheet at singleton landscape spreads. Soft-page calculations then overwrite
-// each other. Supply the absent, transparent sheet instead of reusing the cover.
+// page-flip 2.0.7 reuses a sheet as both the turning and bottom page at
+// singleton landscape spreads AND on every backward portrait turn. The two
+// clipping calculations overwrite each other, so mobile backward turns snap.
+// Use a transparent bottom sheet whenever these two roles share a page.
 export function fixCoverTransitions(f, book) {
  const collection=f.getPageCollection()
  const original=collection.getBottomPage
@@ -14,10 +15,12 @@ export function fixCoverTransitions(f, book) {
  element.style.display='none'
  collection.getBottomPage=function(direction){
   const bottom=original.call(this,direction)
-  if(f.getOrientation()==='landscape'&&bottom===this.getFlippingPage(direction)){
+  if(bottom===this.getFlippingPage(direction)){
    // There is no static page on the outside of the closed book.
-   if(direction===1)f.getRender().setLeftPage(null)
-   else f.getRender().setRightPage(null)
+   if(f.getOrientation()==='landscape'){
+    if(direction===1)f.getRender().setLeftPage(null)
+    else f.getRender().setRightPage(null)
+   }
    return blank
   }
   return bottom
