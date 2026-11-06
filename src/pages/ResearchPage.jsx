@@ -1,7 +1,7 @@
 import {translate, useSiteLanguage} from '../i18n'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Reveal from '../components/ui/Reveal'
-import ParticleLogo from '../components/ui/ParticleLogo'
+import AboutLogoGate from '../components/ui/AboutLogoGate'
 import AboutTimelineSection from '../components/sections/AboutTimelineSection'
 import PublicationsSection from '../components/sections/PublicationsSection'
 import ResearchEditorialSection from '../components/sections/ResearchEditorialSection'
@@ -15,7 +15,6 @@ const COMPANY_INTRO = [
 
 export default function ResearchPage() {
   const language = useSiteLanguage()
-  const [aboutIntroComplete, setAboutIntroComplete] = useState(false)
   const researchSection = useRef(null)
   const pageRef = useRef(null)
   useAboutMotion(pageRef)
@@ -24,7 +23,6 @@ export default function ResearchPage() {
     let frame = 0
     const goToResearch = () => {
       if (window.location.hash.split('#')[2] !== 'research-2019') return
-      setAboutIntroComplete(true)
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
         frame = requestAnimationFrame(() => {
@@ -80,9 +78,8 @@ export default function ResearchPage() {
 
   return (
     <div className="company-research-page" ref={pageRef}>
-      <section className="company-about-panel relative overflow-hidden px-6 pb-24 pt-28 md:px-10 md:pb-32 md:pt-36">
-        <ParticleLogo lightSurface onReveal={() => setAboutIntroComplete(true)} />
-        <div className={`company-about-content relative z-10 mx-auto max-w-7xl ${aboutIntroComplete ? 'is-visible' : ''}`}>
+      <AboutLogoGate>
+        <div className="company-about-content relative z-10 mx-auto max-w-7xl is-visible">
           <Reveal>
             <h1 className="research-about-title mt-5 max-w-7xl">
               <span className="research-about-label">{language === 'zh' ? '关于' : 'About'}</span>{translate(' ')}
@@ -97,7 +94,7 @@ export default function ResearchPage() {
             ))}
           </div>
         </div>
-      </section>
+      </AboutLogoGate>
       <div ref={researchSection} className="research-light-surface">
         <AboutTimelineSection showTimeline={false} />
         <ResearchEditorialSection />

@@ -7,7 +7,7 @@ function Story({ item, featured = false }) {
   useSiteLanguage()
   return <article className={`news-story ${featured ? 'news-story--featured' : ''}`}><div className="news-story-content">
     <div className="news-story-image"><OptimizedImage src={item.image} alt={translate(item.title)} loading="lazy" /></div>
-    <div className="news-story-copy"><p className="news-story-category">{translate(item.category)}</p><h3>{translate(item.title)}</h3><p className="news-story-source">{translate(item.publisher)}</p><time dateTime={item.date}>{translate(item.date)}</time><a className="news-story-more" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={translate(`Read more: ${item.title}`)}>{translate("Read more ")}<span aria-hidden="true">{translate("↗")}</span></a></div>
+    <div className="news-story-copy"><p className="news-story-category">{translate(item.category)}</p><h3>{translate(item.title)}</h3><p className="news-story-source">{translate(item.publisher)}</p><time dateTime={item.date}>{translate(item.date)}</time><a className="news-story-more" href={item.href} target="_blank" rel="noopener noreferrer" aria-label={translate(`Read more: ${item.title}`)}><span className="link-underline-text">{translate("Read more ")}</span><span aria-hidden="true">{translate("↗")}</span></a></div>
   </div></article>
 }
 export default function NewsShowcase({ standalone = false }) {

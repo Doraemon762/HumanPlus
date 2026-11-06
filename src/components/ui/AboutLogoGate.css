@@ -1,0 +1,27 @@
+.about-gate { --gate-separation:1; --gate-mark-opacity:0; --gate-mark-visibility:hidden; --gate-cue-opacity:1; position:relative; height:210svh; background:#fafafa; }
+.about-gate .about-gate__stage { position:sticky; top:72px; height:calc(100svh - 72px); min-height:0; padding:48px 5vw 48px 7vw; display:grid; grid-template-columns:60% 40%; align-items:center; overflow:hidden; background:#fafafa; scroll-snap-align:none; }
+.about-gate__content { width:100%; margin:0; position:relative; z-index:1; }
+.about-gate .company-about-content { width:100%; opacity:1; filter:none; transform:none; pointer-events:auto; transition:none; }
+.about-gate .about-gate__stage .company-about-copy { width:100%; max-width:960px; margin-top:36px; padding-bottom:0; }
+.about-gate .research-about-title { font-size:clamp(36px,4.8vw,68px); }
+.about-gate__mark { width:100%; height:100%; display:grid; place-items:center; pointer-events:none; padding-left:3vw; }
+.about-gate__mark > svg { width:100%; max-height:76svh; overflow:visible; opacity:var(--gate-mark-opacity); visibility:var(--gate-mark-visibility); }
+.about-gate__piece { fill:#969ba1; will-change:transform; }
+.about-gate__piece--left,.about-gate__piece--right { transform:translateY(calc(var(--gate-separation)*-1000px)); }
+.about-gate__piece--bottom { fill:#cbd0d5; transform:translateY(calc(var(--gate-separation)*1000px)); }
+.about-gate__cue { position:absolute; bottom:24px; left:7vw; display:flex; align-items:center; gap:14px; color:#868b92; opacity:var(--gate-cue-opacity); pointer-events:none; }
+.about-gate__cue span { font-size:14px; letter-spacing:.06em; }
+@media(max-width:767px) {
+  .about-gate .about-gate__stage { padding:24px 7vw; grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr); gap:20px; }
+  .about-gate .research-about-title { font-size:clamp(30px,7vw,44px); }
+  .about-gate .company-about-copy { padding-bottom:0; margin-top:20px; }
+  .about-gate .company-about-copy p { font-size:14px; line-height:1.8; }
+  .about-gate__mark { padding:0; min-height:0; }
+  .about-gate__mark > svg { width:auto; height:100%; max-width:80vw; max-height:34svh; }
+  .about-gate__cue { display:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .about-gate { height:auto; --gate-separation:0!important; --gate-mark-opacity:1!important; --gate-mark-visibility:visible!important; }
+  .about-gate .about-gate__stage { position:relative; top:auto; height:auto; min-height:calc(100svh - 72px); }
+  .about-gate__cue { display:none; }
+}

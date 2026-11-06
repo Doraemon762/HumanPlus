@@ -530,13 +530,13 @@ html:lang(zh-CN) .site-nav > div > ul > li > a { font-weight:400 !important; }
 /* Chinese product hero copy uses the same light face across all four products. */
 html:lang(zh-CN) :is(.weave-launch h2,.pulse-hero .pulse-lead,.glove-heading h2) {
   font-family:'Source Han Sans SC',Inter,sans-serif !important;
-  font-weight:400 !important;
+  font-weight:600 !important;
   letter-spacing:normal;
   line-height:1.4;
 }
 html:lang(zh-CN) :is(.weave-launch a,.pulse-contact,.glove-order) {
   font-family:'Source Han Sans SC',Inter,sans-serif !important;
-  font-weight:400 !important;
+  font-weight:600 !important;
 }
 
 /* All four product hero subtitles share one responsive type scale. */
@@ -547,4 +547,82 @@ html :is(.weave-launch h2, .pulse-hero .pulse-lead, .glove-heading h2) {
 html:lang(zh-CN) :is(.weave-launch h2, .pulse-hero .pulse-lead, .glove-heading h2) {
   font-size:clamp(24px,2.5vw,38px) !important;
   line-height:1.4 !important;
+}
+
+/* Directional underline: AYOCIN's public .link pattern, adapted to our links.
+   Enter from the left; leave toward the right. No opacity cut on mouseleave. */
+:root :is(.footer-text-link, .research-editorial-copy a, .paper-dialog-links a,
+  .home-paper-heading > a, .news-story-more, .site-nav-desktop-menu > li > a) {
+  position:relative;
+  text-decoration:none;
+}
+:root :is(.footer-text-link, .research-editorial-copy a, .paper-dialog-links a,
+  .home-paper-heading > a, .news-story-more, .site-nav-desktop-menu > li > a)::after,
+:root .site-nav-dropdown-link > span::after {
+  content:'';
+  position:absolute;
+  left:0; right:0;
+  height:1px;
+  background:currentColor;
+  pointer-events:none;
+  opacity:1;
+  transform:scaleX(0);
+  transform-origin:100% 100%;
+  transition:transform .5s cubic-bezier(.215,.61,.355,1);
+}
+:root .home-paper-heading > a::after { bottom:-2px; }
+:root .site-nav-desktop-menu > li > a::after { bottom:-5px; }
+:root :is(.footer-text-link, .research-editorial-copy a, .paper-dialog-links a,
+  .home-paper-heading > a, .news-story-more, .site-nav-desktop-menu > li > a):is(:hover,:focus-visible)::after,
+:root .site-nav-dropdown-link:is(:hover,:focus-visible,.is-active) > span::after {
+  opacity:1;
+  transform:scaleX(1);
+  transform-origin:0 0;
+}
+/* Long publication titles retain line wrapping and underline every line. */
+:root .research-publications-year a {
+  text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);
+  background-size:0% 1px;
+  background-position:100% 100%;
+  background-repeat:no-repeat;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+  transition:background-size .5s cubic-bezier(.215,.61,.355,1),color 180ms ease;
+}
+:root .research-publications-year a:is(:hover,:focus-visible) {
+  text-decoration:none;
+  background-size:100% 1px;
+  background-position:0 100%;
+}
+@media(prefers-reduced-motion:reduce) {
+  :root :is(.footer-text-link,.research-editorial-copy a,.paper-dialog-links a,.home-paper-heading > a,.news-story-more,.site-nav-desktop-menu > li > a)::after,
+  :root .site-nav-dropdown-link > span::after,
+  :root .research-publications-year a { transition:none; }
+}
+
+/* Underline the label only; keep all adjacent arrows outside the stroke. */
+:root :is(.research-editorial-copy a,.paper-dialog-links a,.home-paper-heading > a,
+.news-story-more,.site-nav-desktop-menu > li > a)::after { content:none; }
+:root .link-underline-text { position:relative; display:inline-block; }
+:root .link-underline-text::after {
+  content:''; position:absolute; left:0; right:0; bottom:1px; height:1px;
+  background:currentColor; pointer-events:none;
+  transform:scaleX(0); transform-origin:100% 100%;
+  transition:transform .5s cubic-bezier(.215,.61,.355,1);
+}
+:root a:is(:hover,:focus-visible) > .link-underline-text::after {
+  transform:scaleX(1); transform-origin:0 0;
+}
+:root .site-nav-dropdown-link > span::after { bottom:0; }
+:root .footer-text-link::after { bottom:0; }
+@media(prefers-reduced-motion:reduce) {
+  :root .link-underline-text::after { transition:none; }
+}
+
+/* Footer column headings share Navigation's solid white. */
+footer h4,
+footer h4 > .footer-text-link,
+footer h4 > .footer-text-link:is(:hover,:focus-visible) {
+  color:#fff !important;
 }

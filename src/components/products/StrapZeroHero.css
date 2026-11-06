@@ -96,3 +96,5 @@
   }
   html:lang(en) .pulse-hero--strap .pulse-lead { text-wrap:pretty; }
 }
+.pulse-exploded-media > img,.pulse-exploded-media > canvas { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:cover; }
+.pulse-exploded-media > canvas { opacity:0; }

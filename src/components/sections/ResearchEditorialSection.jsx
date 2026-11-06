@@ -162,7 +162,7 @@ export default function ResearchEditorialSection() {
                     <p className="research-editorial-year"><span>{translate(paper.year)}</span><span>{translate(details.venue)}</span></p>
                     <h3>{translate(paper.title)}</h3>
                     <p className="research-editorial-abstract">{translate(details.abstract)}</p>
-                    <a href={paper.href} target="_blank" rel="noopener noreferrer">{translate("Paper ")}<span aria-hidden="true">{translate("↗")}</span></a>
+                    <a href={paper.href} target="_blank" rel="noopener noreferrer"><span className="link-underline-text">{translate("Paper ")}</span><span aria-hidden="true">{translate("↗")}</span></a>
                   </div>)}
                 </article>
               )

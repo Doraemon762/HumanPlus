@@ -112,7 +112,7 @@ export default function Nav({ path }) {
         </a>
 
         {/* ── Desktop nav ── */}
-        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex">
+        <ul className="site-nav-desktop-menu absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 lg:flex">
           {nav.map((item, i) =>
             item.children ? (
               <li
@@ -134,7 +134,7 @@ export default function Nav({ path }) {
                       openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
-                    {translate(item.label)}
+                    <span className="link-underline-text">{translate(item.label)}</span>
                     <Chevron open={openMenu === item.label} />
                   </a>
                 ) : (
@@ -147,7 +147,7 @@ export default function Nav({ path }) {
                       openMenu === item.label || isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'
                     }`}
                   >
-                    {translate(item.label)}
+                    <span className="link-underline-text">{translate(item.label)}</span>
                     <Chevron open={openMenu === item.label} />
                   </a>
                 ))}
@@ -185,11 +185,11 @@ export default function Nav({ path }) {
                     {...externalProps(item.external)}
                     className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}
                   >
-                    {translate(item.label)}
+                    <span className="link-underline-text">{translate(item.label)}</span>
                   </a>
                 ) : (
                   <a href={toHref(item.href)} className={`text-[12px] font-medium uppercase tracking-[0.14em] transition-colors duration-200 ${linkClass(item.href, '')}`}>
-                    {translate(item.label)}
+                    <span className="link-underline-text">{translate(item.label)}</span>
                   </a>
                 ))}
               </li>
@@ -238,7 +238,7 @@ export default function Nav({ path }) {
                   <div className="flex items-center justify-between">
                   {item.href === '/hardware' && (
                     <a href={toHref(item.href)} onClick={() => setMobileOpen(false)} className={`flex-1 py-3 text-sm ${isItemActive(path, item) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}>
-                      {translate(item.label)}
+                      <span className="link-underline-text">{translate(item.label)}</span>
                     </a>
                   )}
                   <button
@@ -260,7 +260,7 @@ export default function Nav({ path }) {
                             <a
                               {...(item.external ? externalProps(item.external) : { href: toHref(item.href) })}
                               className={`block border-l border-black/10 py-2.5 pl-4 text-sm ${isActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
-                            >{translate("All ")}{translate(item.label)}
+                            >{translate("All ")}<span className="link-underline-text">{translate(item.label)}</span>
                             </a>
                           </li>
                         )}
@@ -298,14 +298,14 @@ export default function Nav({ path }) {
                       {...externalProps(item.external)}
                       className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
-                      {translate(item.label)}
+                      <span className="link-underline-text">{translate(item.label)}</span>
                     </a>
                   ) : (
                     <a
                       href={toHref(item.href)}
                       className={`block py-3 text-sm transition-colors duration-200 ${isExactActive(path, item.href) ? 'text-brand' : 'text-ink/70 hover:text-brand'}`}
                     >
-                      {translate(item.label)}
+                      <span className="link-underline-text">{translate(item.label)}</span>
                     </a>
                   ))}
                 </li>
