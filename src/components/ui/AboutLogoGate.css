@@ -25,3 +25,24 @@
   .about-gate .about-gate__stage { position:relative; top:auto; height:auto; min-height:calc(100svh - 72px); }
   .about-gate__cue { display:none; }
 }
+
+/* Binary lockup replaces the scroll assembly; the introduction stays in place. */
+.about-gate { height:auto; }
+.about-gate .about-gate__stage { position:relative; top:auto; height:auto; min-height:calc(100svh - 72px); }
+.about-gate__mark { padding-left:2vw; }
+.about-binary-brand { display:block; width:100%; aspect-ratio:1 / 1.08; }
+@media(max-width:767px) {
+  .about-gate .about-gate__stage { grid-template-rows:auto auto; padding-top:40px; padding-bottom:32px; }
+  .about-gate__mark { padding:0; width:min(100%,440px); justify-self:center; }
+}
+
+/* The site header overlays the page, so include its space inside the hero. */
+.about-gate .about-gate__stage {
+  min-height:100svh;
+  min-height:100dvh;
+  padding-top:120px;
+  padding-bottom:48px;
+}
+@media(max-width:767px) {
+  .about-gate .about-gate__stage { padding-top:112px; padding-bottom:32px; }
+}
