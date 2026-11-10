@@ -46,3 +46,10 @@
 @media(max-width:767px) {
   .about-gate .about-gate__stage { padding-top:112px; padding-bottom:32px; }
 }
+
+.about-binary-lockup{position:relative;width:100%;aspect-ratio:1 / 1.08}
+.about-binary-lockup .about-binary-brand{position:absolute;inset:0;opacity:0}
+.about-binary-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7.5%;opacity:.35}
+.about-binary-fallback img:first-child{width:73%}
+.about-binary-fallback img:last-child{width:97%}
+.about-binary-fallback img{filter:brightness(0);height:auto}
